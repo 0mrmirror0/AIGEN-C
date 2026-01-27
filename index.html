@@ -186,7 +186,7 @@
                 { text: "> STATUS: ", delay: 20 },
                 { text: "ALL OUR SYSTEMS UP AND WORKING", delay: 50, style: "color: #0f0" },
                 { text: "\n\n", delay: 100 },
-                { text: ">> WHAT <<", delay: 10, style: "color: #b19cd9},
+                { text: ">> WHAT <<", delay: 10, style: "color: #b19cd9"},
                 { text: "\n", delay: 100 },
                 { text: "████ 70%", delay: 30, style: "color: #0ff" },
                 { text: " CUSTOM GPT", delay: 20 },
@@ -216,7 +216,7 @@
                     const char = textToType.charAt(currentCharIndex);
                     const span = document.createElement('span');
                     span.textContent = char;
-                    if (currentMessage.style) span.style = currentMessage.style;
+                    if (currentMessage.style) span.style.cssText = currentMessage.style;
                     terminalText.appendChild(span);
                     currentCharIndex++;
                     setTimeout(typeNextCharacter, currentMessage.delay);
