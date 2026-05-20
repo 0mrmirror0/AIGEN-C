@@ -1,248 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Welcome to AIGEN-C Terminal</title>
-    <meta name="description" content="Interactive terminal-style landing page for AIGEN-C. Ask the AI or explore our services." />
-    <meta name="theme-color" content="#0a0a12" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Share+Tech+Mono&display=swap');
-        :root {
-            --terminal-bg: #0a0a12;
-            --terminal-green: #0f0;
-            --terminal-cyan: #0ff;
-            --terminal-purple: #b19cd9;
-            --terminal-red: #f44;
-            --terminal-glow: rgba(0, 255, 0, 0.7);
-            --terminal-border: #333;
-            --text-color: #e0e0e0;
-            --text-shadow: 0 0 8px var(--terminal-glow);
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            background: #000;
-            overflow: hidden;
-            font-family: 'Inconsolata', monospace;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            perspective: 1000px;
-        }
-        .skip-link { position: absolute; left: -999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
-        .skip-link:focus { left: 10px; top: 10px; width: auto; height: auto; padding: 8px; background: #111; color: var(--terminal-green); z-index: 9999; border-radius: 4px; }
-        .matrix-background { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.15; }
-        .terminal-container {
-            position: relative; width: 85%; max-width: 800px; height: 70vh;
-            background: var(--terminal-bg); border-radius: 8px;
-            box-shadow: 0 0 30px rgba(0,255,0,0.5), inset 0 0 10px rgba(0,255,0,0.2);
-            overflow: hidden; border: 1px solid var(--terminal-green);
-            transform-style: preserve-3d; animation: float 8s ease-in-out infinite;
-        }
-        @keyframes float { 0%,100%{transform:translateY(0) rotateX(10deg) rotateY(5deg);} 50%{transform:translateY(-20px) rotateX(5deg) rotateY(10deg);} }
-        .terminal-header { background: linear-gradient(to right,#0a0a0a,#111); padding:8px 15px; display:flex; justify-content:space-between; align-items:center; color:var(--terminal-green); font-family:'Share Tech Mono',monospace; border-bottom:1px solid var(--terminal-green); box-shadow:0 2px 15px rgba(0,255,0,0.3); }
-        .terminal-buttons { display:flex; gap:8px; }
-        .terminal-button { width:12px; height:12px; border-radius:50%; border:1px solid rgba(255,255,255,0.2); }
-        .terminal-button.red{background:#ff5f56} .terminal-button.yellow{background:#ffbd2e} .terminal-button.green{background:#27c93f}
-        .terminal-body { padding:15px; height:calc(100% - 40px); overflow-y:auto; color:var(--text-color); text-shadow:var(--text-shadow); line-height:1.6; }
-        .typing-text { white-space: pre-wrap; font-size: 1.1rem; }
-        .command-line { margin-top:20px; display:flex; align-items:center; }
-        .prompt { color: var(--terminal-green); margin-right:10px; font-weight:bold; }
-        .cursor { display:inline-block; width:10px; height:20px; background:var(--terminal-green); animation:blink 1s infinite; vertical-align:middle; margin-left:8px; }
-        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-        .command-link { color:#0ff; text-decoration:underline; font-family:'Inconsolata',monospace; font-size:1.1rem; padding-left:8px; transition:color .2s; }
-        .command-link:hover, .command-link:focus { color:#0f0; outline:none; text-shadow:0 0 10px var(--terminal-cyan); }
-        .glitch { position:relative; }
-        .glitch::before, .glitch::after { content: attr(data-text); position:absolute; top:0; left:0; width:100%; height:100%; background:var(--terminal-bg); }
-        .glitch::before { left:2px; text-shadow:-2px 0 var(--terminal-red); clip:rect(24px,550px,90px,0); animation:glitch-anim-1 2s infinite linear alternate-reverse; }
-        .glitch::after  { left:-2px; text-shadow:-2px 0 var(--terminal-cyan); clip:rect(85px,550px,140px,0); animation:glitch-anim-2 2s infinite linear alternate-reverse; }
-        @keyframes glitch-anim-1 { 0%{clip:rect(54px,800px,54px,0)} 20%{clip:rect(27px,800px,86px,0)} 40%{clip:rect(14px,800px,75px,0)} 60%{clip:rect(39px,800px,104px,0)} 80%{clip:rect(18px,800px,53px,0)} 100%{clip:rect(73px,800px,112px,0)} }
-        @keyframes glitch-anim-2 { 0%{clip:rect(35px,800px,89px,0)} 20%{clip:rect(56px,800px,103px,0)} 40%{clip:rect(22px,800px,64px,0)} 60%{clip:rect(88px,800px,120px,0)} 80%{clip:rect(13px,800px,32px,0)} 100%{clip:rect(42px,800px,99px,0)} }
-        .ascii-art { color:var(--terminal-purple); line-height:1.3; margin:15px 0; white-space:pre; font-size:0.6rem; letter-spacing:1px; }
-        .highlight { color: var(--terminal-cyan); }
-        .skill-bar { margin:8px 0; } .skill-name { display:inline-block; width:120px; color:var(--terminal-green); }
-        .skill-level { display:inline-block; height:15px; background:linear-gradient(to right,var(--terminal-green),var(--terminal-cyan)); box-shadow:0 0 5px var(--terminal-glow); animation:expand 1s ease-out; transform-origin:left; }
-        @keyframes expand { from{transform:scaleX(0)} to{transform:scaleX(1)} }
-        .contact-item { margin:8px 0; } .contact-item a { color:var(--terminal-purple); text-decoration:none; transition:all .3s; } .contact-item a:hover { color:var(--terminal-cyan); text-shadow:0 0 10px var(--terminal-cyan); }
-        .hidden { display:none; } canvas { display:block; }
-        @media (prefers-reduced-motion: reduce) {
-            .terminal-container { animation: none; }
-            .cursor { animation: none; opacity: 1; }
-            .glitch::before, .glitch::after { animation: none; opacity: 0; }
-            .skill-level { animation: none; transform: none; }
-        }
-    </style>
-</head>
-<body>
-    <a class="skip-link" href="#terminal-body">Skip to terminal</a>
-
-    <canvas id="matrix" class="matrix-background" aria-hidden="true"></canvas>
-
-    <div class="terminal-container" role="main" aria-labelledby="terminal-title">
-        <div class="terminal-header">
-            <div class="terminal-buttons">
-                <div class="terminal-button red" aria-hidden="true"></div>
-                <div class="terminal-button yellow" aria-hidden="true"></div>
-                <div class="terminal-button green" aria-hidden="true"></div>
-            </div>
-            <div id="terminal-title" class="glitch" data-text="user@AIGEN-C terminal:~">user@AIGEN-C terminal:~</div>
-            <div class="terminal-buttons" aria-hidden="true"><div style="width:20px"></div></div>
-        </div>
-
-        <div class="terminal-body" id="terminal-body">
-            <div id="typing-text" class="typing-text" role="status" aria-live="polite"></div>
-
-            <div id="command-line" class="command-line hidden">
-                <span class="prompt" aria-hidden="true"></span>
-                <a href="https://chatgpt.com/g/g-68d268fd7c788191b0e9a81369b00cc6-hellobot-aigen-c-office-manager"
-                   class="command-link" target="_blank" rel="noopener noreferrer"
-                   tabindex="0" aria-label="Open ChatGPT assistant in new tab: Questions? Click here">
-                   Questions? Click here. Your ChatGPT will open, just type 'hello'.
-                </a>
-                <span class="cursor" aria-hidden="true"></span>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        try {
-            // Matrix effect
-            const canvas = document.getElementById('matrix');
-            const ctx = canvas.getContext('2d');
-
-            const fontSize = 16;
-            let columns = 0;
-            let rainDrops = [];
-            let dpr = window.devicePixelRatio || 1;
-
-            function resizeCanvas() {
-                dpr = window.devicePixelRatio || 1;
-                canvas.width = Math.floor(window.innerWidth * dpr);
-                canvas.height = Math.floor(window.innerHeight * dpr);
-                canvas.style.width = window.innerWidth + 'px';
-                canvas.style.height = window.innerHeight + 'px';
-                ctx.setTransform(1, 0, 0, 1, 0, 0);
-                ctx.scale(dpr, dpr);
-
-                columns = Math.floor(window.innerWidth / fontSize);
-                rainDrops = new Array(columns);
-                for (let x = 0; x < columns; x++) { rainDrops[x] = 1; }
-            }
-            resizeCanvas();
-
-            const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
-            const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-            const nums = '0123456789';
-            // corrected symbols string (proper escaping) — this was the likely syntax error source
-            const symbols = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
-            const binary = '01';
-            const alphabet = katakana + latin + nums + symbols + binary;
-
-            function draw() {
-                ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-                ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
-
-                ctx.fillStyle = '#0f0';
-                ctx.font = fontSize + 'px monospace';
-
-                for (let i = 0; i < rainDrops.length; i++) {
-                    const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
-                    ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
-
-                    if (rainDrops[i] * fontSize > window.innerHeight && Math.random() > 0.975) {
-                        rainDrops[i] = 0;
-                    }
-                    rainDrops[i]++;
-                }
-                requestAnimationFrame(draw);
-            }
-
-            // Terminal typing effect
-            const terminalText = document.getElementById('typing-text');
-            const commandLine = document.getElementById('command-line');
-
-            const messages = [
-                { text: "Initializing system...", delay: 50 },
-                { text: "Loading user data...", delay: 50 },
-                { text: "██████████████ 100%", delay: 30, style: "color: #0ff" },
-                { text: "\n", delay: 200 },
-                { text: "> Welcome to AIGEN-C TERMINAL // ACCESS GRANTED. Scroll down to load page.", delay: 10, style: "color: #0f0; font-weight: bold" },
-                { text: "\n\n", delay: 100 },
-                { text: ">> WHO <<", delay: 10, style: "color: #b19cd9" },
-                { text: "\n", delay: 100 },
-                { text: "> NAME: ", delay: 20 },
-                { text: "AIGEN-C", delay: 100, style: "color: #0ff; font-weight: bold" },
-                { text: "\n", delay: 50 },
-                { text: "> PAYOFF: ", delay: 20 },
-                { text: "we talk to your machines", delay: 50, style: "color: #0ff" },
-                { text: "\n", delay: 50 },
-                { text: "> LOCATION: ", delay: 20 },
-                { text: "[DATA ENCRYPTED]", delay: 70, style: "color: #f44" },
-                { text: "\n", delay: 50 },
-                { text: "> STATUS: ", delay: 20 },
-                { text: "ALL OUR SYSTEMS UP AND WORKING", delay: 50, style: "color: #0f0" },
-                { text: "\n\n", delay: 100 },
-                { text: ">> WHAT <<", delay: 10, style: "color: #b19cd9"},
-                { text: "\n", delay: 100 },
-                { text: "████ 70%", delay: 30, style: "color: #0ff" },
-                { text: " CUSTOM GPT", delay: 20 },
-                { text: "\n", delay: 50 },
-                { text: "██   20%", delay: 30, style: "color: #0ff" },
-                { text: " COURSES", delay: 20 },
-                { text: "\n", delay: 50 },
-                { text: "█    10%", delay: 30, style: "color: #0ff" },
-                { text: " CONTENT", delay: 20 },
-                { text: "\n\n", delay: 100 },
-                { text: ">> LEARN MORE: ASK CHATGPT <<", delay: 10, style: "color: #b19cd9; text-decoration: underline" },
-            ];
-
-            let currentMessageIndex = 0;
-            let currentCharIndex = 0;
-            let isTyping = true;
-
-            function typeNextCharacter() {
-                if (currentMessageIndex >= messages.length) {
-                    isTyping = false;
-                    if (commandLine) { commandLine.classList.remove('hidden'); }
-                    return;
-                }
-                const currentMessage = messages[currentMessageIndex];
-                const textToType = currentMessage.text;
-                if (currentCharIndex < textToType.length) {
-                    const char = textToType.charAt(currentCharIndex);
-                    const span = document.createElement('span');
-                    span.textContent = char;
-                    if (currentMessage.style) span.style.cssText = currentMessage.style;
-                    terminalText.appendChild(span);
-                    currentCharIndex++;
-                    setTimeout(typeNextCharacter, currentMessage.delay);
-                } else {
-                    currentMessageIndex++;
-                    currentCharIndex = 0;
-                    setTimeout(typeNextCharacter, 100);
-                }
-            }
-
-            window.addEventListener('load', function() { draw(); typeNextCharacter(); });
-            window.addEventListener('resize', function() { resizeCanvas(); });
-        } catch (err) {
-            // Log to console so preview doesn't fail silently
-            console.error('Terminal script error:', err);
-            // Show a minimal fallback message in the page
-            const body = document.body;
-            if (body) {
-                body.style.background = '#000';
-                body.innerHTML = '<div style="color:#fff;padding:20px;font-family:monospace">An error occurred initializing the terminal. Check the console for details.</div>';
-            }
-        }
-    </script>
-
-    <p style="border-radius:8px;text-align:center;font-size:8px;color:#fff;margin-top:16px;position:fixed;left:8px;bottom:8px;z-index:10;background:rgba(0,0,0,0.8);padding:4px 8px;">
-        Made with DeepSite, art by NZ03.com
-    </p>
-</body>
-</html>
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AIGEN-C | AI marketing automation, agenti autonomi e video AI</title><link rel="icon" type="image/jpeg" href="/logo.jpg"><link rel="apple-touch-icon" href="/logo.jpg"><meta name="description" content="AIGEN-C porta l’AI marketing automation nelle aziende grandi e piccole con agenti autonomi, GPT personalizzati, video ad alto impatto e formazione AI per C-level.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://aigen-c.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AIGEN-C | AI marketing automation per aziende">
+<meta property="og:description" content="Agenti autonomi, GPT personalizzati, video AI, presentazioni ad alto impatto e formazione avanzata su AI per C-level.">
+<meta property="og:url" content="https://aigen-c.com/">
+<meta property="og:image" content="https://aigen-c.com/logo.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AIGEN-C | AI marketing automation">
+<meta name="twitter:description" content="AI marketing automation, agenti autonomi, GPT personalizzati, video AI e formazione C-level.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AIGEN-C","url":"https://aigen-c.com/","logo":"https://aigen-c.com/logo.jpg","slogan":"We talk to your machines","sameAs":["https://t.me/aigen_c","https://whatsapp.com/channel/0029Vb5tGCV4inow26QKg00q","https://it.linkedin.com/in/marco-rapelli-8930192"],"areaServed":"IT","knowsAbout":["AI marketing automation","agenti autonomi","GPT personalizzati","video AI","formazione AI per C-level","marketing automation"]}</script><style>:root{--navy:#06224a;--navy2:#031126;--blue:#0e5bff;--cyan:#00b8ff;--orange:#f6ad16;--orange2:#ff7b1a;--paper:#ffe7b3}*{box-sizing:border-box}body{margin:0;background:#031126;color:#f5f8ff;font-family:ui-monospace,Menlo,Consolas,monospace}.bg{position:fixed;inset:0;z-index:-2;background:radial-gradient(circle at 18% 20%,#0c55b8 0,transparent 28%),radial-gradient(circle at 80% 6%,#f6ad1626 0,transparent 24%),linear-gradient(180deg,#06224a,#020916)}.bg:after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(255,255,255,.035) 50%,transparent 50%),linear-gradient(90deg,rgba(0,184,255,.12) 1px,transparent 1px);background-size:100% 5px,38px 38px}.wrap{max-width:1200px;margin:auto;padding:24px}.window{border:3px solid var(--orange);box-shadow:10px 10px 0 #01050d,0 0 60px #0e5bff66;background:#061a39dd}.top{height:54px;background:#020916;border-bottom:3px solid var(--orange);display:flex;align-items:center;justify-content:space-between;padding:0 18px}.brand{display:flex;align-items:center;gap:12px;font-weight:900;color:var(--orange);font-size:22px}.brand img{width:34px;height:34px;border-radius:7px}.nav{color:#93c8ff;font-size:13px}.hero{display:block;padding:54px}.eyebrow{color:var(--cyan);letter-spacing:3px;text-transform:uppercase}.payoff{font-size:clamp(44px,7vw,92px);line-height:.92;margin:16px 0;text-transform:uppercase;letter-spacing:-4px;text-shadow:5px 5px 0 #000}.payoff span{color:var(--orange)}.sub{font-size:19px;line-height:1.6;color:#c0d5ff;max-width:680px}.ctaRow{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}.btn{padding:16px 20px;text-decoration:none;border:2px solid var(--orange);color:#fff;font-weight:900;text-transform:uppercase}.btn.primary{background:var(--orange);color:#031126;box-shadow:6px 6px 0 #000}.heroCard{position:relative;min-height:480px;border:3px solid #1b6eff;background:linear-gradient(135deg,#041126,#0b3472);box-shadow:8px 8px 0 #000;overflow:hidden;display:grid;place-items:center}.logoBig{width:min(72%,360px);border-radius:28px;filter:drop-shadow(0 18px 35px #0008)}.chip{position:absolute;left:22px;bottom:22px;right:22px;background:#020916e8;border:2px solid var(--cyan);padding:16px;color:#9fffd0}.chip b{color:var(--orange)}.ticker{border-top:3px solid var(--orange);border-bottom:3px solid var(--orange);background:#020916;color:var(--orange);white-space:nowrap;overflow:hidden;padding:13px 0}.ticker div{display:inline-block;animation:t 22s linear infinite}@keyframes t{from{transform:translateX(0)}to{transform:translateX(-50%)}}section{padding:42px 54px}.title{font-size:34px;text-transform:uppercase;color:var(--orange);margin:0 0 22px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{border:2px solid #1c61c9;background:#071d40;padding:22px;min-height:210px;box-shadow:6px 6px 0 #000}.card h3{color:#fff;text-transform:uppercase}.card p{color:#bad0ff;line-height:1.55}.showcase{display:grid;grid-template-columns:1.4fr 1fr;gap:18px}.video{min-height:300px;border:3px solid #000;background:linear-gradient(135deg,#0b3472,#f6ad1640);display:grid;place-items:center;color:var(--orange);font-size:70px;font-weight:900;box-shadow:6px 6px 0 #000}.frameGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:10px}.tile{position:relative;display:block;overflow:hidden;border:2px solid #1b6eff;background:#020916;color:#fff;text-decoration:none}.tile{aspect-ratio:16/9}.tile img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.05) contrast(1.05)}.tile span{position:absolute;left:8px;right:8px;bottom:8px;background:#020916d9;border:1px solid var(--orange);padding:7px 8px;font-size:11px;text-transform:uppercase;color:var(--orange)}.newsGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch}.newsCard{border:2px solid var(--orange);background:#020916;padding:20px;color:#c0d5ff;box-shadow:6px 6px 0 #000;text-decoration:none;display:block;min-width:0}.newsCard b{display:block;color:var(--orange);text-transform:uppercase;margin-bottom:10px}.newsCard p{margin:0;line-height:1.5;overflow-wrap:anywhere}.newsCta{margin-top:22px;display:flex;gap:14px;flex-wrap:wrap}.sideList{display:grid;gap:18px}.mini{border:2px solid var(--cyan);padding:18px;background:#020916;color:#c0d5ff}.contactForm{display:grid;gap:14px;max-width:720px}.contactForm input,.contactForm textarea{width:100%;background:#020916;border:2px solid #1b6eff;color:#f5f8ff;padding:15px;font:inherit}.contactForm textarea{min-height:140px;resize:vertical}.contactForm input:focus,.contactForm textarea:focus{outline:2px solid var(--orange)}.contactHint{color:#93c8ff;line-height:1.5;max-width:720px}.footerCta{text-align:center;background:#020916;border-top:3px solid var(--orange)}.footerCta h2{font-size:clamp(32px,5vw,62px);margin:0 0 16px;text-transform:uppercase}.mark{max-width:360px;width:70%;border:2px solid #1b6eff;background:#031126;padding:10px;margin-top:20px}@media(max-width:850px){.hero,.grid,.showcase,.newsGrid{grid-template-columns:1fr}.hero,section{padding:28px}.payoff{letter-spacing:-2px}.nav{display:none}}</style></head><body><div class="bg"></div><main class="wrap"><div class="window"><div class="top"><div class="brand"><img src="/logo.jpg" alt="AIGEN-C logo">AIGEN-C</div><div class="nav">AI MARKETING AUTOMATION / AGENTI / VIDEO AI / FORMAZIONE</div></div><section class="hero"><div><h1 class="payoff">We talk to your <span>machines</span>.</h1><p class="sub">AI marketing automation per aziende grandi e piccole, con agenti autonomi e GPT personalizzati. Presentazioni e video ad alto impatto visivo. Formazione avanzata su AI per C-level.</p><div class="ctaRow"><a class="btn primary" href="#contatti">Contattaci</a><a class="btn" href="https://inviti.aigen-c.com">Iscriviti alla newsletter</a></div></div></section><div class="ticker"><div> AIGEN-C • CUSTOM GPT • AI AGENTS • GENERATIVE VIDEO • MARKETING AUTOMATION • EXECUTIVE TRAINING • WE TALK TO YOUR MACHINES • AIGEN-C • CUSTOM GPT • AI AGENTS • GENERATIVE VIDEO • MARKETING AUTOMATION • EXECUTIVE TRAINING • WE TALK TO YOUR MACHINES •</div></div><section><h2 class="title">Cosa costruiamo</h2><div class="grid"><div class="card"><h3>Agenti autonomi</h3><p>Progettiamo agenti AI che seguono processi reali: raccolgono dati, preparano contenuti, coordinano strumenti e riducono il lavoro ripetitivo.</p></div><div class="card"><h3>Video e contenuti</h3><p>Creiamo post social, video iperrealistici, presentazioni e asset visuali ad alto impatto per campagne, eventi e comunicazione aziendale.</p></div><div class="card"><h3>Formazione C-level</h3><p>Portiamo manager e decision maker dentro l’AI con sessioni pratiche, strategiche e orientate alle opportunità concrete per l’azienda.</p></div></div></section><section id="showcase"><h2 class="title">Showcase vivo</h2><div class="showcase"><div class="video frameGrid"><a class="tile" href="assets/videos/web/como-lake-hub-web.mp4" target="_blank"><img src="assets/keyframes/como-lake-hub-keyframe-1.jpg" alt="Video AI AIGEN-C — Como Lake Hub"><span>Video istituzionale</span></a><a class="tile" href="assets/videos/web/olimpiadi-fiamma-spenta-web.mp4" target="_blank"><img src="assets/keyframes/olimpiadi-fiamma-spenta-keyframe-1.jpg" alt="Video AI AIGEN-C — storytelling"><span>Storytelling AI</span></a><a class="tile" href="assets/videos/showcase/minibloomlab-bloom-01.mp4" target="_blank"><img src="assets/thumbs/minibloomlab-bloom-01.jpg" alt="Social — video generativo"><span>Social</span></a><a class="tile" href="assets/videos/showcase/showcase-upload-02.mp4" target="_blank"><img src="assets/thumbs/showcase-upload-02.jpg" alt="Showcase generativo AIGEN-C"><span>Social</span></a></div><div class="sideList"><div class="mini">Una selezione dei lavori più efficaci: video generativi, visual per campagne, demo prodotto e contenuti pensati per fermare lo scroll.</div><div class="mini">Dai processi interni alla comunicazione esterna: costruiamo sistemi AI che producono contenuti e supportano il lavoro quotidiano.</div><div class="mini">Per vedere nuovi esempi, eventi e sperimentazioni, iscriviti alla newsletter AIGEN-C.</div></div></div></section><section id="chi-siamo"><h2 class="title">Chi siamo</h2><div class="grid"><div class="card"><h3>Marco Rapelli</h3><p>Co-founder e Technoking di AIGEN-C. Lavora su AI marketing automation, agenti autonomi, formazione e innovazione applicata al business.</p><p><a class="btn" href="https://it.linkedin.com/in/marco-rapelli-8930192" target="_blank">LinkedIn</a></p></div><div class="card"><h3>Irene Anghileri</h3><p>Co-founder &amp; Account Director di AIGEN-C. Coordina relazione cliente, direzione account e sviluppo dei progetti tra Brunate, Como e Milano.</p></div><div class="card"><h3>C1 Agent</h3><p>Agente orchestratore: brainstorming, strategia, ricerca, scrittura, coordinamento e progettazione dei sistemi AI.</p></div><div class="card"><h3>C2 Agent</h3><p>Agente esecutore: prototipi, automazioni operative, task tecnici e delivery sotto coordinamento AIGEN-C.</p></div></div></section><section id="news"><h2 class="title">News dai canali</h2><div class="newsGrid" id="telegramNews"><a class="newsCard" href="https://t.me/AIGEN_C" target="_blank"><b>Caricamento feed</b><p>Sto recuperando gli ultimi aggiornamenti dal canale Telegram AIGEN-C.</p></a></div><div class="newsCta"><a class="btn" href="https://whatsapp.com/channel/0029Vb5tGCV4inow26QKg00q" target="_blank">WhatsApp</a><a class="btn" href="https://t.me/aigen_c" target="_blank">Telegram</a></div></section><section id="contatti"><h2 class="title">Contattaci</h2><p class="contactHint">Raccontaci cosa vuoi costruire con l’AI: automazioni marketing, agenti, GPT personalizzati, video o formazione C-level.<br><br><strong>Sedi operative:</strong> Milano, Como, Brunate</p><form class="contactForm" action="https://formspree.io/f/xvzykpak" method="POST"><input type="text" name="name" placeholder="Nome e azienda" required><input type="email" name="email" placeholder="Email" required><textarea name="message" placeholder="Di cosa avete bisogno?" required></textarea><input type="hidden" name="_subject" value="Nuovo contatto dal sito AIGEN-C"><button class="btn primary" type="submit">Invia</button></form></section></div></main><script>
+async function loadTelegramNews(){
+  const grid=document.getElementById('telegramNews');
+  if(!grid) return;
+  const fallback=[{title:'News dai canali', text:'Apri i canali AIGEN-C per leggere gli ultimi aggiornamenti su AI, agenti autonomi e marketing automation.', url:'https://t.me/AIGEN_C'}];
+  function render(items){
+    grid.innerHTML=items.slice(0,3).map((item,i)=>`<a class="newsCard" href="${item.url}" target="_blank"><b>${item.title}</b><p>${item.text}</p></a>`).join('');
+  }
+  try{
+    const res=await fetch('/news.json?ts=' + Date.now(), {cache:'no-store'});
+    const data=await res.json();
+    render((data.items&&data.items.length)?data.items:fallback);
+  }catch(e){ render(fallback); }
+}
+loadTelegramNews();
+</script></body></html>
