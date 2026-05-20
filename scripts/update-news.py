@@ -34,7 +34,7 @@ def from_telegram_html(limit=3):
     items=[]
     for m in re.finditer(r'<div class="tgme_widget_message_wrap.*?(?=<div class="tgme_widget_message_wrap|</main>)', r.text, re.S):
         block=m.group(0)
-        tm=re.search(r'<div class="tgme_widget_message_text[^>]*>(.*?)</div>', block, re.S)
+        tm=re.search(r'<div class="tgme_widget_message_text js-message_text"[^>]*>(.*?)</div>', block, re.S)
         lm=re.search(r'<a class="tgme_widget_message_date" href="([^"]+)"', block)
         dm=re.search(r'<time datetime="([^"]+)"', block)
         if not (tm and lm):
