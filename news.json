@@ -1,6 +1,11 @@
 {
-  "updatedAt": "2026-05-30T06:48:21.993244+00:00",
+  "updatedAt": "2026-05-30T09:20:52.216908+00:00",
   "items": [
+    {
+      "title": "30/05/2026",
+      "text": "Lanciato Claude Opus 4.8. A breve in arrivo anche GPT5.6",
+      "url": "https://t.me/AIGEN_C/338"
+    },
     {
       "title": "29/05/2026",
       "text": "[Continua, 2/2] Riassumo il processo in termini più semplici: . su mia richiesta, C1 ha trovato una modalità (già esistente) di integrare i dati dal flusso telegram nel sito . si poteva fare a mano pagando abbonamento a …",
@@ -10,11 +15,6 @@
       "title": "29/05/2026",
       "text": "Ecco qui: nella notte il sito AIGEN-C.com si è aggiornato. Quando lo script di C1 si è accorto del nuovo post su telegram, in automatico ha aggiornato 'al volo' il sito con il nuovo post di telegram. La cosa in sè è ampi…",
       "url": "https://t.me/AIGEN_C/336"
-    },
-    {
-      "title": "28/05/2026",
-      "text": "Grazie a tutti per la conferenza! Sciami di 300 agenti, 1.5 milioni di bolletta di ChatGPT, mucche al supermercato e karate kid robot. Appuntamento tra due settimane in Viale Masia 29, Como Lake Hub! *per la domanda del …",
-      "url": "https://t.me/AIGEN_C/334"
     }
   ]
 }
