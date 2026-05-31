@@ -1,6 +1,11 @@
 {
-  "updatedAt": "2026-05-31T05:03:59.001021+00:00",
+  "updatedAt": "2026-05-31T08:26:55.701967+00:00",
   "items": [
+    {
+      "title": "31/05/2026",
+      "text": "Da anni alle conferenze segnalo che esistono bot farm dove un operatore umano può controllare dozzine di telefoni con un software. Questo è un buon video, non recentissimo. Ora con AI e agenti autonomi, lo stesso operato…",
+      "url": "https://t.me/AIGEN_C/339"
+    },
     {
       "title": "30/05/2026",
       "text": "Lanciato Claude Opus 4.8. A breve in arrivo anche GPT5.6",
@@ -10,11 +15,6 @@
       "title": "29/05/2026",
       "text": "[Continua, 2/2] Riassumo il processo in termini più semplici: . su mia richiesta, C1 ha trovato una modalità (già esistente) di integrare i dati dal flusso telegram nel sito . si poteva fare a mano pagando abbonamento a …",
       "url": "https://t.me/AIGEN_C/337"
-    },
-    {
-      "title": "29/05/2026",
-      "text": "Ecco qui: nella notte il sito AIGEN-C.com si è aggiornato. Quando lo script di C1 si è accorto del nuovo post su telegram, in automatico ha aggiornato 'al volo' il sito con il nuovo post di telegram. La cosa in sè è ampi…",
-      "url": "https://t.me/AIGEN_C/336"
     }
   ]
 }
