@@ -1,6 +1,11 @@
 {
-  "updatedAt": "2026-06-01T01:39:40.168409+00:00",
+  "updatedAt": "2026-06-01T07:00:50.810248+00:00",
   "items": [
+    {
+      "title": "01/06/2026",
+      "text": "Questo drone sperimentale vola senza batteria né benzina. Un sistema di antenne trasferisce l'energia necessaria via wireless fino a 10m circa. L'idea peraltro non é particolarmente nuova; in questo articolo di ieee. org…",
+      "url": "https://t.me/AIGEN_C/341"
+    },
     {
       "title": "31/05/2026",
       "text": "Da anni alle conferenze segnalo che esistono bot farm dove un operatore umano può controllare dozzine di telefoni con un software. Questo è un buon video, non recentissimo. Ora con AI e agenti autonomi, lo stesso operato…",
@@ -10,11 +15,6 @@
       "title": "30/05/2026",
       "text": "Lanciato Claude Opus 4.8. A breve in arrivo anche GPT5.6",
       "url": "https://t.me/AIGEN_C/338"
-    },
-    {
-      "title": "29/05/2026",
-      "text": "[Continua, 2/2] Riassumo il processo in termini più semplici: . su mia richiesta, C1 ha trovato una modalità (già esistente) di integrare i dati dal flusso telegram nel sito . si poteva fare a mano pagando abbonamento a …",
-      "url": "https://t.me/AIGEN_C/337"
     }
   ]
 }
