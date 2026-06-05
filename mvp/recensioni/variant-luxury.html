@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>La tua esperienza | Studio Dentistico Gelmi</title>
+  <meta name="description" content="Aiuta il paziente a preparare una recensione Google per Studio Dentistico Gelmi." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="variant-luxury.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="card hero" id="stepIntro">
+      <div class="brandbar">
+        <img class="brandlogo" src="logo-gelmi.svg" alt="Studio Dentistico Gelmi" />
+      </div>
+      <p class="kicker">La tua opinione è preziosa</p>
+      <h1>Com’è stata la tua esperienza in studio?</h1>
+      <p class="lead">Quattro brevi domande per aiutarti a scrivere una recensione personale, elegante e fedele alla tua esperienza.</p>
+      <button class="primary" id="startBtn">Inizia</button>
+      <p class="privacy">Per tutelare la tua riservatezza, evita dettagli clinici o informazioni sanitarie personali.</p>
+    </section>
+
+    <form class="card hidden" id="reviewForm">
+      <div class="brandbar small"><img class="brandlogo" src="logo-gelmi.svg" alt="Studio Dentistico Gelmi" /></div>
+      <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+      <div id="questions"></div>
+
+      <label class="field">
+        <span>Vuoi aggiungere un dettaglio personale? <em>opzionale</em></span>
+        <textarea id="freeComment" rows="4" placeholder="Esempio: mi sono sentito ascoltato, l'ambiente è sereno, le spiegazioni sono state chiare..."></textarea>
+      </label>
+
+      <button class="primary" type="submit">Apri Google per pubblicarla</button>
+      <p class="privacy">Prepareremo il testo e lo copieremo automaticamente. Su Google dovrai solo incollarlo, leggerlo e pubblicarlo se ti rappresenta.</p>
+    </form>
+
+    <section class="card splash hidden" id="stepSplash" aria-live="polite">
+      <div class="brandbar small"><img class="brandlogo" src="logo-gelmi.svg" alt="Studio Dentistico Gelmi" /></div>
+      <div class="loader" aria-hidden="true"></div>
+      <p class="kicker">Google si sta aprendo</p>
+      <h2>La recensione è già copiata</h2>
+      <p class="lead compact">Tra poco vedrai la pagina Google dello Studio. Quando trovi lo spazio dove scrivere la recensione, tieni premuto con il dito dentro quel riquadro e scegli <strong>Incolla</strong>.</p>
+      <div class="instructionBox">
+        <p><strong>In pratica:</strong></p>
+        <p>1. Tocca il riquadro della recensione.</p>
+        <p>2. Tieni premuto per un secondo.</p>
+        <p>3. Premi <strong>Incolla</strong>.</p>
+        <p>4. Leggi il testo e pubblicalo solo se ti rappresenta.</p>
+      </div>
+      <label class="field reviewPreview hidden" id="reviewPreviewBox">
+        <span>Testo preparato</span>
+        <textarea id="reviewTextPreview" rows="7" readonly></textarea>
+      </label>
+      <p class="hint" id="copyStatus">Stiamo preparando il testo e aprendo Google.</p>
+      <button class="secondary" id="manualCopyBtn" type="button">Copia di nuovo il testo</button>
+      <button class="linkButton" id="toggleTextBtn" type="button">Mostra il testo preparato</button>
+      <button class="linkButton" id="openAgainBtn" type="button">Apri Google per pubblicare</button>
+    </section>
+  </main>
+
+  <script src="app.v7.js?v=luxury-1"></script>
+</body>
+</html>

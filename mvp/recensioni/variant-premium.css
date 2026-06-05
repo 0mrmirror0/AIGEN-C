@@ -1,0 +1,43 @@
+:root {
+  --bg: #f8f3ea;
+  --paper: #fffdf8;
+  --paper-soft: #fbf8f1;
+  --ink: #223436;
+  --muted: #697775;
+  --line: #e8ddcf;
+  --gold: #cbb27c;
+  --gold-dark: #927344;
+  --teal: #2c6f73;
+  --teal-dark: #184f55;
+  --teal-soft: #e9f3f2;
+  --star: #c9a86a;
+  --danger: #9b1c1c;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh; color: var(--ink);
+  font-family: Inter, "Helvetica Neue", system-ui, -apple-system, sans-serif;
+  background:
+    radial-gradient(circle at 50% -20%, rgba(255,255,255,.9), transparent 42%),
+    linear-gradient(180deg, #fbf7ef, #efe5d5);
+  display: grid; place-items: center; padding: 20px;
+}
+body::before { content:""; position:fixed; inset:0; pointer-events:none; background:linear-gradient(120deg, transparent 0 42%, rgba(43,111,115,.06) 42% 58%, transparent 58%); }
+.app { width:min(650px,100%); position:relative; }
+.card {
+  background: rgba(255,253,248,.94); border:1px solid rgba(203,178,124,.38);
+  border-radius: 30px; padding: clamp(28px,5vw,50px);
+  box-shadow: 0 28px 80px rgba(32,47,49,.13);
+}
+.card::after { content:""; position:absolute; inset:13px; border:1px solid rgba(203,178,124,.25); border-radius:22px; pointer-events:none; }
+.hidden{display:none!important}.brandbar{margin-bottom:30px}.brandbar.small{margin-bottom:20px}.brandlogo{width:min(290px,100%);display:block}
+.kicker{margin:0 0 12px;color:var(--gold-dark);text-transform:uppercase;letter-spacing:.2em;font-size:11px;font-weight:800}
+h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:400;line-height:1;letter-spacing:-.035em;margin:0 0 18px;color:var(--ink)}
+h1{font-size:clamp(38px,8vw,62px);max-width:11ch}h2{font-size:clamp(34px,6vw,48px)}
+.lead{font-size:clamp(17px,3vw,20px);line-height:1.55;color:var(--muted);margin:0 0 30px}.privacy,.hint{font-size:13.5px;color:var(--muted);line-height:1.55;margin:18px 0 0}.hint.error{color:var(--danger)}
+button{appearance:none;border:0;border-radius:999px;padding:15px 22px;width:100%;font-size:15.5px;font-weight:800;cursor:pointer}.primary{color:#fff;background:linear-gradient(135deg,var(--teal),var(--teal-dark));box-shadow:0 14px 30px rgba(44,111,115,.24)}.secondary{color:var(--teal-dark);background:var(--teal-soft);margin-top:12px}.linkButton{background:transparent;color:var(--gold-dark);margin-top:12px;padding:8px;box-shadow:none}
+.progress{height:5px;background:#eee4d4;border-radius:999px;margin-bottom:26px;overflow:hidden}.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--teal));transition:width .25s}
+.question{border-bottom:1px solid var(--line);padding:20px 0}.question:first-child{padding-top:0}.question h3{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(20px,3.5vw,24px);margin:0 0 14px;line-height:1.2}.stars{display:flex;gap:8px;flex-wrap:wrap}.star{width:46px;height:46px;padding:0;border-radius:50%;background:#f2eadd;color:#b8ad99;font-size:25px}.star.active{background:#fff6df;color:var(--star);box-shadow:inset 0 0 0 1px rgba(201,168,106,.45),0 8px 18px rgba(201,168,106,.13)}
+.field{display:block;margin:26px 0}.field span{display:block;margin-bottom:10px;font-weight:800}.field em{color:var(--muted);font-weight:500;font-style:normal}textarea{width:100%;border:1px solid var(--line);border-radius:20px;padding:17px;resize:vertical;font:inherit;line-height:1.55;background:var(--paper-soft)}textarea:focus{outline:3px solid rgba(44,111,115,.12);border-color:rgba(44,111,115,.55)}.reviewPreview{margin:18px 0 12px}.reviewPreview textarea{font-size:14px;max-height:220px;user-select:text;-webkit-user-select:text}
+.lead.compact{margin-bottom:20px}.splash{text-align:left}.loader{width:44px;height:44px;border-radius:50%;border:2px solid rgba(203,178,124,.35);border-top-color:var(--teal);margin:4px 0 24px;animation:spin .9s linear infinite}.instructionBox{border:1px solid rgba(203,178,124,.45);background:rgba(251,248,241,.78);border-radius:20px;padding:18px;margin:18px 0 0;line-height:1.5}.instructionBox p{margin:0 0 8px}.instructionBox p:last-child{margin-bottom:0}@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:520px){body{padding:12px;align-items:stretch}.card{border-radius:24px;min-height:calc(100vh - 24px)}.card::after{inset:9px;border-radius:18px}.star{width:43px;height:43px}}
