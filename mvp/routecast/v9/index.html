@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<!--
+═══════════════════════════════════════════════════════════════════
+  RouteCast — V9
+  Data:    2026-06-06
+  Base:    V8 (versione live su aigen-c.com/mvp/routecast/)
+
+  Richiesta utente:
+    - Sostituire il punteggio /100 "Guidabilità" (bug NaN, poco utile)
+    - Nuova card panoramica con bordo intero colorato verde/ambra/rosso
+    - Chip "Tolls" o "Free" in alto a destra
+    - "km · via …" sotto il tempo (riga unica)
+    - Niente emoji meteo riassuntive
+    - Card più compatte in larghezza: 165px (H1-B)
+
+  Modifiche da V8:
+    1. Rimosso driveScore (e relativo bug NaN da s.sev mancante)
+    2. Rimossi .rc-score/.rc-tap/.rc-wx-icons dalla card
+    3. Card: bordo intero colorato per status (yes/maybe/no)
+    4. Nuovo layout interno: tempo+km riga 1, via+tolls riga 2,
+       badge meteo + % pioggia colorata riga 3
+    5. Estrazione info pedaggio dai legs OSRM (.summary heuristic)
+    6. Chip Tolls/Free con glifo € / ⊘
+    7. Larghezza card: 235px → 165px
+    8. [hotfix post-deploy] Caricamento Leaflet robusto:
+       cdnjs primario, unpkg come fallback automatico,
+       guardia esplicita se Leaflet non disponibile.
+    9. [hotfix post-deploy] Geocoding: Nominatim → Photon.
+       Nominatim falliva con "Failed to fetch" perché il codice
+       settava l'header User-Agent (vietato dai browser via JS).
+       Photon: no header speciali, no CORS, più veloce, POI migliori.
+
+  Tracciamento conferenza:
+    Vedi conference_archive/STORIA.md
+═══════════════════════════════════════════════════════════════════
+-->
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22RouteCast%22%2C%22short_name%22%3A%22RouteCast%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%230a0a0a%22%2C%22theme_color%22%3A%22%230a0a0a%22%2C%22icons%22%3A%5B%5D%7D">
+<title>RouteCast</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0a0a;--surface:#141414;--surface2:#1e1e1e;
+  --border:rgba(255,255,255,0.08);--border2:rgba(255,255,255,0.14);
+  --text:#f0ede8;--muted:rgba(240,237,232,0.45);
+  --accent:#e8ff47;--accent-dim:rgba(232,255,71,0.12);
+  --red:#ff5c5c;--blue:#5cb8ff;--green:#6ee787;--amber:#ffbf47;
+  --r1:#1a73e8;--r2:#8ab4f8;--r3:#aecbfa;
+  --radius:14px;--radius-sm:8px;
+}
+html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;font-size:16px;overflow:hidden}
+#app{height:100dvh;display:flex;flex-direction:column;position:relative}
+
+#searchbar{flex-shrink:0;background:var(--surface);padding:12px 18px 13px;display:flex;flex-direction:column;gap:8px;border-bottom:0.5px solid var(--border);z-index:30}
+.field-row{display:flex;gap:8px;align-items:stretch}
+.field{flex:1;display:flex;flex-direction:column;gap:4px;position:relative}
+.field label{font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase}
+.input-wrap{position:relative;display:flex;align-items:center}
+.field input,.field select{background:var(--surface2);border:0.5px solid var(--border2);border-radius:var(--radius-sm);color:var(--text);font-family:'Syne',sans-serif;font-size:14px;padding:9px 12px;width:100%;outline:none;transition:border-color .15s;-webkit-appearance:none}
+.field input::placeholder{color:var(--muted)}
+.field input:focus,.field select:focus{border-color:var(--accent)}
+.field select option{background:#1e1e1e}
+.geo-btn{position:absolute;right:6px;background:transparent;border:none;color:var(--muted);font-size:15px;cursor:pointer;padding:4px 6px;border-radius:6px}
+.geo-btn:active{color:var(--accent)}
+.sep-icon{display:flex;align-items:flex-end;padding-bottom:9px;color:var(--muted);font-size:15px;flex-shrink:0}
+
+/* autocomplete dropdown */
+.ac-list{position:absolute;top:100%;left:0;right:0;margin-top:4px;background:#1c1c1c;border:0.5px solid var(--border2);border-radius:var(--radius-sm);z-index:200;max-height:200px;overflow-y:auto;box-shadow:0 6px 22px rgba(0,0,0,0.6);display:none}
+.ac-list.visible{display:block}
+.ac-item{padding:9px 12px;font-size:13px;cursor:pointer;border-bottom:0.5px solid var(--border);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ac-item:last-child{border-bottom:none}
+.ac-item:hover,.ac-item.sel{background:var(--surface2)}
+.ac-item .ac-main{color:var(--text)}
+.ac-item .ac-sub{color:var(--muted);font-size:11px;font-family:'DM Mono',monospace}
+
+.opts-row{display:flex;gap:8px;align-items:center}
+.go-btn{background:var(--accent);color:#0a0a0a;border:none;border-radius:var(--radius-sm);font-family:'Syne',sans-serif;font-size:14px;font-weight:700;padding:11px 16px;cursor:pointer;letter-spacing:0.02em;transition:opacity .15s,transform .1s;flex:1}
+.go-btn:active{transform:scale(0.98);opacity:.9}
+.go-btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.field-inline{display:flex;flex-direction:column;gap:4px;max-width:96px}
+.add-wp{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);background:none;border:none;cursor:pointer;text-align:left;padding:2px 0;align-self:flex-start}
+.add-wp:active{color:var(--accent)}
+
+#map{flex:1;min-height:0;z-index:1;position:relative}
+
+/* synthetic rain alert banner */
+#alert-banner{position:absolute;top:10px;left:12px;right:12px;z-index:600;display:none;flex-direction:column;gap:6px;pointer-events:none}
+#alert-banner.visible{display:flex}
+.alert{background:rgba(20,20,20,0.95);backdrop-filter:blur(8px);border:0.5px solid var(--border2);border-left-width:3px;border-radius:10px;padding:9px 13px;font-size:12.5px;font-weight:600;box-shadow:0 2px 12px rgba(0,0,0,0.5);display:flex;align-items:center;gap:8px}
+.alert.rain{border-left-color:var(--blue);color:var(--blue)}
+.alert.storm{border-left-color:var(--red);color:var(--red)}
+.alert.wind{border-left-color:var(--amber);color:var(--amber)}
+.alert.dry{border-left-color:var(--green);color:var(--green)}
+.alert .a-icon{font-size:16px}
+
+/* OVERVIEW cards — V9 (H1-B design) */
+#route-sheet{position:absolute;bottom:0;left:0;right:0;z-index:20;padding:0 0 14px;display:none;flex-direction:column;pointer-events:none}
+#route-sheet.visible{display:flex}
+.sheet-label{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;padding:0 20px 8px;text-shadow:0 1px 4px rgba(0,0,0,0.8)}
+#route-cards{display:flex;gap:8px;overflow-x:auto;padding:0 18px 4px;-webkit-overflow-scrolling:touch;scrollbar-width:none;pointer-events:auto}
+#route-cards::-webkit-scrollbar{display:none}
+
+/* Card with FULL COLORED BORDER for status (H1-B winning design) */
+.route-card{
+  flex-shrink:0;width:165px;
+  background:rgba(20,20,20,0.95);backdrop-filter:blur(10px);
+  border:2px solid var(--border2);
+  border-radius:var(--radius);
+  padding:8px 10px;
+  cursor:pointer;
+  transition:transform .1s,border-color .15s,box-shadow .15s;
+  position:relative;overflow:hidden;
+}
+.route-card:active{transform:scale(0.985)}
+
+/* status classes: applied dynamically by fillCardWeather */
+.route-card.r-yes{border-color:#6ee787;box-shadow:0 0 12px rgba(110,231,135,0.15)}
+.route-card.r-maybe{border-color:#ffbf47;box-shadow:0 0 14px rgba(255,191,71,0.18)}
+.route-card.r-no{border-color:#ff5c5c;box-shadow:0 0 16px rgba(255,92,92,0.22)}
+
+/* layout pieces */
+.rc-line1{display:flex;justify-content:space-between;align-items:baseline;gap:5px;margin-bottom:3px}
+.rc-left{display:flex;align-items:baseline;gap:5px;min-width:0;flex:1}
+.rc-time{font-size:15px;font-weight:700;flex-shrink:0;letter-spacing:-0.01em;line-height:1}
+.rc-time .u{font-size:9.5px;font-weight:600;color:var(--muted)}
+.rc-km{font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);flex-shrink:0}
+
+/* Tolls / Free chip */
+.toll-chip{
+  display:inline-flex;align-items:center;gap:3px;
+  font-family:'DM Mono',monospace;font-size:9px;font-weight:600;
+  letter-spacing:0;text-transform:uppercase;
+  padding:1px 5px;border-radius:4px;
+  border:0.5px solid currentColor;
+  white-space:nowrap;
+}
+.toll-chip.has-toll{color:var(--amber);background:rgba(255,191,71,0.1)}
+.toll-chip.no-toll{color:#7fd99a;background:rgba(110,231,135,0.08)}
+
+.rc-via{font-family:'DM Mono',monospace;font-size:9px;color:rgba(240,237,232,0.35);margin-bottom:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+.rc-status-row{display:flex;align-items:center;gap:7px;padding-top:6px;border-top:0.5px solid var(--border)}
+.rc-wx-badge{display:flex;align-items:center;gap:4px;padding:2.5px 6px;border-radius:6px;font-size:9.5px;font-weight:600;white-space:nowrap}
+.rc-pop{font-family:'DM Mono',monospace;font-size:11px;font-weight:700;margin-left:auto}
+.rc-pop.yes{color:var(--green)}
+.rc-pop.maybe{color:var(--amber)}
+.rc-pop.no{color:var(--red)}
+
+/* meteo tier badge background (kept from V8 for color consistency) */
+.wx-dry{background:rgba(110,231,135,0.14);color:var(--green)}
+.wx-light{background:rgba(92,184,255,0.14);color:var(--blue)}
+.wx-mod{background:rgba(255,191,71,0.16);color:var(--amber)}
+.wx-heavy{background:rgba(255,92,92,0.16);color:var(--red)}
+
+.rc-loading{font-family:'DM Mono',monospace;font-size:9.5px;color:var(--muted);padding-top:6px;border-top:0.5px solid var(--border)}
+
+/* DETAIL sheet */
+#detail-sheet{position:absolute;bottom:0;left:0;right:0;z-index:20;padding:0 14px 14px;display:none;pointer-events:none}
+#detail-sheet.visible{display:block}
+.detail-card{background:rgba(20,20,20,0.96);backdrop-filter:blur(10px);border:1px solid var(--border2);border-radius:var(--radius);padding:14px 16px;pointer-events:auto}
+.dc-back{display:inline-flex;align-items:center;gap:6px;background:var(--accent);border:none;border-radius:8px;padding:8px 14px 8px 11px;font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:#0a0a0a;cursor:pointer;margin-bottom:12px;transition:transform .1s,opacity .15s}
+.dc-back:active{transform:scale(0.97);opacity:0.9}
+.dc-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
+.dc-time{font-size:22px;font-weight:700}.dc-time .u{font-size:14px;color:var(--muted);font-weight:600}
+.dc-dist{font-family:'DM Mono',monospace;font-size:12px;color:var(--muted)}
+.dc-via{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);margin-bottom:11px}
+.dc-stats{display:flex;gap:16px;padding-top:11px;border-top:0.5px solid var(--border);flex-wrap:wrap}
+.dc-stat{display:flex;flex-direction:column;gap:2px}
+.dc-stat .l{font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase}
+.dc-stat .v{font-size:15px;font-weight:600}
+.dc-stat .v.accent{color:var(--accent)}.dc-stat .v.red{color:var(--red)}.dc-stat .v.blue{color:var(--blue)}
+.dc-stat .v.green{color:var(--green)}.dc-stat .v.amber{color:var(--amber)}
+
+/* departure time slider */
+.dc-slider-wrap{margin-top:12px;padding-top:12px;border-top:0.5px solid var(--border)}
+.dc-slider-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.dc-slider-head .l{font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase}
+.dc-slider-head .v{font-family:'DM Mono',monospace;font-size:13px;font-weight:500;color:var(--accent)}
+input[type=range]{width:100%;-webkit-appearance:none;background:transparent;height:18px}
+input[type=range]::-webkit-slider-runnable-track{height:4px;background:var(--border2);border-radius:2px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--accent);margin-top:-7px;cursor:pointer}
+input[type=range]::-moz-range-track{height:4px;background:var(--border2);border-radius:2px}
+input[type=range]::-moz-range-thumb{width:18px;height:18px;border:none;border-radius:50%;background:var(--accent);cursor:pointer}
+
+#loading{display:none;position:absolute;inset:0;background:rgba(10,10,10,0.78);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;flex-direction:column;gap:12px}
+#loading.visible{display:flex}
+.spinner{width:36px;height:36px;border:2px solid var(--border2);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-txt{font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);letter-spacing:0.06em}
+
+#toast{display:none;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:50;background:rgba(28,8,8,0.95);border:1px solid rgba(255,92,92,0.4);border-radius:10px;padding:12px 18px;font-family:'DM Mono',monospace;font-size:12px;color:var(--red);max-width:80%;text-align:center}
+#toast.visible{display:block}
+
+.leaflet-container{background:#111 !important;font-family:'Syne',sans-serif}
+.leaflet-tile-pane{filter:brightness(0.82) saturate(0.65)}
+
+.wm-wrap{position:relative;width:54px;height:66px}
+.wm-box{position:absolute;bottom:0;left:50%;transform:translateX(-50%);background:rgba(14,14,14,0.92);border:1px solid rgba(255,255,255,0.18);border-radius:10px;padding:4px 7px 5px;display:flex;flex-direction:column;align-items:center;gap:1px;backdrop-filter:blur(6px);box-shadow:0 2px 14px rgba(0,0,0,0.6);white-space:nowrap}
+.wm-box::after{content:'';position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);border:4px solid transparent;border-top-color:rgba(255,255,255,0.18);border-bottom:none}
+.wm-icon{font-size:20px;line-height:1.1}
+.wm-temp{font-family:'DM Mono',monospace;font-size:11px;color:#f0ede8;font-weight:500}
+.wm-pop{font-family:'DM Mono',monospace;font-size:10px;color:#5cb8ff;font-weight:500}
+.wm-box.rain{border-color:rgba(92,184,255,0.55);background:rgba(8,16,28,0.93)}
+.wm-box.storm{border-color:rgba(255,92,92,0.55);background:rgba(28,8,8,0.93)}
+.wm-box .wm-wind{font-family:'DM Mono',monospace;font-size:9px;color:var(--amber)}
+
+.pin-wrap{position:relative;width:32px;height:32px}
+.pin{position:absolute;inset:0;border-radius:50%;background:rgba(14,14,14,0.92);border:2px solid #888;display:flex;align-items:center;justify-content:center;font-size:15px;box-shadow:0 1px 6px rgba(0,0,0,0.55)}
+.pin.r0{border-color:var(--r1)}.pin.r1{border-color:var(--r2)}.pin.r2{border-color:var(--r3)}
+
+.dot-start,.dot-end,.dot-wp{width:13px;height:13px;border-radius:50%;border:2.5px solid #0a0a0a;box-shadow:0 0 0 1.5px rgba(255,255,255,0.25)}
+.dot-start{background:#e8ff47}.dot-end{background:#ff5c5c}.dot-wp{background:#fff}
+
+.leaflet-popup-content-wrapper{background:#141414 !important;border:0.5px solid rgba(255,255,255,0.13) !important;border-radius:10px !important;color:#f0ede8 !important;font-family:'DM Mono',monospace !important;font-size:12px !important;box-shadow:0 4px 24px rgba(0,0,0,0.65) !important;padding:0 !important}
+.leaflet-popup-content{margin:10px 14px !important;line-height:1.7 !important;min-width:168px}
+.leaflet-popup-tip{background:#141414 !important}
+.leaflet-popup-close-button{color:rgba(255,255,255,0.35) !important;font-size:16px !important;top:6px !important;right:8px !important}
+.popup-title{font-family:'Syne',sans-serif;font-weight:600;font-size:13px;margin-bottom:7px;color:#f0ede8}
+.popup-row{display:flex;justify-content:space-between;gap:20px;padding:1px 0}
+.popup-label{color:rgba(240,237,232,0.42)}
+.pv{font-weight:500}.pv-accent{color:#e8ff47;font-weight:500}.pv-blue{color:#5cb8ff;font-weight:500}.pv-red{color:#ff5c5c;font-weight:500}.pv-amber{color:#ffbf47;font-weight:500}
+
+.leaflet-control-zoom{border:none !important;box-shadow:none !important;margin-top:14px !important;margin-right:12px !important}
+.leaflet-control-zoom a{background:#1e1e1e !important;color:#f0ede8 !important;border:0.5px solid rgba(255,255,255,0.1) !important}
+.leaflet-control-zoom a:hover{background:#2a2a2a !important}
+.leaflet-control-attribution{display:none !important}
+
+#empty-state{position:absolute;top:44%;left:50%;transform:translate(-50%,-50%);text-align:center;pointer-events:none;z-index:2}
+.es-icon{font-size:38px;margin-bottom:8px;opacity:.28}
+.es-txt{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+
+#share-btn{position:absolute;top:12px;right:54px;z-index:600;background:rgba(20,20,20,0.94);backdrop-filter:blur(8px);border:0.5px solid var(--border2);border-radius:8px;width:38px;height:38px;display:none;align-items:center;justify-content:center;font-size:16px;cursor:pointer;color:var(--text)}
+#share-btn.visible{display:flex}
+#share-btn:active{transform:scale(0.95)}
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="searchbar">
+    <div class="field-row">
+      <div class="field">
+        <label>Partenza</label>
+        <div class="input-wrap">
+          <input type="text" id="origin" placeholder="Es. Milano" autocomplete="off"/>
+          <button class="geo-btn" id="geo-btn" title="Usa la mia posizione">📍</button>
+        </div>
+        <div class="ac-list" id="ac-origin"></div>
+      </div>
+      <div class="sep-icon">→</div>
+      <div class="field">
+        <label>Destinazione</label>
+        <div class="input-wrap"><input type="text" id="destination" placeholder="Es. Torino" autocomplete="off"/></div>
+        <div class="ac-list" id="ac-destination"></div>
+      </div>
+    </div>
+
+    <div id="wp-container"></div>
+    <button class="add-wp" id="add-wp-btn">+ Aggiungi tappa intermedia</button>
+
+    <div class="opts-row">
+      <div class="field-inline"><label>Data</label><input type="date" id="dep-date"/></div>
+      <div class="field-inline"><label>Ora</label><input type="time" id="dep-time"/></div>
+      <div class="field-inline" style="max-width:78px"><label>Ogni</label><select id="step-km"><option value="5">5 km</option><option value="10" selected>10 km</option><option value="15">15 km</option><option value="20">20 km</option></select></div>
+      <button class="go-btn" id="go-btn" onclick="computeRoute()">Cerca</button>
+    </div>
+  </div>
+
+  <div id="map">
+    <div id="empty-state"><div class="es-icon">🏍️</div><div class="es-txt">Inserisci il percorso</div></div>
+    <div id="alert-banner"></div>
+    <button id="share-btn" onclick="shareRoute()" title="Condividi">🔗</button>
+    <div id="toast"></div>
+  </div>
+
+  <div id="route-sheet">
+    <div class="sheet-label">Percorsi · tocca per i dettagli</div>
+    <div id="route-cards"></div>
+  </div>
+
+  <div id="detail-sheet"><div class="detail-card" id="detail-card"></div></div>
+</div>
+
+<div id="loading"><div class="spinner"></div><div class="loading-txt" id="loading-txt">Calcolo percorso…</div></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+// Fallback: se cdnjs non ha consegnato Leaflet, prova unpkg in modo sincrono.
+// Questo evita che il primo "Cerca" lanci "L is not defined" su connessioni lente
+// o quando un blocco CDN fallisce. Vedi Step 10b in STORIA.md.
+if(typeof L==='undefined'){
+  document.write('<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"><\/script>');
+}
+</script>
+<script>
+// Guardia finale: se nemmeno il fallback ha funzionato, mostra messaggio
+// invece di morire silenziosamente.
+window.addEventListener('error',ev=>{
+  if(/L is not defined/.test(ev.message||'')){
+    document.body.innerHTML='<div style="padding:30px;color:#ff5c5c;font-family:monospace;font-size:13px">Impossibile caricare la libreria della mappa (Leaflet). Controlla la connessione o eventuali blocchi (cdnjs/unpkg). Ricarica la pagina.</div>';
+  }
+});
+</script>
+<script>
+// ════════════ LEAFLET READINESS GUARD ════════════
+// Se per qualunque motivo Leaflet non si è caricato (entrambe le CDN ko, blocco
+// rete, errore di parsing), interrompi prima che L.map() esploda silenziosamente.
+if(typeof L==='undefined'){
+  document.body.innerHTML='<div style="padding:30px;color:#ff5c5c;font-family:monospace;font-size:13px;text-align:center;margin-top:40vh">⚠️ Libreria mappa non caricata.<br><br>Controlla la connessione o eventuali blocchi (ad-blocker, blocco CDN).<br><br>Ricarica la pagina.</div>';
+  throw new Error('Leaflet non disponibile');
+}
+
+// ════════════ STATE ════════════
+const map=L.map('map',{zoomControl:true,attributionControl:false}).setView([45.4,12.3],6);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19}).addTo(map);
+
+let overviewLayers=[],detailLayers=[];
+let detailMarkers=L.layerGroup().addTo(map);
+let allRoutes=[];
+let mode='empty';
+let detailRouteIdx=-1;
+let savedPins=[];
+let detailLoadToken=0;
+let baseDepTs=null;          // base departure for slider (slider offsets from this)
+const routeColors=['#1a73e8','#8ab4f8','#aecbfa'];
+const wxCache={};
+const geoCache={};           // resolved geocodes: query→[lat,lon]
+
+// init datetime
+const now=new Date();now.setMinutes(now.getMinutes()+15);
+document.getElementById('dep-date').value=now.toISOString().slice(0,10);
+document.getElementById('dep-time').value=now.toTimeString().slice(0,5);
+
+// ════════════ UTILS ════════════
+function geodesicKm(a,b){const R=6371,dLat=(b[0]-a[0])*Math.PI/180,dLon=(b[1]-a[1])*Math.PI/180,lat1=a[0]*Math.PI/180,lat2=b[0]*Math.PI/180;const x=Math.sin(dLat/2)**2+Math.cos(lat1)*Math.cos(lat2)*Math.sin(dLon/2)**2;return R*2*Math.atan2(Math.sqrt(x),Math.sqrt(1-x))}
+function lerp(A,B,f){return[A[0]+(B[0]-A[0])*f,A[1]+(B[1]-A[1])*f]}
+function setLoading(t){document.getElementById('loading').classList.add('visible');document.getElementById('loading-txt').textContent=t}
+function clearLoading(){document.getElementById('loading').classList.remove('visible')}
+function showToast(msg){const t=document.getElementById('toast');t.textContent='⚠️ '+msg;t.classList.add('visible');setTimeout(()=>t.classList.remove('visible'),4000)}
+function formatTime(ts){return new Date(ts*1000).toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'})}
+function formatDate(ts){return new Date(ts*1000).toLocaleDateString('it-IT',{day:'2-digit',month:'2-digit'})}
+function getBaseDepTs(){return Math.floor(new Date(`${document.getElementById('dep-date').value}T${document.getElementById('dep-time').value}:00`).getTime()/1000)}
+
+// ════════════ GEOCODING + AUTOCOMPLETE (Photon / komoot) ════════════
+// V9 hotfix: Nominatim falliva con "Failed to fetch" perché il codice
+// impostava l'header User-Agent, che i browser VIETANO di settare via JS.
+// Photon non richiede header speciali, niente CORS issues, più veloce, POI migliori.
+async function geocodeSearch(q,limit=6){
+  const r=await fetch(`https://photon.komoot.io/api/?q=${encodeURIComponent(q)}&limit=${limit}&lang=it`);
+  if(!r.ok)return[];
+  const d=await r.json();
+  return d.features||[];
+}
+async function geocode(q){
+  if(geoCache[q])return geoCache[q];
+  const arr=await geocodeSearch(q,1);
+  if(!arr.length)throw new Error(`Luogo non trovato: "${q}"`);
+  const [lon,lat]=arr[0].geometry.coordinates;
+  const coord=[lat,lon];
+  geoCache[q]=coord;
+  return coord;
+}
+
+function fmtPlace(feat){
+  const p=feat.properties||{};
+  const [lon,lat]=feat.geometry.coordinates;
+  const main=p.name||[p.street,p.housenumber].filter(Boolean).join(' ')||p.city||p.state||'—';
+  const parts=[];
+  if(p.city&&p.city!==main)parts.push(p.city);
+  else if(p.state&&p.state!==main)parts.push(p.state);
+  if(p.country)parts.push(p.country);
+  return{main,ctx:parts.join(', '),display:main,coord:[lat,lon]};
+}
+
+// debounced autocomplete wiring
+function wireAutocomplete(inputId,listId){
+  const input=document.getElementById(inputId);
+  const list=document.getElementById(listId);
+  let timer=null,items=[],sel=-1;
+
+  function hide(){list.classList.remove('visible');sel=-1}
+  function render(){
+    list.innerHTML='';
+    items.forEach((it,i)=>{
+      const div=document.createElement('div');
+      div.className='ac-item'+(i===sel?' sel':'');
+      div.innerHTML=`<div class="ac-main">${it.main}</div>${it.ctx?`<div class="ac-sub">${it.ctx}</div>`:''}`;
+      div.onclick=()=>{input.value=it.main+(it.ctx?', '+it.ctx:'');geoCache[input.value]=it.coord;hide()};
+      list.appendChild(div);
+    });
+    list.classList.toggle('visible',items.length>0);
+  }
+
+  input.addEventListener('input',()=>{
+    const q=input.value.trim();
+    clearTimeout(timer);
+    if(q.length<2){hide();return}
+    timer=setTimeout(async()=>{
+      try{
+        const raw=await geocodeSearch(q,6);
+        items=raw.map(fmtPlace);
+        render();
+      }catch(e){hide()}
+    },180); // Photon è veloce; debounce breve per type-ahead reattivo
+  });
+
+  input.addEventListener('keydown',e=>{
+    if(!list.classList.contains('visible')){if(e.key==='Enter')computeRoute();return}
+    if(e.key==='ArrowDown'){sel=Math.min(sel+1,items.length-1);render();e.preventDefault()}
+    else if(e.key==='ArrowUp'){sel=Math.max(sel-1,0);render();e.preventDefault()}
+    else if(e.key==='Enter'){
+      if(sel>=0){const it=items[sel];input.value=it.main+(it.ctx?', '+it.ctx:'');geoCache[input.value]=it.coord;hide();e.preventDefault()}
+      else{hide();computeRoute()}
+    }
+    else if(e.key==='Escape')hide();
+  });
+
+  input.addEventListener('blur',()=>setTimeout(hide,200));
+}
+wireAutocomplete('origin','ac-origin');
+wireAutocomplete('destination','ac-destination');
+
+// geolocation
+document.getElementById('geo-btn').addEventListener('click',()=>{
+  if(!navigator.geolocation){showToast('Geolocalizzazione non disponibile');return}
+  const btn=document.getElementById('geo-btn');btn.textContent='…';
+  navigator.geolocation.getCurrentPosition(async pos=>{
+    const{latitude,longitude}=pos.coords;
+    const input=document.getElementById('origin');
+    input.value='La mia posizione';
+    geoCache['La mia posizione']=[latitude,longitude];
+    btn.textContent='📍';
+  },err=>{btn.textContent='📍';showToast('Posizione non disponibile')},{timeout:8000});
+});
+
+// waypoint
+let wpCount=0;
+document.getElementById('add-wp-btn').addEventListener('click',()=>{
+  if(wpCount>=2){showToast('Massimo 2 tappe');return}
+  wpCount++;
+  const id='wp-'+wpCount;
+  const div=document.createElement('div');
+  div.className='field';div.style.marginBottom='8px';
+  div.innerHTML=`<label>Tappa</label><div class="input-wrap"><input type="text" id="${id}" placeholder="Tappa intermedia" autocomplete="off"/></div><div class="ac-list" id="ac-${id}"></div>`;
+  document.getElementById('wp-container').appendChild(div);
+  wireAutocomplete(id,'ac-'+id);
+});
+
+// ════════════ ROUTING ════════════
+// Due host OSRM: il demo server principale e il mirror FOSSGIS.
+// Il demo server è notoriamente instabile, quindi proviamo entrambi.
+const OSRM_HOSTS=['https://router.project-osrm.org','https://routing.openstreetmap.de/routed-car'];
+
+async function getRoutes(coordsList){
+  const coordStr=coordsList.map(c=>`${c[1]},${c[0]}`).join(';');
+  const path=`/route/v1/driving/${coordStr}?overview=full&geometries=geojson&alternatives=true&steps=true`;
+  let d=null,lastErr=null;
+  for(const host of OSRM_HOSTS){
+    try{
+      const r=await fetch(host+path);
+      if(!r.ok){lastErr=new Error('HTTP '+r.status);continue;}
+      d=await r.json();
+      if(d.routes?.length)break;       // success
+    }catch(e){lastErr=e;}              // try next host
+  }
+  if(!d||!d.routes?.length)throw new Error(lastErr?lastErr.message:'Nessun percorso trovato');
+  return d.routes.slice(0,3).map((route,i)=>{
+    const coords=route.geometry.coordinates.map(([lon,lat])=>[lat,lon]);
+    let via='';
+    let hasToll=false;
+    try{
+      const steps=route.legs.flatMap(l=>l.steps);
+      const names=steps.map(s=>s.name).filter(n=>n&&n.length>2);
+      const c={};names.forEach(n=>c[n]=(c[n]||0)+1);
+      via=Object.keys(c).sort((a,b)=>c[b]-c[a])[0]||'';
+      // Heuristic for toll roads: presence of motorway-style names in Italy
+      const motorwayRx=/\b(autostrad[ae]?|A\d{1,3}\b|tangenzial[ei]|raccordo)\b/i;
+      hasToll=steps.some(s=>s.name&&motorwayRx.test(s.name));
+    }catch(e){}
+    return{coords,distanceKm:route.distance/1000,durationSec:route.duration,via,hasToll};
+  });
+}
+function estimateRidingDuration(s){return s/0.85}
+
+function resampleRoute(coords,totalKm,totalSec,stepKm){
+  const points=[],times=[];
+  points.push(coords[0]);times.push(0);
+  let target=stepKm,cum=0;
+  for(let i=0;i<coords.length-1;i++){
+    const A=coords[i],B=coords[i+1],seg=geodesicKm(A,B);if(!seg)continue;
+    while(cum+seg>=target){const need=target-cum,frac=Math.max(0,Math.min(1,need/seg));points.push(lerp(A,B,frac));times.push((target/totalKm)*totalSec);target+=stepKm}
+    cum+=seg;
+  }
+  points.push(coords[coords.length-1]);times.push(totalSec);
+  if(points.length===2){const mid=coords[Math.floor(coords.length/2)];points.splice(1,0,mid);times.splice(1,0,totalSec/2)}
+  return{points,times};
+}
+
+// ════════════ WEATHER ════════════
+async function getWeatherAt(lat,lon,unixTs){
+  const key=`${lat.toFixed(2)}_${lon.toFixed(2)}`;
+  if(!wxCache[key]){
+    const url=`https://api.open-meteo.com/v1/forecast?latitude=${lat.toFixed(3)}&longitude=${lon.toFixed(3)}&hourly=temperature_2m,apparent_temperature,precipitation_probability,precipitation,weathercode,windspeed_10m,windgusts_10m&forecast_days=7&timezone=auto`;
+    const r=await fetch(url);if(!r.ok)throw new Error(`Open-Meteo ${r.status}`);
+    wxCache[key]=await r.json();
+  }
+  const d=wxCache[key],target=unixTs*1000;let bi=0,bd=Infinity;
+  d.hourly.time.forEach((t,i)=>{const diff=Math.abs(new Date(t).getTime()-target);if(diff<bd){bd=diff;bi=i}});
+  return{
+    temp:Math.round(d.hourly.temperature_2m[bi]),
+    feels:Math.round(d.hourly.apparent_temperature[bi]),
+    pop:d.hourly.precipitation_probability[bi]??0,
+    wind:Math.round(d.hourly.windspeed_10m[bi]),
+    gust:Math.round(d.hourly.windgusts_10m[bi]),
+    precip:d.hourly.precipitation[bi]??0,
+    wcode:d.hourly.weathercode[bi]
+  };
+}
+
+function wxFromCode(wc){
+  if(wc===0)return{emoji:'☀️',label:'Sereno',sev:0};
+  if(wc<=2)return{emoji:'🌤️',label:'Poco nuvoloso',sev:0};
+  if(wc===3)return{emoji:'☁️',label:'Coperto',sev:0};
+  if(wc<=49)return{emoji:'🌫️',label:'Nebbia',sev:1};
+  if(wc<=57)return{emoji:'🌦️',label:'Pioggerella',sev:1};
+  if(wc<=67)return{emoji:'🌧️',label:'Pioggia',sev:2};
+  if(wc<=77)return{emoji:'❄️',label:'Neve',sev:2};
+  if(wc<=82)return{emoji:'🌧️',label:'Rovesci',sev:2};
+  if(wc<=84)return{emoji:'🌨️',label:'Neve intensa',sev:2};
+  if(wc<=99)return{emoji:'⛈️',label:'Temporale',sev:3};
+  return{emoji:'🌡️',label:'—',sev:0};
+}
+
+// Driveability score 0-100: penalise rain prob, severity, wind gusts, cold/heat
+// V9: driveScore() rimosso intenzionalmente.
+// Era la fonte del bug NaN (s.sev non esisteva nei samples) ed era
+// stato sostituito da un sistema più diretto: status verde/ambra/rosso
+// derivato dal tier meteo già calcolato in analyseRoute.
+
+// Analyse a route: sparse sampling → summary + pins + status + alert
+async function analyseRoute(route,idx,depTs){
+  const ridingSec=estimateRidingDuration(route.durationSec);
+  const panoStep=Math.max(20,route.distanceKm/6);
+  const{points,times}=resampleRoute(route.coords,route.distanceKm,ridingSec,panoStep);
+  let maxPop=0,maxSev=0,worstLabel='Sereno',worstEmoji='☀️',maxGust=0;
+  const emojiSet=[],pins=[];
+  let firstRain=null,arrEmoji='☀️';
+  for(let i=0;i<points.length;i++){
+    try{
+      const wx=await getWeatherAt(points[i][0],points[i][1],depTs+Math.round(times[i]));
+      const{sev,label,emoji}=wxFromCode(wx.wcode);
+      if(wx.pop>maxPop)maxPop=wx.pop;
+      if(wx.gust>maxGust)maxGust=wx.gust;
+      if(sev>maxSev){maxSev=sev;worstLabel=label;worstEmoji=emoji}
+      if(sev>=2&&!firstRain){firstRain={km:Math.round((times[i]/ridingSec)*route.distanceKm),time:formatTime(depTs+Math.round(times[i])),label,emoji,sev}}
+      emojiSet.push(emoji);
+      if(i===points.length-1)arrEmoji=emoji;
+      if(i>0&&i<points.length-1)pins.push({P:points[i],emoji,idx});
+    }catch(e){}
+  }
+  const compactEmojis=[...new Set(emojiSet)].slice(0,4);
+  let tierLabel,tierClass,statusClass;
+  if(maxSev>=3){tierLabel='Temporali';tierClass='wx-heavy';statusClass='r-no'}
+  else if(maxSev>=2||maxPop>=60){tierLabel='Pioggia';tierClass='wx-mod';statusClass='r-no'}
+  else if(maxSev>=1||maxPop>=30){tierLabel='Pioggia leggera';tierClass='wx-light';statusClass='r-maybe'}
+  else{tierLabel='Asciutto';tierClass='wx-dry';statusClass='r-yes'}
+  // raffiche forti spostano lo status almeno a "maybe"
+  if(maxGust>50&&statusClass==='r-yes')statusClass='r-maybe';
+  if(maxGust>70)statusClass='r-no';
+  // map status to color for % pioggia
+  const popColorClass=statusClass==='r-no'?'no':statusClass==='r-maybe'?'maybe':'yes';
+  return{tierLabel,tierClass,maxPop,maxGust,worstLabel,worstEmoji,compactEmojis,pins,statusClass,popColorClass,firstRain,arrEmoji};
+}
+
+// ════════════ OVERVIEW ════════════
+function clearOverview(){overviewLayers.forEach(l=>map.removeLayer(l));overviewLayers=[]}
+function clearDetail(){detailLayers.forEach(l=>map.removeLayer(l));detailLayers=[];detailMarkers.clearLayers()}
+
+function renderOverview(){
+  mode='overview';
+  clearDetail();
+  document.getElementById('detail-sheet').classList.remove('visible');
+  document.getElementById('route-sheet').classList.add('visible');
+  document.getElementById('alert-banner').classList.remove('visible');
+  document.getElementById('share-btn').classList.add('visible');
+  clearOverview();
+  for(let i=allRoutes.length-1;i>=1;i--){
+    overviewLayers.push(L.polyline(allRoutes[i].coords,{color:routeColors[i],weight:6,opacity:0.75,lineCap:'round',lineJoin:'round'}).addTo(map));
+  }
+  overviewLayers.push(L.polyline(allRoutes[0].coords,{color:'#0b4ea2',weight:11,opacity:0.9,lineCap:'round',lineJoin:'round'}).addTo(map));
+  overviewLayers.push(L.polyline(allRoutes[0].coords,{color:routeColors[0],weight:7,opacity:1,lineCap:'round',lineJoin:'round'}).addTo(map));
+  const r0=allRoutes[0];
+  overviewLayers.push(L.marker(r0.coords[0],{icon:L.divIcon({html:'<div class="dot-start"></div>',className:'',iconSize:[13,13],iconAnchor:[6,6]})}).addTo(map));
+  overviewLayers.push(L.marker(r0.coords[r0.coords.length-1],{icon:L.divIcon({html:'<div class="dot-end"></div>',className:'',iconSize:[13,13],iconAnchor:[6,6]})}).addTo(map));
+  const grp=L.featureGroup(overviewLayers);
+  map.fitBounds(grp.getBounds(),{padding:[50,50],paddingBottomRight:[50,230]});
+}
+
+function addPanoramaPins(pins){
+  pins.forEach(({P,emoji,idx})=>{
+    const icon=L.divIcon({html:`<div class="pin-wrap"><div class="pin r${idx}">${emoji}</div></div>`,className:'',iconSize:[32,32],iconAnchor:[16,16]});
+    overviewLayers.push(L.marker(P,{icon,zIndexOffset:idx*10}).addTo(map));
+  });
+}
+
+function buildCards(){
+  const container=document.getElementById('route-cards');container.innerHTML='';
+  allRoutes.forEach((r,i)=>{
+    const rs=estimateRidingDuration(r.durationSec);
+    const h=Math.floor(rs/3600),m=Math.floor((rs%3600)/60),km=Math.round(r.distanceKm);
+    const tollChip=r.hasToll
+      ? `<span class="toll-chip has-toll">€ Tolls</span>`
+      : `<span class="toll-chip no-toll">⊘ Free</span>`;
+    const card=document.createElement('div');
+    card.className=`route-card`;card.dataset.idx=i;
+    card.innerHTML=`
+      <div class="rc-line1">
+        <div class="rc-left">
+          <span class="rc-time">${h>0?h+'<span class="u">h</span> ':''}${m}<span class="u">min</span></span>
+          <span class="rc-km">${km} km</span>
+        </div>
+        ${tollChip}
+      </div>
+      <div class="rc-via">${r.via?'via '+r.via:'percorso '+(i+1)}</div>
+      <div class="rc-loading" id="rc-wx-${i}">Analisi meteo…</div>`;
+    card.onclick=()=>enterDetail(i);
+    container.appendChild(card);
+  });
+}
+
+function fillCardWeather(i,s){
+  const el=document.getElementById('rc-wx-'+i);if(!el)return;
+  // apply status class to the whole card (full colored border)
+  const card=el.closest('.route-card');
+  if(card)card.className=`route-card ${s.statusClass}`;
+  // restore dataset.idx (className overwrite drops it if classList not used carefully)
+  // — safer: keep className build but preserve via classList
+  // (here we rewrite className entirely; dataset survives because it's a separate attribute)
+  el.className='rc-status-row';
+  el.innerHTML=`
+    <div class="rc-wx-badge ${s.tierClass}">${s.worstEmoji} ${s.tierLabel}</div>
+    <span class="rc-pop ${s.popColorClass}">🌧 ${s.maxPop}%</span>`;
+}
+
+// ════════════ DETAIL ════════════
+function enterDetail(idx){
+  mode='detail';detailRouteIdx=idx;
+  baseDepTs=getBaseDepTs();
+  history.pushState({view:'detail'},'');
+  clearOverview();
+  document.getElementById('route-sheet').classList.remove('visible');
+  document.getElementById('share-btn').classList.add('visible');
+  drawDetailRoute(idx);
+}
+
+function drawDetailRoute(idx){
+  clearDetail();
+  const route=allRoutes[idx];
+  const casing=L.polyline(route.coords,{color:'#0b4ea2',weight:11,opacity:0.9,lineCap:'round',lineJoin:'round'}).addTo(map);
+  const line=L.polyline(route.coords,{color:routeColors[idx],weight:7,opacity:1,lineCap:'round',lineJoin:'round'}).addTo(map);
+  detailLayers.push(casing,line);
+  map.fitBounds(line.getBounds(),{padding:[55,55],paddingBottomRight:[55,210]});
+  renderDetailCard(idx);
+  refreshDetailMarkers();
+}
+
+function getSliderDepTs(){
+  const slider=document.getElementById('dep-slider');
+  if(!slider||baseDepTs===null)return getBaseDepTs();
+  return baseDepTs+parseInt(slider.value)*1800; // 30-min steps
+}
+
+function renderDetailCard(idx){
+  const route=allRoutes[idx];
+  const ridingSec=estimateRidingDuration(route.durationSec);
+  const depTs=getSliderDepTs();
+  const h=Math.floor(ridingSec/3600),m=Math.floor((ridingSec%3600)/60);
+  const arrTs=depTs+Math.round(ridingSec);
+  const s=route.summary||{};
+  document.getElementById('detail-card').innerHTML=`
+    <div class="dc-back" onclick="history.back()">← Torna ai percorsi</div>
+    <div class="dc-head"><div class="dc-time">${h>0?h+'<span class="u">h</span> ':''}${m}<span class="u">min</span></div><div class="dc-dist">${Math.round(route.distanceKm)} km</div></div>
+    <div class="dc-via">${route.via?'via '+route.via:'percorso'}</div>
+    <div class="dc-stats">
+      <div class="dc-stat"><span class="l">Partenza</span><span class="v accent">${formatTime(depTs)}</span></div>
+      <div class="dc-stat"><span class="l">Arrivo</span><span class="v red">${formatTime(arrTs)}</span></div>
+      <div class="dc-stat"><span class="l">Guidabilità</span><span class="v ${(s.scoreCls||'').replace('score-','')==='good'?'green':(s.scoreCls||'').includes('mid')?'amber':'red'}">${s.score!=null?s.score:'—'}/100</span></div>
+      <div class="dc-stat"><span class="l">Pioggia max</span><span class="v blue">${s.maxPop||0}%</span></div>
+    </div>
+    <div class="dc-slider-wrap">
+      <div class="dc-slider-head"><span class="l">Sposta orario partenza</span><span class="v" id="slider-val">${formatTime(depTs)}</span></div>
+      <input type="range" id="dep-slider" min="-6" max="12" step="1" value="0"/>
+    </div>`;
+  document.getElementById('detail-sheet').classList.add('visible');
+
+  const slider=document.getElementById('dep-slider');
+  slider.addEventListener('input',()=>{
+    const ts=getSliderDepTs();
+    document.getElementById('slider-val').textContent=formatTime(ts);
+  });
+  slider.addEventListener('change',()=>{
+    // update arrival + markers + alert when released
+    renderDetailCardLight(idx);
+    refreshDetailMarkers();
+  });
+}
+
+// light update of just the times in card without rebuilding slider (keeps focus)
+function renderDetailCardLight(idx){
+  const route=allRoutes[idx];
+  const ridingSec=estimateRidingDuration(route.durationSec);
+  const depTs=getSliderDepTs();
+  const arrTs=depTs+Math.round(ridingSec);
+  const stats=document.querySelectorAll('#detail-card .dc-stat .v');
+  if(stats[0])stats[0].textContent=formatTime(depTs);
+  if(stats[1])stats[1].textContent=formatTime(arrTs);
+}
+
+function refreshDetailMarkers(){
+  if(mode!=='detail'||detailRouteIdx<0)return;
+  detailMarkers.clearLayers();
+  const route=allRoutes[detailRouteIdx];
+  const depTs=getSliderDepTs();
+  const stepKm=parseInt(document.getElementById('step-km').value);
+  const ridingSec=estimateRidingDuration(route.durationSec);
+  // start/end dots
+  detailMarkers.addLayer(L.marker(route.coords[0],{icon:L.divIcon({html:'<div class="dot-start"></div>',className:'',iconSize:[13,13],iconAnchor:[6,6]})}).bindPopup(`<div class="popup-title">Partenza</div><div class="popup-row"><span class="popup-label">Orario</span><span class="pv-accent">${formatTime(depTs)}</span></div>`));
+  const arrTs=depTs+Math.round(ridingSec);
+  detailMarkers.addLayer(L.marker(route.coords[route.coords.length-1],{icon:L.divIcon({html:'<div class="dot-end"></div>',className:'',iconSize:[13,13],iconAnchor:[6,6]})}).bindPopup(`<div class="popup-title">Arrivo</div><div class="popup-row"><span class="popup-label">Orario</span><span class="pv-red">${formatTime(arrTs)}</span></div>`));
+  const{points,times}=resampleRoute(route.coords,route.distanceKm,ridingSec,stepKm);
+  loadDetailMarkers(points,times,depTs,route.distanceKm,ridingSec);
+}
+
+async function loadDetailMarkers(points,times,depTs,totalKm,totalSec){
+  const myToken=++detailLoadToken;
+  let firstRain=null,maxGust=0,gustKm=0,gustTime='';
+  for(let i=0;i<points.length;i++){
+    if(mode!=='detail'||myToken!==detailLoadToken)return;
+    const P=points[i],tsHere=depTs+Math.round(times[i]),kmHere=Math.round((times[i]/totalSec)*totalKm);
+    let wx;try{wx=await getWeatherAt(P[0],P[1],tsHere)}catch(e){continue}
+    const{emoji,label,sev}=wxFromCode(wx.wcode);
+    if(sev>=2&&!firstRain)firstRain={km:kmHere,time:formatTime(tsHere),label,emoji,sev};
+    if(wx.gust>maxGust){maxGust=wx.gust;gustKm=kmHere;gustTime=formatTime(tsHere)}
+    const sevClass=sev>=3?'storm':sev>=1?'rain':'';
+    const windWarn=wx.gust>40;
+    const html=`<div class="wm-wrap"><div class="wm-box ${sevClass}"><div class="wm-icon">${emoji}</div><div class="wm-temp">${wx.temp}°C</div>${wx.pop>15?`<div class="wm-pop">${wx.pop}%</div>`:''}${windWarn?`<div class="wm-wind">💨${wx.gust}</div>`:''}</div></div>`;
+    const icon=L.divIcon({html,className:'',iconSize:[54,66],iconAnchor:[27,66]});
+    const popupHtml=`<div class="popup-title">${emoji} ${label}</div><div class="popup-row"><span class="popup-label">Km percorso</span><span class="pv-accent">${kmHere} km</span></div><div class="popup-row"><span class="popup-label">ETA</span><span class="pv">${formatTime(tsHere)}</span></div><div class="popup-row"><span class="popup-label">Temperatura</span><span class="pv">${wx.temp}°C</span></div><div class="popup-row"><span class="popup-label">Percepita</span><span class="pv">${wx.feels}°C</span></div><div class="popup-row"><span class="popup-label">Prob. pioggia</span><span class="pv-blue">${wx.pop}%</span></div><div class="popup-row"><span class="popup-label">Vento</span><span class="pv">${wx.wind} km/h</span></div><div class="popup-row"><span class="popup-label">Raffiche</span><span class="${windWarn?'pv-amber':'pv'}">${wx.gust} km/h</span></div>${wx.precip>0?`<div class="popup-row"><span class="popup-label">Precipit.</span><span class="pv-blue">${wx.precip} mm</span></div>`:''}`;
+    L.marker(P,{icon,zIndexOffset:sev*100}).bindPopup(popupHtml).addTo(detailMarkers);
+  }
+  if(myToken===detailLoadToken)updateAlertBanner(firstRain,maxGust,gustKm,gustTime);
+}
+
+function updateAlertBanner(firstRain,maxGust,gustKm,gustTime){
+  const banner=document.getElementById('alert-banner');
+  banner.innerHTML='';
+  let any=false;
+  if(firstRain){
+    any=true;
+    const cls=firstRain.sev>=3?'storm':'rain';
+    const div=document.createElement('div');div.className='alert '+cls;
+    div.innerHTML=`<span class="a-icon">${firstRain.emoji}</span><span>${firstRain.label} prevista al km ${firstRain.km} verso le ${firstRain.time}</span>`;
+    banner.appendChild(div);
+  }
+  if(maxGust>50){
+    any=true;
+    const div=document.createElement('div');div.className='alert wind';
+    div.innerHTML=`<span class="a-icon">💨</span><span>Raffiche fino a ${maxGust} km/h al km ${gustKm} (${gustTime})</span>`;
+    banner.appendChild(div);
+  }
+  if(!any){
+    const div=document.createElement('div');div.className='alert dry';
+    div.innerHTML=`<span class="a-icon">✓</span><span>Nessuna pioggia prevista sul percorso</span>`;
+    banner.appendChild(div);
+  }
+  banner.classList.add('visible');
+}
+
+function backToOverview(){
+  detailRouteIdx=-1;
+  renderOverview();
+  addPanoramaPins(savedPins);
+}
+
+// ════════════ SHARE ════════════
+function shareRoute(){
+  const params=new URLSearchParams();
+  params.set('da',document.getElementById('origin').value);
+  params.set('a',document.getElementById('destination').value);
+  params.set('data',document.getElementById('dep-date').value);
+  params.set('ora',document.getElementById('dep-time').value);
+  params.set('ogni',document.getElementById('step-km').value);
+  const url=location.origin+location.pathname+'?'+params.toString();
+  if(navigator.share){
+    navigator.share({title:'RouteCast',text:'Il mio percorso con meteo',url}).catch(()=>{});
+  }else{
+    navigator.clipboard?.writeText(url).then(()=>showToast('Link copiato!'),()=>showToast(url));
+  }
+}
+
+function loadFromUrl(){
+  const p=new URLSearchParams(location.search);
+  if(p.get('da'))document.getElementById('origin').value=p.get('da');
+  if(p.get('a'))document.getElementById('destination').value=p.get('a');
+  if(p.get('data'))document.getElementById('dep-date').value=p.get('data');
+  if(p.get('ora'))document.getElementById('dep-time').value=p.get('ora');
+  if(p.get('ogni'))document.getElementById('step-km').value=p.get('ogni');
+  if(p.get('da')&&p.get('a'))setTimeout(computeRoute,400);
+}
+
+// ════════════ MAIN ════════════
+async function computeRoute(){
+  const o=document.getElementById('origin').value.trim(),d=document.getElementById('destination').value.trim();
+  if(!o||!d){showToast('Inserisci partenza e destinazione');return}
+  clearOverview();clearDetail();allRoutes=[];savedPins=[];detailRouteIdx=-1;
+  Object.keys(wxCache).forEach(k=>delete wxCache[k]);
+  document.getElementById('empty-state').style.display='none';
+  document.getElementById('route-sheet').classList.remove('visible');
+  document.getElementById('detail-sheet').classList.remove('visible');
+  document.getElementById('alert-banner').classList.remove('visible');
+  document.getElementById('go-btn').disabled=true;
+
+  try{
+    setLoading('Ricerca indirizzi…');
+    // resolve origin, waypoints, destination
+    const wpInputs=[...document.querySelectorAll('#wp-container input')].map(el=>el.value.trim()).filter(Boolean);
+    const queries=[o,...wpInputs,d];
+    const coordsList=[];
+    try{
+      for(const q of queries){coordsList.push(await geocode(q))}
+    }catch(e){
+      throw new Error('Geocoding (Photon) non raggiungibile: '+e.message);
+    }
+
+    setLoading('Calcolo percorsi alternativi…');
+    let routesOk;
+    try{
+      routesOk=await getRoutes(coordsList);
+    }catch(e){
+      throw new Error('Routing (OSRM) non raggiungibile: '+e.message);
+    }
+    allRoutes=routesOk;
+
+    buildCards();
+    renderOverview();
+    clearLoading();
+
+    const depTs=getBaseDepTs();
+    for(let i=0;i<allRoutes.length;i++){
+      const s=await analyseRoute(allRoutes[i],i,depTs);
+      allRoutes[i].summary=s;
+      fillCardWeather(i,s);
+      if(mode==='overview')addPanoramaPins(s.pins);
+      savedPins=savedPins.concat(s.pins);
+    }
+  }catch(e){
+    clearLoading();showToast(e.message);
+    document.getElementById('empty-state').style.display='';
+  }finally{
+    document.getElementById('go-btn').disabled=false;
+  }
+}
+
+// step dropdown live refresh
+document.getElementById('step-km').addEventListener('change',()=>{if(mode==='detail')refreshDetailMarkers()});
+
+// android/browser back
+window.addEventListener('popstate',()=>{if(mode==='detail')backToOverview()});
+
+// PWA service worker (inline, optional caching)
+if('serviceWorker' in navigator){
+  const swCode=`self.addEventListener('install',e=>self.skipWaiting());self.addEventListener('fetch',e=>{});`;
+  const blob=new Blob([swCode],{type:'text/javascript'});
+  navigator.serviceWorker.register(URL.createObjectURL(blob)).catch(()=>{});
+}
+
+// load shared URL params on startup
+loadFromUrl();
+</script>
+</body>
+</html>
