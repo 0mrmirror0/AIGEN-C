@@ -1,20 +1,32 @@
 {
-  "updatedAt": "2026-06-09T08:31:32.549411+00:00",
+  "updatedAt": "2026-06-09T10:14:46.391568+00:00",
   "items": [
+    {
+      "title": "09/06/2026",
+      "text": "La stampa parla di noi...! Giovedì 18:30, Viale Masia 29, Como Lake HUB. 80 minuti nel futuro, con Marco Rapelli",
+      "url": "https://t.me/AIGEN_C/349",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/349/image-9df964fd4b.jpg"
+      }
+    },
     {
       "title": "08/06/2026",
       "text": "Giovedì nuova conferenza! Ore 18:30 viale Masia 29, Como Lake Hub. Parleremo come sempre di AI, Agenti e Robot. Cos'è successo di straordinario in queste due settimane nel mondo AI? I l colorato combattimento tra Van Gog…",
-      "url": "https://t.me/AIGEN_C/346"
+      "url": "https://t.me/AIGEN_C/346",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/346/image-c298c24d82.jpg"
+      }
     },
     {
       "title": "06/06/2026",
       "text": "Sul web, bot e AI generano più traffico degli esseri umani. Da un mese. Può sembrare una amara sorpresa, ma in realtà basta ricordare cosa è successo alle email. Nel 2005 (o forse già prima) le email automatizzate avevan…",
-      "url": "https://t.me/AIGEN_C/345"
-    },
-    {
-      "title": "04/06/2026",
-      "text": "NVIDIA ENTRERA' NEI PERSONAL COMPUTER CON I SUOI CHIP Ancora una volta sta per cambiare tutto, questa volta nel mondo hardware. Fino ad oggi, i principali produttori di processori per i personal computer erano prodotti d…",
-      "url": "https://t.me/AIGEN_C/344"
+      "url": "https://t.me/AIGEN_C/345",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/345/image-7d97ea15f1.jpg"
+      }
     }
   ]
 }
