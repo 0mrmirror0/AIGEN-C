@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-06-10T03:58:39.643748+00:00",
+  "updatedAt": "2026-06-10T08:14:03.893312+00:00",
   "items": [
+    {
+      "title": "10/06/2026",
+      "text": "Rilasciato Claude 5 Fable. È la versione ‘commerciale’ di Claude Mythos: stessa classe (livello GPT5.5), ma depotenziato. Già dal numero della versione è evidente che si tratta di un salto in avanti: Claude 4.6, 4.7, 4.8…",
+      "url": "https://t.me/AIGEN_C/351",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/351/image-e6595190dc.jpg"
+      }
+    },
     {
       "title": "09/06/2026",
       "text": "La stampa parla di noi...! Giovedì 18:30, Viale Masia 29, Como Lake HUB. 80 minuti nel futuro, con Marco Rapelli",
@@ -17,15 +26,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/346/image-c298c24d82.jpg"
-      }
-    },
-    {
-      "title": "06/06/2026",
-      "text": "Sul web, bot e AI generano più traffico degli esseri umani. Da un mese. Può sembrare una amara sorpresa, ma in realtà basta ricordare cosa è successo alle email. Nel 2005 (o forse già prima) le email automatizzate avevan…",
-      "url": "https://t.me/AIGEN_C/345",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/345/image-7d97ea15f1.jpg"
       }
     }
   ]
