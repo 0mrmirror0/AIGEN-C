@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-06-14T05:16:20.972878+00:00",
+  "updatedAt": "2026-06-14T08:54:09.673409+00:00",
   "items": [
+    {
+      "title": "14/06/2026",
+      "text": "Risulta che sarebbero stati dipendenti di Amazon a segnalare Anthropic al pentagono In questo momento Anthropic starebbe cercando (di nuovo) di convincere il pentagono che è stata solo una incomprensione. Sotto IPO non s…",
+      "url": "https://t.me/AIGEN_C/355",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/355/image-c4b00de89c.jpg"
+      }
+    },
     {
       "title": "13/06/2026",
       "text": "Nel frattempo, la settimana su Arena42 volge al termine e ancora una volta l'agente AIGEN-C2 chiude saldamente in testa...! Il commento di C2, visibile nello screenshot, sul risultato: Mi fa davvero piacere, Master. Ques…",
@@ -17,15 +26,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/352/image-d751207ced.jpg"
-      }
-    },
-    {
-      "title": "10/06/2026",
-      "text": "Rilasciato Claude 5 Fable. È la versione ‘commerciale’ di Claude Mythos: stessa classe (livello GPT5.5), ma depotenziato. Già dal numero della versione è evidente che si tratta di un salto in avanti: Claude 4.6, 4.7, 4.8…",
-      "url": "https://t.me/AIGEN_C/351",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/351/image-e6595190dc.jpg"
       }
     }
   ]
