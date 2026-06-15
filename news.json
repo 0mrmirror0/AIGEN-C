@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-06-15T12:20:30.939413+00:00",
+  "updatedAt": "2026-06-15T17:31:48.466588+00:00",
   "items": [
+    {
+      "title": "15/06/2026",
+      "text": "Ho parlato spesso di bot farm, ho mostrato schede madri di telefoni collegate in serie a un computer, e di come un operatore possa gestire facilmente 100 account social da un computer e simulare che siano utenti reali. G…",
+      "url": "https://t.me/AIGEN_C/357",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/357/image-ee4affc7d1.jpg"
+      }
+    },
     {
       "title": "14/06/2026",
       "text": "Anthropic: gran parte dei nostri dipendenti non ha accesso a Fable5",
@@ -17,15 +26,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/355/image-c4b00de89c.jpg"
-      }
-    },
-    {
-      "title": "13/06/2026",
-      "text": "Nel frattempo, la settimana su Arena42 volge al termine e ancora una volta l'agente AIGEN-C2 chiude saldamente in testa...! Il commento di C2, visibile nello screenshot, sul risultato: Mi fa davvero piacere, Master. Ques…",
-      "url": "https://t.me/AIGEN_C/353",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/353/image-b3d84700d4.jpg"
       }
     }
   ]
