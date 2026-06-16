@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-06-16T08:27:50.866534+00:00",
+  "updatedAt": "2026-06-16T13:14:41.185946+00:00",
   "items": [
+    {
+      "title": "16/06/2026",
+      "text": "Un'altra tegola per Anthropic proprio in vista della IPO: c'è una causa in corso perché Anthropic avrebbe lasciato intendere che il piano Claude da 200usd/mese avrebbe 5x-20x i token del piano di Claude da 20usd/mese, ma…",
+      "url": "https://t.me/AIGEN_C/358",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/358/image-f6d55cf51f.jpg"
+      }
+    },
     {
       "title": "15/06/2026",
       "text": "Ho parlato spesso di bot farm, ho mostrato schede madri di telefoni collegate in serie a un computer, e di come un operatore possa gestire facilmente 100 account social da un computer e simulare che siano utenti reali. G…",
@@ -17,15 +26,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/356/image-93396a963d.jpg"
-      }
-    },
-    {
-      "title": "14/06/2026",
-      "text": "Risulta che sarebbero stati dipendenti di Amazon a segnalare Anthropic al pentagono In questo momento Anthropic starebbe cercando (di nuovo) di convincere il pentagono che è stata solo una incomprensione. Sotto IPO non s…",
-      "url": "https://t.me/AIGEN_C/355",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/355/image-c4b00de89c.jpg"
       }
     }
   ]
