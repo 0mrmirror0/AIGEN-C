@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-06-18T05:18:36.557590+00:00",
+  "updatedAt": "2026-06-18T09:55:02.422412+00:00",
   "items": [
+    {
+      "title": "18/06/2026",
+      "text": "Ecco una applicazione AI utile all'uomo: Midjourney ha annunciato una nuova macchina per analisi mediche. Risultato più preciso della risonanza magnetica Interi organi visualizzati nel dettaglio Niente radiazioni Corpo i…",
+      "url": "https://t.me/AIGEN_C/359",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/359/image-ca7712160d.jpg"
+      }
+    },
     {
       "title": "16/06/2026",
       "text": "Un'altra tegola per Anthropic proprio in vista della IPO: c'è una causa in corso perché Anthropic avrebbe lasciato intendere che il piano Claude da 200usd/mese avrebbe 5x-20x i token del piano di Claude da 20usd/mese, ma…",
@@ -17,15 +26,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/357/image-ee4affc7d1.jpg"
-      }
-    },
-    {
-      "title": "14/06/2026",
-      "text": "Anthropic: gran parte dei nostri dipendenti non ha accesso a Fable5",
-      "url": "https://t.me/AIGEN_C/356",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/356/image-93396a963d.jpg"
       }
     }
   ]
