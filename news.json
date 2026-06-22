@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-06-22T08:38:50.213789+00:00",
+  "updatedAt": "2026-06-22T14:43:16.524042+00:00",
   "items": [
+    {
+      "title": "22/06/2026",
+      "text": "Giovedí ore 18:30 Como Lake Hub, Viale Masia 29 Quarta e ultima (per ora) conferenza. * Fable5, l'AI bloccata dal governo USA * Nuovi modelli con comportamenti inatttesi * Agenti: come creare e inviare newsletter Da non …",
+      "url": "https://t.me/AIGEN_C/360",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/360/image-88130587a0.jpg"
+      }
+    },
     {
       "title": "18/06/2026",
       "text": "Ecco una applicazione AI utile all'uomo: Midjourney ha annunciato una nuova macchina per analisi mediche. Risultato più preciso della risonanza magnetica Interi organi visualizzati nel dettaglio Niente radiazioni Corpo i…",
@@ -17,15 +26,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/358/image-f6d55cf51f.jpg"
-      }
-    },
-    {
-      "title": "15/06/2026",
-      "text": "Ho parlato spesso di bot farm, ho mostrato schede madri di telefoni collegate in serie a un computer, e di come un operatore possa gestire facilmente 100 account social da un computer e simulare che siano utenti reali. G…",
-      "url": "https://t.me/AIGEN_C/357",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/357/image-ee4affc7d1.jpg"
       }
     }
   ]
