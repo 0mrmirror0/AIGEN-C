@@ -1,6 +1,11 @@
 {
-  "updatedAt": "2026-06-23T16:10:02.958654+00:00",
+  "updatedAt": "2026-06-23T18:21:00.298165+00:00",
   "items": [
+    {
+      "title": "23/06/2026",
+      "text": "GLI ERRORI PIÙ COMUNI CON GLI AGENTI E COME EVITARLI N uovo episodio: mai avviare un processo senza averlo testato a fondo per un mese. O due. Ieri per errore il canale whatsapp ha mandato 5 volte la notifica del post de…",
+      "url": "https://t.me/AIGEN_C/362"
+    },
     {
       "title": "22/06/2026",
       "text": "In arrivo GPT5.6 giovedì. Se il modello sarà disponibile per l'inizio della conferenza, ne parleremo giovedì stesso - ore 18:30, Como Lake Hub..!",
@@ -17,15 +22,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/360/image-88130587a0.jpg"
-      }
-    },
-    {
-      "title": "18/06/2026",
-      "text": "Ecco una applicazione AI utile all'uomo: Midjourney ha annunciato una nuova macchina per analisi mediche. Risultato più preciso della risonanza magnetica Interi organi visualizzati nel dettaglio Niente radiazioni Corpo i…",
-      "url": "https://t.me/AIGEN_C/359",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/359/image-ca7712160d.jpg"
       }
     }
   ]
