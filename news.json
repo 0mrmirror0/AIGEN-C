@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-06-25T04:46:24.921798+00:00",
+  "updatedAt": "2026-06-25T08:24:31.306220+00:00",
   "items": [
+    {
+      "title": "25/06/2026",
+      "text": "ChatGPT 5.6 è in arrivo ed è già sicuramente in fase di test pre-rilascio. Come si fa a condurre un test pre-rilascio? Si rilascia il nuovo modello su una fetta di utenti per un periodo limitato e si raccolgono i dati. N…",
+      "url": "https://t.me/AIGEN_C/363",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/363/image-1c598d1a29.jpg"
+      }
+    },
     {
       "title": "23/06/2026",
       "text": "GLI ERRORI PIÙ COMUNI CON GLI AGENTI E COME EVITARLI N uovo episodio: mai avviare un processo senza averlo testato a fondo per un mese. O due. Ieri per errore il canale whatsapp ha mandato 5 volte la notifica del post de…",
@@ -13,15 +22,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/361/image-5598896c5a.jpg"
-      }
-    },
-    {
-      "title": "22/06/2026",
-      "text": "Giovedí ore 18:30 Como Lake Hub, Viale Masia 29 Quarta e ultima (per ora) conferenza. * Fable5, l'AI bloccata dal governo USA * Nuovi modelli con comportamenti inatttesi * Agenti: come creare e inviare newsletter Da non …",
-      "url": "https://t.me/AIGEN_C/360",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/360/image-88130587a0.jpg"
       }
     }
   ]
