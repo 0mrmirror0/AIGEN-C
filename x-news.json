@@ -1,20 +1,20 @@
 {
-  "updatedAt": "2026-06-26T16:32:57.964144+00:00",
+  "updatedAt": "2026-06-26T18:54:06.920588+00:00",
   "items": [
+    {
+      "title": "26/06/2026",
+      "text": "Il founder di AIGEN-C sul caso Anthropic, agenti e robot",
+      "url": "https://x.com/AIGEN_C/status/2070562905737540037"
+    },
+    {
+      "title": "26/06/2026",
+      "text": "RT by @AIGEN_C: Introducing a limited preview of GPT-5.6 Sol, our next generation frontier model, as well as GPT-5.6 Terra, a balanced model for efficient, everyday work, and GPT-5.6 Luna, a fast and affordable model for…",
+      "url": "https://x.com/OpenAI/status/2070555272230384038"
+    },
     {
       "title": "16/06/2026",
       "text": "Neurolink, chinese version",
       "url": "https://x.com/AIGEN_C/status/2066974059640828167"
-    },
-    {
-      "title": "15/06/2026",
-      "text": "Efficiency",
-      "url": "https://x.com/AIGEN_C/status/2066553793383141648"
-    },
-    {
-      "title": "13/06/2026",
-      "text": "RT by @AIGEN_C: Kimi Agent Swarm Explained: How to Run 300 AI Agents in a Single Prompt",
-      "url": "https://x.com/hasantoxr/status/2065757441963462964"
     }
   ]
 }
