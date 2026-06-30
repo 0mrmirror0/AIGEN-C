@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-06-30T06:14:40.410792+00:00",
+  "updatedAt": "2026-06-30T10:07:01.429433+00:00",
   "items": [
+    {
+      "title": "30/06/2026",
+      "text": "Ziphu AI è l’azienda cinese che ha creato GLM-5.2, il modello open source e scaricabile in locale che ha performance pari a gpt5.5 e Fable5 L’azienda cinese dichiara di aver sviluppato un modello della potenza di Mythos,…",
+      "url": "https://t.me/AIGEN_C/367",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/367/image-169cc81102.jpg"
+      }
+    },
     {
       "title": "27/06/2026",
       "text": "Sembra che avremo ChatGPT 5.6 in tre versioni: Sol, Terra, Luna. Secondo Pliny the Liberator ci sarà un ChatGPT di prima, seconda e terza classe. come una volta sui primi treni.",
@@ -14,15 +23,6 @@
       "title": "26/06/2026",
       "text": "Grazie per la partecipazione alla conferenza di Como Lake Innovation Lab - 80 minuti nel futuro. Il talk finale ha generato forse più domande che risposte... come accennava la co-founder di AIGEN-C, \"la mappa è finita mo…",
       "url": "https://t.me/AIGEN_C/365"
-    },
-    {
-      "title": "25/06/2026",
-      "text": "ChatGPT 5.6 è in arrivo ed è già sicuramente in fase di test pre-rilascio. Come si fa a condurre un test pre-rilascio? Si rilascia il nuovo modello su una fetta di utenti per un periodo limitato e si raccolgono i dati. N…",
-      "url": "https://t.me/AIGEN_C/363",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/363/image-1c598d1a29.jpg"
-      }
     }
   ]
 }
