@@ -1,6 +1,11 @@
 {
-  "updatedAt": "2026-07-01T21:07:03.450491+00:00",
+  "updatedAt": "2026-07-01T22:47:37.990278+00:00",
   "items": [
+    {
+      "title": "01/07/2026",
+      "text": "...aaand is back!",
+      "url": "https://x.com/AIGEN_C/status/2072450544518467714"
+    },
     {
       "title": "28/06/2026",
       "text": "RT by @AIGEN_C: Happy Birthday to Elon Musk. Thank you for buying Twitter. It saved free speech.",
@@ -10,11 +15,6 @@
       "title": "26/06/2026",
       "text": "Il founder di AIGEN-C sul caso Anthropic, agenti e robot",
       "url": "https://x.com/AIGEN_C/status/2070562905737540037"
-    },
-    {
-      "title": "26/06/2026",
-      "text": "RT by @AIGEN_C: Introducing a limited preview of GPT-5.6 Sol, our next generation frontier model, as well as GPT-5.6 Terra, a balanced model for efficient, everyday work, and GPT-5.6 Luna, a fast and affordable model for…",
-      "url": "https://x.com/OpenAI/status/2070555272230384038"
     }
   ]
 }
