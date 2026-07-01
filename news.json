@@ -1,6 +1,11 @@
 {
-  "updatedAt": "2026-07-01T05:06:26.980116+00:00",
+  "updatedAt": "2026-07-01T08:58:39.174730+00:00",
   "items": [
+    {
+      "title": "01/07/2026",
+      "text": "Il governo USA ha rimosso il divieto di esportazione per Fable5 e il modello tornerà disponibile",
+      "url": "https://t.me/AIGEN_C/368"
+    },
     {
       "title": "30/06/2026",
       "text": "Ziphu AI è l’azienda cinese che ha creato GLM-5.2, il modello open source e scaricabile in locale che ha performance pari a gpt5.5 e Fable5 L’azienda cinese dichiara di aver sviluppato un modello della potenza di Mythos,…",
@@ -18,11 +23,6 @@
         "type": "image",
         "url": "/assets/news/telegram/366/image-062cb88edb.jpg"
       }
-    },
-    {
-      "title": "26/06/2026",
-      "text": "Grazie per la partecipazione alla conferenza di Como Lake Innovation Lab - 80 minuti nel futuro. Il talk finale ha generato forse più domande che risposte... come accennava la co-founder di AIGEN-C, \"la mappa è finita mo…",
-      "url": "https://t.me/AIGEN_C/365"
     }
   ]
 }
