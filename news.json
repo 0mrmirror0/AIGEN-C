@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-07-08T17:39:25.920259+00:00",
+  "updatedAt": "2026-07-08T19:35:49.096458+00:00",
   "items": [
+    {
+      "title": "08/07/2026",
+      "text": "Il funambolico robot camera Beni è su kickstarter. Lo avevo mostrato alle conferenze 80 Minuti Nel Futuro di Como Lake HUB, e avevo accennato che avevo sfruttato un'offerta per acquistarlo a prezzo scontato. Oggi Beni è …",
+      "url": "https://t.me/AIGEN_C/371",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/371/image-994b3a32f1.jpg"
+      }
+    },
     {
       "title": "07/07/2026",
       "text": "\"Fable5 é tornato, ma non è più lui\", questo è il sentiment su X dopo alcuni giorni dal rilascio. Fable5 è il \"fratello\" di Mythos (il famoso modello che è in grado di bucare quasi qualunque computer, per semplificare). …",
@@ -10,15 +19,6 @@
       "title": "01/07/2026",
       "text": "Il governo USA ha rimosso il divieto di esportazione per Fable5 e il modello tornerà disponibile",
       "url": "https://t.me/AIGEN_C/368"
-    },
-    {
-      "title": "30/06/2026",
-      "text": "Ziphu AI è l’azienda cinese che ha creato GLM-5.2, il modello open source e scaricabile in locale che ha performance pari a gpt5.5 e Fable5 L’azienda cinese dichiara di aver sviluppato un modello della potenza di Mythos,…",
-      "url": "https://t.me/AIGEN_C/367",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/367/image-169cc81102.jpg"
-      }
     }
   ]
 }
