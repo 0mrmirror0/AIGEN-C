@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-07-09T08:29:31.687388+00:00",
+  "updatedAt": "2026-07-09T11:28:19.733684+00:00",
   "items": [
+    {
+      "title": "09/07/2026",
+      "text": "OpenAI ha reso disponibile il nuovo modello vocale per ChatGPT. Linguaggio e intonazioni naturali, ma soprattutto non c'è più bisogno di aspettare che ci si capisca a vicenda, perchè l'audio è bidirezionale in full duple…",
+      "url": "https://t.me/AIGEN_C/372",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/372/image-3a0677f831.jpg"
+      }
+    },
     {
       "title": "08/07/2026",
       "text": "Il funambolico robot camera Beni è su kickstarter. Lo avevo mostrato alle conferenze 80 Minuti Nel Futuro di Como Lake HUB, e avevo accennato che avevo sfruttato un'offerta per acquistarlo a prezzo scontato. Oggi Beni è …",
@@ -14,11 +23,6 @@
       "title": "07/07/2026",
       "text": "\"Fable5 é tornato, ma non è più lui\", questo è il sentiment su X dopo alcuni giorni dal rilascio. Fable5 è il \"fratello\" di Mythos (il famoso modello che è in grado di bucare quasi qualunque computer, per semplificare). …",
       "url": "https://t.me/AIGEN_C/370"
-    },
-    {
-      "title": "01/07/2026",
-      "text": "Il governo USA ha rimosso il divieto di esportazione per Fable5 e il modello tornerà disponibile",
-      "url": "https://t.me/AIGEN_C/368"
     }
   ]
 }
