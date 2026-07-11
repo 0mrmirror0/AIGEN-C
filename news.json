@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-07-11T18:00:29.525843+00:00",
+  "updatedAt": "2026-07-11T19:41:42.170442+00:00",
   "items": [
+    {
+      "title": "11/07/2026",
+      "text": "Casual game molto semplice realizzato con Fable5. Ho dato a Claude il video su youtube di un vecchio gioco e gli ho chiesto di rifarlo per me. Questa notte lo ha completato e si puó collaudare, anche non é ancora pronto …",
+      "url": "https://t.me/AIGEN_C/374",
+      "media": {
+        "type": "video",
+        "url": "/assets/news/telegram/374/video-b04916569e.jpg"
+      }
+    },
     {
       "title": "09/07/2026",
       "text": "OpenAI ha reso disponibile il nuovo modello vocale per ChatGPT. Linguaggio e intonazioni naturali, ma soprattutto non c'è più bisogno di aspettare che ci si capisca a vicenda, perchè l'audio è bidirezionale in full duple…",
@@ -18,11 +27,6 @@
         "type": "image",
         "url": "/assets/news/telegram/371/image-994b3a32f1.jpg"
       }
-    },
-    {
-      "title": "07/07/2026",
-      "text": "\"Fable5 é tornato, ma non è più lui\", questo è il sentiment su X dopo alcuni giorni dal rilascio. Fable5 è il \"fratello\" di Mythos (il famoso modello che è in grado di bucare quasi qualunque computer, per semplificare). …",
-      "url": "https://t.me/AIGEN_C/370"
     }
   ]
 }
