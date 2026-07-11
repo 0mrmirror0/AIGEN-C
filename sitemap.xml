@@ -19,7 +19,13 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://aigen-c.com/siliconsoccer/v2/</loc>
+    <loc>https://aigen-c.com/siliconsoccer/V2-pilonitrasp/</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aigen-c.com/siliconsoccer/V3/</loc>
     <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
