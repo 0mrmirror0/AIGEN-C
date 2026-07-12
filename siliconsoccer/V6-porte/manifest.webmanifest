@@ -1,0 +1,45 @@
+{
+  "name": "Silicon Soccer",
+  "short_name": "SiliconSoccer",
+  "description": "Turn-based liquid football on a microchip. Outsmart a physics-simulating AI.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b0e15",
+  "theme_color": "#0b0e15",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "id": "./",
+  "categories": [
+    "games",
+    "sports"
+  ],
+  "screenshots": [
+    {
+      "src": "ss_planning.png",
+      "sizes": "672x796",
+      "type": "image/png",
+      "label": "Plan your move"
+    },
+    {
+      "src": "ss_action.png",
+      "sizes": "672x796",
+      "type": "image/png",
+      "label": "Launch!"
+    }
+  ]
+}
