@@ -500,10 +500,10 @@ function lerpEnts(){
 const TRACES=(()=>{
   const t=[];
   const seg=(pts)=>t.push(pts);
-  seg([[60,300],[60,140],[180,140]]); seg([[940,300],[940,140],[820,140]]);
-  seg([[60,700],[60,860],[180,860]]); seg([[940,700],[940,860],[820,860]]);
-  seg([[250,60],[250,110]]); seg([[750,60],[750,110]]);
-  seg([[250,940],[250,890]]); seg([[750,940],[750,890]]);
+  seg([[60,300],[60,160],[180,160]]); seg([[940,300],[940,160],[820,160]]);
+  seg([[60,700],[60,840],[180,840]]); seg([[940,700],[940,840],[820,840]]);
+  seg([[250,100],[250,150]]); seg([[750,100],[750,150]]);
+  seg([[250,900],[250,850]]); seg([[750,900],[750,850]]);
   seg([[140,500],[220,500]]); seg([[860,500],[780,500]]);
   return t;
 })();
@@ -511,29 +511,40 @@ const TRACES=(()=>{
 function roundRectPath(c,x,y,w,h,r){c.beginPath();c.moveTo(x+r,y);c.arcTo(x+w,y,x+w,y+h,r);
   c.arcTo(x+w,y+h,x,y+h,r);c.arcTo(x,y+h,x,y,r);c.arcTo(x,y,x+w,y,r);c.closePath();}
 
+function fieldRect(x1,y1,x2,y2){
+  const [ax,ay]=toScreen(x1,y1), [bx,by]=toScreen(x2,y2);
+  return [Math.min(ax,bx), Math.min(ay,by), Math.abs(bx-ax), Math.abs(by-ay)];
+}
+
 function drawField(now){
-  const k=SIZE/1000, pad=6*k, R=26*k;
-  // bezel metallico
+  const k=SIZE/1000;
+  // corpo del chip: rettangolo fino ai muri di gioco + bombature delle tasche FUORI dal perimetro
   const bez=ctx.createLinearGradient(0,0,0,SIZE);
   bez.addColorStop(0,'#39435a'); bez.addColorStop(.5,'#151a26'); bez.addColorStop(1,'#2c3448');
-  roundRectPath(ctx,pad,pad,SIZE-pad*2,SIZE-pad*2,R);
-  ctx.fillStyle=bez; ctx.fill();
+  let [rx,ry,rw,rh]=fieldRect(6,62,994,938);
+  ctx.fillStyle=bez;
+  roundRectPath(ctx,rx,ry,rw,rh,26*k); ctx.fill();
+  for(const h of CFG.HOLES){ const [hx,hy]=toScreen(h.x,h.y);
+    ctx.beginPath(); ctx.arc(hx,hy,76*k,0,7); ctx.fill(); }
   // substrato
-  const inn=12*k;
   const sub=ctx.createRadialGradient(SIZE/2,SIZE*0.35,SIZE*0.1,SIZE/2,SIZE/2,SIZE*0.75);
   sub.addColorStop(0,'#141a28'); sub.addColorStop(1,'#0d1119');
-  roundRectPath(ctx,pad+inn,pad+inn,SIZE-(pad+inn)*2,SIZE-(pad+inn)*2,R*0.7);
-  ctx.fillStyle=sub; ctx.fill();
-  ctx.strokeStyle='rgba(111,220,255,.10)'; ctx.lineWidth=1; ctx.stroke();
-  // pin dorati sul bezel
+  [rx,ry,rw,rh]=fieldRect(16,76,984,924);
+  ctx.fillStyle=sub;
+  roundRectPath(ctx,rx,ry,rw,rh,20*k); ctx.fill();
+  for(const h of CFG.HOLES){ const [hx,hy]=toScreen(h.x,h.y);
+    ctx.beginPath(); ctx.arc(hx,hy,66*k,0,7); ctx.fill(); }
+  // pin dorati sul bezel (saltando le bocche)
   ctx.fillStyle='rgba(201,168,106,.35)';
-  const NP=9;
-  for(let i=1;i<NP;i++){
-    const t=i/NP, a=pad+inn, b=SIZE-pad-inn, v=a+(b-a)*t;
-    ctx.fillRect(v-3*k, pad+2.5*k, 6*k, 4.5*k);
-    ctx.fillRect(v-3*k, SIZE-pad-7*k, 6*k, 4.5*k);
-    ctx.fillRect(pad+2.5*k, v-3*k, 4.5*k, 6*k);
-    ctx.fillRect(SIZE-pad-7*k, v-3*k, 4.5*k, 6*k);
+  for(let i=1;i<10;i++){
+    const fx=40+920*i/10;
+    if(Math.abs(fx-500)>=100){
+      let [tx,ty]=toScreen(fx,69); ctx.fillRect(tx-3*k,ty-2.2*k,6*k,4.5*k);
+      let [bx2,by2]=toScreen(fx,931); ctx.fillRect(bx2-3*k,by2-2.2*k,6*k,4.5*k);
+    }
+    const fy=100+800*i/10;
+    let [lx2,ly2]=toScreen(11,fy); ctx.fillRect(lx2-2.2*k,ly2-3*k,4.5*k,6*k);
+    let [rx2,ry2]=toScreen(989,fy); ctx.fillRect(rx2-2.2*k,ry2-3*k,4.5*k,6*k);
   }
   // tracce circuito decorative + via dots
   ctx.strokeStyle='rgba(111,220,255,.07)'; ctx.lineWidth=2*k; ctx.lineJoin='round';
@@ -556,23 +567,37 @@ function drawField(now){
   ctx.save();
   ctx.shadowColor='rgba(111,220,255,.5)'; ctx.shadowBlur=8*k;
   ctx.strokeStyle='rgba(190,235,255,.30)'; ctx.lineWidth=2*k;
-  ctx.beginPath(); ctx.moveTo(pad+inn+8*k,SIZE/2); ctx.lineTo(SIZE-pad-inn-8*k,SIZE/2); ctx.stroke();
+  let [c1x,c1y]=toScreen(30,500), [c2x]=toScreen(970,500);
+  ctx.beginPath(); ctx.moveTo(c1x,c1y); ctx.lineTo(c2x,c1y); ctx.stroke();
   ctx.beginPath(); ctx.arc(SIZE/2,SIZE/2,90*k,0,7); ctx.stroke();
   ctx.restore();
   ctx.fillStyle='rgba(190,235,255,.5)';
   ctx.beginPath(); ctx.arc(SIZE/2,SIZE/2,3*k,0,7); ctx.fill();
 
-  // porte: ENERGY GATE — piloni esagonali luminosi + rete a imbuto, senza traversa
+  // porte incassate: linea-muro con varco + tasca semicircolare oltre + piloni
   for(const h of CFG.HOLES){
     const [hx,hy]=toScreen(h.x,h.y); const r=CFG.HOLE_R*k;
-    const wall = hy<SIZE/2 ? -1 : 1;             // lato muro
-    const g=ctx.createRadialGradient(hx,hy,r*0.05,hx,hy,r);
-    g.addColorStop(0,'#03050a'); g.addColorStop(.75,'#0a0e18'); g.addColorStop(1,'#1a2233');
-    ctx.fillStyle=g; ctx.beginPath(); ctx.arc(hx,hy,r,0,7); ctx.fill();
-    // rete esagonale a imbuto (converge verso il fondo, lato muro)
-    const fx=hx, fy=hy+wall*r*0.22;
+    const out = hy<SIZE/2 ? -1 : 1;              // direzione fuori campo (schermo)
+    const defC = h.scorer===0 ? COL.blue : COL.red;
+    const defHi = h.scorer===0 ? COL.blueHi : COL.redHi;
+    // linea del muro di gioco (con varco alla bocca)
     ctx.save();
-    ctx.beginPath(); ctx.arc(hx,hy,r*0.98,0,7); ctx.clip();
+    ctx.shadowColor='rgba(111,220,255,.4)'; ctx.shadowBlur=6*k;
+    ctx.strokeStyle='rgba(190,235,255,.22)'; ctx.lineWidth=2*k;
+    let [xa]=toScreen(28,h.y), [xb]=toScreen(500-62,h.y), [xc]=toScreen(500+62,h.y), [xd]=toScreen(972,h.y);
+    if(xa>xd){[xa,xd]=[xd,xa];[xb,xc]=[xc,xb];}
+    ctx.beginPath(); ctx.moveTo(xa,hy); ctx.lineTo(xb,hy); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(xc,hy); ctx.lineTo(xd,hy); ctx.stroke();
+    ctx.restore();
+    // tasca semicircolare (pozzo oltre il muro)
+    const a0 = out<0 ? Math.PI : 0, a1 = out<0 ? Math.PI*2 : Math.PI;
+    ctx.save();
+    ctx.beginPath(); ctx.arc(hx,hy,r,a0,a1); ctx.closePath(); ctx.clip();
+    const g=ctx.createRadialGradient(hx,hy+out*r*0.3,r*0.05,hx,hy,r);
+    g.addColorStop(0,'#03050a'); g.addColorStop(.75,'#0a0e18'); g.addColorStop(1,'#1a2233');
+    ctx.fillStyle=g; ctx.fillRect(hx-r,hy-r,r*2,r*2);
+    // rete esagonale a imbuto (converge verso il fondo della tasca)
+    const fx=hx, fy=hy+out*r*0.45;
     const rings=[1,.78,.58,.4,.24];
     for(let i=0;i<rings.length;i++){
       const t=1-rings[i], ox=hx+(fx-hx)*t, oy=hy+(fy-hy)*t, rr=r*rings[i];
@@ -590,38 +615,33 @@ function drawField(now){
       ctx.lineTo(fx+Math.cos(th)*r*0.12, fy+Math.sin(th)*r*0.12);
       ctx.stroke();}
     ctx.restore();
-    // barra posteriore solida (lato muro)
-    const defC = h.scorer===0 ? COL.blue : COL.red;
-    const defHi = h.scorer===0 ? COL.blueHi : COL.redHi;
-    const bry=hy+wall*r*0.76;
+    // bordo della tasca
     ctx.save();
-    ctx.shadowColor=defC; ctx.shadowBlur=8*k;
-    const brg=ctx.createLinearGradient(0,bry-6*k,0,bry+6*k);
-    brg.addColorStop(0,'#3c475f'); brg.addColorStop(.38,'#aab7d1'); brg.addColorStop(.55,'#8794b0'); brg.addColorStop(1,'#2b3550');
-    ctx.strokeStyle=brg; ctx.lineWidth=10*k; ctx.lineCap='round';
-    ctx.beginPath(); ctx.moveTo(hx-r*1.30,bry); ctx.lineTo(hx+r*1.30,bry); ctx.stroke();
+    ctx.shadowColor=defC; ctx.shadowBlur=10*k;
+    ctx.strokeStyle=defC; ctx.globalAlpha=.5; ctx.lineWidth=2*k;
+    ctx.beginPath(); ctx.arc(hx,hy,r-1*k,a0,a1); ctx.stroke();
     ctx.restore();
-    // piloni esagonali con nucleo luminoso (colore del difensore)
+    // piloni esagonali sulle spalle della bocca (allineati alla fisica)
     const glowPulse=.65+.25*Math.sin(now/600+(h.scorer?0:2));
     for(const s of [-1,1]){
-      const x=hx+s*r*1.30, top=hy-r*0.68, bot=hy+r*0.68, w=9*k;
+      const x=hx+s*r*1.30, top=hy+out*18*k, bot=hy-out*52*k, w=9*k;
+      const yA=Math.min(top,bot), yB=Math.max(top,bot);
       ctx.save();
       ctx.shadowColor=defC; ctx.shadowBlur=12*k;
       const pg=ctx.createLinearGradient(x-w,0,x+w,0);
       pg.addColorStop(0,'#3c475f'); pg.addColorStop(.38,'#aab7d1'); pg.addColorStop(.55,'#8794b0'); pg.addColorStop(1,'#2b3550');
       ctx.fillStyle=pg;
       ctx.beginPath();
-      ctx.moveTo(x-w,top+6*k); ctx.lineTo(x-w,bot-6*k); ctx.lineTo(x,bot);
-      ctx.lineTo(x+w,bot-6*k); ctx.lineTo(x+w,top+6*k); ctx.lineTo(x,top);
+      ctx.moveTo(x-w,yA+6*k); ctx.lineTo(x-w,yB-6*k); ctx.lineTo(x,yB);
+      ctx.lineTo(x+w,yB-6*k); ctx.lineTo(x+w,yA+6*k); ctx.lineTo(x,yA);
       ctx.closePath(); ctx.fill();
       ctx.strokeStyle=defHi; ctx.lineWidth=1.5*k; ctx.stroke();
       ctx.restore();
-      // nucleo di luce
       ctx.fillStyle=defHi; ctx.globalAlpha=glowPulse;
-      ctx.fillRect(x-1.5*k, top+10*k, 3*k, bot-top-20*k);
+      ctx.fillRect(x-1.5*k, yA+9*k, 3*k, yB-yA-18*k);
       ctx.globalAlpha=1;
       // pad di ancoraggio lato campo
-      const py=hy-wall*(r*0.68+13*k);
+      const py=hy-out*(62*k);
       ctx.fillStyle='#232c3e';
       roundRectPath(ctx,x-9*k,py-6*k,18*k,12*k,4*k); ctx.fill();
       ctx.strokeStyle='rgba(122,148,196,.35)'; ctx.lineWidth=1; ctx.stroke();

@@ -7,9 +7,11 @@
 
 const W = 1000, H = 1000;
 const HOLE_R = 62;
+const WALL_Y = 80;        // muri di gioco sup/inf: le porte sono incassate oltre
+const MOUTH_HALF = 62;    // semiapertura della bocca
 const HOLES = [
-  { x: W / 2, y: 78,      scorer: 0 }, // buca in alto: palla dentro = punto ROSSO
-  { x: W / 2, y: H - 78,  scorer: 1 }, // buca in basso: punto BLU
+  { x: W / 2, y: WALL_Y,     scorer: 0 }, // porta in alto: palla dentro = punto ROSSO
+  { x: W / 2, y: H - WALL_Y, scorer: 1 }, // porta in basso: punto BLU
 ];
 const GLOB_R = 27, BALL_R = 17;
 const GLOB_M = 1.0, BALL_M = 0.5;
@@ -26,11 +28,10 @@ const POWER = 3.4;
 const GOAL_POSTS = (() => {
   const caps = [];
   for (const h of HOLES) {
-    const wall = h.y < H / 2 ? -1 : 1;
-    const px = HOLE_R * 1.30, hh = HOLE_R * 0.68;
+    const out = h.y < H / 2 ? -1 : 1;                    // direzione fuori campo
+    const px = HOLE_R * 1.30;
     for (const s of [-1, 1])
-      caps.push({ ax: h.x + s * px, ay: h.y - hh, bx: h.x + s * px, by: h.y + hh, r: 9, scorer: h.scorer, kind: 'post' });
-    caps.push({ ax: h.x - px, ay: h.y + wall * HOLE_R * 0.76, bx: h.x + px, by: h.y + wall * HOLE_R * 0.76, r: 5, scorer: h.scorer, kind: 'bar' });
+      caps.push({ ax: h.x + s * px, ay: h.y + out * 18, bx: h.x + s * px, by: h.y - out * 52, r: 9, scorer: h.scorer, kind: 'post' });
   }
   return caps;
 })();
@@ -60,8 +61,25 @@ function stepOnce(ents, dt, damp) {
     // pareti
     if (e.x < e.r) { e.x = e.r; e.vx = Math.abs(e.vx) * REST_WALL; }
     if (e.x > W - e.r) { e.x = W - e.r; e.vx = -Math.abs(e.vx) * REST_WALL; }
-    if (e.y < e.r) { e.y = e.r; e.vy = Math.abs(e.vy) * REST_WALL; }
-    if (e.y > H - e.r) { e.y = H - e.r; e.vy = -Math.abs(e.vy) * REST_WALL; }
+    const inMouth = Math.abs(e.x - W / 2) < MOUTH_HALF;
+    if (!inMouth) {
+      if (e.y < WALL_Y + e.r) { e.y = WALL_Y + e.r; e.vy = Math.abs(e.vy) * REST_WALL; }
+      if (e.y > H - WALL_Y - e.r) { e.y = H - WALL_Y - e.r; e.vy = -Math.abs(e.vy) * REST_WALL; }
+    } else {
+      // dentro la tasca: parete curva del semicerchio
+      for (const h of HOLES) {
+        const out = h.y < H / 2 ? -1 : 1;
+        const beyond = out < 0 ? e.y < h.y : e.y > h.y;
+        if (!beyond) continue;
+        const dx = e.x - h.x, dy = e.y - h.y, d = Math.hypot(dx, dy);
+        if (d > HOLE_R - e.r) {
+          const nx = dx / (d || 1), ny = dy / (d || 1);
+          e.x = h.x + nx * (HOLE_R - e.r); e.y = h.y + ny * (HOLE_R - e.r);
+          const vn = e.vx * nx + e.vy * ny;
+          if (vn > 0) { e.vx -= (1 + REST_WALL) * vn * nx; e.vy -= (1 + REST_WALL) * vn * ny; }
+        }
+      }
+    }
     // telaio porte: rimbalzo su piloni e barra posteriore
     for (const c of GOAL_POSTS) {
       const abx = c.bx - c.ax, aby = c.by - c.ay;
@@ -79,12 +97,14 @@ function stepOnce(ents, dt, damp) {
     for (const h of HOLES) {
       const dx = h.x - e.x, dy = h.y - e.y, d = Math.hypot(dx, dy);
       if (d < HOLE_R + e.r * 0.4) {
-        const pull = 2600 * (1 - d / (HOLE_R + e.r));
+        const pull = 3120 * (1 - d / (HOLE_R + e.r));  // +20% di risucchio
         e.vx += (dx / (d || 1)) * pull * dt;
         e.vy += (dy / (d || 1)) * pull * dt;
         const speed = Math.hypot(e.vx, e.vy);
-        if (d < HOLE_R * 0.55 && speed < 1100) {
-          e.dead = true; e.x = h.x; e.y = h.y; e.vx = 0; e.vy = 0;
+        const out2 = h.y < H / 2 ? -1 : 1;
+        const beyond2 = out2 < 0 ? e.y < h.y : e.y > h.y;
+        if ((beyond2 && speed < 1400) || (d < HOLE_R * 0.5 && speed < 1100)) {
+          e.dead = true; e.x = h.x; e.y = h.y + out2 * HOLE_R * 0.3; e.vx = 0; e.vy = 0;
           fell.push({ id: e.id, team: e.team, hole: { x: h.x, y: h.y } });
           if (e.id === 'ball' && goal === null) goal = h.scorer;
           break;
@@ -155,7 +175,7 @@ function rollout(entsInput, movesByTeam, maxS = 6) {
 
 return {
   W, H, HOLES, HOLE_R, GLOB_R, BALL_R, DT, DAMP, REST_WALL, REST_BODY,
-  STOP_V, MAX_SIM_S, MAX_ARROW, POWER, GOAL_POSTS,
+  STOP_V, MAX_SIM_S, MAX_ARROW, POWER, GOAL_POSTS, WALL_Y, MOUTH_HALF,
   startEnts, stepOnce, checkWipe, allStopped, rollout,
 };
 });

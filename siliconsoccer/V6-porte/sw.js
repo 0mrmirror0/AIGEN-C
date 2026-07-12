@@ -1,5 +1,5 @@
 // Silicon Soccer — service worker: gioco offline (cache-first)
-const CACHE = 'silicon-soccer-v12';
+const CACHE = 'silicon-soccer-v13';
 const ASSETS = ['./','./index.html','./physics.js','./ai.js','./engine.js',
   './manifest.webmanifest','./icon-192.png','./icon-512.png','./privacy.html'];
 
