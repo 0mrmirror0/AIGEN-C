@@ -1,7 +1,6 @@
 // Silicon Soccer — service worker: gioco offline (cache-first)
 const CACHE = 'silicon-soccer-v13';
-const ASSETS = ['./','./index.html','./physics.js','./ai.js','./engine.js',
-  './manifest.webmanifest','./icon-192.png','./icon-512.png','./privacy.html'];
+const ASSETS = ['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./privacy.html'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)).then(() => self.skipWaiting()));
