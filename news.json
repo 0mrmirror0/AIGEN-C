@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-07-13T18:16:35.827229+00:00",
+  "updatedAt": "2026-07-14T14:24:37.469315+00:00",
   "items": [
+    {
+      "title": "14/07/2026",
+      "text": "Una settimana di Claude Pro in omaggio Anthropic è in promozione in questo periodo e sta offrendo una settimana gratis di Claude Pro per i nuovi clienti che si registrano tramite link referral. Fable5 è incluso nel Pro, …",
+      "url": "https://t.me/AIGEN_C/375",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/375/image-6b09d19eca.jpg"
+      }
+    },
     {
       "title": "11/07/2026",
       "text": "Casual game molto semplice realizzato con Fable5. Ho dato a Claude il video su youtube di un vecchio gioco e gli ho chiesto di rifarlo per me. Questa notte lo ha completato e si puó collaudare, anche non é ancora pronto …",
@@ -17,15 +26,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/372/image-3a0677f831.jpg"
-      }
-    },
-    {
-      "title": "08/07/2026",
-      "text": "Il funambolico robot camera Beni è su kickstarter. Lo avevo mostrato alle conferenze 80 Minuti Nel Futuro di Como Lake HUB, e avevo accennato che avevo sfruttato un'offerta per acquistarlo a prezzo scontato. Oggi Beni è …",
-      "url": "https://t.me/AIGEN_C/371",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/371/image-994b3a32f1.jpg"
       }
     }
   ]
