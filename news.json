@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-07-15T22:03:07.808699+00:00",
+  "updatedAt": "2026-07-15T23:29:40.465778+00:00",
   "items": [
+    {
+      "title": "15/07/2026",
+      "text": "Una startup francese sta sviluppando minidroni del peso di 40g che pattugliano la stanza in cerca di una sola cosa: zanzare da abbattere al link il video",
+      "url": "https://t.me/AIGEN_C/376",
+      "media": {
+        "type": "video",
+        "url": "/assets/news/telegram/376/video-cb35a32068.jpg"
+      }
+    },
     {
       "title": "14/07/2026",
       "text": "Una settimana di Claude Pro in omaggio Anthropic è in promozione in questo periodo e sta offrendo una settimana gratis di Claude Pro per i nuovi clienti che si registrano tramite link referral. Fable5 è incluso nel Pro, …",
@@ -17,15 +26,6 @@
       "media": {
         "type": "video",
         "url": "/assets/news/telegram/374/video-b04916569e.jpg"
-      }
-    },
-    {
-      "title": "09/07/2026",
-      "text": "OpenAI ha reso disponibile il nuovo modello vocale per ChatGPT. Linguaggio e intonazioni naturali, ma soprattutto non c'è più bisogno di aspettare che ci si capisca a vicenda, perchè l'audio è bidirezionale in full duple…",
-      "url": "https://t.me/AIGEN_C/372",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/372/image-3a0677f831.jpg"
       }
     }
   ]
