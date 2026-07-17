@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-07-17T08:35:12.609686+00:00",
+  "updatedAt": "2026-07-17T10:48:52.586639+00:00",
   "items": [
+    {
+      "title": "17/07/2026",
+      "text": "Come distinguere un umano da una macchina durante una chat? Il test di Turing è stato polverizzato dalle macchine anni fa: da molto tempo infatti non siamo più in grado di dire con certezza se stiamo parlando con una mac…",
+      "url": "https://t.me/AIGEN_C/377",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/377/image-ac1b0769a7.jpg"
+      }
+    },
     {
       "title": "15/07/2026",
       "text": "Una startup francese sta sviluppando minidroni del peso di 40g che pattugliano la stanza in cerca di una sola cosa: zanzare da abbattere al link il video",
@@ -17,15 +26,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/375/image-6b09d19eca.jpg"
-      }
-    },
-    {
-      "title": "11/07/2026",
-      "text": "Casual game molto semplice realizzato con Fable5. Ho dato a Claude il video su youtube di un vecchio gioco e gli ho chiesto di rifarlo per me. Questa notte lo ha completato e si puó collaudare, anche non é ancora pronto …",
-      "url": "https://t.me/AIGEN_C/374",
-      "media": {
-        "type": "video",
-        "url": "/assets/news/telegram/374/video-b04916569e.jpg"
       }
     }
   ]
