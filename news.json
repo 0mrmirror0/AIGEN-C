@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-07-18T17:31:46.874994+00:00",
+  "updatedAt": "2026-07-18T19:08:25.122676+00:00",
   "items": [
+    {
+      "title": "18/07/2026",
+      "text": "Tra due giorni niente più Fable5 per gli abbonamenti a Claude da 20e mensili Esisterà, ma solo a pagamento, con un credito iniziale di 100usd Incluso con Claude Max (200e mensili circa)",
+      "url": "https://t.me/AIGEN_C/378",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/378/image-f8b8f7b496.jpg"
+      }
+    },
     {
       "title": "17/07/2026",
       "text": "Come distinguere un umano da una macchina durante una chat? Il test di Turing è stato polverizzato dalle macchine anni fa: da molto tempo infatti non siamo più in grado di dire con certezza se stiamo parlando con una mac…",
@@ -17,15 +26,6 @@
       "media": {
         "type": "video",
         "url": "/assets/news/telegram/376/video-cb35a32068.jpg"
-      }
-    },
-    {
-      "title": "14/07/2026",
-      "text": "Una settimana di Claude Pro in omaggio Anthropic è in promozione in questo periodo e sta offrendo una settimana gratis di Claude Pro per i nuovi clienti che si registrano tramite link referral. Fable5 è incluso nel Pro, …",
-      "url": "https://t.me/AIGEN_C/375",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/375/image-6b09d19eca.jpg"
       }
     }
   ]
