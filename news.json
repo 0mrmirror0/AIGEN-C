@@ -1,6 +1,11 @@
 {
-  "updatedAt": "2026-07-21T12:54:10.233806+00:00",
+  "updatedAt": "2026-07-21T15:04:45.732045+00:00",
   "items": [
+    {
+      "title": "21/07/2026",
+      "text": "KIMI3 il nuovo modello cinese Kimi3 é arrivato e fa grandi cose, come ogni nuovo modello. Performance ottima: non é ancora a livello di GPT5.6 e Fable5 in tutti gli ambiti, ma in alcuni benchmark é assolutamente pari. Fu…",
+      "url": "https://t.me/AIGEN_C/379"
+    },
     {
       "title": "18/07/2026",
       "text": "Tra due giorni niente più Fable5 per gli abbonamenti a Claude da 20e mensili Esisterà, ma solo a pagamento, con un credito iniziale di 100usd Incluso con Claude Max (200e mensili circa)",
@@ -17,15 +22,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/377/image-ac1b0769a7.jpg"
-      }
-    },
-    {
-      "title": "15/07/2026",
-      "text": "Una startup francese sta sviluppando minidroni del peso di 40g che pattugliano la stanza in cerca di una sola cosa: zanzare da abbattere al link il video",
-      "url": "https://t.me/AIGEN_C/376",
-      "media": {
-        "type": "video",
-        "url": "/assets/news/telegram/376/video-cb35a32068.jpg"
       }
     }
   ]
