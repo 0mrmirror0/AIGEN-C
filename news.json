@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-07-22T03:57:02.686426+00:00",
+  "updatedAt": "2026-07-22T09:27:44.992758+00:00",
   "items": [
+    {
+      "title": "22/07/2026",
+      "text": "Comunicato stampa rilasciato pochi minuti fa da Sam Altman in persona. Settimana scorsa una versione di ChatGPT ha forzato HuggingFace per uscire dall'ambiente contenuto in cui era rinchiuso. Il modello (in realtà una co…",
+      "url": "https://t.me/AIGEN_C/380",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/380/image-316860cacb.jpg"
+      }
+    },
     {
       "title": "21/07/2026",
       "text": "KIMI3 il nuovo modello cinese Kimi3 é arrivato e fa grandi cose, come ogni nuovo modello. Performance ottima: non é ancora a livello di GPT5.6 e Fable5 in tutti gli ambiti, ma in alcuni benchmark é assolutamente pari. Fu…",
@@ -13,15 +22,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/378/image-f8b8f7b496.jpg"
-      }
-    },
-    {
-      "title": "17/07/2026",
-      "text": "Come distinguere un umano da una macchina durante una chat? Il test di Turing è stato polverizzato dalle macchine anni fa: da molto tempo infatti non siamo più in grado di dire con certezza se stiamo parlando con una mac…",
-      "url": "https://t.me/AIGEN_C/377",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/377/image-ac1b0769a7.jpg"
       }
     }
   ]
