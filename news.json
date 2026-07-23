@@ -1,6 +1,11 @@
 {
-  "updatedAt": "2026-07-23T06:31:14.092753+00:00",
+  "updatedAt": "2026-07-23T11:24:30.080495+00:00",
   "items": [
+    {
+      "title": "23/07/2026",
+      "text": "Claude Opus5 in arrivo tra poche ore!",
+      "url": "https://t.me/AIGEN_C/381"
+    },
     {
       "title": "22/07/2026",
       "text": "Comunicato stampa rilasciato pochi minuti fa da Sam Altman in persona. Settimana scorsa una versione di ChatGPT ha forzato HuggingFace per uscire dall'ambiente contenuto in cui era rinchiuso. Il modello (in realtà una co…",
@@ -14,15 +19,6 @@
       "title": "21/07/2026",
       "text": "KIMI3 il nuovo modello cinese Kimi3 é arrivato e fa grandi cose, come ogni nuovo modello. Performance ottima: non é ancora a livello di GPT5.6 e Fable5 in tutti gli ambiti, ma in alcuni benchmark é assolutamente pari. Fu…",
       "url": "https://t.me/AIGEN_C/379"
-    },
-    {
-      "title": "18/07/2026",
-      "text": "Tra due giorni niente più Fable5 per gli abbonamenti a Claude da 20e mensili Esisterà, ma solo a pagamento, con un credito iniziale di 100usd Incluso con Claude Max (200e mensili circa)",
-      "url": "https://t.me/AIGEN_C/378",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/378/image-f8b8f7b496.jpg"
-      }
     }
   ]
 }
