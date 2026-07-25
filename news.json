@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-07-25T08:08:56.904343+00:00",
+  "updatedAt": "2026-07-25T10:08:12.678786+00:00",
   "items": [
+    {
+      "title": "25/07/2026",
+      "text": "Claude Opus 5 rilasciato! E nemmeno lui resisterà a un buon jailbreak... Pliny the Liberator è il primo prompt hacker della storia e ha insegnato al mondo l'arte dei jailbreak tramite prompt injection . Jailbreak = forza…",
+      "url": "https://t.me/AIGEN_C/382",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/382/image-e6595190dc.jpg"
+      }
+    },
     {
       "title": "23/07/2026",
       "text": "Claude Opus5 in arrivo tra poche ore!",
@@ -14,11 +23,6 @@
         "type": "image",
         "url": "/assets/news/telegram/380/image-316860cacb.jpg"
       }
-    },
-    {
-      "title": "21/07/2026",
-      "text": "KIMI3 il nuovo modello cinese Kimi3 é arrivato e fa grandi cose, come ogni nuovo modello. Performance ottima: non é ancora a livello di GPT5.6 e Fable5 in tutti gli ambiti, ma in alcuni benchmark é assolutamente pari. Fu…",
-      "url": "https://t.me/AIGEN_C/379"
     }
   ]
 }

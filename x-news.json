@@ -1,6 +1,11 @@
 {
-  "updatedAt": "2026-07-25T08:08:58.695828+00:00",
+  "updatedAt": "2026-07-25T10:08:14.736910+00:00",
   "items": [
+    {
+      "title": "25/07/2026",
+      "text": "Pliny did it again. And again. And again... The key point? This universal jailbreak cannot be fixed in the short term (most likely prompt injection + data poisoning, pliny-style) Well done! We look forward to test it one…",
+      "url": "https://x.com/AIGEN_C/status/2080947969730249042"
+    },
     {
       "title": "09/07/2026",
       "text": "RT by @AIGEN_C: obviously the best model we have ever produced, but also one of the best blog posts we have ever produced:",
@@ -10,11 +15,6 @@
       "title": "01/07/2026",
       "text": "RT by @AIGEN_C: fable 5 reading the code written by opus 4.8 after going afk for 19 days",
       "url": "https://x.com/0xluffy/status/2072339192185512433"
-    },
-    {
-      "title": "01/07/2026",
-      "text": "...aaand is back!",
-      "url": "https://x.com/AIGEN_C/status/2072450544518467714"
     }
   ]
 }
