@@ -51,6 +51,7 @@ window.addEventListener('unhandledrejection',function(ev){window.__err('promise:
     --blue:#4da6ff; --blue-hi:#bcdcff; --blue-dk:#173f78;
     --gold:#c9a86a; --trace:#6fdcff;
     --mono:ui-monospace,"SF Mono","Cascadia Mono","Segoe UI Mono",Menlo,monospace;
+    --shot:9/16;   /* proporzione dei pannelli di HOW TO PLAY */
   }
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html,body{margin:0;height:100%;overflow:hidden;background:var(--bg);color:var(--ink);
@@ -101,6 +102,10 @@ window.addEventListener('unhandledrejection',function(ev){window.__err('promise:
   body.replaying #app{z-index:62}                     /* il campo sopra l'overlay */
   body.replaying header,body.replaying #tbar,body.replaying footer{opacity:.10;pointer-events:none}
   /* durante il film il campo e' l'unica cosa visibile */
+  #rephint{position:fixed;left:0;right:0;bottom:16px;z-index:63;display:none;text-align:center;
+    pointer-events:none;font-family:var(--mono);font-size:12px;font-weight:800;letter-spacing:.18em;
+    color:rgba(191,227,255,.72);text-shadow:0 2px 10px rgba(0,0,0,.9)}
+  body.replaying #rephint{display:block}
   body.replaying #overlay,body.replaying #ctrbox,body.replaying #toast,
   body.replaying #chat{display:none!important}
   /* barra di avanzamento del filmato */
@@ -118,7 +123,6 @@ window.addEventListener('unhandledrejection',function(ev){window.__err('promise:
   .sbtn:disabled{opacity:.5}
   #endhint{font-size:12px;color:#5d6b85}
   /* callout tutorial */
-  .imgwrap{position:relative;display:inline-block}
   .callout{position:absolute;left:5%;right:5%;top:27%;background:#221c07ee;border:3px solid #ffd166;
     border-radius:14px;padding:9px 10px;text-align:center}
   .callout b{display:block;color:#ffd166;font-size:clamp(13px,3.6vw,17px);letter-spacing:.04em}
@@ -157,10 +161,6 @@ window.addEventListener('unhandledrejection',function(ev){window.__err('promise:
   #btn.go{background:linear-gradient(160deg,#5fe37a,#22a04a);
     box-shadow:0 0 0 1px rgba(170,255,190,.45) inset, 0 6px 22px rgba(46,180,90,.45)}
   footer.icons #msg{display:none}
-  .fabdemo{margin:10px auto 0;padding:12px 26px;width:max-content;border-radius:14px;
-    font-size:14px;font-weight:800;letter-spacing:.12em;color:#fff;
-    background:linear-gradient(160deg,#5fe37a,#22a04a);
-    box-shadow:0 0 0 1px rgba(170,255,190,.45) inset, 0 6px 22px rgba(46,180,90,.45)}
   .fab>*{position:relative}
   #btn.fab{color:#8ef29a;text-shadow:0 0 10px rgba(142,242,154,.6)}
   @keyframes fabglow{50%{filter:drop-shadow(0 0 16px rgba(120,220,150,.5)) }}
@@ -179,15 +179,6 @@ window.addEventListener('unhandledrejection',function(ev){window.__err('promise:
     animation:clin .25s ease-out}
   .cl b{font-weight:700;margin-right:5px}
   @keyframes clin{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
-  .fabdemo{--hx:polygon(25% 2%, 75% 2%, 98% 50%, 75% 98%, 25% 98%, 2% 50%);
-    position:relative;width:60px;height:54px;margin:10px auto 0;
-    display:flex;align-items:center;justify-content:center;
-    font-size:14px;font-weight:800;letter-spacing:.08em;color:#8ef29a;
-    text-shadow:0 0 10px rgba(142,242,154,.6);
-    background:linear-gradient(160deg,#6fe98a,#1f8f3a);clip-path:var(--hx);
-    filter:drop-shadow(0 0 10px rgba(62,196,92,.4))}
-  .fabdemo::before{content:'';position:absolute;inset:2px;clip-path:var(--hx);
-    background:linear-gradient(165deg,rgba(24,32,48,.96),rgba(12,16,26,.96))}
 
   /* ---------- overlay ---------- */
   #overlay{position:absolute;inset:0;display:none;align-items:center;justify-content:center;
@@ -243,14 +234,17 @@ window.addEventListener('unhandledrejection',function(ev){window.__err('promise:
     letter-spacing:.25em;color:rgba(232,237,247,.28)}
   /* ---------- how to play ---------- */
   #help{position:fixed;inset:0;z-index:20;display:none;flex-direction:column;align-items:center;
-    background:var(--bg);overflow-y:auto;touch-action:pan-y;padding:20px 18px 40px;gap:18px}
-  #help h2{margin:6px 0 0;font-size:24px;font-weight:900;letter-spacing:.08em}
-  #help .step{max-width:440px;text-align:center}
-  #help .step img{width:min(82vw,420px);border-radius:16px;border:1px solid var(--panel-line);
-    box-shadow:0 10px 30px rgba(0,0,0,.4)}
-  #help h3{margin:12px 0 4px;font-size:15px;letter-spacing:.2em;color:#8fd0ff}
+    background:var(--bg);overflow-y:auto;touch-action:pan-y;padding:20px 18px 48px;gap:38px}
+  #help h2{margin:6px 0 4px;font-size:24px;font-weight:900;letter-spacing:.08em}
+  #help .step{width:100%;max-width:440px;text-align:center}
+  /* stesso ingombro per i tre pannelli, qualunque proporzione abbia la PNG */
+  #help .shot{position:relative;width:min(82vw,420px);margin:0 auto;aspect-ratio:var(--shot);
+    border-radius:16px;border:1px solid var(--panel-line);overflow:hidden;
+    background:rgba(10,14,22,.9);box-shadow:0 10px 30px rgba(0,0,0,.4)}
+  #help .shot>svg{width:100%;height:100%;display:block}
+  #help h3{margin:14px 0 5px;font-size:15px;letter-spacing:.2em;color:#8fd0ff}
   #help p{margin:0;font-size:14px;line-height:1.5;color:var(--ink-dim)}
-  #help .fine{font-size:12.5px;max-width:420px;text-align:center;opacity:.75}
+  #help p + p{margin-top:6px}
   #setClose{position:sticky;top:6px;align-self:flex-end;background:var(--panel);
     border:1px solid var(--panel-line);border-radius:12px;color:var(--ink);
     font-size:16px;padding:6px 12px;cursor:pointer;z-index:2}
@@ -260,6 +254,53 @@ window.addEventListener('unhandledrejection',function(ev){window.__err('promise:
 </style>
 </head>
 <body>
+<svg id="ssdefs" width="0" height="0" aria-hidden="true" style="position:absolute;left:-9999px" xmlns="http://www.w3.org/2000/svg"><defs>
+  <linearGradient id="bez" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="1280">
+    <stop offset="0" stop-color="#39435a"/><stop offset=".5" stop-color="#151a26"/>
+    <stop offset="1" stop-color="#2c3448"/></linearGradient>
+  <radialGradient id="sub" gradientUnits="userSpaceOnUse"
+    cx="360" cy="448" r="1024">
+    <stop offset="0" stop-color="#141a28"/><stop offset="1" stop-color="#0d1119"/></radialGradient>
+  <radialGradient id="pitT" gradientUnits="userSpaceOnUse"
+    cx="360" cy="73" r="78">
+    <stop offset="0" stop-color="#03050a"/><stop offset=".75" stop-color="#0a0e18"/>
+    <stop offset="1" stop-color="#1a2233"/></radialGradient>
+  <radialGradient id="walT" gradientUnits="userSpaceOnUse"
+    cx="360" cy="96" r="87">
+    <stop offset=".87" stop-color="#2b3550"/><stop offset=".92" stop-color="#aab7d1"/>
+    <stop offset=".95" stop-color="#8794b0"/><stop offset="1" stop-color="#3c475f"/></radialGradient><radialGradient id="pitB" gradientUnits="userSpaceOnUse"
+    cx="360" cy="1207" r="78">
+    <stop offset="0" stop-color="#03050a"/><stop offset=".75" stop-color="#0a0e18"/>
+    <stop offset="1" stop-color="#1a2233"/></radialGradient>
+  <radialGradient id="walB" gradientUnits="userSpaceOnUse"
+    cx="360" cy="1184" r="87">
+    <stop offset=".87" stop-color="#2b3550"/><stop offset=".92" stop-color="#aab7d1"/>
+    <stop offset=".95" stop-color="#8794b0"/><stop offset="1" stop-color="#3c475f"/></radialGradient>
+  <radialGradient id="rb" cx="35%" cy="30%" r="78%">
+    <stop offset="0" stop-color="#ffb0a4"/><stop offset=".45" stop-color="#ff5b4a"/>
+    <stop offset="1" stop-color="#8f2018"/></radialGradient>
+  <radialGradient id="bb" cx="35%" cy="30%" r="78%">
+    <stop offset="0" stop-color="#bcdcff"/><stop offset=".45" stop-color="#4da6ff"/>
+    <stop offset="1" stop-color="#173f78"/></radialGradient>
+  <radialGradient id="core" cx="38%" cy="32%" r="72%">
+    <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#c9dcf5"/></radialGradient>
+  <filter id="gr" x="-70%" y="-70%" width="240%" height="240%">
+    <feGaussianBlur stdDeviation="12" result="b"/><feFlood flood-color="#ff5b4a" flood-opacity=".8"/>
+    <feComposite in2="b" operator="in"/>
+    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="gb" x="-70%" y="-70%" width="240%" height="240%">
+    <feGaussianBlur stdDeviation="12" result="b"/><feFlood flood-color="#4da6ff" flood-opacity=".8"/>
+    <feComposite in2="b" operator="in"/>
+    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="gw" x="-90%" y="-90%" width="280%" height="280%">
+    <feGaussianBlur stdDeviation="10" result="b"/><feFlood flood-color="#dbeaff" flood-opacity=".85"/>
+    <feComposite in2="b" operator="in"/>
+    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="gt" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="5" result="b"/><feFlood flood-color="#6fdcff" flood-opacity=".5"/>
+    <feComposite in2="b" operator="in"/>
+    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs><defs><g id="ssfield"><rect width="720" height="1280" fill="#0b0e15"/><g fill="url(#bez)"><rect x="6" y="62" width="708" height="1156" rx="26"/><circle cx="360" cy="96" r="92"/><circle cx="360" cy="1184" r="92"/></g><g fill="url(#sub)"><rect x="16" y="76" width="688" height="1128" rx="20"/><circle cx="360" cy="96" r="82"/><circle cx="360" cy="1184" r="82"/></g><g fill="rgba(201,168,106,.35)"><rect x="101" y="67" width="6" height="4.5"/><rect x="101" y="1209" width="6" height="4.5"/><rect x="8.8" y="221" width="4.5" height="6"/><rect x="706.8" y="221" width="4.5" height="6"/><rect x="165" y="67" width="6" height="4.5"/><rect x="165" y="1209" width="6" height="4.5"/><rect x="8.8" y="325" width="4.5" height="6"/><rect x="706.8" y="325" width="4.5" height="6"/><rect x="229" y="67" width="6" height="4.5"/><rect x="229" y="1209" width="6" height="4.5"/><rect x="8.8" y="429" width="4.5" height="6"/><rect x="706.8" y="429" width="4.5" height="6"/><rect x="8.8" y="533" width="4.5" height="6"/><rect x="706.8" y="533" width="4.5" height="6"/><rect x="8.8" y="637" width="4.5" height="6"/><rect x="706.8" y="637" width="4.5" height="6"/><rect x="8.8" y="741" width="4.5" height="6"/><rect x="706.8" y="741" width="4.5" height="6"/><rect x="485" y="67" width="6" height="4.5"/><rect x="485" y="1209" width="6" height="4.5"/><rect x="8.8" y="845" width="4.5" height="6"/><rect x="706.8" y="845" width="4.5" height="6"/><rect x="549" y="67" width="6" height="4.5"/><rect x="549" y="1209" width="6" height="4.5"/><rect x="8.8" y="949" width="4.5" height="6"/><rect x="706.8" y="949" width="4.5" height="6"/><rect x="613" y="67" width="6" height="4.5"/><rect x="613" y="1209" width="6" height="4.5"/><rect x="8.8" y="1053" width="4.5" height="6"/><rect x="706.8" y="1053" width="4.5" height="6"/></g><g fill="none" stroke="rgba(111,220,255,.10)" stroke-width="2" stroke-linejoin="round"><path d="M 45 380 L 45 205 L 135 205"/><path d="M 675 380 L 675 205 L 585 205"/><path d="M 45 900 L 45 1075 L 135 1075"/><path d="M 675 900 L 675 1075 L 585 1075"/><path d="M 180 130 L 180 175"/><path d="M 540 130 L 540 175"/><path d="M 180 1150 L 180 1105"/><path d="M 540 1150 L 540 1105"/><path d="M 100 640 L 160 640"/><path d="M 620 640 L 560 640"/></g><g fill="rgba(111,220,255,.18)"><circle cx="135" cy="205" r="3"/><circle cx="585" cy="205" r="3"/><circle cx="135" cy="1075" r="3"/><circle cx="585" cy="1075" r="3"/><circle cx="180" cy="175" r="3"/><circle cx="540" cy="175" r="3"/><circle cx="180" cy="1105" r="3"/><circle cx="540" cy="1105" r="3"/><circle cx="160" cy="640" r="3"/><circle cx="560" cy="640" r="3"/></g><path d="M 360 490 L 490 565 L 490 715 L 360 790 L 230 715 L 230 565 L 360 490" fill="none" stroke="rgba(111,220,255,.10)" stroke-width="1.5"/><g fill="none" stroke="rgba(190,235,255,.30)" stroke-width="2" filter="url(#gt)"><line x1="30" y1="640" x2="690" y2="640"/><circle cx="360" cy="640" r="90"/></g><circle cx="360" cy="640" r="3" fill="rgba(190,235,255,.5)"/><g fill="none" stroke="rgba(190,235,255,.22)" stroke-width="2"><line x1="28" y1="96" x2="282" y2="96"/><line x1="438" y1="96" x2="692" y2="96"/><line x1="28" y1="1184" x2="282" y2="1184"/><line x1="438" y1="1184" x2="692" y2="1184"/></g><path d="M 282 96 A 78 78 0 0 1 438 96 Z" fill="url(#pitT)"/><path d="M 360.0 24.2 L 427.5 60.1 L 427.5 131.9 L 360.0 167.8 L 292.5 131.9 L 292.5 60.1 L 360.0 24.2" fill="none" stroke="rgba(214,232,255,0.200)" stroke-width="1.4"/><path d="M 360.0 32.3 L 412.7 60.3 L 412.7 116.3 L 360.0 144.3 L 307.3 116.3 L 307.3 60.3 L 360.0 32.3" fill="none" stroke="rgba(214,232,255,0.168)" stroke-width="1"/><path d="M 360.0 39.6 L 399.2 60.4 L 399.2 102.1 L 360.0 122.9 L 320.8 102.1 L 320.8 60.4 L 360.0 39.6" fill="none" stroke="rgba(214,232,255,0.136)" stroke-width="1"/><path d="M 360.0 46.2 L 387.0 60.6 L 387.0 89.3 L 360.0 103.6 L 333.0 89.3 L 333.0 60.6 L 360.0 46.2" fill="none" stroke="rgba(214,232,255,0.104)" stroke-width="1"/><path d="M 360.0 52.1 L 376.2 60.7 L 376.2 77.9 L 360.0 86.5 L 343.8 77.9 L 343.8 60.7 L 360.0 52.1" fill="none" stroke="rgba(214,232,255,0.072)" stroke-width="1"/><g fill="none" stroke="rgba(214,232,255,.13)" stroke-width="1"><line x1="438.0" y1="96.0" x2="369.4" y2="60.9"/><line x1="427.5" y1="134.2" x2="368.1" y2="65.6"/><line x1="399.0" y1="162.2" x2="364.7" y2="69.0"/><line x1="360.0" y1="172.4" x2="360.0" y2="70.3"/><line x1="321.0" y1="162.2" x2="355.3" y2="69.0"/><line x1="292.5" y1="134.2" x2="351.9" y2="65.6"/><line x1="282.0" y1="96.0" x2="350.6" y2="60.9"/><line x1="292.5" y1="57.8" x2="351.9" y2="56.2"/><line x1="321.0" y1="29.8" x2="355.3" y2="52.8"/><line x1="360.0" y1="19.6" x2="360.0" y2="51.5"/><line x1="399.0" y1="29.8" x2="364.7" y2="52.8"/><line x1="427.5" y1="57.8" x2="368.1" y2="56.2"/></g><path d="M 278 96 A 81.5 81.5 0 0 1 442 96" fill="none" stroke="url(#walT)" stroke-width="9" stroke-linecap="round"/><path d="M 278 96 A 81.5 81.5 0 0 1 442 96" fill="none" stroke="#bcdcff" stroke-width="2.5" opacity=".55" filter="url(#gw)"/><path d="M -10 7 L 0 -8 L 10 7 Z" fill="#bcdcff" opacity=".30" transform="translate(497 133) rotate(-75)"/><path d="M -10 7 L 0 -8 L 10 7 Z" fill="#bcdcff" opacity=".30" transform="translate(483 167) rotate(-60)"/><path d="M -10 7 L 0 -8 L 10 7 Z" fill="#bcdcff" opacity=".30" transform="translate(460 196) rotate(-45)"/><path d="M -10 7 L 0 -8 L 10 7 Z" fill="#bcdcff" opacity=".30" transform="translate(431 219) rotate(-30)"/><path d="M -10 7 L 0 -8 L 10 7 Z" fill="#bcdcff" opacity=".30" transform="translate(397 233) rotate(-15)"/><path d="M -10 7 L 0 -8 L 10 7 Z" fill="#bcdcff" opacity=".30" transform="translate(360 238) rotate(0)"/><path d="M -10 7 L 0 -8 L 10 7 Z" fill="#bcdcff" opacity=".30" transform="translate(323 233) rotate(15)"/><path d="M -10 7 L 0 -8 L 10 7 Z" fill="#bcdcff" opacity=".30" transform="translate(289 219) rotate(30)"/><path d="M -10 7 L 0 -8 L 10 7 Z" fill="#bcdcff" opacity=".30" transform="translate(260 196) rotate(45)"/><path d="M -10 7 L 0 -8 L 10 7 Z" fill="#bcdcff" opacity=".30" transform="translate(237 167) rotate(60)"/><path d="M -10 7 L 0 -8 L 10 7 Z" fill="#bcdcff" opacity=".30" transform="translate(223 133) rotate(75)"/><path d="M 282 1184 A 78 78 0 0 0 438 1184 Z" fill="url(#pitB)"/><path d="M 360.0 1112.2 L 427.5 1148.1 L 427.5 1219.9 L 360.0 1255.8 L 292.5 1219.9 L 292.5 1148.1 L 360.0 1112.2" fill="none" stroke="rgba(214,232,255,0.200)" stroke-width="1.4"/><path d="M 360.0 1135.7 L 412.7 1163.7 L 412.7 1219.7 L 360.0 1247.7 L 307.3 1219.7 L 307.3 1163.7 L 360.0 1135.7" fill="none" stroke="rgba(214,232,255,0.168)" stroke-width="1"/><path d="M 360.0 1157.1 L 399.2 1177.9 L 399.2 1219.6 L 360.0 1240.4 L 320.8 1219.6 L 320.8 1177.9 L 360.0 1157.1" fill="none" stroke="rgba(214,232,255,0.136)" stroke-width="1"/><path d="M 360.0 1176.4 L 387.0 1190.7 L 387.0 1219.4 L 360.0 1233.8 L 333.0 1219.4 L 333.0 1190.7 L 360.0 1176.4" fill="none" stroke="rgba(214,232,255,0.104)" stroke-width="1"/><path d="M 360.0 1193.5 L 376.2 1202.1 L 376.2 1219.3 L 360.0 1227.9 L 343.8 1219.3 L 343.8 1202.1 L 360.0 1193.5" fill="none" stroke="rgba(214,232,255,0.072)" stroke-width="1"/><g fill="none" stroke="rgba(214,232,255,.13)" stroke-width="1"><line x1="438.0" y1="1184.0" x2="369.4" y2="1219.1"/><line x1="427.5" y1="1222.2" x2="368.1" y2="1223.8"/><line x1="399.0" y1="1250.2" x2="364.7" y2="1227.2"/><line x1="360.0" y1="1260.4" x2="360.0" y2="1228.5"/><line x1="321.0" y1="1250.2" x2="355.3" y2="1227.2"/><line x1="292.5" y1="1222.2" x2="351.9" y2="1223.8"/><line x1="282.0" y1="1184.0" x2="350.6" y2="1219.1"/><line x1="292.5" y1="1145.8" x2="351.9" y2="1214.4"/><line x1="321.0" y1="1117.8" x2="355.3" y2="1211.0"/><line x1="360.0" y1="1107.6" x2="360.0" y2="1209.7"/><line x1="399.0" y1="1117.8" x2="364.7" y2="1211.0"/><line x1="427.5" y1="1145.8" x2="368.1" y2="1214.4"/></g><path d="M 278 1184 A 81.5 81.5 0 0 0 442 1184" fill="none" stroke="url(#walB)" stroke-width="9" stroke-linecap="round"/><path d="M 278 1184 A 81.5 81.5 0 0 0 442 1184" fill="none" stroke="#ffb3aa" stroke-width="2.5" opacity=".55" filter="url(#gw)"/><path d="M -10 7 L 0 -8 L 10 7 Z" fill="#ffb3aa" opacity=".30" transform="translate(497 1147) rotate(255)"/><path d="M -10 7 L 0 -8 L 10 7 Z" fill="#ffb3aa" opacity=".30" transform="translate(483 1113) rotate(240)"/><path d="M -10 7 L 0 -8 L 10 7 Z" fill="#ffb3aa" opacity=".30" transform="translate(460 1084) rotate(225)"/><path d="M -10 7 L 0 -8 L 10 7 Z" fill="#ffb3aa" opacity=".30" transform="translate(431 1061) rotate(210)"/><path d="M -10 7 L 0 -8 L 10 7 Z" fill="#ffb3aa" opacity=".30" transform="translate(397 1047) rotate(195)"/><path d="M -10 7 L 0 -8 L 10 7 Z" fill="#ffb3aa" opacity=".30" transform="translate(360 1042) rotate(180)"/><path d="M -10 7 L 0 -8 L 10 7 Z" fill="#ffb3aa" opacity=".30" transform="translate(323 1047) rotate(165)"/><path d="M -10 7 L 0 -8 L 10 7 Z" fill="#ffb3aa" opacity=".30" transform="translate(289 1061) rotate(150)"/><path d="M -10 7 L 0 -8 L 10 7 Z" fill="#ffb3aa" opacity=".30" transform="translate(260 1084) rotate(135)"/><path d="M -10 7 L 0 -8 L 10 7 Z" fill="#ffb3aa" opacity=".30" transform="translate(237 1113) rotate(120)"/><path d="M -10 7 L 0 -8 L 10 7 Z" fill="#ffb3aa" opacity=".30" transform="translate(223 1147) rotate(105)"/></g></defs></svg>
 <div id="menu">
   <div class="orb a"></div><div class="orb b"></div>
   <svg id="logo" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -284,28 +325,32 @@ window.addEventListener('unhandledrejection',function(ev){window.__err('promise:
   <button class="big ghost" id="mHow">HOW TO PLAY</button>
   <button class="big ghost" id="mSet">SETTINGS</button>
   <p id="mErr"></p>
-  <div class="ver">SILICON SOCCER — AIGEN-C · build v54 · 2026-07-29</div>
+  <div class="ver">SILICON SOCCER — AIGEN-C · build v59 · 2026-07-30</div>
 </div>
 
 <div id="help">
   <button id="helpClose">✕</button>
   <h2>HOW TO PLAY</h2>
-  <div class="step"><div class="imgwrap"><img src="./howto_aim.png" alt="Aiming">
-    <div class="callout"><b>MOVE ALL 3 BLOBS, EVERY TURN</b>
-      <span>Drag each of your blobs to aim, then press GO</span></div></div>
+  <div class="step">
+    <div class="shot"><svg viewBox="0 0 720 1280" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"><use href="#ssfield"/><g opacity="1.0" filter="url(#gb)" transform="rotate(0 268 252)"><ellipse cx="268" cy="252" rx="32" ry="32" fill="url(#bb)"/></g><ellipse cx="258" cy="248" rx="6.4" ry="7.4" fill="#fff"/><circle cx="258" cy="249" r="3.2" fill="#12161f"/><ellipse cx="278" cy="248" rx="6.4" ry="7.4" fill="#fff"/><circle cx="278" cy="249" r="3.2" fill="#12161f"/><g opacity="1.0" filter="url(#gb)" transform="rotate(0 452 252)"><ellipse cx="452" cy="252" rx="32" ry="32" fill="url(#bb)"/></g><ellipse cx="442" cy="248" rx="6.4" ry="7.4" fill="#fff"/><circle cx="442" cy="249" r="3.2" fill="#12161f"/><ellipse cx="462" cy="248" rx="6.4" ry="7.4" fill="#fff"/><circle cx="462" cy="249" r="3.2" fill="#12161f"/><g opacity="1.0" filter="url(#gb)" transform="rotate(0 360 336)"><ellipse cx="360" cy="336" rx="32" ry="32" fill="url(#bb)"/></g><ellipse cx="350" cy="332" rx="6.4" ry="7.4" fill="#fff"/><circle cx="350" cy="333" r="3.2" fill="#12161f"/><ellipse cx="370" cy="332" rx="6.4" ry="7.4" fill="#fff"/><circle cx="370" cy="333" r="3.2" fill="#12161f"/><g opacity="1.0" filter="url(#gr)" transform="rotate(0 360 940)"><ellipse cx="360" cy="940" rx="32" ry="32" fill="url(#rb)"/></g><ellipse cx="350" cy="936" rx="6.4" ry="7.4" fill="#fff"/><circle cx="350" cy="937" r="3.2" fill="#12161f"/><ellipse cx="370" cy="936" rx="6.4" ry="7.4" fill="#fff"/><circle cx="370" cy="937" r="3.2" fill="#12161f"/><g opacity="1.0" filter="url(#gr)" transform="rotate(0 250 1040)"><ellipse cx="250" cy="1040" rx="32" ry="32" fill="url(#rb)"/></g><ellipse cx="240" cy="1036" rx="6.4" ry="7.4" fill="#fff"/><circle cx="240" cy="1037" r="3.2" fill="#12161f"/><ellipse cx="260" cy="1036" rx="6.4" ry="7.4" fill="#fff"/><circle cx="260" cy="1037" r="3.2" fill="#12161f"/><g opacity="1.0" filter="url(#gr)" transform="rotate(0 470 1040)"><ellipse cx="470" cy="1040" rx="32" ry="32" fill="url(#rb)"/></g><ellipse cx="460" cy="1036" rx="6.4" ry="7.4" fill="#fff"/><circle cx="460" cy="1037" r="3.2" fill="#12161f"/><ellipse cx="480" cy="1036" rx="6.4" ry="7.4" fill="#fff"/><circle cx="480" cy="1037" r="3.2" fill="#12161f"/><g filter="url(#gw)"><circle cx="360" cy="640" r="22" fill="url(#core)"/></g><path d="M 360.0 629.0 L 369.46 634.5 L 369.46 645.5 L 360.0 651.0 L 350.54 645.5 L 350.54 634.5 Z" fill="none" stroke="#12161f" stroke-width="2.6"/><path d="M 360 900 L 360 700" stroke="#ffb3aa" stroke-width="6" stroke-dasharray="16 14" stroke-linecap="round" opacity=".9"/><path d="M -15 11 L 0 -13 L 15 11 Z" fill="#ffb3aa" transform="translate(360 700) rotate(0)"/><path d="M 250 1000 L 300 800" stroke="#ffb3aa" stroke-width="6" stroke-dasharray="16 14" stroke-linecap="round" opacity=".9"/><path d="M -15 11 L 0 -13 L 15 11 Z" fill="#ffb3aa" transform="translate(300 800) rotate(14)"/><path d="M 470 1000 L 430 790" stroke="#ffb3aa" stroke-width="6" stroke-dasharray="16 14" stroke-linecap="round" opacity=".9"/><path d="M -15 11 L 0 -13 L 15 11 Z" fill="#ffb3aa" transform="translate(430 790) rotate(-11)"/></svg>
+      <div class="callout"><b>MOVE ALL 3 BLOBS, EVERY TURN</b>
+        <span>Drag each of your blobs to aim, then press GO</span></div></div>
     <h3>1 · AIM</h3>
     <p>Drag from your blobs. Longer drag = harder shot.</p></div>
-  <div class="step"><img src="./howto_action.png" alt="Action">
+  <div class="step">
+    <div class="shot"><svg viewBox="0 0 720 1280" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"><use href="#ssfield"/><circle cx="452" cy="438" r="16" fill="#39435a" opacity="0.36"/><circle cx="452" cy="406" r="16" fill="#39435a" opacity="0.26"/><circle cx="452" cy="374" r="16" fill="#39435a" opacity="0.16"/><circle cx="452" cy="342" r="16" fill="#39435a" opacity="0.08"/><g opacity="1.0" filter="url(#gb)" transform="rotate(-16 452 470)"><ellipse cx="452" cy="470" rx="39" ry="26" fill="url(#bb)"/></g><ellipse cx="442" cy="466" rx="6.4" ry="7.4" fill="#fff"/><circle cx="442" cy="467" r="3.2" fill="#12161f"/><ellipse cx="462" cy="466" rx="6.4" ry="7.4" fill="#fff"/><circle cx="462" cy="467" r="3.2" fill="#12161f"/><g opacity="1.0" filter="url(#gb)" transform="rotate(22 556 620)"><ellipse cx="556" cy="620" rx="36" ry="29" fill="url(#bb)"/></g><ellipse cx="546" cy="616" rx="6.4" ry="7.4" fill="#fff"/><circle cx="546" cy="617" r="3.2" fill="#12161f"/><ellipse cx="566" cy="616" rx="6.4" ry="7.4" fill="#fff"/><circle cx="566" cy="617" r="3.2" fill="#12161f"/><g opacity="1.0" filter="url(#gb)" transform="rotate(0 236 700)"><ellipse cx="236" cy="700" rx="32" ry="32" fill="url(#bb)"/></g><ellipse cx="226" cy="696" rx="6.4" ry="7.4" fill="#fff"/><circle cx="226" cy="697" r="3.2" fill="#12161f"/><ellipse cx="246" cy="696" rx="6.4" ry="7.4" fill="#fff"/><circle cx="246" cy="697" r="3.2" fill="#12161f"/><circle cx="386" cy="522" r="16" fill="#39435a" opacity="0.36"/><circle cx="392" cy="484" r="16" fill="#39435a" opacity="0.26"/><circle cx="398" cy="446" r="16" fill="#39435a" opacity="0.16"/><circle cx="404" cy="408" r="16" fill="#39435a" opacity="0.08"/><g filter="url(#gw)"><circle cx="380" cy="560" r="22" fill="url(#core)"/></g><path d="M 380 549.0 L 389.46 554.5 L 389.46 565.5 L 380 571.0 L 370.54 565.5 L 370.54 554.5 Z" fill="none" stroke="#12161f" stroke-width="2.6"/><circle cx="362" cy="700" r="16" fill="#39435a" opacity="0.36"/><circle cx="358" cy="664" r="16" fill="#39435a" opacity="0.26"/><circle cx="354" cy="628" r="16" fill="#39435a" opacity="0.16"/><circle cx="350" cy="592" r="16" fill="#39435a" opacity="0.08"/><g opacity="1.0" filter="url(#gr)" transform="rotate(8 366 736)"><ellipse cx="366" cy="736" rx="40" ry="26" fill="url(#rb)"/></g><ellipse cx="356" cy="732" rx="6.4" ry="7.4" fill="#fff"/><circle cx="356" cy="733" r="3.2" fill="#12161f"/><ellipse cx="376" cy="732" rx="6.4" ry="7.4" fill="#fff"/><circle cx="376" cy="733" r="3.2" fill="#12161f"/><g opacity="1.0" filter="url(#gr)" transform="rotate(0 300 900)"><ellipse cx="300" cy="900" rx="32" ry="32" fill="url(#rb)"/></g><ellipse cx="290" cy="896" rx="6.4" ry="7.4" fill="#fff"/><circle cx="290" cy="897" r="3.2" fill="#12161f"/><ellipse cx="310" cy="896" rx="6.4" ry="7.4" fill="#fff"/><circle cx="310" cy="897" r="3.2" fill="#12161f"/><g opacity="1.0" filter="url(#gr)" transform="rotate(0 500 1030)"><ellipse cx="500" cy="1030" rx="32" ry="32" fill="url(#rb)"/></g><ellipse cx="490" cy="1026" rx="6.4" ry="7.4" fill="#fff"/><circle cx="490" cy="1027" r="3.2" fill="#12161f"/><ellipse cx="510" cy="1026" rx="6.4" ry="7.4" fill="#fff"/><circle cx="510" cy="1027" r="3.2" fill="#12161f"/></svg></div>
     <h3>2 · GO</h3>
-    <p>Tap GO. Everything moves at once.</p>
-    <div class="fabdemo">GO</div></div>
-  <div class="step"><img src="./howto_goal.png" alt="Scoring">
+    <p>Tap GO. Everything moves at once.</p></div>
+  <div class="step">
+    <div class="shot"><svg viewBox="0 0 720 1280" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"><use href="#ssfield"/><circle cx="360" cy="106" r="18" fill="#39435a" opacity="0.36"/><circle cx="360" cy="62" r="18" fill="#39435a" opacity="0.26"/><circle cx="360" cy="18" r="18" fill="#39435a" opacity="0.16"/><circle cx="360" cy="-26" r="18" fill="#39435a" opacity="0.08"/><circle cx="360" cy="-70" r="18" fill="#39435a" opacity="0.08"/><g filter="url(#gw)"><circle cx="360" cy="150" r="22" fill="url(#core)"/></g><path d="M 360 139.0 L 369.46 144.5 L 369.46 155.5 L 360 161.0 L 350.54 155.5 L 350.54 144.5 Z" fill="none" stroke="#12161f" stroke-width="2.6"/><g opacity="1.0" filter="url(#gb)" transform="rotate(-12 236 330)"><ellipse cx="236" cy="330" rx="36" ry="28" fill="url(#bb)"/></g><ellipse cx="226" cy="326" rx="6.4" ry="7.4" fill="#fff"/><circle cx="226" cy="327" r="3.2" fill="#12161f"/><ellipse cx="246" cy="326" rx="6.4" ry="7.4" fill="#fff"/><circle cx="246" cy="327" r="3.2" fill="#12161f"/><g opacity="1.0" filter="url(#gb)" transform="rotate(0 520 250)"><ellipse cx="520" cy="250" rx="32" ry="32" fill="url(#bb)"/></g><ellipse cx="510" cy="246" rx="6.4" ry="7.4" fill="#fff"/><circle cx="510" cy="247" r="3.2" fill="#12161f"/><ellipse cx="530" cy="246" rx="6.4" ry="7.4" fill="#fff"/><circle cx="530" cy="247" r="3.2" fill="#12161f"/><g opacity="1.0" filter="url(#gr)" transform="rotate(6 360 560)"><ellipse cx="360" cy="560" rx="38" ry="27" fill="url(#rb)"/></g><ellipse cx="350" cy="556" rx="6.4" ry="7.4" fill="#fff"/><circle cx="350" cy="557" r="3.2" fill="#12161f"/><ellipse cx="370" cy="556" rx="6.4" ry="7.4" fill="#fff"/><circle cx="370" cy="557" r="3.2" fill="#12161f"/><g opacity="1.0" filter="url(#gr)" transform="rotate(0 250 1010)"><ellipse cx="250" cy="1010" rx="32" ry="32" fill="url(#rb)"/></g><ellipse cx="240" cy="1006" rx="6.4" ry="7.4" fill="#fff"/><circle cx="240" cy="1007" r="3.2" fill="#12161f"/><ellipse cx="260" cy="1006" rx="6.4" ry="7.4" fill="#fff"/><circle cx="260" cy="1007" r="3.2" fill="#12161f"/><g opacity="1.0" filter="url(#gr)" transform="rotate(0 470 1010)"><ellipse cx="470" cy="1010" rx="32" ry="32" fill="url(#rb)"/></g><ellipse cx="460" cy="1006" rx="6.4" ry="7.4" fill="#fff"/><circle cx="460" cy="1007" r="3.2" fill="#12161f"/><ellipse cx="480" cy="1006" rx="6.4" ry="7.4" fill="#fff"/><circle cx="480" cy="1007" r="3.2" fill="#12161f"/></svg></div>
     <h3>3 · SCORE</h3>
-    <p>Ball in the enemy gate = point. First to 3 wins.</p></div>
-  <p class="fine">▶ replays the last action. Fallen blobs return after each point.</p>
+    <p>Ball in the enemy gate = point</p>
+    <p>All enemy blobs dead = point</p>
+    <p>First to 3 wins</p></div>
 </div>
 <div id="repov"></div>
 <div id="repbar"><i></i></div>
+<div id="rephint">TAP TO CLOSE</div>
 <div id="endwrap">
   <canvas id="endcv" width="720" height="1280"></canvas>
   <div id="endbtns">
@@ -1363,7 +1408,7 @@ document.addEventListener('click',e=>{
 });
 if(endwrap) endwrap.onclick=e=>{ if(e.target===endwrap) endClose(); };
 const CLIP={on:false, busy:false, cv:null, cx:null, prev:null, frames:[], t:0};
-const HOLD_MS=2000, FLASH_MS=900;   // fermo-immagine e flash blu fra le scene
+const HOLD_MS=2000, HOLD_END=1000, FLASH_MS=900;   // fermo iniziale, fermo finale, flash blu
 function fents(a,b,t){ b=b||a;
   return a.map((f,j)=>{ const g=b[j]||f;
     return {id:f[0], team:f[0]==='ball'?-1:(f[0][0]==='r'?0:1),
@@ -1389,8 +1434,8 @@ function repEnts(){
   }
   if(REPLAY.mode==='hold1'){
     repBar(1);
-    if(REPLAY.clip){ if(el>=1000) REPLAY.clipEnd=true; return fents(F[last],F[last],0); }
-    if(el<HOLD_MS) return fents(F[last],F[last],0);
+    if(REPLAY.clip){ if(el>=HOLD_END) REPLAY.clipEnd=true; return fents(F[last],F[last],0); }
+    if(el<HOLD_END) return fents(F[last],F[last],0);
     REPLAY.mode='flash'; REPLAY.t0=now; REPLAY.flash=now; el=0;
   }
   if(REPLAY.mode==='flash'){
