@@ -181,14 +181,8 @@ loadTelegramNews();
   let currentSpeed = baseSpeed;
 
   let phase = 0;
-  let targetAmplitude = 7;
   let amplitude = 7;
-  let targetFrequency = 0.022;
   let frequency = 0.022;
-
-  let pointerActive = false;
-  let lastPointerY = 0;
-  let pointerVelocity = 0;
 
   // Trail is 50% shorter than the original full-width persistent version.
   const persistenceRatio = 0.50;
@@ -196,19 +190,6 @@ loadTelegramNews();
   let samples = [];
   let ages = [];
   let written = [];
-
-  // Temporary speed event: 0.70 or 1.30 for roughly one peak/trough.
-  let speedEvent = null;
-  let nextEventAt = 0;
-
-  function randomBetween(min, max) {
-    return min + Math.random() * (max - min);
-  }
-
-  function scheduleNextSpeedEvent() {
-    // Irregular spacing: approximately every 1.3–3.2 strip widths.
-    nextEventAt = worldX + w * randomBetween(1.3, 3.2);
-  }
 
   function resize() {
     dpr = Math.min(devicePixelRatio || 1, 2);
@@ -227,82 +208,10 @@ loadTelegramNews();
     samples = new Array(w).fill(h * 0.5);
     ages = new Array(w).fill(Infinity);
     written = new Array(w).fill(false);
-
-    scheduleNextSpeedEvent();
   }
-
-  ticker.addEventListener('pointermove', event => {
-    const rect = ticker.getBoundingClientRect();
-    const nx = Math.max(0, Math.min(1, (event.clientX - rect.left) / rect.width));
-    const localY = event.clientY - rect.top;
-    const ny = Math.max(0, Math.min(1, localY / rect.height));
-
-    pointerVelocity = localY - lastPointerY;
-    lastPointerY = localY;
-    pointerActive = true;
-
-    const distanceFromCentre = Math.abs(ny - 0.5) * 2;
-
-    targetAmplitude =
-      5 +
-      distanceFromCentre * (h * 0.47 - 5) +
-      Math.min(Math.abs(pointerVelocity) * 0.3, 7);
-
-    targetAmplitude = Math.min(targetAmplitude, h * 0.47);
-    targetFrequency = 0.015 + nx * 0.022;
-  });
-
-  ticker.addEventListener('pointerleave', () => {
-    pointerActive = false;
-    targetAmplitude = h * 0.18;
-    targetFrequency = 0.022;
-    pointerVelocity = 0;
-  });
 
   addEventListener('resize', resize, { passive: true });
   resize();
-
-  function beginSpeedEvent() {
-    const multiplier = Math.random() < 0.5 ? 0.70 : 1.30;
-
-    // One maximum or minimum corresponds to approximately half a sine cycle.
-    const distance = Math.PI / Math.max(frequency, 0.001);
-
-    speedEvent = {
-      startX: worldX,
-      endX: worldX + distance,
-      multiplier
-    };
-  }
-
-  function updateSpeed() {
-    if (!speedEvent && worldX >= nextEventAt) {
-      beginSpeedEvent();
-    }
-
-    let multiplier = 1;
-
-    if (speedEvent) {
-      const span = speedEvent.endX - speedEvent.startX;
-      const progress = Math.max(
-        0,
-        Math.min(1, (worldX - speedEvent.startX) / span)
-      );
-
-      // Smooth pulse: normal → ±30% → normal.
-      const envelope = Math.sin(progress * Math.PI);
-      multiplier = 1 + (speedEvent.multiplier - 1) * envelope;
-
-      if (progress >= 1) {
-        speedEvent = null;
-        scheduleNextSpeedEvent();
-        multiplier = 1;
-      }
-    }
-
-    const desiredSpeed = baseSpeed * multiplier;
-    currentSpeed += (desiredSpeed - currentSpeed) * 0.12;
-  }
 
   function ageSamples(delta) {
     const maxAge = w * persistenceRatio;
@@ -380,7 +289,7 @@ loadTelegramNews();
   }
 
   function drawDot(x, y, alpha = 1) {
-    const glowRadius = pointerActive ? 14 : 9;
+    const glowRadius = 9;
     const glow = ctx.createRadialGradient(x, y, 0, x, y, glowRadius);
 
     glow.addColorStop(0, `rgba(255,231,179,${0.98 * alpha})`);
@@ -399,9 +308,6 @@ loadTelegramNews();
   }
 
   function draw() {
-    amplitude += (targetAmplitude - amplitude) * 0.06;
-    frequency += (targetFrequency - frequency) * 0.04;
-    pointerVelocity *= 0.88;
     phase += 0.052;
 
     currentSpeed = baseSpeed;
