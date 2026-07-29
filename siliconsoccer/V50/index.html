@@ -2,19 +2,37 @@
 <html lang="en">
 <head>
 <script>
-window.__err=function(m){try{
+/* gli errori iniettati dal browser ospite (Brave/Firefox iOS, Dark Reader, estensioni)
+   arrivano con il nostro stesso filename: li riconosco dal messaggio e li conto a parte */
+window.__EXT=/__firefox__|__gCrWeb|DarkReader|dark-reader|webkit-masked-url|(safari|chrome|moz)-extension|content-script|AdGuard|Grammarly/i;
+window.__box=function(){
   var b=document.getElementById('__errbox');
   if(!b){ b=document.createElement('div'); b.id='__errbox';
     b.style.cssText='position:fixed;left:8px;right:8px;bottom:8px;z-index:9999;max-height:42vh;overflow:auto;background:#4a1010;color:#ffd7d0;font:12px/1.4 monospace;padding:10px 12px;border-radius:10px;white-space:pre-wrap;word-break:break-word;border:1px solid #a33';
     b.onclick=function(){ b.remove(); };
     (document.body||document.documentElement).appendChild(b); }
-  if(b.childNodes.length>=6) return;
+  return b;
+};
+window.__ext=function(){try{            // una riga sola, con contatore
+  var b=window.__box(), e=document.getElementById('__extline');
+  if(!e){ e=document.createElement('div'); e.id='__extline';
+    e.style.cssText='margin:0 0 6px;opacity:.66'; e.setAttribute('data-n','0');
+    b.insertBefore(e, b.firstChild); }
+  var n=(parseInt(e.getAttribute('data-n'),10)||0)+1;
+  e.setAttribute('data-n', n);
+  e.textContent='\u26a0 '+n+' browser/extension script error'+(n>1?'s':'')+' \u2014 not from Silicon Soccer';
+}catch(_){}};
+window.__err=function(m){try{
+  if(window.__EXT.test(String(m))){ window.__ext(); return; }
+  var b=window.__box();
+  if(b.querySelectorAll('div:not(#__extline)').length>=6) return;
   var l=document.createElement('div'); l.style.cssText='margin:0 0 6px';
-  l.textContent='⚠ '+m; b.appendChild(l);
+  l.textContent='\u26a0 '+m; b.appendChild(l);
 }catch(_){}};
 window.addEventListener('error',function(ev){
   var m=ev.message||'script error';
-  if(/^Script error/i.test(m)&&!ev.lineno){ window.__err('external script blocked (extension / CDN loader) — not from Silicon Soccer'); return; }
+  if(/^Script error/i.test(m)&&!ev.lineno){ window.__ext(); return; }
+  if(window.__EXT.test(m)||window.__EXT.test(String(ev.filename||''))){ window.__ext(); return; }
   window.__err(m+'\n@ '+String(ev.filename||'').split('/').pop()+':'+ev.lineno+':'+ev.colno);});
 window.addEventListener('unhandledrejection',function(ev){window.__err('promise: '+((ev.reason&&ev.reason.message)||ev.reason));});
 </script>
@@ -266,7 +284,7 @@ window.addEventListener('unhandledrejection',function(ev){window.__err('promise:
   <button class="big ghost" id="mHow">HOW TO PLAY</button>
   <button class="big ghost" id="mSet">SETTINGS</button>
   <p id="mErr"></p>
-  <div class="ver">SILICON SOCCER — AIGEN-C · build v50 · 2026-07-29</div>
+  <div class="ver">SILICON SOCCER — AIGEN-C · build v54 · 2026-07-29</div>
 </div>
 
 <div id="help">
@@ -291,7 +309,7 @@ window.addEventListener('unhandledrejection',function(ev){window.__err('promise:
 <div id="endwrap">
   <canvas id="endcv" width="720" height="1280"></canvas>
   <div id="endbtns">
-    <button class="sbtn pri" id="shVid">SHARE GOAL GIF</button>
+    <button class="sbtn pri" id="shVid">MAKE VIDEO</button>
     <button class="sbtn sec" id="shImg">SHARE IMAGE</button>
   </div>
   <div id="endhint">tap outside to close</div>
@@ -1434,7 +1452,7 @@ function showEndCard(){ drawEndCard(); if(endwrap) endwrap.classList.add('on');
   if(endcv && endcv.toBlob) endcv.toBlob(b=>{ if(b) PEND.png=new File([b],'silicon-soccer.png',{type:'image/png'}); },'image/png');
   if(shImg) shImg.textContent=CAN_SHARE?'SHARE IMAGE':'SAVE IMAGE';
   if(shVid && !CLIP.busy){ shVid.disabled=false;
-    shVid.textContent=PEND.gif?((CAN_SHARE?'SHARE GOAL GIF':'SAVE GOAL GIF')+' \u2192 TAP'):'MAKE GOAL GIF';
+    shVid.textContent=PEND.gif?(CAN_SHARE?'SHARE VIDEO':'SAVE VIDEO'):'MAKE VIDEO';
     shVid.classList.toggle('ready', !!PEND.gif); }
 }
 /* ---------- encoder GIF89a interno (niente dipendenze, monofile) ---------- */
@@ -1547,7 +1565,7 @@ function clipFinish(){
   CLIP.on=false; REPLAY.clip=false; REPLAY.active=false; REPLAY.seq=null; REPLAY.flash=0;
   document.body.classList.remove('replaying');
   showEndCard();
-  if(!CLIP.frames.length){ if(shVid){ shVid.disabled=false; shVid.textContent='SHARE GOAL GIF'; } return; }
+  if(!CLIP.frames.length){ if(shVid){ shVid.disabled=false; shVid.textContent='MAKE VIDEO'; } return; }
   CLIP.busy=true;
   if(shVid){ shVid.disabled=true; shVid.textContent='ENCODING 0%'; }
   gifEncodeAsync(CLIP.frames,
@@ -1555,7 +1573,7 @@ function clipFinish(){
     blob=>{ CLIP.busy=false; CLIP.frames=[]; CLIP.prev=null;
       PEND.gif=new File([blob],'silicon-soccer-goal.gif',{type:'image/gif'});
       if(shVid){ shVid.disabled=false;
-        shVid.textContent=(CAN_SHARE?'SHARE GOAL GIF':'SAVE GOAL GIF')+' \u2192 TAP';
+        shVid.textContent=CAN_SHARE?'SHARE VIDEO':'SAVE VIDEO';
         shVid.classList.add('ready'); } });
 }
 /* ---------- share ---------- */
@@ -1577,13 +1595,13 @@ function shareFile(file){                       // chiamata DENTRO il gesto, sen
 if(shImg) shImg.onclick=e=>{ e.stopPropagation();
   if(PEND.png){ shareFile(PEND.png); return; }
   endcv.toBlob(b=>{ if(!b) return; PEND.png=new File([b],'silicon-soccer.png',{type:'image/png'});
-    shImg.textContent=CAN_SHARE?'SHARE IMAGE \u2192 TAP':'SAVE IMAGE \u2192 TAP'; },'image/png');
+    shImg.textContent=CAN_SHARE?'SHARE IMAGE':'SAVE IMAGE'; },'image/png');
 };
 if(shVid) shVid.onclick=e=>{ e.stopPropagation();
   if(CLIP.busy||CLIP.on) return;
   if(PEND.gif){ shareFile(PEND.gif); return; }     // gia' pronta: parte il foglio di condivisione
   shVid.disabled=true; shVid.textContent='CAPTURING…';
-  if(!clipStart()){ shVid.disabled=false; shVid.textContent='MAKE GOAL GIF'; } };
+  if(!clipStart()){ shVid.disabled=false; shVid.textContent='MAKE VIDEO'; } };
 /* i bottoni al centro del campo in lobby/over, nel footer durante il gioco */
 function placeBtns(s){
   const mid = s.phase==='lobby' || s.phase==='over' || s.phase==='waiting';
