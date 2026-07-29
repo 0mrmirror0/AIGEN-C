@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy Policy | AIGEN-C</title>
+<meta name="description" content="Informativa sul trattamento dei dati personali degli utenti del sito AIGEN-C.">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+<link rel="apple-touch-icon" href="/favicon-512.png">
+
+<link rel="canonical" href="https://aigen-c.com/privacy-policy/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Privacy Policy | AIGEN-C">
+<meta property="og:description" content="Informativa sul trattamento dei dati personali degli utenti del sito AIGEN-C.">
+<meta property="og:url" content="https://aigen-c.com/privacy-policy/">
+<meta property="og:image" content="https://aigen-c.com/favicon-512.png">
+<style>
+:root{--navy:#06224a;--navy2:#031126;--blue:#0e5bff;--cyan:#00b8ff;--orange:#f6ad16;--orange2:#ff7b1a;--paper:#ffe7b3}
+*{box-sizing:border-box}
+body{margin:0;background:#031126;color:#f5f8ff;font-family:ui-monospace,Menlo,Consolas,monospace}
+.bg{position:fixed;inset:0;z-index:-2;background:radial-gradient(circle at 18% 20%,#0c55b8 0,transparent 28%),radial-gradient(circle at 80% 6%,#f6ad1626 0,transparent 24%),linear-gradient(180deg,#06224a,#020916)}
+.bg:after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(255,255,255,.035) 50%,transparent 50%),linear-gradient(90deg,rgba(0,184,255,.12) 1px,transparent 1px);background-size:100% 5px,38px 38px}
+.wrap{max-width:1200px;margin:auto;padding:24px}
+.window{border:3px solid var(--orange);box-shadow:10px 10px 0 #01050d,0 0 60px #0e5bff66;background:#061a39dd}
+.top{height:54px;background:#020916;border-bottom:3px solid var(--orange);display:flex;align-items:center;justify-content:space-between;padding:0 18px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:900;color:var(--orange);font-size:22px}
+.brand img{width:34px;height:34px;border-radius:7px}
+.nav{color:#93c8ff;font-size:13px}.nav a{color:var(--orange);text-decoration:none;font-weight:900}.nav a[aria-current="page"]{color:#fff}
+
+.hero{display:block;padding:54px}
+.eyebrow{color:var(--cyan);letter-spacing:3px;text-transform:uppercase}
+.payoff{font-size:clamp(44px,7vw,92px);line-height:.92;margin:16px 0;text-transform:uppercase;letter-spacing:-4px;text-shadow:5px 5px 0 #000}
+.payoff span{color:var(--orange)}
+.sub{font-size:19px;line-height:1.6;color:#c0d5ff;max-width:680px}
+.ctaRow{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
+.btn{padding:16px 20px;text-decoration:none;border:2px solid var(--orange);color:#fff;font-weight:900;text-transform:uppercase}
+.btn.primary{background:var(--orange);color:#031126;box-shadow:6px 6px 0 #000}
+.heroCard{position:relative;min-height:480px;border:3px solid #1b6eff;background:linear-gradient(135deg,#041126,#0b3472);box-shadow:8px 8px 0 #000;overflow:hidden;display:grid;place-items:center}
+.logoBig{width:min(72%,360px);border-radius:28px;filter:drop-shadow(0 18px 35px #0008)}
+.chip{position:absolute;left:22px;bottom:22px;right:22px;background:#020916e8;border:2px solid var(--cyan);padding:16px;color:#9fffd0}
+.chip b{color:var(--orange)}
+
+.ticker{
+  --mx:50%;
+  position:relative;
+  height:58px;
+  border-top:3px solid var(--orange);
+  border-bottom:3px solid var(--orange);
+  background:#020916;
+  color:var(--orange);
+  white-space:nowrap;
+  overflow:hidden;
+  isolation:isolate;
+}
+.tickerTrack{
+  position:absolute;
+  inset:0;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  width:max-content;
+  font-size:13px;
+  letter-spacing:.035em;
+  animation:tickerFlow 25s linear infinite;
+  will-change:transform;
+}
+.tickerTrack span{display:block}
+.ticker canvas{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  z-index:1;
+  pointer-events:none;
+}
+.ticker:before,.ticker:after{
+  content:"";
+  position:absolute;
+  top:0;
+  bottom:0;
+  width:90px;
+  z-index:4;
+  pointer-events:none;
+}
+.ticker:before{left:0;background:linear-gradient(90deg,#020916 0%,rgba(2,9,22,.88) 38%,transparent)}
+.ticker:after{right:0;background:linear-gradient(270deg,#020916 0%,rgba(2,9,22,.88) 38%,transparent)}
+.ticker:hover .tickerTrack{animation-play-state:paused}
+@keyframes tickerFlow{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){
+  .tickerTrack{animation:none}
+  .ticker canvas{display:none}
+}
+
+.tickerTrack{color:rgba(246,173,22,.92);text-shadow:0 0 12px rgba(246,173,22,.13)}
+
+section{padding:42px 54px}
+.title{font-size:34px;text-transform:uppercase;color:var(--orange);margin:0 0 22px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{border:2px solid #1c61c9;background:#071d40;padding:22px;min-height:210px;box-shadow:6px 6px 0 #000}
+.card h3{color:#fff;text-transform:uppercase}
+.card p{color:#bad0ff;line-height:1.55}
+.showcase{display:grid;grid-template-columns:1.4fr 1fr;gap:18px}
+.video{min-height:300px;border:3px solid #000;background:linear-gradient(135deg,#0b3472,#f6ad1640);display:grid;place-items:center;color:var(--orange);font-size:70px;font-weight:900;box-shadow:6px 6px 0 #000}
+.frameGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:10px}
+.tile{position:relative;display:block;overflow:hidden;border:2px solid #1b6eff;background:#020916;color:#fff;text-decoration:none}
+.tile{aspect-ratio:16/9}
+.tile img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.05) contrast(1.05)}
+.tile span{position:absolute;left:8px;right:8px;bottom:8px;background:#020916d9;border:1px solid var(--orange);padding:7px 8px;font-size:11px;text-transform:uppercase;color:var(--orange)}
+.newsGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch}
+.newsCard{border:2px solid var(--orange);background:#020916;padding:20px;color:#c0d5ff;box-shadow:6px 6px 0 #000;text-decoration:none;display:block;min-width:0}
+.newsCard b{display:block;color:var(--orange);text-transform:uppercase;margin-bottom:10px}
+.newsCard p{margin:0;line-height:1.5;overflow-wrap:anywhere}
+.newsMedia{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border:2px solid #1b6eff;margin:0 0 14px;background:#061a39}
+.newsMediaWrap{position:relative;display:block}
+.newsMediaBadge{position:absolute;right:8px;bottom:22px;background:#020916e6;border:1px solid var(--orange);color:var(--orange);font-size:11px;font-weight:900;padding:5px 7px;text-transform:uppercase}
+.newsCta{margin-top:22px;display:flex;gap:14px;flex-wrap:wrap}
+.sideList{display:grid;gap:18px}
+.mini{border:2px solid var(--cyan);padding:18px;background:#020916;color:#c0d5ff}
+.contactForm{display:grid;gap:14px;max-width:720px}
+.contactForm input,.contactForm textarea{width:100%;background:#020916;border:2px solid #1b6eff;color:#f5f8ff;padding:15px;font:inherit}
+.contactForm textarea{min-height:140px;resize:vertical}
+.contactForm input:focus,.contactForm textarea:focus{outline:2px solid var(--orange)}
+.contactHint{color:#93c8ff;line-height:1.5;max-width:720px}
+.footerCta{text-align:center;background:#020916;border-top:3px solid var(--orange)}
+.footerCta h2{font-size:clamp(32px,5vw,62px);margin:0 0 16px;text-transform:uppercase}
+.mark{max-width:360px;width:70%;border:2px solid #1b6eff;background:#031126;padding:10px;margin-top:20px}
+@media(max-width:850px){
+  .hero,.grid,.showcase,.newsGrid{grid-template-columns:1fr}
+  .hero,section{padding:28px}
+  .payoff{letter-spacing:-2px}
+  .nav{display:none}
+  .hero:after{left:30%;width:75%}
+  .hero .signal-dot{left:30%}
+  .hero .signal-ring{right:-120px;top:12%}
+}
+
+.pageHero{padding:54px;border-bottom:3px solid var(--orange)}
+.pageHero h1{font-size:clamp(42px,6vw,78px);line-height:.94;margin:0;text-transform:uppercase;letter-spacing:-3px;text-shadow:4px 4px 0 #000}
+.pageHero h1 span{color:var(--orange)}
+.pageHero p{font-size:18px;line-height:1.6;color:#c0d5ff;max-width:760px;margin:22px 0 0}
+.legal{max-width:900px}
+.legal h2{font-size:26px;line-height:1.1;color:var(--orange);text-transform:uppercase;margin:42px 0 14px}
+.legal h2:first-child{margin-top:0}
+.legal h3{font-size:18px;color:#fff;text-transform:uppercase;margin:28px 0 10px}
+.legal p,.legal li{color:#c0d5ff;line-height:1.7}
+.legal ul{padding-left:22px}
+.legal a{color:var(--orange)}
+.legal strong{color:#fff}
+.notice{border:2px solid var(--orange);background:#020916;padding:18px 20px;color:#ffe7b3;line-height:1.6;margin:0 0 28px}
+.dataTable{width:100%;border-collapse:collapse;margin:20px 0}
+.dataTable th,.dataTable td{border:1px solid #1c61c9;padding:14px;text-align:left;vertical-align:top;color:#c0d5ff}
+.dataTable th{color:var(--orange);background:#020916;text-transform:uppercase;font-size:12px}
+.legalFooter{border-top:3px solid var(--orange);background:#020916;padding:24px 54px;display:flex;gap:16px;flex-wrap:wrap}
+.legalFooter a{color:var(--orange);text-decoration:none;font-weight:900;text-transform:uppercase;font-size:12px}
+.contactList{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-bottom:28px}
+.contactBox{border:2px solid #1c61c9;background:#071d40;padding:20px;color:#c0d5ff}
+.contactBox b{display:block;color:var(--orange);text-transform:uppercase;margin-bottom:8px}
+.todo{background:#351b00;border:1px solid var(--orange);padding:2px 5px;color:#ffe7b3}
+@media(max-width:850px){
+  .pageHero{padding:36px 28px}
+  .legalFooter{padding:22px 28px}
+  .contactList{grid-template-columns:1fr}
+}
+</style>
+<style id="aigenc-legal-responsive">table{width:100%;border-collapse:collapse}td,th{overflow-wrap:anywhere;word-break:normal}.wrap,.window,main{max-width:100%;overflow-x:hidden}@media(max-width:850px){table,tbody,tr,td,th{display:block;width:100%}td,th{border-bottom:1px solid #1b6eff}.top{height:auto;min-height:54px;gap:12px;flex-wrap:wrap}.nav{display:block;font-size:11px}.title,h1{overflow-wrap:anywhere}}</style></head>
+<body>
+<div class="bg"></div>
+<main class="wrap">
+<div class="window">
+<div class="top"><div class="brand"><img src="/logo.jpg" alt="AIGEN-C logo"><a href="/" style="color:inherit;text-decoration:none">AIGEN-C</a></div><div class="nav"><a href="/" lang="it">HOME</a> · AI MARKETING AUTOMATION / AGENTI / VIDEO AI / FORMAZIONE</div></div>
+<header class="pageHero">
+<h1>Privacy <span>Policy</span></h1>
+<p>Come AIGEN-C raccoglie, utilizza, conserva e protegge i dati personali.</p>
+</header>
+<section class="legal">
+
+<h2>1. Titolare del trattamento</h2>
+<p>Il titolare del trattamento è <strong>AIGEN-C</strong>. Area operativa: <strong>Milano | Lago di Como</strong>.</p>
+<p>Contatti privacy: <a href="mailto:Hellobot@aigen-c.com">Hellobot@aigen-c.com</a>.</p>
+
+<h2>2. Dati trattati</h2>
+<p>Attraverso questo sito possono essere trattati:</p>
+<ul>
+<li>dati di navigazione e informazioni tecniche normalmente trasmesse dal browser o dal server;</li>
+<li>nome, azienda, indirizzo email e contenuto del messaggio inviato tramite il modulo di contatto;</li>
+<li>dati forniti volontariamente tramite i canali esterni collegati dal sito, inclusi newsletter, Telegram, WhatsApp e LinkedIn;</li>
+<li>eventuali ulteriori dati necessari a gestire richieste commerciali, preventivi o rapporti contrattuali.</li>
+</ul>
+
+<h2>3. Finalità e basi giuridiche</h2>
+<table class="dataTable">
+<tr><th>Finalità</th><th>Base giuridica</th><th>Conservazione indicativa</th></tr>
+<tr><td>Rispondere a richieste inviate tramite il modulo o altri contatti</td><td>Esecuzione di misure precontrattuali richieste dall’interessato e, quando applicabile, legittimo interesse a gestire le comunicazioni professionali</td><td>Per il tempo necessario a gestire la richiesta e, successivamente, fino a un massimo di 24 mesi, salvo obblighi di legge o necessità di tutela dei diritti</td></tr>
+<tr><td>Gestire preventivi, incarichi e rapporti con clienti o fornitori</td><td>Esecuzione di un contratto e adempimento di obblighi legali</td><td>Per la durata del rapporto e per i termini previsti dalla normativa civilistica e fiscale</td></tr>
+<tr><td>Inviare newsletter o comunicazioni promozionali</td><td>Consenso, raccolto sul servizio dedicato</td><td>Fino alla revoca del consenso o alla cancellazione dal servizio</td></tr>
+<tr><td>Sicurezza, prevenzione di abusi e manutenzione tecnica</td><td>Legittimo interesse del titolare alla sicurezza del sito e dei sistemi</td><td>Per il tempo strettamente necessario alle verifiche tecniche e di sicurezza</td></tr>
+</table>
+
+<h2>4. Modulo di contatto e Formspree</h2>
+<p>Il modulo di contatto utilizza Formspree per ricevere e inoltrare i messaggi. I dati inseriti vengono trasmessi a tale fornitore e trattati secondo le condizioni contrattuali e l’informativa del servizio. Il trattamento tramite Formspree avviene per gestire la richiesta inviata dall’utente.</p>
+
+<h2>5. Newsletter e canali esterni</h2>
+<p>Il pulsante di iscrizione alla newsletter conduce a servizi esterni, inclusi Kit e Substack. I collegamenti a Telegram, WhatsApp e LinkedIn portano a piattaforme autonome, che trattano i dati secondo le rispettive informative. AIGEN-C non controlla cookie o trattamenti effettuati dopo l’uscita dal proprio dominio.</p>
+
+<h2>6. Destinatari e responsabili</h2>
+<p>I dati possono essere trattati da fornitori tecnici, hosting provider, servizi email, piattaforme per moduli, consulenti e collaboratori autorizzati, nei limiti necessari alle rispettive funzioni. L’elenco aggiornato dei responsabili può essere richiesto al titolare.</p>
+
+<h2>7. Trasferimenti internazionali</h2>
+<p>Qualora un fornitore tratti dati fuori dallo Spazio economico europeo, il trasferimento avverrà sulla base di una decisione di adeguatezza, clausole contrattuali standard o altra garanzia prevista dal GDPR. La configurazione concreta deve essere verificata per ciascun fornitore effettivamente utilizzato.</p>
+
+<h2>8. Conferimento dei dati</h2>
+<p>I dati contrassegnati come obbligatori nel modulo sono necessari per inviare la richiesta. Il mancato conferimento impedisce l’invio o la gestione del messaggio. L’iscrizione alla newsletter è facoltativa e separata.</p>
+
+<h2>9. Diritti dell’interessato</h2>
+<p>L’interessato può chiedere accesso, rettifica, cancellazione, limitazione, portabilità, opposizione e revoca del consenso, quando applicabili. Può inoltre proporre reclamo al Garante per la protezione dei dati personali.</p>
+
+<h2>10. Decisioni automatizzate</h2>
+<p>I dati raccolti tramite questo sito non sono utilizzati per decisioni esclusivamente automatizzate che producano effetti giuridici o analogamente significativi sull’interessato, salvo diversa informativa specifica.</p>
+
+<h2>11. Aggiornamenti</h2>
+<p>La presente informativa può essere aggiornata in caso di modifiche tecniche, organizzative o normative. Data ultimo aggiornamento: <strong>29 luglio 2026</strong>.</p>
+
+</section>
+<footer class="legalFooter">
+<a href="/privacy-policy/">Privacy Policy</a>
+<a href="/cookie-policy/">Cookie Policy</a>
+<a href="/note-legali/">Note legali</a>
+<a href="/">Home</a>
+</footer>
+</div>
+</main>
+</body>
+</html>
