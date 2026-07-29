@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-07-29T07:19:52.805878+00:00",
+  "updatedAt": "2026-07-29T10:08:56.234154+00:00",
   "items": [
+    {
+      "title": "29/07/2026",
+      "text": "La nuova tendenza con Opus5 di Anthropic: costruire videogame con mondi 3D perfettamente funzionanti. C’è chi dichiara di essere riuscito anche con un solo prompt. L’autore dichiara di aver speso 600 euro circa in token.…",
+      "url": "https://t.me/AIGEN_C/383",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/383/image-8c826cb4b6.jpg"
+      }
+    },
     {
       "title": "25/07/2026",
       "text": "Claude Opus 5 rilasciato! E nemmeno lui resisterà a un buon jailbreak... Pliny the Liberator è il primo prompt hacker della storia e ha insegnato al mondo l'arte dei jailbreak tramite prompt injection . Jailbreak = forza…",
@@ -14,15 +23,6 @@
       "title": "23/07/2026",
       "text": "Claude Opus5 in arrivo tra poche ore!",
       "url": "https://t.me/AIGEN_C/381"
-    },
-    {
-      "title": "22/07/2026",
-      "text": "Comunicato stampa rilasciato pochi minuti fa da Sam Altman in persona. Settimana scorsa una versione di ChatGPT ha forzato HuggingFace per uscire dall'ambiente contenuto in cui era rinchiuso. Il modello (in realtà una co…",
-      "url": "https://t.me/AIGEN_C/380",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/380/image-316860cacb.jpg"
-      }
     }
   ]
 }
