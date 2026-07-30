@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Open-source AI gap</title>
+  <desc id="desc">Grafico stilizzato: il ritardo dei modelli open-source rispetto ai frontier LLM si riduce da 12 a 4 mesi.</desc>
+  <rect width="1200" height="675" fill="#061a39"/>
+  <path d="M0 0h1200v675H0z" fill="url(#g)"/>
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#092a5f"/>
+      <stop offset=".55" stop-color="#031126"/>
+      <stop offset="1" stop-color="#071d40"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke="#1b6eff" stroke-width="2" opacity=".42">
+    <path d="M130 520h900M130 410h900M130 300h900M130 190h900"/>
+    <path d="M220 110v430M540 110v430M860 110v430"/>
+  </g>
+  <text x="95" y="95" fill="#f6ad16" font-family="Menlo, Consolas, monospace" font-size="42" font-weight="900">OPEN MODELS</text>
+  <text x="95" y="144" fill="#f5f8ff" font-family="Menlo, Consolas, monospace" font-size="28" font-weight="800">il ritardo sui frontier LLM si comprime</text>
+  <g font-family="Menlo, Consolas, monospace" font-weight="900">
+    <rect x="220" y="202" width="180" height="318" fill="#d92d20"/>
+    <text x="232" y="184" fill="#f5f8ff" font-size="31">2 anni fa</text>
+    <text x="244" y="568" fill="#f5f8ff" font-size="52">12 mesi</text>
+    <rect x="685" y="414" width="180" height="106" fill="#16a34a"/>
+    <text x="683" y="184" fill="#f5f8ff" font-size="31">oggi</text>
+    <text x="714" y="568" fill="#f5f8ff" font-size="52">4 mesi</text>
+  </g>
+  <path d="M410 270C520 300 585 374 675 455" fill="none" stroke="#00b8ff" stroke-width="12" stroke-linecap="round"/>
+  <path d="M651 456l58 16-24-55" fill="none" stroke="#00b8ff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="95" y="635" fill="#bad0ff" font-family="Menlo, Consolas, monospace" font-size="25" font-weight="800">Open-source AI is now 4 months behind frontier LLMs</text>
+</svg>
