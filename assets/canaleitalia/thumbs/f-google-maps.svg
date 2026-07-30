@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#061a39"/>
+      <stop offset="1" stop-color="#00b8ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#g)"/>
+  <path d="M170 515 C310 390 340 270 505 300 C690 335 650 150 1010 160" fill="none" stroke="#f6ad16" stroke-width="28" stroke-linecap="round"/>
+  <circle cx="505" cy="300" r="52" fill="#fff"/>
+  <circle cx="505" cy="300" r="24" fill="#00b8ff"/>
+  <text x="90" y="130" fill="#f5f8ff" font-family="Arial, sans-serif" font-size="58" font-weight="800">GOOGLE MAPS EFFECT</text>
+  <text x="90" y="585" fill="#bad0ff" font-family="Arial, sans-serif" font-size="38" font-weight="700">Orientamento, memoria e dipendenza dagli strumenti</text>
+</svg>

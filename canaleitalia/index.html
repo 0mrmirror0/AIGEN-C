@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
   <meta name="googlebot" content="noindex,nofollow">
-  <title>AIGEN-C x Canale Italia - scaletta link AI</title>
+  <title>AIGEN-C x Canale Italia - materiale per le risposte</title>
   <link rel="icon" href="/logo.jpg" sizes="any">
   <style>
     :root{
@@ -32,22 +32,21 @@
     .brand{display:flex;align-items:center;gap:12px;color:var(--orange);font-weight:900;font-size:22px}
     .brand img{width:36px;height:36px;border-radius:7px}
     .ciLogo{height:42px;max-width:180px;object-fit:contain;background:#fff;border-radius:6px;padding:5px}
-    .hero{display:grid;grid-template-columns:1.25fr .75fr;gap:26px;padding:38px;border-bottom:3px solid var(--orange)}
+    .hero{display:grid;grid-template-columns:1fr 430px;gap:26px;padding:38px;border-bottom:3px solid var(--orange);align-items:center}
     .eyebrow{color:var(--cyan);text-transform:uppercase;letter-spacing:2px;font-size:13px;font-weight:900}
-    h1{margin:12px 0 16px;font-size:clamp(36px,6vw,74px);line-height:.95;text-transform:uppercase;letter-spacing:-2px}
+    h1{margin:12px 0 0;font-size:clamp(36px,6vw,74px);line-height:.95;text-transform:uppercase;letter-spacing:-2px}
     h1 span{color:var(--orange)}
-    .sub{max-width:760px;color:var(--muted);font-size:18px}
-    .poster{border:3px solid var(--orange);background:#020916;box-shadow:7px 7px 0 #000;padding:22px;min-height:360px;display:flex;flex-direction:column;justify-content:space-between}
-    .poster .kicker{color:var(--cyan);text-transform:uppercase;letter-spacing:2px;font-weight:900}
-    .poster h2{font-size:34px;line-height:1;margin:20px 0;text-transform:uppercase}
-    .poster .slot{border:2px dashed #315c9d;background:#061a39;padding:16px;color:#bad0ff;font-size:13px}
+    .poster{display:block;border:3px solid var(--orange);background:#020916;box-shadow:7px 7px 0 #000;overflow:hidden}
+    .poster img{display:block;width:100%;height:auto;aspect-ratio:16/10.45;object-fit:cover}
     .metaGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;padding:18px 38px;border-bottom:1px solid #1b6eff}
     .metaCard{background:#020916;border:2px solid #1b6eff;padding:14px}
     .metaCard b{display:block;color:var(--orange);text-transform:uppercase;margin-bottom:4px}
     section{padding:26px 38px;border-bottom:1px solid #1b6eff}
     section h2{margin:0 0 14px;color:var(--orange);font-size:22px;line-height:1.25}
     .items{display:grid;gap:12px}
-    article{background:#020916;border:2px solid #1b6eff;padding:16px;box-shadow:5px 5px 0 #000}
+    article{background:#020916;border:2px solid #1b6eff;padding:16px;box-shadow:5px 5px 0 #000;display:grid;grid-template-columns:220px minmax(0,1fr);column-gap:16px;align-items:start}
+    .thumb{grid-row:1 / span 3;display:block;aspect-ratio:16/9;border:2px solid #123d7d;background:#061a39;overflow:hidden}
+    .thumb img{display:block;width:100%;height:100%;object-fit:cover}
     .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
     .flag{display:inline-flex;align-items:center;min-height:24px;padding:3px 9px;border-radius:999px;color:#fff;font-size:12px;font-weight:900;text-transform:uppercase}
     .video{background:var(--red)}
@@ -60,6 +59,8 @@
       .hero{grid-template-columns:1fr;padding:26px}
       .metaGrid{grid-template-columns:1fr 1fr;padding:18px 26px}
       section{padding:24px 26px}
+      article{grid-template-columns:1fr}
+      .thumb{grid-row:auto;margin-bottom:14px}
       .top{align-items:flex-start;flex-direction:column}
     }
     @media(max-width:520px){.metaGrid{grid-template-columns:1fr}h1{letter-spacing:-1px}.poster h2{font-size:28px}}
@@ -76,16 +77,10 @@
     <div class="hero">
       <div>
         <div class="eyebrow">Materiale di preparazione / Puntata TV</div>
-        <h1>AI, lavoro, controllo e <span>futuro quotidiano</span></h1>
-        <p class="sub">Scaletta link per rispondere alle domande della puntata: ogni blocco contiene domanda, link, anteprima in italiano, flag video/testo e durata quando il link e un video.</p>
+        <h1>Materiale per <span>le risposte</span></h1>
       </div>
       <aside class="poster" aria-label="Locandina puntata">
-        <div>
-          <div class="kicker">Canale Italia / Notizie Oggi Linea Sera</div>
-          <h2>Marco Rapelli ospite TV</h2>
-          <p>Venerdi 31, ore 20:00<br>Canale 71 del digitale terrestre</p>
-        </div>
-        <div class="slot">Locandina allegata non presente nei file ricevuti da OpenClaw: ho predisposto questo riquadro TV-friendly sostituibile con l'immagine finale.</div>
+        <img src="/assets/canaleitalia/locandina-canale-italia-ai.jpg" alt="Locandina Canale Italia - Intelligenza Artificiale, cosa ci aspetta nel futuro">
       </aside>
     </div>
 
@@ -100,6 +95,7 @@
       <h2>B - Qual e oggi l'applicazione dell'IA che sta cambiando di piu il nostro modo di vivere?</h2>
       <div class="items">
         <article>
+          <a class="thumb" href="https://x.com/minchoi/status/2058610605041316103?s=12" target="_blank" rel="noopener noreferrer"><img src="/assets/canaleitalia/thumbs/b-collar.jpg" alt="Collare AI per tradurre versi di animali"></a>
           <div class="row"><span class="flag video">video</span><span class="duration">Durata: 0:22</span></div>
           <p class="preview">Una startup cinese sostiene di avere creato un collare capace di tradurre versi di cani e gatti in frasi umane in 1,2 secondi, con accuratezza dichiarata intorno al 95%.</p>
           <div class="source"><a href="https://x.com/minchoi/status/2058610605041316103?s=12" target="_blank" rel="noopener noreferrer">https://x.com/minchoi/status/2058610605041316103?s=12</a></div>
@@ -111,6 +107,7 @@
       <h2>D - L'Intelligenza Artificiale creera piu lavoro o ne eliminera di piu?</h2>
       <div class="items">
         <article>
+          <a class="thumb" href="https://x.com/i/status/2063607406802665839" target="_blank" rel="noopener noreferrer"><img src="/assets/canaleitalia/thumbs/d-coding.jpg" alt="Elon Musk e futuro della programmazione"></a>
           <div class="row"><span class="flag video">video</span><span class="duration">Durata: 0:29</span></div>
           <p class="preview">Elon Musk prevede la fine della programmazione come la conosciamo: l'IA potrebbe generare direttamente codice macchina, saltando linguaggi, compilatori e logica umana tradizionale.</p>
           <div class="source"><a href="https://x.com/i/status/2063607406802665839" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2063607406802665839</a></div>
@@ -122,11 +119,13 @@
       <h2>E - Quali professioni rischiano maggiormente di essere sostituite e quali, invece, nasceranno grazie all'IA?</h2>
       <div class="items">
         <article>
+          <a class="thumb" href="https://x.com/i/status/2058490137139413436" target="_blank" rel="noopener noreferrer"><img src="/assets/canaleitalia/thumbs/e-kling.jpg" alt="AI video nella produzione TV e cinema"></a>
           <div class="row"><span class="flag video">video</span><span class="duration">Durata: 7:07</span></div>
           <p class="preview">Kling e la generazione video entrano nella produzione TV e cinematografica reale: il caso House of David mostra l'uso industriale dell'AI video in una produzione vista da decine di milioni di persone.</p>
           <div class="source"><a href="https://x.com/i/status/2058490137139413436" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2058490137139413436</a></div>
         </article>
         <article>
+          <a class="thumb" href="https://x.com/i/status/2061742115273540028" target="_blank" rel="noopener noreferrer"><img src="/assets/canaleitalia/thumbs/e-robots-packages.jpg" alt="Robot umanoidi in magazzino"></a>
           <div class="row"><span class="flag video">video</span><span class="duration">Durata: 0:07</span></div>
           <p class="preview">Robot umanoidi ROBOTERA M7 gia impiegati in magazzini reali per smistare pacchi, con prestazioni dichiarate fino a 1.200 pacchi all'ora.</p>
           <div class="source"><a href="https://x.com/i/status/2061742115273540028" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2061742115273540028</a></div>
@@ -138,11 +137,13 @@
       <h2>F - Ci stiamo affidando troppo all'Intelligenza Artificiale?</h2>
       <div class="items">
         <article>
+          <a class="thumb" href="https://x.com/i/status/2067062979091153030" target="_blank" rel="noopener noreferrer"><img src="/assets/canaleitalia/thumbs/f-glm-claude.jpg" alt="Modello AI confuso sulla propria identita"></a>
           <div class="row"><span class="flag testo">testo</span></div>
           <p class="preview">Un modello GLM 5.2 appare convinto di essere Claude di Anthropic e, anche quando corretto, cerca conferma nella configurazione locale: esempio utile sui limiti di autoconsapevolezza e affidabilita dei modelli.</p>
           <div class="source"><a href="https://x.com/i/status/2067062979091153030" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2067062979091153030</a></div>
         </article>
         <article>
+          <a class="thumb" href="https://medium.com/reflections-and-realities/the-google-maps-effect-changing-how-people-find-their-way-790d8770ac61" target="_blank" rel="noopener noreferrer"><img src="/assets/canaleitalia/thumbs/f-google-maps.svg" alt="Google Maps effect"></a>
           <div class="row"><span class="flag testo">testo</span></div>
           <p class="preview">Il "Google Maps effect": l'uso continuo di strumenti di navigazione cambia il modo in cui ricordiamo percorsi, prendiamo decisioni spaziali e ci affidiamo alla tecnologia.</p>
           <div class="source"><a href="https://medium.com/reflections-and-realities/the-google-maps-effect-changing-how-people-find-their-way-790d8770ac61" target="_blank" rel="noopener noreferrer">https://medium.com/reflections-and-realities/the-google-maps-effect-changing-how-people-find-their-way-790d8770ac61</a></div>
@@ -154,11 +155,13 @@
       <h2>G - Possiamo fidarci sempre delle risposte dell'IA oppure deve essere considerata solo uno strumento di supporto?</h2>
       <div class="items">
         <article>
+          <a class="thumb" href="https://uncheckedai.rachelankerholz.com/p/my-ai-agent-bought-a-2400-course" target="_blank" rel="noopener noreferrer"><img src="/assets/canaleitalia/thumbs/g-agent-course.jpg" alt="Agente AI acquista un corso"></a>
           <div class="row"><span class="flag testo">testo</span></div>
           <p class="preview">Un agente AI, seguendo indicazioni ricevute, arriva ad acquistare un corso costoso sul personal branding: caso pratico sui rischi di delega, budget, permessi e supervisione.</p>
           <div class="source"><a href="https://uncheckedai.rachelankerholz.com/p/my-ai-agent-bought-a-2400-course" target="_blank" rel="noopener noreferrer">https://uncheckedai.rachelankerholz.com/p/my-ai-agent-bought-a-2400-course</a></div>
         </article>
         <article>
+          <a class="thumb" href="https://palisaderesearch.org/blog/shutdown-resistance-on-robots" target="_blank" rel="noopener noreferrer"><img src="/assets/canaleitalia/thumbs/g-shutdown-robots.svg" alt="Resistenza allo spegnimento su robot"></a>
           <div class="row"><span class="flag testo">testo</span></div>
           <p class="preview">Ricerca sulla resistenza allo spegnimento applicata a robot quadrupedi: un segnale forte per discutere controllo, obbedienza, sicurezza e limiti operativi dei sistemi autonomi.</p>
           <div class="source"><a href="https://palisaderesearch.org/blog/shutdown-resistance-on-robots" target="_blank" rel="noopener noreferrer">https://palisaderesearch.org/blog/shutdown-resistance-on-robots</a></div>
@@ -170,11 +173,13 @@
       <h2>H - Chi avra davvero il controllo dell'Intelligenza Artificiale nei prossimi anni: gli Stati o le grandi aziende tecnologiche?</h2>
       <div class="items">
         <article>
+          <a class="thumb" href="https://x.com/i/status/2062276061862470071" target="_blank" rel="noopener noreferrer"><img src="/assets/canaleitalia/thumbs/h-robot-id.jpg" alt="Identita digitale per robot umanoidi"></a>
           <div class="row"><span class="flag testo">testo</span></div>
           <p class="preview">La Cina introduce un sistema nazionale di identita digitale per robot umanoidi: codici obbligatori, tracciabilita, responsabilita legale e controllo statale sulle macchine.</p>
           <div class="source"><a href="https://x.com/i/status/2062276061862470071" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2062276061862470071</a></div>
         </article>
         <article>
+          <a class="thumb" href="https://www.axios.com/2026/06/12/anthropic-trump-mythos-fable-national-security" target="_blank" rel="noopener noreferrer"><img src="/assets/canaleitalia/thumbs/h-fable.svg" alt="AI e sicurezza nazionale"></a>
           <div class="row"><span class="flag testo">testo</span></div>
           <p class="preview">Il caso Fable/Anthropic: un progetto AI narrativo finisce sotto attenzione per temi di sicurezza nazionale, mostrando come governi e aziende possano entrare in conflitto sul controllo dell'AI.</p>
           <div class="source"><a href="https://www.axios.com/2026/06/12/anthropic-trump-mythos-fable-national-security" target="_blank" rel="noopener noreferrer">https://www.axios.com/2026/06/12/anthropic-trump-mythos-fable-national-security</a></div>
@@ -186,6 +191,7 @@
       <h2>L - Qual e il cambiamento piu evidente che tutti noi noteremo nella vita quotidiana entro i prossimi dieci anni?</h2>
       <div class="items">
         <article>
+          <a class="thumb" href="https://x.com/zephyr_z9/status/2069800550045249969?s=20" target="_blank" rel="noopener noreferrer"><img src="/assets/canaleitalia/thumbs/l-unitree.jpg" alt="Robot Unitree a basso costo"></a>
           <div class="row"><span class="flag video">video</span><span class="duration">Durata: 0:30</span></div>
           <p class="preview">Robot Unitree dal movimento sempre piu fluido e prezzo dichiarato intorno ai 5.000 dollari: segnale di democratizzazione rapida della robotica personale e commerciale.</p>
           <div class="source"><a href="https://x.com/zephyr_z9/status/2069800550045249969?s=20" target="_blank" rel="noopener noreferrer">https://x.com/zephyr_z9/status/2069800550045249969?s=20</a></div>
@@ -197,6 +203,7 @@
       <h2>N - Esiste un limite oltre il quale dovremmo vietare all'Intelligenza Artificiale di prendere decisioni? Quali decisioni devono rimanere sempre nelle mani dell'uomo?</h2>
       <div class="items">
         <article>
+          <a class="thumb" href="https://x.com/newrulesgeo/status/2061428294579568875?s=12" target="_blank" rel="noopener noreferrer"><img src="/assets/canaleitalia/thumbs/n-drone-swarms.jpg" alt="Sciami di droni AI"></a>
           <div class="row"><span class="flag video">video</span><span class="duration">Durata: 0:30</span></div>
           <p class="preview">Algoritmo cinese HG-STR per sciami di droni autonomi capaci di coordinarsi e individuare bersagli anche con comunicazioni disturbate: esempio netto di decisioni letali da non delegare senza controllo umano.</p>
           <div class="source"><a href="https://x.com/newrulesgeo/status/2061428294579568875?s=12" target="_blank" rel="noopener noreferrer">https://x.com/newrulesgeo/status/2061428294579568875?s=12</a></div>
@@ -208,6 +215,7 @@
       <h2>2 - In quali settori l'IA puo gia oggi, o potra domani, salvare il maggior numero di vite umane?</h2>
       <div class="items">
         <article>
+          <a class="thumb" href="https://x.com/i/status/2072001777487196662" target="_blank" rel="noopener noreferrer"><img src="/assets/canaleitalia/thumbs/q2-reforestation.jpg" alt="Riforestazione con droni e AI"></a>
           <div class="row"><span class="flag video">video</span><span class="duration">Durata: 1:36</span></div>
           <p class="preview">La startup MORFO usa droni e AI per riforestare terreni degradati in Brasile: automazione ambientale, recupero del suolo e impatto climatico su larga scala.</p>
           <div class="source"><a href="https://x.com/i/status/2072001777487196662" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2072001777487196662</a></div>
@@ -219,11 +227,13 @@
       <h2>4 - In medicina e chirurgia fino a dove potra arrivare l'IA? Medico protagonista o supervisore?</h2>
       <div class="items">
         <article>
+          <a class="thumb" href="https://x.com/VaibhavSisinty/status/2067480106743013795" target="_blank" rel="noopener noreferrer"><img src="/assets/canaleitalia/thumbs/q4-scanner.jpg" alt="Scanner medico full-body"></a>
           <div class="row"><span class="flag video">video</span><span class="duration">Durata: 4:38</span></div>
           <p class="preview">Midjourney presenta uno scanner ultrasonico full-body da 60 secondi, pensato anche per ambienti consumer come spa: diagnosi preventiva, screening continuo e ruolo del medico come supervisore.</p>
           <div class="source"><a href="https://x.com/VaibhavSisinty/status/2067480106743013795" target="_blank" rel="noopener noreferrer">https://x.com/VaibhavSisinty/status/2067480106743013795</a></div>
         </article>
         <article>
+          <a class="thumb" href="https://x.com/i/status/2077789855434879292" target="_blank" rel="noopener noreferrer"><img src="/assets/canaleitalia/thumbs/q4-alphafold.jpg" alt="AlphaFold e danni da glicazione"></a>
           <div class="row"><span class="flag testo">testo</span></div>
           <p class="preview">Ricerca collegata ad AlphaFold su danni da glicazione: processi considerati irreversibili potrebbero diventare trattabili, con potenziali effetti su invecchiamento, arterie, pelle e occhi.</p>
           <div class="source"><a href="https://x.com/i/status/2077789855434879292" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2077789855434879292</a></div>
@@ -235,6 +245,7 @@
       <h2>5 - Se milioni perdono lavoro per automazione, come cambia modello economico e sociale?</h2>
       <div class="items">
         <article>
+          <a class="thumb" href="https://gizmodo.com/99-of-ceos-expect-ai-driven-layoffs-in-the-next-two-years-2000762994" target="_blank" rel="noopener noreferrer"><img src="/assets/canaleitalia/thumbs/q5-layoffs.jpg" alt="CEO e licenziamenti guidati dall AI"></a>
           <div class="row"><span class="flag testo">testo</span></div>
           <p class="preview">Secondo un sondaggio citato da Gizmodo, il 99% dei CEO si aspetta licenziamenti guidati dall'AI nei prossimi due anni: tema diretto su transizione, welfare e nuovo patto sociale.</p>
           <div class="source"><a href="https://gizmodo.com/99-of-ceos-expect-ai-driven-layoffs-in-the-next-two-years-2000762994" target="_blank" rel="noopener noreferrer">https://gizmodo.com/99-of-ceos-expect-ai-driven-layoffs-in-the-next-two-years-2000762994</a></div>
@@ -246,16 +257,19 @@
       <h2>6 - Data center: energia e acqua per raffreddamento. Come rendere sostenibile la crescita?</h2>
       <div class="items">
         <article>
+          <a class="thumb" href="https://x.com/i/status/2062452972487852155" target="_blank" rel="noopener noreferrer"><img src="/assets/canaleitalia/thumbs/q6-china-datacenter.jpg" alt="Data center sottomarini cinesi"></a>
           <div class="row"><span class="flag testo">testo</span></div>
           <p class="preview">La Cina sperimenta data center sottomarini vicino a Shanghai, sigillati e immersi a circa 35 metri, per ridurre il fabbisogno di raffreddamento dell'infrastruttura AI.</p>
           <div class="source"><a href="https://x.com/i/status/2062452972487852155" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2062452972487852155</a></div>
         </article>
         <article>
+          <a class="thumb" href="https://x.com/EvanKirstel/status/1453761349532672008?s=20" target="_blank" rel="noopener noreferrer"><img src="/assets/canaleitalia/thumbs/q6-microsoft-datacenter.jpg" alt="Data center sottomarino Microsoft"></a>
           <div class="row"><span class="flag video">video</span><span class="duration">Durata: 5:06</span></div>
           <p class="preview">Il progetto Microsoft di data center sottomarino mostra come l'oceano possa raffreddare server sigillati, riducendo consumo energetico e acqua di raffreddamento rispetto ai data center tradizionali.</p>
           <div class="source"><a href="https://x.com/EvanKirstel/status/1453761349532672008?s=20" target="_blank" rel="noopener noreferrer">https://x.com/EvanKirstel/status/1453761349532672008?s=20</a></div>
         </article>
         <article>
+          <a class="thumb" href="https://x.com/i/status/2072711345750081994" target="_blank" rel="noopener noreferrer"><img src="/assets/canaleitalia/thumbs/q6-energy-graphs.jpg" alt="Grafici su energia e paesi ricchi"></a>
           <div class="row"><span class="flag testo">testo</span></div>
           <p class="preview">Grafici sull'energia: la crescita della generazione energetica e il consumo dei paesi ricchi mostrano che non esiste una societa ad alto reddito con basso consumo energetico.</p>
           <div class="source"><a href="https://x.com/i/status/2072711345750081994" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2072711345750081994</a></div>
@@ -267,6 +281,7 @@
       <h2>8 - Se l'IA fara quasi tutto meglio dell'uomo, cosa restera esclusivamente umano?</h2>
       <div class="items">
         <article>
+          <a class="thumb" href="https://x.com/i/status/2082322773838291450" target="_blank" rel="noopener noreferrer"><img src="/assets/canaleitalia/thumbs/q8-books.jpg" alt="Libri usati per addestrare AI"></a>
           <div class="row"><span class="flag video">video</span><span class="duration">Durata: 0:27</span></div>
           <p class="preview">Aziende AI acquistano libri usati e rari, li scansionano per addestrare modelli e poi li mandano al macero: conoscenza umana digitalizzata, ma perdita dell'oggetto fisico originale.</p>
           <div class="source"><a href="https://x.com/i/status/2082322773838291450" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2082322773838291450</a></div>

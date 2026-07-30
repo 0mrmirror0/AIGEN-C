@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#020916"/>
+      <stop offset="1" stop-color="#071d40"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#g)"/>
+  <rect x="120" y="120" width="960" height="435" rx="28" fill="#061a39" stroke="#1b6eff" stroke-width="8"/>
+  <circle cx="360" cy="330" r="90" fill="#d92d20"/>
+  <line x1="360" y1="265" x2="360" y2="395" stroke="#fff" stroke-width="24" stroke-linecap="round"/>
+  <path d="M480 250 h340 m-340 80 h430 m-430 80 h300" stroke="#00b8ff" stroke-width="24" stroke-linecap="round"/>
+  <text x="120" y="625" fill="#f5f8ff" font-family="Arial, sans-serif" font-size="50" font-weight="800">SHUTDOWN RESISTANCE ON ROBOTS</text>
+</svg>
