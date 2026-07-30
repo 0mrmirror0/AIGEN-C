@@ -1,6 +1,11 @@
 {
-  "updatedAt": "2026-07-30T10:39:34.212772+00:00",
+  "updatedAt": "2026-07-30T12:45:25.863431+00:00",
   "items": [
+    {
+      "title": "30/07/2026",
+      "text": "^ Sarà disponibile il link per rivedere la puntata. Gli iscritti alla newsletter su www.aigen-c.com ricevono sempre i link, quindi assicuratevi di esservi iscritti, solo chi è dentro riceve ciò che veramente conta La new…",
+      "url": "https://t.me/AIGEN_C/385"
+    },
     {
       "title": "30/07/2026",
       "text": "DOMANI SERA SU CANALE ITALIA sarò in diretta TV dalle 20:00 alle 22:00 ----- Una serata dedicata al futuro che ci aspetta L’Intelligenza Artificiale sta già cambiando il nostro modo di vivere, lavorare e prendere decisio…",
@@ -17,15 +22,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/383/image-8c826cb4b6.jpg"
-      }
-    },
-    {
-      "title": "25/07/2026",
-      "text": "Claude Opus 5 rilasciato! E nemmeno lui resisterà a un buon jailbreak... Pliny the Liberator è il primo prompt hacker della storia e ha insegnato al mondo l'arte dei jailbreak tramite prompt injection . Jailbreak = forza…",
-      "url": "https://t.me/AIGEN_C/382",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/382/image-e6595190dc.jpg"
       }
     }
   ]
