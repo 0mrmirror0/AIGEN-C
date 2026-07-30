@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-07-30T08:30:02.041930+00:00",
+  "updatedAt": "2026-07-30T10:39:34.212772+00:00",
   "items": [
+    {
+      "title": "30/07/2026",
+      "text": "DOMANI SERA SU CANALE ITALIA sarò in diretta TV dalle 20:00 alle 22:00 ----- Una serata dedicata al futuro che ci aspetta L’Intelligenza Artificiale sta già cambiando il nostro modo di vivere, lavorare e prendere decisio…",
+      "url": "https://t.me/AIGEN_C/384",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/384/image-bb68e1e16f.jpg"
+      }
+    },
     {
       "title": "29/07/2026",
       "text": "La nuova tendenza con Opus5 di Anthropic: costruire videogame con mondi 3D perfettamente funzionanti. C’è chi dichiara di essere riuscito anche con un solo prompt. L’autore dichiara di aver speso 600 euro circa in token.…",
@@ -18,11 +27,6 @@
         "type": "image",
         "url": "/assets/news/telegram/382/image-e6595190dc.jpg"
       }
-    },
-    {
-      "title": "23/07/2026",
-      "text": "Claude Opus5 in arrivo tra poche ore!",
-      "url": "https://t.me/AIGEN_C/381"
     }
   ]
 }
