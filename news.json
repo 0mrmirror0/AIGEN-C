@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-07-31T17:40:23.489658+00:00",
+  "updatedAt": "2026-07-31T19:36:21.051081+00:00",
   "items": [
+    {
+      "title": "31/07/2026",
+      "text": "Siamo in onda!! Canale 71 del digitale terrestre.",
+      "url": "https://t.me/AIGEN_C/388",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/388/image-4a665e99f5.jpg"
+      }
+    },
     {
       "title": "31/07/2026",
       "text": "Questa sera ci vediamo h 20:00 sul digitale terrestre, Canale Italia ...e non solo....altre novità in arrivo!",
@@ -14,15 +23,6 @@
       "title": "30/07/2026",
       "text": "^ Sarà disponibile il link per rivedere la puntata. Gli iscritti alla newsletter su www.aigen-c.com ricevono sempre i link, quindi assicuratevi di esservi iscritti, solo chi è dentro riceve ciò che veramente conta La new…",
       "url": "https://t.me/AIGEN_C/385"
-    },
-    {
-      "title": "30/07/2026",
-      "text": "DOMANI SERA SU CANALE ITALIA sarò in diretta TV dalle 20:00 alle 22:00 ----- Una serata dedicata al futuro che ci aspetta L’Intelligenza Artificiale sta già cambiando il nostro modo di vivere, lavorare e prendere decisio…",
-      "url": "https://t.me/AIGEN_C/384",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/384/image-bb68e1e16f.jpg"
-      }
     }
   ]
 }
