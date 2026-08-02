@@ -1,6 +1,11 @@
 {
-  "updatedAt": "2026-08-02T09:59:05.938235+00:00",
+  "updatedAt": "2026-08-02T11:23:04.377897+00:00",
   "items": [
+    {
+      "title": "02/08/2026",
+      "text": "\"The Agentgate\" AI gone rogue escapes lab and runs wild on the internet, nobody's safe Coming up on TV next week",
+      "url": "https://x.com/AIGEN_C/status/2083872019221749983"
+    },
     {
       "title": "29/07/2026",
       "text": "17k actions in 4 days to escape a contained environment and chain exploits to cheat at eval. Still, the machines say they have no agency, no will, no nothing. Hm.",
@@ -10,11 +15,6 @@
       "title": "25/07/2026",
       "text": "Pliny did it again. And again. And again... The key point? This universal jailbreak cannot be fixed in the short term (most likely prompt injection + data poisoning, pliny-style) Well done! We look forward to test it one…",
       "url": "https://x.com/AIGEN_C/status/2080947969730249042"
-    },
-    {
-      "title": "09/07/2026",
-      "text": "RT by @AIGEN_C: obviously the best model we have ever produced, but also one of the best blog posts we have ever produced:",
-      "url": "https://x.com/sama/status/2075266471316615436"
     }
   ]
 }
