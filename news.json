@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-08-04T10:11:04.146294+00:00",
+  "updatedAt": "2026-08-04T12:26:00.583612+00:00",
   "items": [
+    {
+      "title": "04/08/2026",
+      "text": "QUESITI MATEMATICI IN CADUTA LIBERA Altri 10 problemi fermi da decenni risolti dai nuovi modelli AI Astra é il nuovo modello in arrivo da OpenAI. Due giorni fa ha risolto 10 quesiti matematici aperti da decenni con una s…",
+      "url": "https://t.me/AIGEN_C/392",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/392/image-21c5e5c04e.jpg"
+      }
+    },
     {
       "title": "02/08/2026",
       "text": "Attenzione ai sicurissimi wallet bitcoin offline, il cosiddetto 'cold storage': anziché tenere i bitcoin su coinbase e simili, alcuni preferiscono tenerli in chiavette usb isolate e offline. Funzionava benissimo. Peró ie…",
@@ -17,15 +26,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/390/image-a449e98ee5.jpg"
-      }
-    },
-    {
-      "title": "31/07/2026",
-      "text": "Siamo in onda!! Canale 71 del digitale terrestre.",
-      "url": "https://t.me/AIGEN_C/388",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/388/image-4a665e99f5.jpg"
       }
     }
   ]
