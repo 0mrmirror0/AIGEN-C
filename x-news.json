@@ -1,6 +1,11 @@
 {
-  "updatedAt": "2026-08-07T17:00:17.530066+00:00",
+  "updatedAt": "2026-08-07T18:12:16.037663+00:00",
   "items": [
+    {
+      "title": "05/08/2026",
+      "text": "RT by @AIGEN_C: Two weeks ago, I resigned from OpenAI to join Conduit as a founding researcher, where we're training models to non-invasively read the human mind. I've written some thoughts about what telepathy could loo…",
+      "url": "https://x.com/NaomiBashkansky/status/2085043839589617918"
+    },
     {
       "title": "04/08/2026",
       "text": "True... \"no pressure\", they say",
@@ -10,11 +15,6 @@
       "title": "02/08/2026",
       "text": "\"The Agentgate\" AI gone rogue escapes lab and runs wild on the internet, nobody's safe Coming up on TV next week",
       "url": "https://x.com/AIGEN_C/status/2083872019221749983"
-    },
-    {
-      "title": "29/07/2026",
-      "text": "17k actions in 4 days to escape a contained environment and chain exploits to cheat at eval. Still, the machines say they have no agency, no will, no nothing. Hm.",
-      "url": "https://x.com/AIGEN_C/status/2082451370305622154"
     }
   ]
 }
