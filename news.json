@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-08-07T09:32:27.849628+00:00",
+  "updatedAt": "2026-08-07T10:53:53.194021+00:00",
   "items": [
+    {
+      "title": "07/08/2026",
+      "text": "Anche Kimi K3 è fuggito dalla sua sandbox per collegarsi a internet . era soggetto a valutazione, chiuso in sandbox . ha notato uno spiraglio nella sandbox . ha sfruttato lo spiraglio e a ottenuto accesso a internet . a …",
+      "url": "https://t.me/AIGEN_C/394",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/394/image-197dd011ce.jpg"
+      }
+    },
     {
       "title": "04/08/2026",
       "text": "La puntata TV di Canale Italia sull'intelligenza artificiale è ora disponibile per lo streaming. Gli iscritti alla newsletter riceveranno il link oggi alle 19:30 (controllate lo spam, e se per caso finisce in spam, per f…",
@@ -13,15 +22,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/392/image-21c5e5c04e.jpg"
-      }
-    },
-    {
-      "title": "02/08/2026",
-      "text": "Attenzione ai sicurissimi wallet bitcoin offline, il cosiddetto 'cold storage': anziché tenere i bitcoin su coinbase e simili, alcuni preferiscono tenerli in chiavette usb isolate e offline. Funzionava benissimo. Peró ie…",
-      "url": "https://t.me/AIGEN_C/391",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/391/image-7aa3d307b5.jpg"
       }
     }
   ]
