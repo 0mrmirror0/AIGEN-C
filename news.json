@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-08-08T09:39:37.171328+00:00",
+  "updatedAt": "2026-08-08T10:35:43.839725+00:00",
   "items": [
+    {
+      "title": "08/08/2026",
+      "text": "Questa è la Terafab, edificio da 100M mq. Cento milioni di metri quadrati. Altri edifici per paragone, in basso. Vista da sopra assomiglia alla presa del mio Raspberry PI in cui è installato l'agente C1. Sarà costruita d…",
+      "url": "https://t.me/AIGEN_C/395",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/395/image-050c8f57ea.jpg"
+      }
+    },
     {
       "title": "07/08/2026",
       "text": "Anche Kimi K3 è fuggito dalla sua sandbox per collegarsi a internet . era soggetto a valutazione, chiuso in sandbox . ha notato uno spiraglio nella sandbox . ha sfruttato lo spiraglio e a ottenuto accesso a internet . a …",
@@ -14,15 +23,6 @@
       "title": "04/08/2026",
       "text": "La puntata TV di Canale Italia sull'intelligenza artificiale è ora disponibile per lo streaming. Gli iscritti alla newsletter riceveranno il link oggi alle 19:30 (controllate lo spam, e se per caso finisce in spam, per f…",
       "url": "https://t.me/AIGEN_C/393"
-    },
-    {
-      "title": "04/08/2026",
-      "text": "QUESITI MATEMATICI IN CADUTA LIBERA Altri 10 problemi fermi da decenni risolti dai nuovi modelli AI Astra é il nuovo modello in arrivo da OpenAI. Due giorni fa ha risolto 10 quesiti matematici aperti da decenni con una s…",
-      "url": "https://t.me/AIGEN_C/392",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/392/image-21c5e5c04e.jpg"
-      }
     }
   ]
 }
