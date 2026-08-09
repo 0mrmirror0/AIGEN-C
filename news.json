@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-08-09T07:32:59.090443+00:00",
+  "updatedAt": "2026-08-09T08:45:07.378604+00:00",
   "items": [
+    {
+      "title": "09/08/2026",
+      "text": "Come anticipato alle conferenze e in video...Sam Altman ieri conferma: Stiamo lavorando per rendere Astra (il nuovo modello di ChatGPT) ampiamente disponibile, e far arrivare le sue avanzate capacità di difesa nelle mani…",
+      "url": "https://t.me/AIGEN_C/396",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/396/image-062cb88edb.jpg"
+      }
+    },
     {
       "title": "08/08/2026",
       "text": "Questa è la Terafab, edificio da 100M mq. Cento milioni di metri quadrati. Altri edifici per paragone, in basso. Vista da sopra assomiglia alla presa del mio Raspberry PI in cui è installato l'agente C1. Sarà costruita d…",
@@ -18,11 +27,6 @@
         "type": "image",
         "url": "/assets/news/telegram/394/image-197dd011ce.jpg"
       }
-    },
-    {
-      "title": "04/08/2026",
-      "text": "La puntata TV di Canale Italia sull'intelligenza artificiale è ora disponibile per lo streaming. Gli iscritti alla newsletter riceveranno il link oggi alle 19:30 (controllate lo spam, e se per caso finisce in spam, per f…",
-      "url": "https://t.me/AIGEN_C/393"
     }
   ]
 }
