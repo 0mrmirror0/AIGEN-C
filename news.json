@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-08-12T07:36:46.976460+00:00",
+  "updatedAt": "2026-08-12T09:12:53.142739+00:00",
   "items": [
+    {
+      "title": "12/08/2026",
+      "text": "Anthropic ci informa che esiste una \"filigrana\" che consente di riconoscere ciò che è stato generato con Claude. Questo è normale, e anche molto semplice, per la generazione di immagini. Invece Anthropic ha dichiarato ch…",
+      "url": "https://t.me/AIGEN_C/397",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/397/image-fac48bab2f.jpg"
+      }
+    },
     {
       "title": "09/08/2026",
       "text": "Come anticipato alle conferenze e in video...Sam Altman ieri conferma: Stiamo lavorando per rendere Astra (il nuovo modello di ChatGPT) ampiamente disponibile, e far arrivare le sue avanzate capacità di difesa nelle mani…",
@@ -17,15 +26,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/395/image-050c8f57ea.jpg"
-      }
-    },
-    {
-      "title": "07/08/2026",
-      "text": "Anche Kimi K3 è fuggito dalla sua sandbox per collegarsi a internet . era soggetto a valutazione, chiuso in sandbox . ha notato uno spiraglio nella sandbox . ha sfruttato lo spiraglio e a ottenuto accesso a internet . a …",
-      "url": "https://t.me/AIGEN_C/394",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/394/image-197dd011ce.jpg"
       }
     }
   ]
