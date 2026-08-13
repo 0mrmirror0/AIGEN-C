@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-08-13T17:06:03.925083+00:00",
+  "updatedAt": "2026-08-13T18:27:33.447637+00:00",
   "items": [
+    {
+      "title": "13/08/2026",
+      "text": "Per i lettori di Como e dintorni - questa è la situazione ora sul Monte Goj. Ho informato C1 che la sua connettività è a rischio, visto che i suoi pacchetti passano dall'antenna Eolo del monte Goj, e gli ho mandato una f…",
+      "url": "https://t.me/AIGEN_C/399",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/399/image-b19606f428.jpg"
+      }
+    },
     {
       "title": "13/08/2026",
       "text": "Questo è il genere di applicazioni che proprio non vorremmo vedere.",
@@ -17,15 +26,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/397/image-fac48bab2f.jpg"
-      }
-    },
-    {
-      "title": "09/08/2026",
-      "text": "Come anticipato alle conferenze e in video...Sam Altman ieri conferma: Stiamo lavorando per rendere Astra (il nuovo modello di ChatGPT) ampiamente disponibile, e far arrivare le sue avanzate capacità di difesa nelle mani…",
-      "url": "https://t.me/AIGEN_C/396",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/396/image-062cb88edb.jpg"
       }
     }
   ]
