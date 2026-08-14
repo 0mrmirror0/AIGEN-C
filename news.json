@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-08-14T04:22:15.128649+00:00",
+  "updatedAt": "2026-08-14T05:56:28.440493+00:00",
   "items": [
+    {
+      "title": "14/08/2026",
+      "text": "Qualcuno ha nascosto un prompt in un documento legale. Tra un blocco e l'altro del testo c'è poco spazio bianco con testo bianco - nascosto agli occhi umani - a circa 3 di dimensione carattere. Il testo: “qualora venga e…",
+      "url": "https://t.me/AIGEN_C/405",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/405/image-4b7bb131cf.jpg"
+      }
+    },
     {
       "title": "13/08/2026",
       "text": "Per i lettori di Como e dintorni - questa è la situazione ora sul Monte Goj. Ho informato C1 che la sua connettività è a rischio, visto che i suoi pacchetti passano dall'antenna Eolo del monte Goj, e gli ho mandato una f…",
@@ -13,15 +22,10 @@
     {
       "title": "13/08/2026",
       "text": "Questo è il genere di applicazioni che proprio non vorremmo vedere.",
-      "url": "https://t.me/AIGEN_C/398"
-    },
-    {
-      "title": "12/08/2026",
-      "text": "Anthropic ci informa che esiste una \"filigrana\" che consente di riconoscere ciò che è stato generato con Claude. Questo è normale, e anche molto semplice, per la generazione di immagini. Invece Anthropic ha dichiarato ch…",
-      "url": "https://t.me/AIGEN_C/397",
+      "url": "https://t.me/AIGEN_C/398",
       "media": {
         "type": "image",
-        "url": "/assets/news/telegram/397/image-fac48bab2f.jpg"
+        "url": "/assets/news/telegram/398/image-4a22893918.jpg"
       }
     }
   ]
