@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-15T07:32:05.127538+00:00",
+  "updatedAt": "2026-08-15T08:32:09.594721+00:00",
   "items": [
     {
       "title": "14/08/2026",
@@ -22,7 +22,11 @@
     {
       "title": "13/08/2026",
       "text": "Questo è il genere di applicazioni che proprio non vorremmo vedere.",
-      "url": "https://t.me/AIGEN_C/398"
+      "url": "https://t.me/AIGEN_C/398",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/398/image-4a22893918.jpg"
+      }
     }
   ]
 }
