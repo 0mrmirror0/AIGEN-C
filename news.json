@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-08-15T19:22:20.689391+00:00",
+  "updatedAt": "2026-08-15T19:45:50.071610+00:00",
   "items": [
+    {
+      "title": "15/08/2026",
+      "text": "È arrivato Qwen3.8: . gratuito . scaricabile . cinese . gira anche con solo 17Gb Ram . ha visione e ragionamento prestazioni.pari a Claude Opus4.6 Max Il divario temporale tra modelli.di frontiera commerciali e modelli.o…",
+      "url": "https://t.me/AIGEN_C/406",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/406/image-ca194c19b4.jpg"
+      }
+    },
     {
       "title": "14/08/2026",
       "text": "Qualcuno ha nascosto un prompt in un documento legale. Tra un blocco e l'altro del testo c'è poco spazio bianco con testo bianco - nascosto agli occhi umani - a circa 3 di dimensione carattere. Il testo: “qualora venga e…",
@@ -17,15 +26,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/399/image-b19606f428.jpg"
-      }
-    },
-    {
-      "title": "13/08/2026",
-      "text": "Questo è il genere di applicazioni che proprio non vorremmo vedere.",
-      "url": "https://t.me/AIGEN_C/398",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/398/image-4a22893918.jpg"
       }
     }
   ]
