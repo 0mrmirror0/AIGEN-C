@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-08-16T16:26:59.497994+00:00",
+  "updatedAt": "2026-08-16T16:52:55.144314+00:00",
   "items": [
+    {
+      "title": "16/08/2026",
+      "text": "Non solo; cursor è ora parte di SpaceX / Xai. Cursor è una delle principali piafforme di AI generativa per la programmazione. Con questa acquisizione che trasforma il punto di debolezza dj Grok in punto di forza, Xai e G…",
+      "url": "https://t.me/AIGEN_C/407",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/407/image-6871e7884c.jpg"
+      }
+    },
     {
       "title": "15/08/2026",
       "text": "È arrivato Qwen3.8: . gratuito . scaricabile . cinese . gira anche con solo 17Gb Ram . ha visione e ragionamento prestazioni.pari a Claude Opus4.6 Max Il divario temporale tra modelli.di frontiera commerciali e modelli.o…",
@@ -17,15 +26,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/405/image-4b7bb131cf.jpg"
-      }
-    },
-    {
-      "title": "13/08/2026",
-      "text": "Per i lettori di Como e dintorni - questa è la situazione ora sul Monte Goj. Ho informato C1 che la sua connettività è a rischio, visto che i suoi pacchetti passano dall'antenna Eolo del monte Goj, e gli ho mandato una f…",
-      "url": "https://t.me/AIGEN_C/399",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/399/image-b19606f428.jpg"
       }
     }
   ]
