@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-08-17T09:43:40.478191+00:00",
+  "updatedAt": "2026-08-17T11:27:35.644732+00:00",
   "items": [
+    {
+      "title": "17/08/2026",
+      "text": "Mureka V9.5 rilasciato. AI per generare musica. E da ora non è più possibile distinguere la musica composta a macchina da quella umana. Al click qualche esempio. Da notare che Mureka 9.5 usa un modello ragionativo propri…",
+      "url": "https://t.me/AIGEN_C/408",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/408/image-1b1ec44f30.jpg"
+      }
+    },
     {
       "title": "16/08/2026",
       "text": "Non solo; cursor è ora parte di SpaceX / Xai. Cursor è una delle principali piafforme di AI generativa per la programmazione. Con questa acquisizione che trasforma il punto di debolezza dj Grok in punto di forza, Xai e G…",
@@ -17,15 +26,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/406/image-ca194c19b4.jpg"
-      }
-    },
-    {
-      "title": "14/08/2026",
-      "text": "Qualcuno ha nascosto un prompt in un documento legale. Tra un blocco e l'altro del testo c'è poco spazio bianco con testo bianco - nascosto agli occhi umani - a circa 3 di dimensione carattere. Il testo: “qualora venga e…",
-      "url": "https://t.me/AIGEN_C/405",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/405/image-4b7bb131cf.jpg"
       }
     }
   ]
