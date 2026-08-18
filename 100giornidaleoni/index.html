@@ -44,6 +44,14 @@
     .metaGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;padding:18px 38px;border-bottom:1px solid #1b6eff}
     .metaCard{background:#020916;border:2px solid #1b6eff;padding:14px}
     .metaCard b{display:block;color:var(--orange);text-transform:uppercase;margin-bottom:4px}
+    .intro{padding:26px 38px;border-bottom:1px solid #1b6eff;background:#04132be8}
+    .intro h2{margin:0 0 10px;color:var(--orange);font-size:23px;line-height:1.2;text-transform:uppercase}
+    .intro p{margin:0;color:#eaf1ff}
+    .introGrid{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:14px;align-items:stretch}
+    .introBox{border:2px solid #1b6eff;background:#020916;padding:16px;box-shadow:5px 5px 0 #000}
+    .introBox b{display:block;color:var(--orange);font-size:16px;text-transform:uppercase;margin-bottom:8px}
+    .introBox strong{color:#fff}
+    .pronounce{color:var(--cyan);font-weight:900}
     section{padding:26px 38px;border-bottom:1px solid #1b6eff}
     section h2{margin:0 0 6px;color:var(--orange);font-size:22px;line-height:1.25}
     .sectionNote{margin:0 0 16px;color:var(--muted)}
@@ -63,6 +71,8 @@
     @media(max-width:860px){
       .hero{grid-template-columns:1fr;padding:26px}
       .metaGrid{grid-template-columns:1fr 1fr;padding:18px 26px}
+      .intro{padding:24px 26px}
+      .introGrid{grid-template-columns:1fr}
       section{padding:24px 26px}
       .top{align-items:flex-start;flex-direction:column}
       .showName{text-align:left}
@@ -102,6 +112,25 @@
       <div class="metaCard"><b>Ordine</b>wow crescente</div>
       <div class="metaCard"><b>SEO</b>noindex / nofollow</div>
     </div>
+
+    <section class="intro" aria-label="Bio e contesto AIGEN-C">
+      <h2>AIGEN-C si pronuncia <span class="pronounce">agency</span></h2>
+      <div class="introGrid">
+        <div class="introBox">
+          <b>Che cosa fa AIGEN-C</b>
+          <p>AIGEN-C e' una startup bootstrap del nord Italia specializzata in AI marketing automation: custom GPT, agenti autonomi, app, video con AI, consulenza e formazione avanzata per aziende e C-level.</p>
+        </div>
+        <div class="introBox">
+          <b>Marco Rapelli</b>
+          <p><strong>Technoking di AIGEN-C.</strong> Ha oltre 20 anni di innovazione nelle grandi startup e lavora su AI marketing automation, agenti autonomi, formazione e innovazione applicata al business.</p>
+        </div>
+        <div class="introBox">
+          <b>Irene Anghileri</b>
+          <p><strong>Co-founder &amp; Account Director di AIGEN-C.</strong> Esperta di image e video generation, coordina relazione cliente e sviluppo dei progetti tra Brunate, Como e Milano.</p>
+        </div>
+      </div>
+      <p style="margin-top:14px;color:#bad0ff"><strong>Agency</strong>, nel contesto AI, indica la capacita' di un sistema di portare avanti un obiettivo: intenzione operativa, direzione, scelta delle azioni, uso di strumenti e continuita' nel tempo. Non significa coscienza: significa volonta' delegata dentro un perimetro controllato.</p>
+    </section>
 
     <section>
       <h2>AI nuovi modelli</h2>
