@@ -1,6 +1,20 @@
 {
-  "updatedAt": "2026-08-18T14:34:52.464545+00:00",
+  "updatedAt": "2026-08-18T15:33:11.922512+00:00",
   "items": [
+    {
+      "title": "18/08/2026",
+      "text": "🔥 Ci vediamo alle 18 per un grandissimo speciale targato 100 Giorni Da Leoni",
+      "url": "https://t.me/AIGEN_C/410",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/410/image-f2a85c2c51.jpg"
+      }
+    },
+    {
+      "title": "18/08/2026",
+      "text": "Saremo tra poco in diretta su 100 giorni da leoni, youtube",
+      "url": "https://t.me/AIGEN_C/409"
+    },
     {
       "title": "17/08/2026",
       "text": "Mureka V9.5 rilasciato. AI per generare musica. E da ora non è più possibile distinguere la musica composta a macchina da quella umana. Al click qualche esempio. Da notare che Mureka 9.5 usa un modello ragionativo propri…",
@@ -8,24 +22,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/408/image-1b1ec44f30.jpg"
-      }
-    },
-    {
-      "title": "16/08/2026",
-      "text": "Non solo; cursor è ora parte di SpaceX / Xai. Cursor è una delle principali piafforme di AI generativa per la programmazione. Con questa acquisizione che trasforma il punto di debolezza dj Grok in punto di forza, Xai e G…",
-      "url": "https://t.me/AIGEN_C/407",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/407/image-6871e7884c.jpg"
-      }
-    },
-    {
-      "title": "15/08/2026",
-      "text": "È arrivato Qwen3.8: . gratuito . scaricabile . cinese . gira anche con solo 17Gb Ram . ha visione e ragionamento prestazioni.pari a Claude Opus4.6 Max Il divario temporale tra modelli.di frontiera commerciali e modelli.o…",
-      "url": "https://t.me/AIGEN_C/406",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/406/image-ca194c19b4.jpg"
       }
     }
   ]
