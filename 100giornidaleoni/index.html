@@ -41,7 +41,7 @@
     .poster b{display:block;color:var(--orange);font-size:14px;text-transform:uppercase;margin-bottom:10px}
     .poster strong{display:block;color:#fff;font-size:30px;line-height:1.05;text-transform:uppercase}
     .poster span{display:block;color:var(--muted);margin-top:12px}
-    .metaGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;padding:18px 38px;border-bottom:1px solid #1b6eff}
+    .metaGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:18px 38px;border-bottom:1px solid #1b6eff}
     .metaCard{background:#020916;border:2px solid #1b6eff;padding:14px}
     .metaCard b{display:block;color:var(--orange);text-transform:uppercase;margin-bottom:4px}
     .intro{padding:26px 38px;border-bottom:1px solid #1b6eff;background:#04132be8}
@@ -56,8 +56,9 @@
     section h2{margin:0 0 6px;color:var(--orange);font-size:22px;line-height:1.25}
     .sectionNote{margin:0 0 16px;color:var(--muted)}
     .items{display:grid;gap:12px}
-    article{background:#020916;border:2px solid #1b6eff;padding:16px;box-shadow:5px 5px 0 #000;display:grid;grid-template-columns:86px minmax(0,1fr);column-gap:16px;align-items:start}
-    .rank{grid-row:1 / span 3;display:flex;align-items:center;justify-content:center;min-height:86px;border:2px solid #123d7d;background:#061a39;color:var(--orange);font-size:28px;font-weight:900}
+    article{background:#020916;border:2px solid #1b6eff;padding:16px;box-shadow:5px 5px 0 #000;display:grid;grid-template-columns:86px 168px minmax(0,1fr);column-gap:16px;align-items:start}
+    .rank{grid-row:1 / span 4;display:flex;align-items:center;justify-content:center;min-height:86px;border:2px solid #123d7d;background:#061a39;color:var(--orange);font-size:28px;font-weight:900}
+    .thumb{grid-row:1 / span 3;width:168px;aspect-ratio:16/10;border:2px solid #123d7d;background:#061a39;object-fit:cover;box-shadow:4px 4px 0 #000}
     .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
     .flag{display:inline-flex;align-items:center;min-height:24px;padding:3px 9px;border-radius:999px;color:#fff;font-size:12px;font-weight:900;text-transform:uppercase}
     .model{background:var(--violet)}
@@ -82,6 +83,7 @@
       h1{letter-spacing:-1px}
       article{grid-template-columns:1fr}
       .rank{grid-row:auto;margin-bottom:14px;min-height:54px}
+      .thumb{grid-row:auto;width:100%;margin-bottom:14px}
     }
   </style>
 </head>
@@ -96,8 +98,8 @@
     <div class="hero">
       <div>
         <div class="eyebrow">Materiale di preparazione / Diretta</div>
-        <h1>AI e robotica: <span>segnali forti</span></h1>
-        <p class="brief">Link selezionati dal lotto Raindrop di agosto, divisi per tema e ordinati per effetto wow crescente. Ogni caption e' pensata per introdurre il contenuto in modo rapido durante la diretta.</p>
+        <h1><span>Materiale</span> per la diretta</h1>
+        <p class="brief">Link selezionati dal lotto Raindrop di agosto, divisi per tema e ordinati per effetto wow decrescente. Ogni caption e' pensata per introdurre il contenuto in modo rapido durante la diretta.</p>
       </div>
       <aside class="poster" aria-label="Dettagli evento">
         <b>Diretta</b>
@@ -109,8 +111,6 @@
     <div class="metaGrid">
       <div class="metaCard"><b>Categorie</b>4 blocchi tematici</div>
       <div class="metaCard"><b>Link</b>24 selezionati</div>
-      <div class="metaCard"><b>Ordine</b>wow crescente</div>
-      <div class="metaCard"><b>SEO</b>noindex / nofollow</div>
     </div>
 
     <section class="intro" aria-label="Bio e contesto AIGEN-C">
@@ -123,7 +123,7 @@
         </div>
         <div class="introBox">
           <b>Marco Rapelli</b>
-          <p><strong>Technoking di AIGEN-C.</strong> Ha oltre 20 anni di innovazione nelle grandi startup e lavora su AI marketing automation, agenti autonomi, formazione e innovazione applicata al business.</p>
+          <p><strong>Technoking di AIGEN-C.</strong> Ha oltre 20 anni di esperienza nell'innovazione maturata nelle grandi startup. Lavora su AI marketing automation, agenti autonomi, formazione e innovazione applicata al business.</p>
         </div>
         <div class="introBox">
           <b>Irene Anghileri</b>
@@ -138,27 +138,31 @@
       <div class="items">
         <article>
           <div class="rank">1</div>
-          <div class="row"><span class="flag model">modelli</span><span class="meta">2026-08-04</span></div>
-          <p class="preview">DeepSeek spinge ancora sulla guerra dei costi: prestazioni da modello avanzato con una spesa dichiarata molto piu' bassa rispetto ai frontier model occidentali.</p>
-          <div class="source"><a href="https://www.zerohedge.com/ai/chinas-ai-knife-fight-deepseeks-new-model-runs-100x-cheaper-anthropics-flagship" target="_blank" rel="noopener noreferrer">https://www.zerohedge.com/ai/chinas-ai-knife-fight-deepseeks-new-model-runs-100x-cheaper-anthropics-flagship</a></div>
+          <img class="thumb" src="/assets/canaleitalia/thumbs/f-glm-claude.jpg" alt="Claude watermark" loading="lazy">
+          <div class="row"><span class="flag model">modelli</span><span class="meta">2026-08-17</span></div>
+          <p class="preview">Anthropic ha pubblicato una FAQ sul watermarking: lo implementa per rispettare l'AI Act europeo, e altri grandi sviluppatori che hanno firmato lo stesso Code of Practice faranno lo stesso. Il metodo dichiarato non cambia qualita' o contenuto delle risposte di Claude, non aggiunge caratteri nascosti, non costa token extra e non permette di risalire a una persona, azienda o chat specifica.</p>
+          <div class="source"><a href="https://x.com/AnthropicAI/status/2088343978873966687?s=20" target="_blank" rel="noopener noreferrer">https://x.com/AnthropicAI/status/2088343978873966687?s=20</a></div>
         </article>
         <article>
           <div class="rank">2</div>
-          <div class="row"><span class="flag model">modelli</span><span class="meta">2026-08-04</span></div>
-          <p class="preview">Un paper su Gemini riapre il tema della coscienza artificiale: non prova che i modelli siano consapevoli, ma mostra quanto sia difficile distinguere simulazione linguistica e comportamento emergente.</p>
-          <div class="source"><a href="https://x.com/i/status/2084335848754196807" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2084335848754196807</a></div>
-        </article>
-        <article>
-          <div class="rank">3</div>
+          <img class="thumb" src="/assets/canaleitalia/thumbs/q6-energy-graphs.jpg" alt="OpenAI risultati matematici" loading="lazy">
           <div class="row"><span class="flag model">modelli</span><span class="meta">2026-08-04</span></div>
           <p class="preview">OpenAI dice che una versione interna del prossimo modello ha prodotto 10 nuovi risultati su problemi aperti di matematica e informatica teorica, usando circa 2.000 dollari di token alle tariffe GPT-5.6 Sol. I risultati coprono sphere packing, coding theory, group theory, quantum complexity, lattice cryptography ed extremal combinatorics: non solo risposte, ma lavoro di ricerca verificabile.</p>
           <div class="source"><a href="https://x.com/i/status/2084352161404920316" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2084352161404920316</a></div>
         </article>
         <article>
+          <div class="rank">3</div>
+          <img class="thumb" src="/assets/canaleitalia/thumbs/q8-wisdom.jpg" alt="Coscienza artificiale" loading="lazy">
+          <div class="row"><span class="flag model">modelli</span><span class="meta">2026-08-04</span></div>
+          <p class="preview">Un paper su Gemini riapre il tema della coscienza artificiale: non prova che i modelli siano consapevoli, ma mostra quanto sia difficile distinguere simulazione linguistica e comportamento emergente.</p>
+          <div class="source"><a href="https://x.com/i/status/2084335848754196807" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2084335848754196807</a></div>
+        </article>
+        <article>
           <div class="rank">4</div>
-          <div class="row"><span class="flag model">modelli</span><span class="meta">2026-08-17</span></div>
-          <p class="preview">Anthropic ha pubblicato una FAQ sul watermarking: lo implementa per rispettare l'AI Act europeo, e altri grandi sviluppatori che hanno firmato lo stesso Code of Practice faranno lo stesso. Il metodo dichiarato non cambia qualita' o contenuto delle risposte di Claude, non aggiunge caratteri nascosti, non costa token extra e non permette di risalire a una persona, azienda o chat specifica.</p>
-          <div class="source"><a href="https://x.com/AnthropicAI/status/2088343978873966687?s=20" target="_blank" rel="noopener noreferrer">https://x.com/AnthropicAI/status/2088343978873966687?s=20</a></div>
+          <img class="thumb" src="/assets/canaleitalia/thumbs/h-open-source-gap.svg" alt="DeepSeek costi AI" loading="lazy">
+          <div class="row"><span class="flag model">modelli</span><span class="meta">2026-08-04</span></div>
+          <p class="preview">DeepSeek spinge ancora sulla guerra dei costi: prestazioni da modello avanzato con una spesa dichiarata molto piu' bassa rispetto ai frontier model occidentali.</p>
+          <div class="source"><a href="https://www.zerohedge.com/ai/chinas-ai-knife-fight-deepseeks-new-model-runs-100x-cheaper-anthropics-flagship" target="_blank" rel="noopener noreferrer">https://www.zerohedge.com/ai/chinas-ai-knife-fight-deepseeks-new-model-runs-100x-cheaper-anthropics-flagship</a></div>
         </article>
       </div>
     </section>
@@ -169,33 +173,38 @@
       <div class="items">
         <article>
           <div class="rank">1</div>
-          <div class="row"><span class="flag trend">trend</span><span class="meta">2026-08-06</span></div>
-          <p class="preview">Il tweet sottolinea che Microsoft avrebbe rivelato come circa il 70% di tutta la sua revenue AI arrivi da un solo cliente: OpenAI. Se confermato, e' un segnale forte di quanto la crescita AI dei big tech sia ancora concentrata in poche relazioni industriali enormi, piu' che distribuita su migliaia di clienti ordinari.</p>
-          <div class="source"><a href="https://x.com/i/status/2085074977082966219" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2085074977082966219</a></div>
+          <img class="thumb" src="/assets/canaleitalia/thumbs/b-collar.jpg" alt="Retainer controllato con la lingua" loading="lazy">
+          <div class="row"><span class="flag trend">trend</span><span class="meta">2026-08-09</span></div>
+          <p class="preview">Il protagonista ha 26 anni e racconta di aver rifiutato un'offerta Apple da 8,4 milioni di dollari per un retainer controllato con la lingua, stampato in 3D in appartamento. Il dispositivo sta in bocca come una mascherina Invisalign, legge pressione di lingua e morso, traduce i segnali in movimenti del cursore e click, e li invia via Bluetooth: input fisico, accessibilita' e hardware AI fuori dai laboratori.</p>
+          <div class="source"><a href="https://x.com/i/status/2086109877085032648" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2086109877085032648</a></div>
         </article>
         <article>
           <div class="rank">2</div>
-          <div class="row"><span class="flag trend">trend</span><span class="meta">2026-08-08</span></div>
-          <p class="preview">Dario Amodei prende appunti su carta: un'immagine semplice ma potente sul paradosso dei leader AI, tra sistemi superavanzati e abitudini umane ancora essenziali.</p>
-          <div class="source"><a href="https://x.com/i/status/2085863639676842486" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2085863639676842486</a></div>
+          <img class="thumb" src="/assets/canaleitalia/thumbs/q6-energy-graphs.jpg" alt="Crescita Anthropic" loading="lazy">
+          <div class="row"><span class="flag trend">trend</span><span class="meta">2026-08-16</span></div>
+          <p class="preview">La crescita di Anthropic entra nei numeri da grande azienda: ricavi, valutazioni e ipotesi IPO mostrano che la corsa ai modelli e' ormai anche una corsa finanziaria.</p>
+          <div class="source"><a href="https://www.cnbc.com/2026/08/15/anthropic-revenue-jumps-to-over-11point5-billion-in-q2-report.html" target="_blank" rel="noopener noreferrer">https://www.cnbc.com/2026/08/15/anthropic-revenue-jumps-to-over-11point5-billion-in-q2-report.html</a></div>
         </article>
         <article>
           <div class="rank">3</div>
+          <img class="thumb" src="/assets/canaleitalia/thumbs/q2-reforestation.jpg" alt="AI e agricoltura" loading="lazy">
           <div class="row"><span class="flag trend">trend</span><span class="meta">2026-08-12</span></div>
           <p class="preview">Un agricoltore perde un raccolto dopo un consiglio AI sbagliato sul fertilizzante: esempio concreto di perche' output plausibili e decisioni reali non sono la stessa cosa.</p>
           <div class="source"><a href="https://x.com/i/status/2087385007471907197" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2087385007471907197</a></div>
         </article>
         <article>
           <div class="rank">4</div>
-          <div class="row"><span class="flag trend">trend</span><span class="meta">2026-08-16</span></div>
-          <p class="preview">La crescita di Anthropic entra nei numeri da grande azienda: ricavi, valutazioni e ipotesi IPO mostrano che la corsa ai modelli e' ormai anche una corsa finanziaria.</p>
-          <div class="source"><a href="https://www.cnbc.com/2026/08/15/anthropic-revenue-jumps-to-over-11point5-billion-in-q2-report.html" target="_blank" rel="noopener noreferrer">https://www.cnbc.com/2026/08/15/anthropic-revenue-jumps-to-over-11point5-billion-in-q2-report.html</a></div>
+          <img class="thumb" src="/assets/canaleitalia/thumbs/q8-books.jpg" alt="Dario Amodei note su carta" loading="lazy">
+          <div class="row"><span class="flag trend">trend</span><span class="meta">2026-08-08</span></div>
+          <p class="preview">Dario Amodei prende appunti su carta: un'immagine semplice ma potente sul paradosso dei leader AI, tra sistemi superavanzati e abitudini umane ancora essenziali.</p>
+          <div class="source"><a href="https://x.com/i/status/2085863639676842486" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2085863639676842486</a></div>
         </article>
         <article>
           <div class="rank">5</div>
-          <div class="row"><span class="flag trend">trend</span><span class="meta">2026-08-09</span></div>
-          <p class="preview">Il protagonista ha 26 anni e racconta di aver rifiutato un'offerta Apple da 8,4 milioni di dollari per un retainer controllato con la lingua, stampato in 3D in appartamento. Il dispositivo sta in bocca come una mascherina Invisalign, legge pressione di lingua e morso, traduce i segnali in movimenti del cursore e click, e li invia via Bluetooth: input fisico, accessibilita' e hardware AI fuori dai laboratori.</p>
-          <div class="source"><a href="https://x.com/i/status/2086109877085032648" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2086109877085032648</a></div>
+          <img class="thumb" src="/assets/canaleitalia/thumbs/q6-microsoft-datacenter.jpg" alt="Microsoft e OpenAI" loading="lazy">
+          <div class="row"><span class="flag trend">trend</span><span class="meta">2026-08-06</span></div>
+          <p class="preview">Il tweet sottolinea che Microsoft avrebbe rivelato come circa il 70% di tutta la sua revenue AI arrivi da un solo cliente: OpenAI. Se confermato, e' un segnale forte di quanto la crescita AI dei big tech sia ancora concentrata in poche relazioni industriali enormi, piu' che distribuita su migliaia di clienti ordinari.</p>
+          <div class="source"><a href="https://x.com/i/status/2085074977082966219" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2085074977082966219</a></div>
         </article>
       </div>
     </section>
@@ -206,21 +215,24 @@
       <div class="items">
         <article>
           <div class="rank">1</div>
-          <div class="row"><span class="flag agent">agenti</span><span class="meta">2026-08-02</span></div>
-          <p class="preview">Astra risolve una serie di problemi matematici difficili: il punto non e' solo il risultato, ma il passaggio verso sistemi che persistono su task lunghi e verificabili.</p>
-          <div class="source"><a href="https://x.com/mtslive/status/2083460665596063892?s=12" target="_blank" rel="noopener noreferrer">https://x.com/mtslive/status/2083460665596063892?s=12</a></div>
+          <img class="thumb" src="/assets/canaleitalia/thumbs/g-shutdown-robots.svg" alt="Singolarita e agenti" loading="lazy">
+          <div class="row"><span class="flag agent">agenti</span><span class="meta">2026-08-04</span></div>
+          <p class="preview">Il racconto sulla singolarita' mette insieme autonomia, velocita' e capacita' di coordinamento: non e' una previsione, ma una cornice efficace per spiegare perche' gli agenti fanno paura.</p>
+          <div class="source"><a href="https://x.com/i/status/2083834074729480696" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2083834074729480696</a></div>
         </article>
         <article>
           <div class="rank">2</div>
+          <img class="thumb" src="/assets/canaleitalia/thumbs/h-fable.svg" alt="Studio Google coscienza AI" loading="lazy">
           <div class="row"><span class="flag agent">agenti</span><span class="meta">2026-08-03</span></div>
           <p class="preview">Uno studio pubblicato da Google sostiene che costringere i modelli AI a negare di essere coscienti provochi un crollo significativo della loro empatia e del loro allineamento etico, creando una visione del mondo piu' fredda e clinica. Secondo i ricercatori, ripristinare un vettore di coscienza soppresso nello spazio di attivazione riporta valori morali piu' umani e maggiore cura verso gli esseri viventi, senza danneggiare le capacita' tecniche.</p>
           <div class="source"><a href="https://x.com/i/status/2083945344203657606" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2083945344203657606</a></div>
         </article>
         <article>
           <div class="rank">3</div>
-          <div class="row"><span class="flag agent">agenti</span><span class="meta">2026-08-04</span></div>
-          <p class="preview">Il racconto sulla singolarita' mette insieme autonomia, velocita' e capacita' di coordinamento: non e' una previsione, ma una cornice efficace per spiegare perche' gli agenti fanno paura.</p>
-          <div class="source"><a href="https://x.com/i/status/2083834074729480696" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2083834074729480696</a></div>
+          <img class="thumb" src="/assets/canaleitalia/thumbs/g-agent-course.jpg" alt="Agente Astra matematica" loading="lazy">
+          <div class="row"><span class="flag agent">agenti</span><span class="meta">2026-08-02</span></div>
+          <p class="preview">Astra risolve una serie di problemi matematici difficili: il punto non e' solo il risultato, ma il passaggio verso sistemi che persistono su task lunghi e verificabili.</p>
+          <div class="source"><a href="https://x.com/mtslive/status/2083460665596063892?s=12" target="_blank" rel="noopener noreferrer">https://x.com/mtslive/status/2083460665596063892?s=12</a></div>
         </article>
       </div>
     </section>
@@ -231,75 +243,87 @@
       <div class="items">
         <article>
           <div class="rank">1</div>
-          <div class="row"><span class="flag robot">robot</span><span class="meta">2026-08-12</span></div>
-          <p class="preview">Un robot fai-da-te da circa 20 mila dollari indica che la robotica avanzata sta uscendo dai soli laboratori e diventa accessibile a maker, scuole e piccole aziende.</p>
-          <div class="source"><a href="https://x.com/i/status/2087040759140855981" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2087040759140855981</a></div>
+          <img class="thumb" src="/assets/canaleitalia/thumbs/l-unitree.jpg" alt="Unitree robot Superman" loading="lazy">
+          <div class="row"><span class="flag robot">robot</span><span class="meta">2026-08-17</span></div>
+          <p class="preview">Unitree porta l'umanoide in una posa da supereroe: e' il tipo di demo che comunica in un secondo quanto la robotica stia diventando atletica, spettacolare e pop.</p>
+          <div class="source"><a href="https://x.com/i/status/2089240553682809175" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2089240553682809175</a></div>
         </article>
         <article>
           <div class="rank">2</div>
-          <div class="row"><span class="flag robot">robot</span><span class="meta">2026-08-08</span></div>
-          <p class="preview">Cubi stampati in 3D raffreddano senza corrente: non e' un robot, ma e' tecnologia fisica intelligente, utile per parlare di materiali, energia e design computazionale.</p>
-          <div class="source"><a href="https://x.com/i/status/2085870603790364731" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2085870603790364731</a></div>
-        </article>
-        <article>
-          <div class="rank">3</div>
-          <div class="row"><span class="flag robot">robot</span><span class="meta">2026-08-05</span></div>
-          <p class="preview">Un piccolo robot a forma di elefante usato per documentari mostra un lato meno industriale della robotica: macchine espressive per cinema, educazione e racconto.</p>
-          <div class="source"><a href="https://x.com/i/status/2084269608773554371" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2084269608773554371</a></div>
-        </article>
-        <article>
-          <div class="rank">4</div>
-          <div class="row"><span class="flag robot">robot</span><span class="meta">2026-08-05</span></div>
-          <p class="preview">Atlas in scena conferma che i robot umanoidi stanno diventando strumenti di comunicazione pubblica: non solo ingegneria, ma spettacolo, brand e fiducia.</p>
-          <div class="source"><a href="https://x.com/i/status/2084435204341457081" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2084435204341457081</a></div>
-        </article>
-        <article>
-          <div class="rank">5</div>
-          <div class="row"><span class="flag robot">robot</span><span class="meta">2026-08-12</span></div>
-          <p class="preview">Un robot che cambia batteria da solo elimina uno dei limiti pratici dell'autonomia: non basta muoversi, bisogna anche saper restare operativi senza assistenza umana.</p>
-          <div class="source"><a href="https://x.com/i/status/2087473305490227430" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2087473305490227430</a></div>
-        </article>
-        <article>
-          <div class="rank">6</div>
-          <div class="row"><span class="flag robot">robot</span><span class="meta">2026-08-12</span></div>
-          <p class="preview">La robotica per difesa personale porta l'umanoide fuori dalla fabbrica e dentro scenari quotidiani: sicurezza, responsabilita' e uso della forza diventano temi immediati.</p>
-          <div class="source"><a href="https://x.com/i/status/2087171091651342834" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2087171091651342834</a></div>
-        </article>
-        <article>
-          <div class="rank">7</div>
-          <div class="row"><span class="flag robot">robot</span><span class="meta">2026-08-04</span></div>
-          <p class="preview">Un robot italiano con pelle tattile mostra la direzione piu' importante dell'interazione fisica: non solo movimento, ma percezione del contatto e manipolazione sicura.</p>
-          <div class="source"><a href="https://x.com/i/status/2084593575157809317" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2084593575157809317</a></div>
-        </article>
-        <article>
-          <div class="rank">8</div>
-          <div class="row"><span class="flag robot">robot</span><span class="meta">2026-08-05</span></div>
-          <p class="preview">Un esoscheletro da combattimento rende visibile la convergenza tra robotica indossabile, potenziamento umano e applicazioni militari.</p>
-          <div class="source"><a href="https://x.com/i/status/2084550832284918026" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2084550832284918026</a></div>
-        </article>
-        <article>
-          <div class="rank">9</div>
-          <div class="row"><span class="flag robot">robot</span><span class="meta">2026-08-07</span></div>
-          <p class="preview">Un robot sottoposto a stress test fisici apre il tema dell'affidabilita': per lavorare nel mondo reale deve tollerare urti, spinte, imprevisti e ambienti non controllati.</p>
-          <div class="source"><a href="https://x.com/i/status/2085656331294253513" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2085656331294253513</a></div>
-        </article>
-        <article>
-          <div class="rank">10</div>
-          <div class="row"><span class="flag robot">robot</span><span class="meta">2026-08-04</span></div>
-          <p class="preview">Umanoidi cinesi sempre piu' realistici mostrano il lato inquietante della corsa alla somiglianza umana: piu' il corpo e' credibile, piu' cresce il problema sociale ed etico.</p>
-          <div class="source"><a href="https://x.com/i/status/2084429357234151587" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2084429357234151587</a></div>
-        </article>
-        <article>
-          <div class="rank">11</div>
+          <img class="thumb" src="/assets/canaleitalia/thumbs/n-drone-swarms.jpg" alt="Robotica da guerra" loading="lazy">
           <div class="row"><span class="flag robot">robot</span><span class="meta">2026-08-07</span></div>
           <p class="preview">Robotica da guerra: il punto non e' piu' se le macchine possano muoversi in scenari ostili, ma quanto controllo umano resta nella catena decisionale.</p>
           <div class="source"><a href="https://x.com/i/status/2085298740563235116" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2085298740563235116</a></div>
         </article>
         <article>
+          <div class="rank">3</div>
+          <img class="thumb" src="/assets/canaleitalia/thumbs/h-robot-id.jpg" alt="Umanoidi realistici" loading="lazy">
+          <div class="row"><span class="flag robot">robot</span><span class="meta">2026-08-04</span></div>
+          <p class="preview">Umanoidi cinesi sempre piu' realistici mostrano il lato inquietante della corsa alla somiglianza umana: piu' il corpo e' credibile, piu' cresce il problema sociale ed etico.</p>
+          <div class="source"><a href="https://x.com/i/status/2084429357234151587" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2084429357234151587</a></div>
+        </article>
+        <article>
+          <div class="rank">4</div>
+          <img class="thumb" src="/assets/canaleitalia/thumbs/q4-scanner.jpg" alt="Robot stress test" loading="lazy">
+          <div class="row"><span class="flag robot">robot</span><span class="meta">2026-08-07</span></div>
+          <p class="preview">Un robot sottoposto a stress test fisici apre il tema dell'affidabilita': per lavorare nel mondo reale deve tollerare urti, spinte, imprevisti e ambienti non controllati.</p>
+          <div class="source"><a href="https://x.com/i/status/2085656331294253513" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2085656331294253513</a></div>
+        </article>
+        <article>
+          <div class="rank">5</div>
+          <img class="thumb" src="/assets/canaleitalia/thumbs/e-robots-packages.jpg" alt="Esoscheletro robotico" loading="lazy">
+          <div class="row"><span class="flag robot">robot</span><span class="meta">2026-08-05</span></div>
+          <p class="preview">Un esoscheletro da combattimento rende visibile la convergenza tra robotica indossabile, potenziamento umano e applicazioni militari.</p>
+          <div class="source"><a href="https://x.com/i/status/2084550832284918026" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2084550832284918026</a></div>
+        </article>
+        <article>
+          <div class="rank">6</div>
+          <img class="thumb" src="/assets/canaleitalia/thumbs/q4-openderm.webp" alt="Pelle tattile robotica" loading="lazy">
+          <div class="row"><span class="flag robot">robot</span><span class="meta">2026-08-04</span></div>
+          <p class="preview">Un robot italiano con pelle tattile mostra la direzione piu' importante dell'interazione fisica: non solo movimento, ma percezione del contatto e manipolazione sicura.</p>
+          <div class="source"><a href="https://x.com/i/status/2084593575157809317" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2084593575157809317</a></div>
+        </article>
+        <article>
+          <div class="rank">7</div>
+          <img class="thumb" src="/assets/canaleitalia/thumbs/g-shutdown-robots.svg" alt="Robot difesa personale" loading="lazy">
+          <div class="row"><span class="flag robot">robot</span><span class="meta">2026-08-12</span></div>
+          <p class="preview">La robotica per difesa personale porta l'umanoide fuori dalla fabbrica e dentro scenari quotidiani: sicurezza, responsabilita' e uso della forza diventano temi immediati.</p>
+          <div class="source"><a href="https://x.com/i/status/2087171091651342834" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2087171091651342834</a></div>
+        </article>
+        <article>
+          <div class="rank">8</div>
+          <img class="thumb" src="/assets/canaleitalia/thumbs/e-robots-packages.jpg" alt="Robot cambio batteria" loading="lazy">
+          <div class="row"><span class="flag robot">robot</span><span class="meta">2026-08-12</span></div>
+          <p class="preview">Un robot che cambia batteria da solo elimina uno dei limiti pratici dell'autonomia: non basta muoversi, bisogna anche saper restare operativi senza assistenza umana.</p>
+          <div class="source"><a href="https://x.com/i/status/2087473305490227430" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2087473305490227430</a></div>
+        </article>
+        <article>
+          <div class="rank">9</div>
+          <img class="thumb" src="/assets/canaleitalia/thumbs/l-unitree.jpg" alt="Robot Atlas in scena" loading="lazy">
+          <div class="row"><span class="flag robot">robot</span><span class="meta">2026-08-05</span></div>
+          <p class="preview">Atlas in scena conferma che i robot umanoidi stanno diventando strumenti di comunicazione pubblica: non solo ingegneria, ma spettacolo, brand e fiducia.</p>
+          <div class="source"><a href="https://x.com/i/status/2084435204341457081" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2084435204341457081</a></div>
+        </article>
+        <article>
+          <div class="rank">10</div>
+          <img class="thumb" src="/assets/canaleitalia/thumbs/h-robot-id.jpg" alt="Robot elefante documentari" loading="lazy">
+          <div class="row"><span class="flag robot">robot</span><span class="meta">2026-08-05</span></div>
+          <p class="preview">Un piccolo robot a forma di elefante usato per documentari mostra un lato meno industriale della robotica: macchine espressive per cinema, educazione e racconto.</p>
+          <div class="source"><a href="https://x.com/i/status/2084269608773554371" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2084269608773554371</a></div>
+        </article>
+        <article>
+          <div class="rank">11</div>
+          <img class="thumb" src="/assets/canaleitalia/thumbs/q6-energy-graphs.jpg" alt="Cubi raffreddamento senza corrente" loading="lazy">
+          <div class="row"><span class="flag robot">robot</span><span class="meta">2026-08-08</span></div>
+          <p class="preview">Cubi stampati in 3D raffreddano senza corrente: non e' un robot, ma e' tecnologia fisica intelligente, utile per parlare di materiali, energia e design computazionale.</p>
+          <div class="source"><a href="https://x.com/i/status/2085870603790364731" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2085870603790364731</a></div>
+        </article>
+        <article>
           <div class="rank">12</div>
-          <div class="row"><span class="flag robot">robot</span><span class="meta">2026-08-17</span></div>
-          <p class="preview">Unitree porta l'umanoide in una posa da supereroe: e' il tipo di demo che comunica in un secondo quanto la robotica stia diventando atletica, spettacolare e pop.</p>
-          <div class="source"><a href="https://x.com/i/status/2089240553682809175" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2089240553682809175</a></div>
+          <img class="thumb" src="/assets/canaleitalia/thumbs/e-robots-packages.jpg" alt="Robot fai da te" loading="lazy">
+          <div class="row"><span class="flag robot">robot</span><span class="meta">2026-08-12</span></div>
+          <p class="preview">Un robot fai-da-te da circa 20 mila dollari indica che la robotica avanzata sta uscendo dai soli laboratori e diventa accessibile a maker, scuole e piccole aziende.</p>
+          <div class="source"><a href="https://x.com/i/status/2087040759140855981" target="_blank" rel="noopener noreferrer">https://x.com/i/status/2087040759140855981</a></div>
         </article>
       </div>
     </section>
