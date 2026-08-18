@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">Paper notes preview</title>
+  <desc id="desc">AIGEN-C style preview for Dario Amodei taking notes on paper.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#061a39"/>
+      <stop offset="1" stop-color="#020916"/>
+    </linearGradient>
+    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M44 0H0v44" fill="none" stroke="#1b6eff" stroke-opacity=".22" stroke-width="2"/>
+    </pattern>
+  </defs>
+  <rect width="960" height="600" fill="url(#bg)"/>
+  <rect width="960" height="600" fill="url(#grid)"/>
+  <rect x="36" y="36" width="888" height="528" fill="none" stroke="#f6ad16" stroke-width="8"/>
+  <g font-family="Menlo, Consolas, monospace" font-weight="900">
+    <text x="72" y="110" fill="#00b8ff" font-size="34" letter-spacing="3">AI LEADERS</text>
+    <text x="72" y="218" fill="#f6ad16" font-size="70">PAPER</text>
+    <text x="72" y="292" fill="#f5f8ff" font-size="58">STILL WINS</text>
+    <text x="72" y="505" fill="#bad0ff" font-size="32">frontier AI, human habits</text>
+  </g>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M600 120h230v330H600z" fill="#f5f8ff" fill-opacity=".08" stroke="#f5f8ff" stroke-width="12"/>
+    <path d="M640 188h148M640 238h148M640 288h108M640 338h152" stroke="#bad0ff" stroke-width="10"/>
+    <path d="M766 430l86-174 42 22-86 174-56 38z" fill="#f6ad16" fill-opacity=".18" stroke="#f6ad16" stroke-width="12"/>
+    <path d="M851 256l44 23" stroke="#00b8ff" stroke-width="12"/>
+  </g>
+</svg>

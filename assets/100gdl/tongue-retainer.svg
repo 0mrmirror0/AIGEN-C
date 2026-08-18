@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">Tongue controlled retainer preview</title>
+  <desc id="desc">AIGEN-C style preview for a tongue controlled Bluetooth retainer used as a mouse.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#061a39"/>
+      <stop offset="1" stop-color="#020916"/>
+    </linearGradient>
+    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M44 0H0v44" fill="none" stroke="#1b6eff" stroke-opacity=".22" stroke-width="2"/>
+    </pattern>
+  </defs>
+  <rect width="960" height="600" fill="url(#bg)"/>
+  <rect width="960" height="600" fill="url(#grid)"/>
+  <rect x="36" y="36" width="888" height="528" fill="none" stroke="#f6ad16" stroke-width="8"/>
+  <g font-family="Menlo, Consolas, monospace" font-weight="900">
+    <text x="70" y="110" fill="#00b8ff" font-size="34" letter-spacing="3">ACCESSIBILITY HARDWARE</text>
+    <text x="70" y="200" fill="#f6ad16" font-size="58">TONGUE</text>
+    <text x="70" y="268" fill="#f5f8ff" font-size="54">CONTROLLED</text>
+    <text x="70" y="335" fill="#f5f8ff" font-size="54">MOUSE</text>
+    <text x="70" y="505" fill="#bad0ff" font-size="32">$47 prototype / Bluetooth LE</text>
+  </g>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M590 190c78-54 195-24 238 62 44 87-25 197-130 207-110 10-205-72-194-179 3-34 35-68 86-90Z" stroke="#f5f8ff" stroke-width="14"/>
+    <path d="M603 294c47 49 118 62 207 35" stroke="#f6ad16" stroke-width="14"/>
+    <path d="M636 358c42 35 92 43 150 25" stroke="#00b8ff" stroke-width="12"/>
+    <circle cx="660" cy="272" r="14" fill="#00b8ff"/>
+    <circle cx="738" cy="282" r="14" fill="#00b8ff"/>
+  </g>
+</svg>
