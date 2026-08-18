@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">UMANOIDI REALISTICI</title>
+  <desc id="desc">AIGEN-C robot preview placeholder for somiglianza umana.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#061a39"/><stop offset="1" stop-color="#020916"/></linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0v48" fill="none" stroke="#1b6eff" stroke-opacity=".22" stroke-width="2"/></pattern>
+  </defs>
+  <rect width="960" height="600" fill="url(#bg)"/>
+  <rect width="960" height="600" fill="url(#grid)"/>
+  <rect x="36" y="36" width="888" height="528" fill="none" stroke="#f6ad16" stroke-width="8"/>
+  <g transform="translate(96 118)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="96" y="90" width="214" height="172" rx="34" stroke="#d92d20" stroke-width="18"/>
+    <path d="M203 90V34" stroke="#d92d20" stroke-width="18"/>
+    <circle cx="203" cy="23" r="18" fill="#d92d20" stroke="none"/>
+    <circle cx="158" cy="166" r="16" fill="#bad0ff" stroke="none"/>
+    <circle cx="248" cy="166" r="16" fill="#bad0ff" stroke="none"/>
+    <path d="M160 222h86" stroke="#00b8ff" stroke-width="14"/>
+    <path d="M112 292h182M138 292v66M268 292v66" stroke="#1b6eff" stroke-width="15"/>
+    <path d="M78 154H36M368 154h-42" stroke="#d92d20" stroke-width="17"/>
+  </g>
+  <g font-family="Menlo, Consolas, monospace" font-weight="900">
+    <text x="470" y="194" fill="#d92d20" font-size="62">UMANOIDI</text>
+    <text x="470" y="270" fill="#f5f8ff" font-size="50">REALISTICI</text>
+    <text x="472" y="344" fill="#bad0ff" font-size="31">somiglianza umana</text>
+    <text x="472" y="404" fill="#00b8ff" font-size="27">AIGEN-C preview</text>
+  </g>
+</svg>
