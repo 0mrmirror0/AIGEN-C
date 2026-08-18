@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">Amazon rare books AI training preview</title>
+  <desc id="desc">AIGEN-C style preview for rare books being destroyed to train AI models.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#061a39"/>
+      <stop offset="1" stop-color="#020916"/>
+    </linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0v48" fill="none" stroke="#1b6eff" stroke-opacity=".22" stroke-width="2"/>
+    </pattern>
+  </defs>
+  <rect width="960" height="600" fill="url(#bg)"/>
+  <rect width="960" height="600" fill="url(#grid)"/>
+  <rect x="36" y="36" width="888" height="528" fill="none" stroke="#f6ad16" stroke-width="8"/>
+  <g font-family="Menlo, Consolas, monospace" font-weight="900">
+    <text x="72" y="112" fill="#00b8ff" font-size="34" letter-spacing="3">AI TRAINING DATA</text>
+    <text x="72" y="222" fill="#f6ad16" font-size="78">AMAZON</text>
+    <text x="72" y="296" fill="#f5f8ff" font-size="48">RARE BOOKS</text>
+    <text x="72" y="506" fill="#bad0ff" font-size="30">books destroyed to feed models</text>
+  </g>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M585 188h184c48 0 88 39 88 88v118c0 48-40 88-88 88H585z" fill="#061a39" stroke="#1b6eff" stroke-width="8"/>
+    <path d="M585 188c34 30 52 62 52 100v194c-18-28-34-42-52-48z" fill="#020916" stroke="#1b6eff" stroke-width="8"/>
+    <path d="M666 248h128M666 292h128M666 336h92" stroke="#bad0ff" stroke-width="12"/>
+    <path d="M560 156l320 360" stroke="#d92d20" stroke-width="18"/>
+    <path d="M700 126v64M700 482v64M588 242h-64M876 358h-64" stroke="#f6ad16" stroke-width="10"/>
+    <circle cx="700" cy="336" r="112" stroke="#00b8ff" stroke-width="10" stroke-dasharray="24 18"/>
+  </g>
+</svg>
