@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">OpenAI math results preview</title>
+  <desc id="desc">Retro AIGEN-C style card for AI results in mathematics and theoretical computer science.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#061a39"/>
+      <stop offset="1" stop-color="#020916"/>
+    </linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0v48" fill="none" stroke="#1b6eff" stroke-opacity=".22" stroke-width="2"/>
+    </pattern>
+  </defs>
+  <rect width="960" height="600" fill="url(#bg)"/>
+  <rect width="960" height="600" fill="url(#grid)"/>
+  <rect x="36" y="36" width="888" height="528" fill="none" stroke="#f6ad16" stroke-width="8"/>
+  <g font-family="Menlo, Consolas, monospace" font-weight="900">
+    <text x="72" y="112" fill="#00b8ff" font-size="34" letter-spacing="3">OPENAI RESEARCH</text>
+    <text x="72" y="236" fill="#f5f8ff" font-size="132">10</text>
+    <text x="268" y="206" fill="#f6ad16" font-size="54">NEW RESULTS</text>
+    <text x="268" y="276" fill="#bad0ff" font-size="38">math + theoretical CS</text>
+    <text x="72" y="382" fill="#f5f8ff" font-size="35">sphere packing</text>
+    <text x="72" y="432" fill="#f5f8ff" font-size="35">coding theory</text>
+    <text x="72" y="482" fill="#f5f8ff" font-size="35">lattice cryptography</text>
+  </g>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M650 405c72-125 132-164 178-116 41 42 9 115-56 118-46 2-82-32-92-78-16-76 65-176 171-179" stroke="#00b8ff" stroke-width="12"/>
+    <path d="M616 470h252M616 510h188" stroke="#f6ad16" stroke-width="10"/>
+    <path d="M642 146l56 76 54-76M752 146l56 76 54-76" stroke="#bad0ff" stroke-width="9"/>
+  </g>
+</svg>
