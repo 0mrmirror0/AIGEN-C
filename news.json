@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-08-19T04:38:37.539351+00:00",
+  "updatedAt": "2026-08-19T09:35:37.296604+00:00",
   "items": [
+    {
+      "title": "19/08/2026",
+      "text": "Grazie a tutti per la diretta di ieri! È stato divertente, conduttore brillante, e abbiamo collaudato un format a due speaker che avrà seguito nelle prossime settimane. Nel frattempo, la singolarità è arrivata e comincia…",
+      "url": "https://t.me/AIGEN_C/411",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/411/image-22e9befc30.jpg"
+      }
+    },
     {
       "title": "18/08/2026",
       "text": "🔥 Ci vediamo alle 18 per un grandissimo speciale targato 100 Giorni Da Leoni",
@@ -14,15 +23,6 @@
       "title": "18/08/2026",
       "text": "Saremo tra poco in diretta su 100 giorni da leoni, youtube",
       "url": "https://t.me/AIGEN_C/409"
-    },
-    {
-      "title": "17/08/2026",
-      "text": "Mureka V9.5 rilasciato. AI per generare musica. E da ora non è più possibile distinguere la musica composta a macchina da quella umana. Al click qualche esempio. Da notare che Mureka 9.5 usa un modello ragionativo propri…",
-      "url": "https://t.me/AIGEN_C/408",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/408/image-1b1ec44f30.jpg"
-      }
     }
   ]
 }
