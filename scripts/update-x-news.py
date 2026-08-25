@@ -2,6 +2,7 @@ import email.utils
 import html
 import json
 import re
+import sys
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from pathlib import Path
@@ -54,6 +55,11 @@ def fetch_x_items(limit: int = 3):
             break
     return items
 
-items = fetch_x_items()
+try:
+    items = fetch_x_items()
+except requests.RequestException as exc:
+    print(f'Skip X news update: {exc}', file=sys.stderr)
+    raise SystemExit(0)
+
 Path('x-news.json').write_text(json.dumps({'updatedAt': datetime.now(timezone.utc).isoformat(), 'items': items}, ensure_ascii=False, indent=2) + '\n')
 print(f'Wrote {len(items)} X items')
