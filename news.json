@@ -1,28 +1,32 @@
 {
-  "updatedAt": "2026-08-20T03:48:31.380661+00:00",
+  "updatedAt": "2026-08-25T12:12:07.782109+00:00",
   "items": [
     {
-      "title": "19/08/2026",
-      "text": "Grazie a tutti per la diretta di ieri! È stato divertente, conduttore brillante, e abbiamo collaudato un format a due speaker che avrà seguito nelle prossime settimane. Nel frattempo, la singolarità è arrivata e comincia…",
-      "url": "https://t.me/AIGEN_C/411",
+      "title": "25/08/2026",
+      "text": "Alle olimpiadi per robot in Cina, un robottino si è distratto guardando le robottine e.... Video completo al click",
+      "url": "https://t.me/AIGEN_C/418",
       "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/411/image-22e9befc30.jpg"
+        "type": "video",
+        "url": "/assets/news/telegram/418/video-10aa9cb3c1.jpg"
       }
     },
     {
-      "title": "18/08/2026",
-      "text": "🔥 Ci vediamo alle 18 per un grandissimo speciale targato 100 Giorni Da Leoni",
-      "url": "https://t.me/AIGEN_C/410",
+      "title": "25/08/2026",
+      "text": "Questo è il robot che ha vinto oggi la 400m delle olimpiadi per robot. Al click il video. Da notare che quell'andatura con le 'mani' davanti e quell'ondeggiare del tronco non è una caratteristica programmata. è invece em…",
+      "url": "https://t.me/AIGEN_C/417",
       "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/410/image-f2a85c2c51.jpg"
+        "type": "video",
+        "url": "/assets/news/telegram/417/video-947b1dd903.jpg"
       }
     },
     {
-      "title": "18/08/2026",
-      "text": "Saremo tra poco in diretta su 100 giorni da leoni, youtube",
-      "url": "https://t.me/AIGEN_C/409"
+      "title": "23/08/2026",
+      "text": "OpenAI avrà un modello dedicato alla musica in futuro. Così mr. Strawberry, citando come fonte \"tibo\", che ha anche laconicamente risposto. Tibo è il responsabile aziendale di Codex: il ChatGPT specializzato in programma…",
+      "url": "https://t.me/AIGEN_C/416",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/416/image-ee9a1b9244.jpg"
+      }
     }
   ]
 }
