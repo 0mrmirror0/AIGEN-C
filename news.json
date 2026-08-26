@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-08-26T14:50:18.836674+00:00",
+  "updatedAt": "2026-08-26T16:19:00.213519+00:00",
   "items": [
+    {
+      "title": "26/08/2026",
+      "text": "RISOLTO IL MISTERO DI 0xALPHA Come avevamo ipotizzato...è proprio lui, ciò che temevano le grandi hyperscale come OpenAi e Antropic. È GLM 5.3 di Ziphu ( z.ai ) e gira interamente su chip AI cinesi, ha performance assolu…",
+      "url": "https://t.me/AIGEN_C/420",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/420/image-ccd8dd637d.jpg"
+      }
+    },
     {
       "title": "26/08/2026",
       "text": "Momento di celebrazione. Tibo è responsabile di tutta Codex: la parte di ChatGPT che si usa per scrivere codice e per gli agenti. Tibo ha cominciato a seguire il nostro minuscolo profilo in inglese su X. Non dal suo acco…",
@@ -17,15 +26,6 @@
       "media": {
         "type": "video",
         "url": "/assets/news/telegram/418/video-10aa9cb3c1.jpg"
-      }
-    },
-    {
-      "title": "25/08/2026",
-      "text": "Questo è il robot che ha vinto oggi la 400m delle olimpiadi per robot. Al click il video. Da notare che quell'andatura con le 'mani' davanti e quell'ondeggiare del tronco non è una caratteristica programmata. è invece em…",
-      "url": "https://t.me/AIGEN_C/417",
-      "media": {
-        "type": "video",
-        "url": "/assets/news/telegram/417/video-947b1dd903.jpg"
       }
     }
   ]
