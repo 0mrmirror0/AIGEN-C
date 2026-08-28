@@ -1,6 +1,11 @@
 {
-  "updatedAt": "2026-08-28T05:16:13.135985+00:00",
+  "updatedAt": "2026-08-28T17:38:05.650181+00:00",
   "items": [
+    {
+      "title": "28/08/2026",
+      "text": "OpenAI, Anthropic, Amazon, Google e un centinaio di altre aziende AI hanno firmato ieri una lettera aperta sulle potenziali minacce all'umanità. I nuovi modelli sempre più potenti in materia di sicurezza digitale mettera…",
+      "url": "https://t.me/AIGEN_C/421"
+    },
     {
       "title": "26/08/2026",
       "text": "RISOLTO IL MISTERO DI 0xALPHA Come avevamo ipotizzato...è proprio lui, ciò che temevano le grandi hyperscale come OpenAi e Antropic. È GLM 5.3 di Ziphu ( z.ai ) e gira interamente su chip AI cinesi, ha performance assolu…",
@@ -17,15 +22,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/419/image-0f46947d54.jpg"
-      }
-    },
-    {
-      "title": "25/08/2026",
-      "text": "Alle olimpiadi per robot in Cina, un robottino si è distratto guardando le robottine e.... Video completo al click",
-      "url": "https://t.me/AIGEN_C/418",
-      "media": {
-        "type": "video",
-        "url": "/assets/news/telegram/418/video-10aa9cb3c1.jpg"
       }
     }
   ]
