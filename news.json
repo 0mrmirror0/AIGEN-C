@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-08-29T20:36:08.391254+00:00",
+  "updatedAt": "2026-08-29T23:03:20.456251+00:00",
   "items": [
+    {
+      "title": "29/08/2026",
+      "text": "Questo è uno stralcio della conservazione con l'agente C2. Da ore sta incessantemente lavorando a estrarre 60Gb+ di musica sepolta in un Mac di cui ho solo un backup in una time capsule apple del 2010. Ho provato a farlo…",
+      "url": "https://t.me/AIGEN_C/423",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/423/image-74e7bfb2a4.jpg"
+      }
+    },
     {
       "title": "29/08/2026",
       "text": "Siamo live su Border Nights con la nuova puntata di 40 Minuti Nel Futuro speciale olimpiadi robot. E' venuta bene! DIRETTA - martedì sera chi si è iscritto alla newsletter su AIGEN-C riceverà la newsletter con il link pe…",
@@ -14,15 +23,6 @@
       "title": "28/08/2026",
       "text": "OpenAI, Anthropic, Amazon, Google e un centinaio di altre aziende AI hanno firmato ieri una lettera aperta sulle potenziali minacce all'umanità. I nuovi modelli sempre più potenti in materia di sicurezza digitale mettera…",
       "url": "https://t.me/AIGEN_C/421"
-    },
-    {
-      "title": "26/08/2026",
-      "text": "RISOLTO IL MISTERO DI 0xALPHA Come avevamo ipotizzato...è proprio lui, ciò che temevano le grandi hyperscale come OpenAi e Antropic. È GLM 5.3 di Ziphu ( z.ai ) e gira interamente su chip AI cinesi, ha performance assolu…",
-      "url": "https://t.me/AIGEN_C/420",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/420/image-ccd8dd637d.jpg"
-      }
     }
   ]
 }
