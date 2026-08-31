@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-08-31T07:33:17.374711+00:00",
+  "updatedAt": "2026-08-31T15:56:34.644025+00:00",
   "items": [
+    {
+      "title": "31/08/2026",
+      "text": "Questo video ispirato al famoso cartone animato Dragonball é stato realizzato con il modello Minimax H3 max. Gli elementi degni di nota: Minimax é una AI cinese che evidentemente non si fa problemi di copyright, a differ…",
+      "url": "https://t.me/AIGEN_C/424",
+      "media": {
+        "type": "video",
+        "url": "/assets/news/telegram/424/video-f5bb9d0f78.jpg"
+      }
+    },
     {
       "title": "29/08/2026",
       "text": "Questo è uno stralcio della conservazione con l'agente C2. Da ore sta incessantemente lavorando a estrarre 60Gb+ di musica sepolta in un Mac di cui ho solo un backup in una time capsule apple del 2010. Ho provato a farlo…",
@@ -18,11 +27,6 @@
         "type": "image",
         "url": "/assets/news/telegram/422/image-4863ba25c9.jpg"
       }
-    },
-    {
-      "title": "28/08/2026",
-      "text": "OpenAI, Anthropic, Amazon, Google e un centinaio di altre aziende AI hanno firmato ieri una lettera aperta sulle potenziali minacce all'umanità. I nuovi modelli sempre più potenti in materia di sicurezza digitale mettera…",
-      "url": "https://t.me/AIGEN_C/421"
     }
   ]
 }
