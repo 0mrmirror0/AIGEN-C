@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-09-01T16:15:18.022737+00:00",
+  "updatedAt": "2026-09-01T19:28:55.570860+00:00",
   "items": [
+    {
+      "title": "01/09/2026",
+      "text": "Due sono le tecnologie in uso sui robot oggi, per il momento nessuna si è ancora imposta come standard perchè migliore. A destra: la tech In-Finger Actuator. Ogni falange della mano robotica contiene un piccolo motore, d…",
+      "url": "https://t.me/AIGEN_C/425",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/425/image-66224464dc.jpg"
+      }
+    },
     {
       "title": "31/08/2026",
       "text": "Questo video ispirato al famoso cartone animato Dragonball é stato realizzato con il modello Minimax H3 max. Gli elementi degni di nota: Minimax é una AI cinese che evidentemente non si fa problemi di copyright, a differ…",
@@ -17,15 +26,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/423/image-74e7bfb2a4.jpg"
-      }
-    },
-    {
-      "title": "29/08/2026",
-      "text": "Siamo live su Border Nights con la nuova puntata di 40 Minuti Nel Futuro speciale olimpiadi robot. E' venuta bene! DIRETTA - martedì sera chi si è iscritto alla newsletter su AIGEN-C riceverà la newsletter con il link pe…",
-      "url": "https://t.me/AIGEN_C/422",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/422/image-4863ba25c9.jpg"
       }
     }
   ]
