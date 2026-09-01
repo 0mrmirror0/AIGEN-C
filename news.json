@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-31T21:23:46.336241+00:00",
+  "updatedAt": "2026-09-01T00:44:21.487973+00:00",
   "items": [
     {
       "title": "31/08/2026",
@@ -22,7 +22,11 @@
     {
       "title": "29/08/2026",
       "text": "Siamo live su Border Nights con la nuova puntata di 40 Minuti Nel Futuro speciale olimpiadi robot. E' venuta bene! DIRETTA - martedì sera chi si è iscritto alla newsletter su AIGEN-C riceverà la newsletter con il link pe…",
-      "url": "https://t.me/AIGEN_C/422"
+      "url": "https://t.me/AIGEN_C/422",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/422/image-4863ba25c9.jpg"
+      }
     }
   ]
 }
