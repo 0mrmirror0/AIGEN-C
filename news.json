@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-09-02T13:30:24.929592+00:00",
+  "updatedAt": "2026-09-02T17:41:42.866004+00:00",
   "items": [
+    {
+      "title": "02/09/2026",
+      "text": "Ne abbiamo parlato spesso alle conferenze, era un sospetto dopo aver visto Google Omni in azione, ora sappiamo che è assolutamente possibile. Google Omni è un modello video rilasciato qualche mese fa. La sua caratteristi…",
+      "url": "https://t.me/AIGEN_C/427",
+      "media": {
+        "type": "video",
+        "url": "/assets/news/telegram/427/video-76750a0637.jpg"
+      }
+    },
     {
       "title": "02/09/2026",
       "text": "Rilasciati da Anthropic i nuovi modelli . Fable 5.1, che promette di consumare il 75% di token in meno in alcuni contesti. Ottimo - mentre costruivamo Siliconsoccer.com con Fable5 bastavano due prompt (letteralmente due)…",
@@ -17,15 +26,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/425/image-66224464dc.jpg"
-      }
-    },
-    {
-      "title": "31/08/2026",
-      "text": "Questo video ispirato al famoso cartone animato Dragonball é stato realizzato con il modello Minimax H3 max. Gli elementi degni di nota: Minimax é una AI cinese che evidentemente non si fa problemi di copyright, a differ…",
-      "url": "https://t.me/AIGEN_C/424",
-      "media": {
-        "type": "video",
-        "url": "/assets/news/telegram/424/video-f5bb9d0f78.jpg"
       }
     }
   ]
