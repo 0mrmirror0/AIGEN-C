@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-09-02T04:14:40.192319+00:00",
+  "updatedAt": "2026-09-02T08:57:03.247892+00:00",
   "items": [
+    {
+      "title": "02/09/2026",
+      "text": "Rilasciati da Anthropic i nuovi modelli . Fable 5.1, che promette di consumare il 75% di token in meno in alcuni contesti. Ottimo - mentre costruivamo Siliconsoccer.com con Fable5 bastavano due prompt (letteralmente due)…",
+      "url": "https://t.me/AIGEN_C/426",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/426/image-8ee4788f08.jpg"
+      }
+    },
     {
       "title": "01/09/2026",
       "text": "Due sono le tecnologie in uso sui robot oggi, per il momento nessuna si è ancora imposta come standard perchè migliore. A destra: la tech In-Finger Actuator. Ogni falange della mano robotica contiene un piccolo motore, d…",
@@ -17,15 +26,6 @@
       "media": {
         "type": "video",
         "url": "/assets/news/telegram/424/video-f5bb9d0f78.jpg"
-      }
-    },
-    {
-      "title": "29/08/2026",
-      "text": "Questo è uno stralcio della conservazione con l'agente C2. Da ore sta incessantemente lavorando a estrarre 60Gb+ di musica sepolta in un Mac di cui ho solo un backup in una time capsule apple del 2010. Ho provato a farlo…",
-      "url": "https://t.me/AIGEN_C/423",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/423/image-74e7bfb2a4.jpg"
       }
     }
   ]
