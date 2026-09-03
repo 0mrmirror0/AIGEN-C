@@ -1,6 +1,11 @@
 {
-  "updatedAt": "2026-09-03T01:19:03.398623+00:00",
+  "updatedAt": "2026-09-03T06:15:58.588338+00:00",
   "items": [
+    {
+      "title": "03/09/2026",
+      "text": "Nel frattempo, OpenAI ha accennato qualcosa di più su Astra, ed è proprio la cosa che non bisognerebbe fare. Astra è il modello dedicato alla cybersecurity, livello Mythos (e probabilmente superiore). La novità è che Ast…",
+      "url": "https://t.me/AIGEN_C/428"
+    },
     {
       "title": "02/09/2026",
       "text": "Ne abbiamo parlato spesso alle conferenze, era un sospetto dopo aver visto Google Omni in azione, ora sappiamo che è assolutamente possibile. Google Omni è un modello video rilasciato qualche mese fa. La sua caratteristi…",
@@ -17,15 +22,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/426/image-8ee4788f08.jpg"
-      }
-    },
-    {
-      "title": "01/09/2026",
-      "text": "Due sono le tecnologie in uso sui robot oggi, per il momento nessuna si è ancora imposta come standard perchè migliore. A destra: la tech In-Finger Actuator. Ogni falange della mano robotica contiene un piccolo motore, d…",
-      "url": "https://t.me/AIGEN_C/425",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/425/image-66224464dc.jpg"
       }
     }
   ]
