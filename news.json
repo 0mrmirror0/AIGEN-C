@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-09-03T11:33:01.376344+00:00",
+  "updatedAt": "2026-09-03T15:59:41.589507+00:00",
   "items": [
+    {
+      "title": "03/09/2026",
+      "text": "Da circa 1h molti utenti riportano malfunzionamenti di tutte le principali piattaforme AI ChatGPT, Claude, Grok, Gemini e anche Cloudflare, la struttura cloud a cui si appoggia mezza internet. Le nostre funzionano. Poco …",
+      "url": "https://t.me/AIGEN_C/429",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/429/image-c99effcbe0.jpg"
+      }
+    },
     {
       "title": "03/09/2026",
       "text": "Nel frattempo, OpenAI ha accennato qualcosa di più su Astra, ed è proprio la cosa che non bisognerebbe fare. Astra è il modello dedicato alla cybersecurity, livello Mythos (e probabilmente superiore). La novità è che Ast…",
@@ -13,15 +22,6 @@
       "media": {
         "type": "video",
         "url": "/assets/news/telegram/427/video-76750a0637.jpg"
-      }
-    },
-    {
-      "title": "02/09/2026",
-      "text": "Rilasciati da Anthropic i nuovi modelli . Fable 5.1, che promette di consumare il 75% di token in meno in alcuni contesti. Ottimo - mentre costruivamo Siliconsoccer.com con Fable5 bastavano due prompt (letteralmente due)…",
-      "url": "https://t.me/AIGEN_C/426",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/426/image-8ee4788f08.jpg"
       }
     }
   ]
