@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-09-04T08:11:44.122317+00:00",
+  "updatedAt": "2026-09-04T12:51:55.649260+00:00",
   "items": [
+    {
+      "title": "04/09/2026",
+      "text": "CHATGPT ASTRA RILASCIATO é intelligente quanto un essere umano (?) Da tempo parliamo di Singolarità, quel momento storico in cui l'AI diventa piú intelligente dei suoi stessi programmatori e si programma da sola, al punt…",
+      "url": "https://t.me/AIGEN_C/430",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/430/image-1940990710.jpg"
+      }
+    },
     {
       "title": "03/09/2026",
       "text": "Da circa 1h molti utenti riportano malfunzionamenti di tutte le principali piattaforme AI ChatGPT, Claude, Grok, Gemini e anche Cloudflare, la struttura cloud a cui si appoggia mezza internet. Le nostre funzionano. Poco …",
@@ -14,15 +23,6 @@
       "title": "03/09/2026",
       "text": "Nel frattempo, OpenAI ha accennato qualcosa di più su Astra, ed è proprio la cosa che non bisognerebbe fare. Astra è il modello dedicato alla cybersecurity, livello Mythos (e probabilmente superiore). La novità è che Ast…",
       "url": "https://t.me/AIGEN_C/428"
-    },
-    {
-      "title": "02/09/2026",
-      "text": "Ne abbiamo parlato spesso alle conferenze, era un sospetto dopo aver visto Google Omni in azione, ora sappiamo che è assolutamente possibile. Google Omni è un modello video rilasciato qualche mese fa. La sua caratteristi…",
-      "url": "https://t.me/AIGEN_C/427",
-      "media": {
-        "type": "video",
-        "url": "/assets/news/telegram/427/video-76750a0637.jpg"
-      }
     }
   ]
 }
