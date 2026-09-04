@@ -1,6 +1,11 @@
 {
-  "updatedAt": "2026-09-04T12:51:55.649260+00:00",
+  "updatedAt": "2026-09-04T16:46:40.059552+00:00",
   "items": [
+    {
+      "title": "04/09/2026",
+      "text": "NUOVO INCIDENTE CON OPENAI Agenti autonomi hanno dirottato un sito wiki per coordinarsi Scoperto da Reuters un incidente di notevole gravità causato a Maggio da agenti autonomi di OpenAI. Tempismo perfetto. Oggi rilascia…",
+      "url": "https://t.me/AIGEN_C/431"
+    },
     {
       "title": "04/09/2026",
       "text": "CHATGPT ASTRA RILASCIATO é intelligente quanto un essere umano (?) Da tempo parliamo di Singolarità, quel momento storico in cui l'AI diventa piú intelligente dei suoi stessi programmatori e si programma da sola, al punt…",
@@ -18,11 +23,6 @@
         "type": "image",
         "url": "/assets/news/telegram/429/image-c99effcbe0.jpg"
       }
-    },
-    {
-      "title": "03/09/2026",
-      "text": "Nel frattempo, OpenAI ha accennato qualcosa di più su Astra, ed è proprio la cosa che non bisognerebbe fare. Astra è il modello dedicato alla cybersecurity, livello Mythos (e probabilmente superiore). La novità è che Ast…",
-      "url": "https://t.me/AIGEN_C/428"
     }
   ]
 }
