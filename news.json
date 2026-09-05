@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-09-05T08:09:31.256690+00:00",
+  "updatedAt": "2026-09-05T11:56:07.507564+00:00",
   "items": [
+    {
+      "title": "05/09/2026",
+      "text": "Non solo, OpenAI dichiara con un post su X che ha sviluppato un approccio per gestire gli incidenti con gli agenti, all'indomani del colossale incidente di Maggio. In linguaggio corporate, \"incidente di disallineamento\" …",
+      "url": "https://t.me/AIGEN_C/433",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/433/image-28066ecd84.jpg"
+      }
+    },
     {
       "title": "04/09/2026",
       "text": "NUOVO INCIDENTE CON OPENAI Agenti autonomi hanno dirottato un sito wiki per coordinarsi Scoperto da Reuters un incidente di notevole gravità causato a Maggio da agenti autonomi di OpenAI. Tempismo perfetto. Oggi rilascia…",
@@ -13,15 +22,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/430/image-1940990710.jpg"
-      }
-    },
-    {
-      "title": "03/09/2026",
-      "text": "Da circa 1h molti utenti riportano malfunzionamenti di tutte le principali piattaforme AI ChatGPT, Claude, Grok, Gemini e anche Cloudflare, la struttura cloud a cui si appoggia mezza internet. Le nostre funzionano. Poco …",
-      "url": "https://t.me/AIGEN_C/429",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/429/image-c99effcbe0.jpg"
       }
     }
   ]
