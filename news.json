@@ -1,6 +1,11 @@
 {
-  "updatedAt": "2026-09-07T11:53:30.585447+00:00",
+  "updatedAt": "2026-09-07T17:29:38.957281+00:00",
   "items": [
+    {
+      "title": "07/09/2026",
+      "text": "COMUNICAZIONE DI SERVIZIO Sospendiamo pubblicazioni e newsletter per due settimane , saremo all'estero completamente offline. Riprendiamo dal 23-24 settembre.",
+      "url": "https://t.me/AIGEN_C/435"
+    },
     {
       "title": "07/09/2026",
       "text": "Due parole su Astra, poi due settimane senza aggiornamenti. Abbiamo provato Astra poco fa, con IP italiano, app su iphone, ChatGPT plus, con modalità work (non chat). Su android non ancora disponibile. Astra è effettivam…",
@@ -14,11 +19,6 @@
         "type": "image",
         "url": "/assets/news/telegram/433/image-28066ecd84.jpg"
       }
-    },
-    {
-      "title": "04/09/2026",
-      "text": "NUOVO INCIDENTE CON OPENAI Agenti autonomi hanno dirottato un sito wiki per coordinarsi Scoperto da Reuters un incidente di notevole gravità causato a Maggio da agenti autonomi di OpenAI. Tempismo perfetto. Oggi rilascia…",
-      "url": "https://t.me/AIGEN_C/431"
     }
   ]
 }
