@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-09-29T08:54:37.513511+00:00",
+  "updatedAt": "2026-09-29T15:27:40.496002+00:00",
   "items": [
+    {
+      "title": "29/09/2026",
+      "text": "L'Università di Cambridge parla apertamente di Singolarità",
+      "url": "https://t.me/AIGEN_C/440",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/440/image-1f2fd6a77d.jpg"
+      }
+    },
     {
       "title": "29/09/2026",
       "text": "OpenAI ha annunciato che sposterà in avanti la IPO (quotarsi in borsa), mentre Anthropic ha avviato oggi la procedura burocratica per la sua IPO. Interessante - le due principali hyperscale ora hanno strategie diverse. O…",
@@ -13,15 +22,6 @@
       "media": {
         "type": "video",
         "url": "/assets/news/telegram/438/video-6d677e24c3.jpg"
-      }
-    },
-    {
-      "title": "24/09/2026",
-      "text": "Il cinema interattivo è arrivato. ACTX86 ha realizzato una AI che consente di chattare con i personaggi di un video. A tendere, sarà possibile chattare con i personaggi di un film..",
-      "url": "https://t.me/AIGEN_C/437",
-      "media": {
-        "type": "video",
-        "url": "/assets/news/telegram/437/video-a9512a7690.jpg"
       }
     }
   ]
