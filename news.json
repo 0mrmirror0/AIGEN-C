@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-28T22:26:39.706039+00:00",
+  "updatedAt": "2026-09-29T02:13:04.399282+00:00",
   "items": [
     {
       "title": "28/09/2026",
@@ -13,7 +13,11 @@
     {
       "title": "24/09/2026",
       "text": "Il cinema interattivo è arrivato. ACTX86 ha realizzato una AI che consente di chattare con i personaggi di un video. A tendere, sarà possibile chattare con i personaggi di un film..",
-      "url": "https://t.me/AIGEN_C/437"
+      "url": "https://t.me/AIGEN_C/437",
+      "media": {
+        "type": "video",
+        "url": "/assets/news/telegram/437/video-a9512a7690.jpg"
+      }
     },
     {
       "title": "24/09/2026",
