@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-10-01T06:58:02.380619+00:00",
+  "updatedAt": "2026-10-01T14:23:36.276777+00:00",
   "items": [
+    {
+      "title": "01/10/2026",
+      "text": "Un messaggio cifrato di un generale di Napoleone ha resistito alla decodifica per 217 anni. Ieri Astra lo ha decodificato in 6 ore.",
+      "url": "https://t.me/AIGEN_C/441",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/441/image-6a0da6ef32.jpg"
+      }
+    },
     {
       "title": "29/09/2026",
       "text": "L'Università di Cambridge parla apertamente di Singolarità",
@@ -14,15 +23,6 @@
       "title": "29/09/2026",
       "text": "OpenAI ha annunciato che sposterà in avanti la IPO (quotarsi in borsa), mentre Anthropic ha avviato oggi la procedura burocratica per la sua IPO. Interessante - le due principali hyperscale ora hanno strategie diverse. O…",
       "url": "https://t.me/AIGEN_C/439"
-    },
-    {
-      "title": "28/09/2026",
-      "text": "Poco fa Elon Musk ha pubblicato questo video aggiungendo il testo \"Ho percepito profondamente AGI [...]\" Da guardare con audio. È ormai chiaro che AGI/ASI è stata raggiunta, lo avevamo anticipato qui quasi un anno fa. La…",
-      "url": "https://t.me/AIGEN_C/438",
-      "media": {
-        "type": "video",
-        "url": "/assets/news/telegram/438/video-6d677e24c3.jpg"
-      }
     }
   ]
 }
