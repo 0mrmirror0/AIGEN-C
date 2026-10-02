@@ -1,10 +1,14 @@
 {
-  "updatedAt": "2026-10-02T04:39:27.188989+00:00",
+  "updatedAt": "2026-10-02T10:55:56.520077+00:00",
   "items": [
     {
       "title": "01/10/2026",
       "text": "Un messaggio cifrato di un generale di Napoleone ha resistito alla decodifica per 217 anni. Ieri Astra lo ha decodificato in 6 ore.",
-      "url": "https://t.me/AIGEN_C/441"
+      "url": "https://t.me/AIGEN_C/441",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/441/image-6a0da6ef32.jpg"
+      }
     },
     {
       "title": "29/09/2026",
