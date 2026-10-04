@@ -1,6 +1,24 @@
 {
-  "updatedAt": "2026-10-04T07:54:26.577144+00:00",
+  "updatedAt": "2026-10-04T13:47:29.813912+00:00",
   "items": [
+    {
+      "title": "04/10/2026",
+      "text": "Claude, fai un video in cui mi mostri cosa c'è nella tua mente. Così un account su X, chiedendo a Claude Opus 5.5. Il video é la risposta di Claude.",
+      "url": "https://t.me/AIGEN_C/444",
+      "media": {
+        "type": "video",
+        "url": "/assets/news/telegram/444/video-8a1f4ad49f.jpg"
+      }
+    },
+    {
+      "title": "04/10/2026",
+      "text": "Nuovo modello video AI lanciato. Simula la persona. È possibile interagire del vivo. Tavus, il nuovo modello, ha superato il test di Turing nel 48% dei casi. In altre parole, il 48% delle persone del campione credevano d…",
+      "url": "https://t.me/AIGEN_C/443",
+      "media": {
+        "type": "video",
+        "url": "/assets/news/telegram/443/video-f6c1586bba.jpg"
+      }
+    },
     {
       "title": "03/10/2026",
       "text": "Lo avevamo accennato, poco dopo l'incidente ChatGPT - huggingface, che questo tipo di incidenti potevano essere molto, molto più numerosi di quanto potesse sembrare.... Ora siamo a centinaia di migliaia di incidenti a ba…",
@@ -8,24 +26,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/442/image-774998819e.jpg"
-      }
-    },
-    {
-      "title": "01/10/2026",
-      "text": "Un messaggio cifrato di un generale di Napoleone ha resistito alla decodifica per 217 anni. Ieri Astra lo ha decodificato in 6 ore.",
-      "url": "https://t.me/AIGEN_C/441",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/441/image-6a0da6ef32.jpg"
-      }
-    },
-    {
-      "title": "29/09/2026",
-      "text": "L'Università di Cambridge parla apertamente di Singolarità",
-      "url": "https://t.me/AIGEN_C/440",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/440/image-1f2fd6a77d.jpg"
       }
     }
   ]
