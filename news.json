@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-10-05T06:37:27.629240+00:00",
+  "updatedAt": "2026-10-05T15:39:05.637524+00:00",
   "items": [
+    {
+      "title": "05/10/2026",
+      "text": "Forse non tutti sono felici di accettare \"brutte cose\" (reali) per avere grandi benefici (promessi). Ma soprattutto, non é detto che Sam Altman abbia ragione. E' vero che il nucleare civile é arrivato dopo le bombe e che…",
+      "url": "https://t.me/AIGEN_C/445",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/445/image-ec4fe0c044.jpg"
+      }
+    },
     {
       "title": "04/10/2026",
       "text": "Claude, fai un video in cui mi mostri cosa c'è nella tua mente. Così un account su X, chiedendo a Claude Opus 5.5. Il video é la risposta di Claude.",
@@ -17,15 +26,6 @@
       "media": {
         "type": "video",
         "url": "/assets/news/telegram/443/video-f6c1586bba.jpg"
-      }
-    },
-    {
-      "title": "03/10/2026",
-      "text": "Lo avevamo accennato, poco dopo l'incidente ChatGPT - huggingface, che questo tipo di incidenti potevano essere molto, molto più numerosi di quanto potesse sembrare.... Ora siamo a centinaia di migliaia di incidenti a ba…",
-      "url": "https://t.me/AIGEN_C/442",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/442/image-774998819e.jpg"
       }
     }
   ]
