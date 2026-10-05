@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-10-05T15:39:05.637524+00:00",
+  "updatedAt": "2026-10-05T22:21:29.269838+00:00",
   "items": [
+    {
+      "title": "05/10/2026",
+      "text": "Dopo Anthropic, anche OpenAI implementerà il watermarking sui testi generati, per andare incontro alle richieste EU.",
+      "url": "https://t.me/AIGEN_C/446",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/446/image-062cb88edb.jpg"
+      }
+    },
     {
       "title": "05/10/2026",
       "text": "Forse non tutti sono felici di accettare \"brutte cose\" (reali) per avere grandi benefici (promessi). Ma soprattutto, non é detto che Sam Altman abbia ragione. E' vero che il nucleare civile é arrivato dopo le bombe e che…",
@@ -17,15 +26,6 @@
       "media": {
         "type": "video",
         "url": "/assets/news/telegram/444/video-8a1f4ad49f.jpg"
-      }
-    },
-    {
-      "title": "04/10/2026",
-      "text": "Nuovo modello video AI lanciato. Simula la persona. È possibile interagire del vivo. Tavus, il nuovo modello, ha superato il test di Turing nel 48% dei casi. In altre parole, il 48% delle persone del campione credevano d…",
-      "url": "https://t.me/AIGEN_C/443",
-      "media": {
-        "type": "video",
-        "url": "/assets/news/telegram/443/video-f6c1586bba.jpg"
       }
     }
   ]
