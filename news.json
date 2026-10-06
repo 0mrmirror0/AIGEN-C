@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-10-06T02:25:19.434553+00:00",
+  "updatedAt": "2026-10-06T09:15:50.421863+00:00",
   "items": [
+    {
+      "title": "06/10/2026",
+      "text": "Nello Utah l'AI può prescrivere farmaci senza passare da un dottore. Cosa mai potrebbe andare storto?",
+      "url": "https://t.me/AIGEN_C/447",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/447/image-fea8a86a70.jpg"
+      }
+    },
     {
       "title": "05/10/2026",
       "text": "Dopo Anthropic, anche OpenAI implementerà il watermarking sui testi generati, per andare incontro alle richieste EU.",
@@ -17,15 +26,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/445/image-ec4fe0c044.jpg"
-      }
-    },
-    {
-      "title": "04/10/2026",
-      "text": "Claude, fai un video in cui mi mostri cosa c'è nella tua mente. Così un account su X, chiedendo a Claude Opus 5.5. Il video é la risposta di Claude.",
-      "url": "https://t.me/AIGEN_C/444",
-      "media": {
-        "type": "video",
-        "url": "/assets/news/telegram/444/video-8a1f4ad49f.jpg"
       }
     }
   ]
