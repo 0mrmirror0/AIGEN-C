@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-10-07T14:39:18.338072+00:00",
+  "updatedAt": "2026-10-07T20:27:56.634213+00:00",
   "items": [
+    {
+      "title": "07/10/2026",
+      "text": "GPT-6 con Intelligent UI (user interface) è in arrivo. Con più immagini, anche interattive, nelle risposte",
+      "url": "https://t.me/AIGEN_C/448",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/448/image-85f9709f67.jpg"
+      }
+    },
     {
       "title": "06/10/2026",
       "text": "Nello Utah l'AI può prescrivere farmaci senza passare da un dottore. Cosa mai potrebbe andare storto? Precisazione, al di là del titolo: Lo Utah ha autorizzato un nuovo progetto pilota di Nolla Health: l'AI analizza foto…",
@@ -17,15 +26,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/446/image-062cb88edb.jpg"
-      }
-    },
-    {
-      "title": "05/10/2026",
-      "text": "Forse non tutti sono felici di accettare \"brutte cose\" (reali) per avere grandi benefici (promessi). Ma soprattutto, non é detto che Sam Altman abbia ragione. E' vero che il nucleare civile é arrivato dopo le bombe e che…",
-      "url": "https://t.me/AIGEN_C/445",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/445/image-ec4fe0c044.jpg"
       }
     }
   ]
