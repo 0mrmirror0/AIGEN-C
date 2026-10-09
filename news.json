@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-10-09T14:31:32.898809+00:00",
+  "updatedAt": "2026-10-09T20:00:49.230957+00:00",
   "items": [
+    {
+      "title": "09/10/2026",
+      "text": "OpenAI ha rilasciato un nuovo blocco di ricerche scientifiche di matematica, circa 700. Gli articoli hanno risolto di nuovo problemi matematici aperti da molto tempo. I matematici sono in larga parte sconcertati; d'altra…",
+      "url": "https://t.me/AIGEN_C/449",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/449/image-769e7b2922.jpg"
+      }
+    },
     {
       "title": "07/10/2026",
       "text": "GPT-6 con Intelligent UI (user interface) è in arrivo. Con più immagini, anche interattive, nelle risposte",
@@ -17,15 +26,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/447/image-fea8a86a70.jpg"
-      }
-    },
-    {
-      "title": "05/10/2026",
-      "text": "Dopo Anthropic, anche OpenAI implementerà il watermarking sui testi generati, per andare incontro alle richieste EU.",
-      "url": "https://t.me/AIGEN_C/446",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/446/image-062cb88edb.jpg"
       }
     }
   ]
