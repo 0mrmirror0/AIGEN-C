@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-10-10T12:53:52.780059+00:00",
+  "updatedAt": "2026-10-10T17:40:36.772712+00:00",
   "items": [
+    {
+      "title": "10/10/2026",
+      "text": "Vi aspettiamo venerdi 16 ottobre a Malgrate (LC) Sala Nuovo Convegno Via S. Antonino 10 Info e prenotazioni: Susanna 349 56 38 584 Cinemalibero.lecco@gmail.com",
+      "url": "https://t.me/AIGEN_C/450",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/450/image-ffd006ef3a.jpg"
+      }
+    },
     {
       "title": "09/10/2026",
       "text": "OpenAI ha rilasciato un nuovo blocco di ricerche scientifiche di matematica, circa 700. Gli articoli hanno risolto di nuovo problemi matematici aperti da molto tempo. I matematici sono in larga parte sconcertati; d'altra…",
@@ -17,15 +26,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/448/image-85f9709f67.jpg"
-      }
-    },
-    {
-      "title": "06/10/2026",
-      "text": "Nello Utah l'AI può prescrivere farmaci senza passare da un dottore. Cosa mai potrebbe andare storto? Precisazione, al di là del titolo: Lo Utah ha autorizzato un nuovo progetto pilota di Nolla Health: l'AI analizza foto…",
-      "url": "https://t.me/AIGEN_C/447",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/447/image-fea8a86a70.jpg"
       }
     }
   ]
