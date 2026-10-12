@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-10-12T08:47:18.436665+00:00",
+  "updatedAt": "2026-10-12T18:43:14.470758+00:00",
   "items": [
+    {
+      "title": "12/10/2026",
+      "text": "Sulla notizia precedente siamo stati intervistati da Border Nights News poco fa. Ecco il video",
+      "url": "https://t.me/AIGEN_C/452",
+      "media": {
+        "type": "video",
+        "url": "/assets/news/telegram/452/video-11374cce2d.jpg"
+      }
+    },
     {
       "title": "12/10/2026",
       "text": "Axios , ripreso poi dal Corriere , ci fa sapere che le hyperscale (le grandi aziende AI: openAI, anthropic, meta, google) si stanno preparando per un evento catastrofico provocato dalle AI. mhm. evitabile? inevitabile? f…",
@@ -17,15 +26,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/450/image-ffd006ef3a.jpg"
-      }
-    },
-    {
-      "title": "09/10/2026",
-      "text": "OpenAI ha rilasciato un nuovo blocco di ricerche scientifiche di matematica, circa 700. Gli articoli hanno risolto di nuovo problemi matematici aperti da molto tempo. I matematici sono in larga parte sconcertati; d'altra…",
-      "url": "https://t.me/AIGEN_C/449",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/449/image-769e7b2922.jpg"
       }
     }
   ]
