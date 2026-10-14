@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-10-14T05:17:42.014637+00:00",
+  "updatedAt": "2026-10-14T15:23:29.878600+00:00",
   "items": [
+    {
+      "title": "14/10/2026",
+      "text": "Antrhopic ha annunciato che la frequenza delle modifiche al codice (code merge, per la precisione) di Claude è aumentata di 10 volte negli ultimi 6 mesi. Si tratta della capacità di Claude di migliorare la sua stessa pro…",
+      "url": "https://t.me/AIGEN_C/455",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/455/image-de7d908196.jpg"
+      }
+    },
     {
       "title": "13/10/2026",
       "text": "Si scopre che per i frigo Danfoss, la username / password è Admin / la data di oggi Non deve essere stato molto difficile attaccarli e bucarli. Nel frattempo è ancora in corso un attacco a una catena olandese. Down l'app…",
@@ -10,15 +19,6 @@
       "title": "13/10/2026",
       "text": "E sempre sui possibili incidenti, ecco qui.... Ieri in Francia. Attaccati i frigoriferi di 80 punti vendita Carrefour e di 300 punti vendita Intermarchè e Netto I frigoriferi, tutti a marca Danfoss, sono stati attaccati …",
       "url": "https://t.me/AIGEN_C/453"
-    },
-    {
-      "title": "12/10/2026",
-      "text": "Sulla notizia precedente siamo stati intervistati da Border Nights News poco fa. Ecco il video",
-      "url": "https://t.me/AIGEN_C/452",
-      "media": {
-        "type": "video",
-        "url": "/assets/news/telegram/452/video-11374cce2d.jpg"
-      }
     }
   ]
 }
