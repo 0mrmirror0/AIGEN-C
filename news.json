@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-10-15T12:46:18.506203+00:00",
+  "updatedAt": "2026-10-15T17:38:45.022038+00:00",
   "items": [
+    {
+      "title": "15/10/2026",
+      "text": "Dr. Singularity ha chiesto a Claude Opus di mostrare come sarà il 2027. Ha realizzato questo video straordinario. Parleremo di ASI e Singolarità domani sera a Lecco!",
+      "url": "https://t.me/AIGEN_C/456",
+      "media": {
+        "type": "video",
+        "url": "/assets/news/telegram/456/video-9be0a7a04a.jpg"
+      }
+    },
     {
       "title": "14/10/2026",
       "text": "Antrhopic ha annunciato che la frequenza delle modifiche al codice (code merge, per la precisione) di Claude è aumentata di 10 volte negli ultimi 6 mesi. Si tratta della capacità di Claude di migliorare la sua stessa pro…",
@@ -14,11 +23,6 @@
       "title": "13/10/2026",
       "text": "Si scopre che per i frigo Danfoss, la username / password è Admin / la data di oggi Non deve essere stato molto difficile attaccarli e bucarli. Nel frattempo è ancora in corso un attacco a una catena olandese. Down l'app…",
       "url": "https://t.me/AIGEN_C/454"
-    },
-    {
-      "title": "13/10/2026",
-      "text": "E sempre sui possibili incidenti, ecco qui.... Ieri in Francia. Attaccati i frigoriferi di 80 punti vendita Carrefour e di 300 punti vendita Intermarchè e Netto I frigoriferi, tutti a marca Danfoss, sono stati attaccati …",
-      "url": "https://t.me/AIGEN_C/453"
     }
   ]
 }
