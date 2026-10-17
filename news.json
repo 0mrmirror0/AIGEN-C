@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-10-17T17:26:29.281751+00:00",
+  "updatedAt": "2026-10-17T19:38:26.212810+00:00",
   "items": [
+    {
+      "title": "17/10/2026",
+      "text": "Splendida serata ieri a Malgrate, tra agenti, robot e Singolarità..!",
+      "url": "https://t.me/AIGEN_C/457",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/457/image-ce66e55e8a.jpg"
+      }
+    },
     {
       "title": "15/10/2026",
       "text": "Dr. Singularity ha chiesto a Claude Opus di mostrare come sarà il 2027. Ha realizzato questo video straordinario. Parleremo di ASI e Singolarità domani sera a Lecco!",
@@ -18,11 +27,6 @@
         "type": "image",
         "url": "/assets/news/telegram/455/image-de7d908196.jpg"
       }
-    },
-    {
-      "title": "13/10/2026",
-      "text": "Si scopre che per i frigo Danfoss, la username / password è Admin / la data di oggi Non deve essere stato molto difficile attaccarli e bucarli. Nel frattempo è ancora in corso un attacco a una catena olandese. Down l'app…",
-      "url": "https://t.me/AIGEN_C/454"
     }
   ]
 }
