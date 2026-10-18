@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-10-18T04:14:04.791996+00:00",
+  "updatedAt": "2026-10-18T08:59:22.016081+00:00",
   "items": [
+    {
+      "title": "18/10/2026",
+      "text": "Il video della nuova tesla é tutto da vedere. Proiettato venerdì a Malgrate. L'auto si 'arrampica' e sta attaccata a testa in giú grazie a ventole aspiranti. Si bilancia grazie alle AI. I getti sono di aria compressa. Vi…",
+      "url": "https://t.me/AIGEN_C/458",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/458/image-dbfbe72434.jpg"
+      }
+    },
     {
       "title": "17/10/2026",
       "text": "Splendida serata ieri a Malgrate, tra agenti, robot e Singolarità..!",
@@ -17,15 +26,6 @@
       "media": {
         "type": "video",
         "url": "/assets/news/telegram/456/video-9be0a7a04a.jpg"
-      }
-    },
-    {
-      "title": "14/10/2026",
-      "text": "Antrhopic ha annunciato che la frequenza delle modifiche al codice (code merge, per la precisione) di Claude è aumentata di 10 volte negli ultimi 6 mesi. Si tratta della capacità di Claude di migliorare la sua stessa pro…",
-      "url": "https://t.me/AIGEN_C/455",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/455/image-de7d908196.jpg"
       }
     }
   ]
