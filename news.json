@@ -1,6 +1,11 @@
 {
-  "updatedAt": "2026-10-18T13:09:52.992324+00:00",
+  "updatedAt": "2026-10-18T16:43:28.241425+00:00",
   "items": [
+    {
+      "title": "18/10/2026",
+      "text": "Il video della conferenza di Malgrate è disponibile, invieremo il link martedì con la newsletter. Chi non fosse ancora iscritto può farlo sul sito: www.aigen-c.com -> iscriviti alla newsletter",
+      "url": "https://t.me/AIGEN_C/460"
+    },
     {
       "title": "18/10/2026",
       "text": "Il video della nuova tesla é tutto da vedere. Proiettato venerdì a Malgrate. L'auto si 'arrampica' e sta attaccata a testa in giú grazie a ventole aspiranti. Si bilancia grazie alle AI. I getti sono di aria compressa. Vi…",
@@ -17,15 +22,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/457/image-ce66e55e8a.jpg"
-      }
-    },
-    {
-      "title": "15/10/2026",
-      "text": "Dr. Singularity ha chiesto a Claude Opus di mostrare come sarà il 2027. Ha realizzato questo video straordinario. Parleremo di ASI e Singolarità domani sera a Lecco!",
-      "url": "https://t.me/AIGEN_C/456",
-      "media": {
-        "type": "video",
-        "url": "/assets/news/telegram/456/video-9be0a7a04a.jpg"
       }
     }
   ]
