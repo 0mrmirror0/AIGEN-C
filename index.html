@@ -416,7 +416,7 @@ loadTelegramNews();
       });
       if (!response.ok) throw new Error('Kit response ' + response.status);
       form.reset();
-      status.textContent = 'Fatto. Controlla la tua email per confermare l’iscrizione.';
+      status.textContent = 'Fatto! Sei iscritto alla newsletter.';
     } catch (error) {
       status.classList.add('error');
       status.textContent = 'Non è stato possibile completare l’iscrizione. Riprova tra poco.';
