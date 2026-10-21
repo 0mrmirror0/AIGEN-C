@@ -1,6 +1,24 @@
 {
-  "updatedAt": "2026-10-21T06:28:53.516040+00:00",
+  "updatedAt": "2026-10-21T12:15:47.757125+00:00",
   "items": [
+    {
+      "title": "21/10/2026",
+      "text": "Robot da difesa personale, doveva succedere prima o poi",
+      "url": "https://t.me/AIGEN_C/463",
+      "media": {
+        "type": "video",
+        "url": "/assets/news/telegram/463/video-f91915d9c9.jpg"
+      }
+    },
+    {
+      "title": "21/10/2026",
+      "text": "Il video della conferenza di Malgrate è stato inviato a tutti ieri alle 17:30, chi è iscritto alla newsletter e non l'ha ricevuto può controllare nello spam. Sul resto, è in arrivo il robot maggiordomo. Addestrabile, pre…",
+      "url": "https://t.me/AIGEN_C/462",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/462/image-b988c78394.jpg"
+      }
+    },
     {
       "title": "19/10/2026",
       "text": "Durante la conferenza di Malgrate abbiamo accennato a Muse, la tecnologia agentica di Meta, e abbiamo condiviso suggerimenti per non correre troppi rischi con gli agenti. Uno dei suggerimenti è: non installare mai un age…",
@@ -9,16 +27,6 @@
         "type": "image",
         "url": "/assets/news/telegram/461/image-3207da954f.jpg"
       }
-    },
-    {
-      "title": "18/10/2026",
-      "text": "Il video della conferenza di Malgrate è disponibile, invieremo il link martedì con la newsletter. Chi non fosse ancora iscritto può farlo sul sito: www.aigen-c.com -> iscriviti alla newsletter",
-      "url": "https://t.me/AIGEN_C/460"
-    },
-    {
-      "title": "18/10/2026",
-      "text": "Il video della nuova tesla é tutto da vedere. Proiettato venerdì a Malgrate. L'auto si 'arrampica' e sta attaccata a testa in giú grazie a ventole aspiranti. Si bilancia grazie alle AI. I getti sono di aria compressa. Vi…",
-      "url": "https://t.me/AIGEN_C/458"
     }
   ]
 }
