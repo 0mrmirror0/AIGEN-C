@@ -1,6 +1,11 @@
 {
-  "updatedAt": "2026-10-23T07:08:06.668287+00:00",
+  "updatedAt": "2026-10-23T12:45:40.566237+00:00",
   "items": [
+    {
+      "title": "23/10/2026",
+      "text": "Che giornata ieri! Scoperte una serie di vulnerabilità... . PHP2Shell - una falla nel software che sta dietro a circa il 70% dei siti web, è stata scoperta e già corretta, ma gli attaccanti hanno già tentato di sfruttarl…",
+      "url": "https://t.me/AIGEN_C/465"
+    },
     {
       "title": "22/10/2026",
       "text": "Just Eat, la piattaforma di food delivery, ha affidato alle AI il compito di generare le immagini dei piatti quando non sono disponibili. Il risultato? Questo nell'immagine é il menu uova + bacon + coca cola di un ristor…",
@@ -13,15 +18,10 @@
     {
       "title": "21/10/2026",
       "text": "Robot da difesa personale, doveva succedere prima o poi",
-      "url": "https://t.me/AIGEN_C/463"
-    },
-    {
-      "title": "21/10/2026",
-      "text": "Il video della conferenza di Malgrate è stato inviato a tutti ieri alle 17:30, chi è iscritto alla newsletter e non l'ha ricevuto può controllare nello spam. Sul resto, è in arrivo il robot maggiordomo. Addestrabile, pre…",
-      "url": "https://t.me/AIGEN_C/462",
+      "url": "https://t.me/AIGEN_C/463",
       "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/462/image-b988c78394.jpg"
+        "type": "video",
+        "url": "/assets/news/telegram/463/video-f91915d9c9.jpg"
       }
     }
   ]
