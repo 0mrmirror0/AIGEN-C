@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-10-26T07:31:17.798412+00:00",
+  "updatedAt": "2026-10-26T14:55:45.452085+00:00",
   "items": [
+    {
+      "title": "26/10/2026",
+      "text": "É uscito settimana scorsa il primo iphone pieghevole. Le recensioni delle.prime 24 ore erano favorevoli. poi migliaia di persone hanno iniziato a usarlo e il dubbio di molti é diventato realtà. \"Lo schermo reggerà alle c…",
+      "url": "https://t.me/AIGEN_C/466",
+      "media": {
+        "type": "video",
+        "url": "/assets/news/telegram/466/video-877affbcfd.jpg"
+      }
+    },
     {
       "title": "23/10/2026",
       "text": "Che giornata ieri! Scoperte una serie di vulnerabilità... . PHP2Shell - una falla nel software che sta dietro a circa il 70% dei siti web, è stata scoperta e già corretta, ma gli attaccanti hanno già tentato di sfruttarl…",
@@ -9,15 +18,10 @@
     {
       "title": "22/10/2026",
       "text": "Just Eat, la piattaforma di food delivery, ha affidato alle AI il compito di generare le immagini dei piatti quando non sono disponibili. Il risultato? Questo nell'immagine é il menu uova + bacon + coca cola di un ristor…",
-      "url": "https://t.me/AIGEN_C/464"
-    },
-    {
-      "title": "21/10/2026",
-      "text": "Robot da difesa personale, doveva succedere prima o poi",
-      "url": "https://t.me/AIGEN_C/463",
+      "url": "https://t.me/AIGEN_C/464",
       "media": {
-        "type": "video",
-        "url": "/assets/news/telegram/463/video-f91915d9c9.jpg"
+        "type": "image",
+        "url": "/assets/news/telegram/464/image-f0cd88f072.jpg"
       }
     }
   ]
