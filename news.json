@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-10-26T14:55:45.452085+00:00",
+  "updatedAt": "2026-10-26T20:21:18.715628+00:00",
   "items": [
+    {
+      "title": "26/10/2026",
+      "text": "Anthropic ha presentato poco fa la documentazione formale per avviare il processo di quotazione in borsa (IPO)",
+      "url": "https://t.me/AIGEN_C/467",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/467/image-06c6a99e89.jpg"
+      }
+    },
     {
       "title": "26/10/2026",
       "text": "É uscito settimana scorsa il primo iphone pieghevole. Le recensioni delle.prime 24 ore erano favorevoli. poi migliaia di persone hanno iniziato a usarlo e il dubbio di molti é diventato realtà. \"Lo schermo reggerà alle c…",
@@ -14,15 +23,6 @@
       "title": "23/10/2026",
       "text": "Che giornata ieri! Scoperte una serie di vulnerabilità... . PHP2Shell - una falla nel software che sta dietro a circa il 70% dei siti web, è stata scoperta e già corretta, ma gli attaccanti hanno già tentato di sfruttarl…",
       "url": "https://t.me/AIGEN_C/465"
-    },
-    {
-      "title": "22/10/2026",
-      "text": "Just Eat, la piattaforma di food delivery, ha affidato alle AI il compito di generare le immagini dei piatti quando non sono disponibili. Il risultato? Questo nell'immagine é il menu uova + bacon + coca cola di un ristor…",
-      "url": "https://t.me/AIGEN_C/464",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/464/image-f0cd88f072.jpg"
-      }
     }
   ]
 }
