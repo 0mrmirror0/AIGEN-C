@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-10-31T04:38:08.362713+00:00",
+  "updatedAt": "2026-10-31T10:45:22.686483+00:00",
   "items": [
+    {
+      "title": "31/10/2026",
+      "text": "In Francia sarà votata una legge che imporrà una tassa di 5.5 cent per ogni Gb fruito dai francesi sulle grandi piattaforme: youtube, meta, netflix,....a loro starà pagare la tassa, se approvata. 12B euro di incassi stim…",
+      "url": "https://t.me/AIGEN_C/470",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/470/image-708f7b532f.jpg"
+      }
+    },
     {
       "title": "30/10/2026",
       "text": "Questa sera ore 21:00 canale YouTube BorderNights la nuova puntata di 40MinutiNelFuturo!",
@@ -17,15 +26,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/468/image-73d16caef6.jpg"
-      }
-    },
-    {
-      "title": "26/10/2026",
-      "text": "Anthropic ha presentato poco fa la documentazione formale per avviare il processo di quotazione in borsa (IPO)",
-      "url": "https://t.me/AIGEN_C/467",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/467/image-06c6a99e89.jpg"
       }
     }
   ]
