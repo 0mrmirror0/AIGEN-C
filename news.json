@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-11-02T17:20:51.292558+00:00",
+  "updatedAt": "2026-11-02T23:59:15.723182+00:00",
   "items": [
+    {
+      "title": "02/11/2026",
+      "text": "ANTHROPIC HA RAGGIUNTO RSI? \"La nostra abilità di prevedere o misurare [...] l'avanzamento delle nostre capacità [...] è limitata\" \"Le nostre stime interne indicano che potrebbe essere imminente [...] un progresso iperac…",
+      "url": "https://t.me/AIGEN_C/472",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/472/image-bd2c2b5dd7.jpg"
+      }
+    },
     {
       "title": "02/11/2026",
       "text": "Attenzione - evento di giovedì presso como lake hub cancellato per ragioni tecniche.",
@@ -18,11 +27,6 @@
         "type": "image",
         "url": "/assets/news/telegram/470/image-708f7b532f.jpg"
       }
-    },
-    {
-      "title": "30/10/2026",
-      "text": "Questa sera ore 21:00 canale YouTube BorderNights la nuova puntata di 40MinutiNelFuturo!",
-      "url": "https://t.me/AIGEN_C/469"
     }
   ]
 }
