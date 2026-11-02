@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-11-02T07:25:15.529692+00:00",
+  "updatedAt": "2026-11-02T17:20:51.292558+00:00",
   "items": [
+    {
+      "title": "02/11/2026",
+      "text": "Attenzione - evento di giovedì presso como lake hub cancellato per ragioni tecniche.",
+      "url": "https://t.me/AIGEN_C/471",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/471/image-da10ea2911.jpg"
+      }
+    },
     {
       "title": "31/10/2026",
       "text": "In Francia sarà votata una legge che imporrà una tassa di 5.5 cent per ogni Gb fruito dai francesi sulle grandi piattaforme: youtube, meta, netflix,....a loro starà pagare la tassa, se approvata. 12B euro di incassi stim…",
@@ -13,20 +22,7 @@
     {
       "title": "30/10/2026",
       "text": "Questa sera ore 21:00 canale YouTube BorderNights la nuova puntata di 40MinutiNelFuturo!",
-      "url": "https://t.me/AIGEN_C/469",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/469/image-0e0f199d83.jpg"
-      }
-    },
-    {
-      "title": "30/10/2026",
-      "text": "Carissimi, Torna Marco Rapelli per 60 Minuti nel Futuro al Como Lake Hub, a partire da giovedì 5 novembre alle 19:00. Torna con il nuovo ciclo di appuntamenti di Como Lake Innovation Lab...! Esplora il futuro in 60 minut…",
-      "url": "https://t.me/AIGEN_C/468",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/468/image-73d16caef6.jpg"
-      }
+      "url": "https://t.me/AIGEN_C/469"
     }
   ]
 }
