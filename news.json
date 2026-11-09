@@ -1,10 +1,14 @@
 {
-  "updatedAt": "2026-11-08T23:54:36.837347+00:00",
+  "updatedAt": "2026-11-09T05:13:17.725359+00:00",
   "items": [
     {
       "title": "06/11/2026",
       "text": "Arriva l'AI specializzata in difesa digitale e sicurezza, era inevitabile. GPT-6 Cyber, proposto da OpenAI come un modello AI che scopre le vulnerabilità prima che sia troppo tardi (e altre AI le sfruttino per attaccare)…",
-      "url": "https://t.me/AIGEN_C/477"
+      "url": "https://t.me/AIGEN_C/477",
+      "media": {
+        "type": "video",
+        "url": "/assets/news/telegram/477/video-bf6de7bd21.jpg"
+      }
     },
     {
       "title": "05/11/2026",
