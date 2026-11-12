@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-11-12T12:18:47.961844+00:00",
+  "updatedAt": "2026-11-12T20:16:56.096312+00:00",
   "items": [
+    {
+      "title": "12/11/2026",
+      "text": "Sul caso Nvidia circolano già meme stupendi come questo, via",
+      "url": "https://t.me/AIGEN_C/483",
+      "media": {
+        "type": "video",
+        "url": "/assets/news/telegram/483/video-facc114124.jpg"
+      }
+    },
     {
       "title": "12/11/2026",
       "text": "Jensen Huang, capo di Nvidia, sarebbe prossimo all'uscita. Due giorni fa è emersa la brutta storia del tradimento della moglie con l'amante cinese, che acquistava chip per la Cina via singapore / taiwan. Ieri è emersa l'…",
@@ -17,15 +26,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/481/image-d48909391d.jpg"
-      }
-    },
-    {
-      "title": "11/11/2026",
-      "text": "Anthropic, dopo aver rilasciato l'altro giorno Fable5.2, ha rilasciato la sua versione di Office (e anche di zoom). Anthropic procede a velocità impressionante, il segnale che ha raggiunto RSI. La velocità delle release …",
-      "url": "https://t.me/AIGEN_C/480",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/480/image-ad0d9abb2c.jpg"
       }
     }
   ]
