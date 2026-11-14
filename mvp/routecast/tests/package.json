@@ -1,0 +1,7 @@
+{
+  "name": "routecast-tests",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node test.mjs ../v10/index.html" },
+  "devDependencies": { "leaflet": "1.9.4", "playwright-core": "^1.50.0" }
+}
