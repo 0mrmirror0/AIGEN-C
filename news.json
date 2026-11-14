@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-11-14T02:39:02.778894+00:00",
+  "updatedAt": "2026-11-14T09:53:54.994182+00:00",
   "items": [
+    {
+      "title": "14/11/2026",
+      "text": "Ieri blocco di Microsoft Ieri blocco di tutti i voli sul territorio USA per un 'problema tecnico', prima volta dal 2001, escluso il sabotaggio.",
+      "url": "https://t.me/AIGEN_C/486",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/486/image-e27a7e90b6.jpg"
+      }
+    },
     {
       "title": "13/11/2026",
       "text": "I MODELLI AI CONSERVANO L’IMPRONTA DEI CHIP CHE LI HANNO ADDESTRATI Un ricercatore sostiene di aver trovato prove forensi che alcuni dei più avanzati modelli cinesi — tra cui DeepSeek, Kimi e MiniMax — siano stati inizia…",
@@ -17,15 +26,6 @@
       "media": {
         "type": "video",
         "url": "/assets/news/telegram/483/video-facc114124.jpg"
-      }
-    },
-    {
-      "title": "12/11/2026",
-      "text": "Jensen Huang, capo di Nvidia, sarebbe prossimo all'uscita. Due giorni fa è emersa la brutta storia del tradimento della moglie con l'amante cinese, che acquistava chip per la Cina via singapore / taiwan. Ieri è emersa l'…",
-      "url": "https://t.me/AIGEN_C/482",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/482/image-c4416652ca.jpg"
       }
     }
   ]
