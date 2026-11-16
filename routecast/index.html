@@ -67,11 +67,11 @@
   Versione: tenere allineati APP_VERSION (qui) e CACHE (sw.js).
 ═══════════════════════════════════════════════════════════════════
 -->
-<html lang="it">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
-<meta name="description" content="RouteCast: il meteo lungo il tuo percorso in moto, chilometro per chilometro.">
+<meta name="description" content="RouteCast shows the weather along your motorcycle route, kilometre by kilometre.">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -285,17 +285,17 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border:none;border-ra
 .leaflet-control-zoom a:hover{background:#2a2a2a !important}
 @media (pointer:coarse){.leaflet-control-zoom{display:none}}
 
-#empty-state{position:absolute;top:44%;left:50%;transform:translate(-50%,-50%);text-align:center;pointer-events:none;z-index:450;background:rgba(14,14,14,0.86);border:0.5px solid var(--border2);border-radius:var(--radius);padding:16px 22px 14px;width:max-content;max-width:80%}
-.es-icon{font-size:34px;margin-bottom:6px}
-.es-txt{font-family:var(--mono);font-size:11px;color:var(--text);letter-spacing:.06em;text-transform:uppercase}
-.es-sub{font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:5px;line-height:1.5}
+#empty-state{position:absolute;top:44%;left:50%;transform:translate(-50%,-50%);text-align:center;pointer-events:none;z-index:450;background:rgba(14,14,14,0.92);border:1px solid rgba(232,255,71,.55);border-radius:var(--radius);padding:24px 30px 22px;width:max-content;max-width:92%;box-shadow:0 8px 28px rgba(0,0,0,.48)}
+.es-icon{font-size:42px;margin-bottom:9px}
+.es-txt{font-family:var(--mono);font-size:18px;font-weight:700;color:var(--accent);letter-spacing:.06em;text-transform:uppercase}
+.es-sub{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--accent);opacity:.82;margin-top:8px;line-height:1.5}
 
-#share-btn{position:absolute;top:10px;right:12px;z-index:900;background:var(--accent);color:#0a0a0a;border:none;border-radius:10px;height:40px;padding:0 14px 0 12px;display:none;align-items:center;justify-content:center;gap:7px;font-family:var(--sans);font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,0.5);transition:transform .1s}
+#share-btn{position:absolute;top:10px;right:12px;z-index:900;background:var(--accent);color:#0a0a0a;border:none;border-radius:10px;min-width:110px;height:40px;padding:0 14px 0 12px;display:none;align-items:center;justify-content:center;gap:7px;font-family:var(--sans);font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,0.5);transition:transform .1s}
 #share-btn.visible{display:flex}
 #share-btn:active{transform:scale(0.96)}
 #share-btn svg{width:17px;height:17px;flex-shrink:0}
 /* detail view: the weather banner needs the room → icon only, still yellow */
-#share-btn.compact{width:40px;padding:0}
+#share-btn.compact{width:40px;min-width:40px;padding:0}
 #share-btn.compact .lbl{display:none}
 
 /* portrait only: a phone held sideways gets this instead of a squeezed map */
@@ -310,59 +310,59 @@ body.landscape-phone #rotate{display:flex}
 <div id="app">
   <form id="searchbar" autocomplete="off" novalidate>
     <div id="trip-bar">
-      <button type="button" class="tb-ic" id="tb-back" aria-label="Torna ai percorsi">←</button>
-      <button type="button" id="tb-main" aria-label="Modifica la ricerca"><span id="tb-route"></span><span id="tb-when"></span></button>
-      <button type="button" class="tb-ic" id="tb-edit" aria-label="Modifica la ricerca" title="Modifica la ricerca">✎</button>
+      <button type="button" class="tb-ic" id="tb-back" aria-label="Back to routes">←</button>
+      <button type="button" id="tb-main" aria-label="Edit search"><span id="tb-route"></span><span id="tb-when"></span></button>
+      <button type="button" class="tb-ic" id="tb-edit" aria-label="Edit search" title="Edit search">✎</button>
     </div>
     <div class="field-row">
       <div class="field">
-        <label for="origin">Partenza</label>
+        <label for="origin">Origin</label>
         <div class="input-wrap">
-          <input type="text" id="origin" placeholder="Es. Milano" autocomplete="off" autocapitalize="words" autocorrect="off" spellcheck="false" enterkeyhint="next"/>
-          <button type="button" class="icon-btn" id="geo-btn" title="Usa la mia posizione" aria-label="Usa la mia posizione">📍</button>
+          <input type="text" id="origin" placeholder="e.g. Milan" autocomplete="off" autocapitalize="words" autocorrect="off" spellcheck="false" enterkeyhint="next"/>
+          <button type="button" class="icon-btn" id="geo-btn" title="Use my location" aria-label="Use my location">📍</button>
         </div>
         <div class="ac-list" id="ac-origin"></div>
       </div>
-      <button type="button" id="swap-btn" title="Inverti partenza e destinazione" aria-label="Inverti partenza e destinazione">⇄</button>
+      <button type="button" id="swap-btn" title="Swap origin and destination" aria-label="Swap origin and destination">⇄</button>
       <div class="field">
-        <label for="destination">Destinazione</label>
-        <div class="input-wrap"><input type="text" id="destination" placeholder="Es. Torino" autocomplete="off" autocapitalize="words" autocorrect="off" spellcheck="false" enterkeyhint="search"/></div>
+        <label for="destination">Destination</label>
+        <div class="input-wrap"><input type="text" id="destination" placeholder="e.g. Turin" autocomplete="off" autocapitalize="words" autocorrect="off" spellcheck="false" enterkeyhint="search"/></div>
         <div class="ac-list" id="ac-destination"></div>
       </div>
     </div>
 
     <div id="wp-container"></div>
-    <button type="button" class="add-wp" id="add-wp-btn">+ Aggiungi tappa intermedia</button>
+    <button type="button" class="add-wp" id="add-wp-btn">+ Add a stop</button>
 
     <div class="opts-row">
-      <div class="field-inline fi-date"><label for="dep-date">Data</label><input type="date" id="dep-date"/></div>
-      <div class="field-inline fi-time"><label for="dep-time">Ora</label><input type="time" id="dep-time"/></div>
-      <div class="field-inline fi-step"><label for="step-km" title="Distanza tra un punto meteo e l'altro">Ogni</label><select id="step-km"><option value="5">5 km</option><option value="10" selected>10 km</option><option value="15">15 km</option><option value="20">20 km</option></select></div>
-      <button type="submit" class="go-btn" id="go-btn" disabled aria-label="Cerca percorso">GO</button>
+      <div class="field-inline fi-date"><label for="dep-date">Date</label><input type="date" id="dep-date"/></div>
+      <div class="field-inline fi-time"><label for="dep-time">Time</label><input type="time" id="dep-time"/></div>
+      <div class="field-inline fi-step"><label for="step-km" title="Distance between weather checkpoints">Every</label><select id="step-km"><option value="5">5 km</option><option value="10" selected>10 km</option><option value="15">15 km</option><option value="20">20 km</option></select></div>
+      <button type="submit" class="go-btn" id="go-btn" disabled aria-label="Find routes">GO</button>
     </div>
   </form>
 
   <div id="map">
-    <div id="empty-state"><div class="es-icon">🏍️</div><div class="es-txt">Inserisci il percorso</div><div class="es-sub">Ti dico che tempo trovi<br>chilometro per chilometro</div></div>
+    <div id="empty-state"><div class="es-icon">🏍️</div><div class="es-txt">Enter your route</div><div class="es-sub">See what weather lies ahead<br>kilometre by kilometre</div></div>
     <div id="alert-banner" role="status"></div>
-    <button type="button" id="share-btn" title="Condividi questo percorso" aria-label="Condividi percorso"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="M7.5 7.5 12 3l4.5 4.5"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg><span class="lbl">Condividi</span></button>
+    <button type="button" id="share-btn" title="Share this route" aria-label="Share route"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="M7.5 7.5 12 3l4.5 4.5"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg><span class="lbl">Share</span></button>
   </div>
   <div id="attrib">© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> · <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> · OSRM · Valhalla · Photon</div>
 
   <div id="route-sheet">
-    <div class="sheet-label">Percorsi · tocca per i dettagli</div>
+    <div class="sheet-label">Routes · tap for details</div>
     <div id="route-cards"></div>
   </div>
   <div id="detail-sheet"><div class="detail-card" id="detail-card"></div></div>
 
   <div id="toast" role="alert"></div>
-  <div id="rotate"><div class="r-icon">📱</div><div class="r-txt">Ruota il telefono in verticale</div></div>
-  <div id="loading"><div class="spinner"></div><div class="loading-txt" id="loading-txt">Calcolo percorso…</div></div>
+  <div id="rotate"><div class="r-icon">📱</div><div class="r-txt">Rotate your phone to portrait</div></div>
+  <div id="loading"><div class="spinner"></div><div class="loading-txt" id="loading-txt">Calculating routes…</div></div>
 </div>
 
 <script>
 'use strict';
-const APP_VERSION='10.2';            // ← tenere allineato a CACHE in sw.js
+const APP_VERSION='10.3';            // ← tenere allineato a CACHE in sw.js
 
 // ════════════ SMALL HELPERS ════════════
 const $=id=>document.getElementById(id);
@@ -372,8 +372,8 @@ const pad2=n=>String(n).padStart(2,'0');
 const nowSec=()=>Math.floor(Date.now()/1000);
 const localDateStr=d=>`${d.getFullYear()}-${pad2(d.getMonth()+1)}-${pad2(d.getDate())}`;
 const utcDateStr=ts=>new Date(ts*1000).toISOString().slice(0,10);
-const timeFmt=new Intl.DateTimeFormat('it-IT',{hour:'2-digit',minute:'2-digit'});
-const dayFmt=new Intl.DateTimeFormat('it-IT',{weekday:'short'});
+const timeFmt=new Intl.DateTimeFormat('en-GB',{hour:'2-digit',minute:'2-digit'});
+const dayFmt=new Intl.DateTimeFormat('en-GB',{weekday:'short'});
 const formatTime=ts=>timeFmt.format(ts*1000);
 const sameDay=(a,b)=>new Date(a*1000).toDateString()===new Date(b*1000).toDateString();
 // time + weekday when it falls on a different day than the departure date in the form
@@ -460,7 +460,7 @@ let freeState=null;            // toll-free option: null | 'searching' | 'none'
 let detailToken=0;
 let detailSamples=null,detailMk=[];
 let myPos=null;                // [lat,lon] from geolocation
-const MY_POS='La mia posizione';
+const MY_POS='My location';
 const routeColors=['#1a73e8','#8ab4f8','#aecbfa'];
 const placeCache=new Map();    // text shown in the input → [lat,lon]
 const SLIDER_MIN=-6,SLIDER_MAX=12;   // half-hours around the departure
@@ -495,13 +495,13 @@ async function geocodeSearch(q,limit,signal){
 const COORD_RX=/^\s*(-?\d{1,2}(?:\.\d+)?)\s*[,; ]\s*(-?\d{1,3}(?:\.\d+)?)\s*$/;
 async function geocode(q){
   if(q===MY_POS&&myPos)return myPos;
-  if(q===MY_POS)throw new AppError('Tocca 📍 per rilevare di nuovo la tua posizione.');
+  if(q===MY_POS)throw new AppError('Tap 📍 to detect your location again.');
   if(placeCache.has(q))return placeCache.get(q);
   const m=q.match(COORD_RX);
   if(m&&Math.abs(+m[1])<=90&&Math.abs(+m[2])<=180)return[+m[1],+m[2]];
   let arr=acCache.get('6|'+q.toLowerCase());
-  try{if(!arr||!arr.length)arr=await geocodeSearch(q,1)}catch(e){throw new AppError('Ricerca luoghi non raggiungibile. Controlla la connessione e riprova.')}
-  if(!arr.length)throw new AppError(`Non trovo "${q}". Prova a scegliere un suggerimento dalla lista.`,{notFound:q});
+  try{if(!arr||!arr.length)arr=await geocodeSearch(q,1)}catch(e){throw new AppError('Place search is unavailable. Check your connection and try again.')}
+  if(!arr.length)throw new AppError(`I cannot find "${q}". Try selecting a suggestion from the list.`,{notFound:q});
   const[lon,lat]=arr[0].geometry.coordinates;
   placeCache.set(q,[lat,lon]);
   return[lat,lon];
@@ -643,8 +643,8 @@ async function getRoutes(coordsList){
   try{d=await fetchRoutesRaw(base+'&alternatives=true')}
   catch(e){
     const code=e.body&&e.body.code;
-    if(code==='NoRoute'||code==='NoSegment')throw new AppError('Nessun percorso stradale trovato tra questi punti.');
-    throw new AppError(navigator.onLine===false?'Sei offline: impossibile calcolare il percorso.':'Calcolo percorso non disponibile in questo momento. Riprova tra poco.');
+    if(code==='NoRoute'||code==='NoSegment')throw new AppError('No road route found between these points.');
+    throw new AppError(navigator.onLine===false?'You are offline: the route cannot be calculated.':'Route calculation is unavailable right now. Try again shortly.');
   }
   const routes=d.routes.slice(0,3).map(r=>parseRoute(r));
   const needFree=routes.every(r=>r.hasToll);
@@ -709,23 +709,23 @@ function wxAt(P,ts){
 }
 // WMO weather code → icon, label, severity (0 dry · 1 damp · 2 wet · 3 storm)
 function wxFromCode(wc){
-  if(wc===0)return{emoji:'☀️',label:'Sereno',sev:0};
-  if(wc<=2)return{emoji:'🌤️',label:'Poco nuvoloso',sev:0};
-  if(wc===3)return{emoji:'☁️',label:'Coperto',sev:0};
-  if(wc<=49)return{emoji:'🌫️',label:'Nebbia',sev:1};
-  if(wc<=57)return{emoji:'🌦️',label:'Pioggerella',sev:1};
-  if(wc<=67)return{emoji:'🌧️',label:'Pioggia',sev:2,verb:'prevista'};
-  if(wc<=77)return{emoji:'❄️',label:'Neve',sev:2,verb:'prevista'};
-  if(wc<=82)return{emoji:'🌧️',label:'Rovesci',sev:2,verb:'previsti'};
-  if(wc<=86)return{emoji:'🌨️',label:'Rovesci di neve',sev:2,verb:'previsti'};
-  if(wc<=99)return{emoji:'⛈️',label:'Temporale',sev:3,verb:'previsto'};
+  if(wc===0)return{emoji:'☀️',label:'Clear',sev:0};
+  if(wc<=2)return{emoji:'🌤️',label:'Partly cloudy',sev:0};
+  if(wc===3)return{emoji:'☁️',label:'Overcast',sev:0};
+  if(wc<=49)return{emoji:'🌫️',label:'Fog',sev:1};
+  if(wc<=57)return{emoji:'🌦️',label:'Drizzle',sev:1};
+  if(wc<=67)return{emoji:'🌧️',label:'Rain',sev:2,verb:'expected'};
+  if(wc<=77)return{emoji:'❄️',label:'Snow',sev:2,verb:'expected'};
+  if(wc<=82)return{emoji:'🌧️',label:'Showers',sev:2,verb:'expected'};
+  if(wc<=86)return{emoji:'🌨️',label:'Snow showers',sev:2,verb:'expected'};
+  if(wc<=99)return{emoji:'⛈️',label:'Thunderstorm',sev:3,verb:'expected'};
   return{emoji:'🌡️',label:'—',sev:0};
 }
 
 // Weather along a route for a given departure. Used by cards AND detail view.
 function summarise(route,samples,depTs){
   const s={n:0,total:samples.length,maxPop:0,maxSev:0,maxGust:0,gustAt:null,popAt:null,firstWet:null,firstDamp:null,
-    worst:{emoji:'☀️',label:'Sereno',sev:0},tMin:Infinity,tMax:-Infinity,rows:[]};
+    worst:{emoji:'☀️',label:'Clear',sev:0},tMin:Infinity,tMax:-Infinity,rows:[]};
   for(const sm of samples){
     const ts=depTs+Math.round(sm.frac*route.ridingSec),km=Math.round(sm.frac*route.distanceKm);
     const wx=wxAt(sm.P,ts);
@@ -741,13 +741,13 @@ function summarise(route,samples,depTs){
     s.rows.push({ts,km,wx,c});
   }
   // traffic-light status (same thresholds as V9)
-  if(!s.n){s.tierLabel='Meteo non disponibile';s.tierClass='wx-na';s.statusClass='';s.emoji='';}
-  else if(s.maxSev>=3){s.tierLabel='Temporali';s.tierClass='wx-heavy';s.statusClass='r-no';s.emoji='⛈️'}
-  else if(s.maxSev>=2){s.tierLabel=/eve/.test(s.worst.label)?'Neve':'Pioggia';s.tierClass='wx-mod';s.statusClass='r-no';s.emoji=s.worst.emoji}
-  else if(s.maxPop>=60){s.tierLabel='Pioggia probabile';s.tierClass='wx-mod';s.statusClass='r-no';s.emoji='🌧️'}
-  else if(s.maxSev>=1){s.tierLabel=s.worst.label==='Nebbia'?'Nebbia':'Pioggia leggera';s.tierClass='wx-light';s.statusClass='r-maybe';s.emoji=s.worst.emoji}
-  else if(s.maxPop>=30){s.tierLabel='Pioggia possibile';s.tierClass='wx-light';s.statusClass='r-maybe';s.emoji='🌦️'}
-  else{s.tierLabel='Asciutto';s.tierClass='wx-dry';s.statusClass='r-yes';s.emoji=s.worst.emoji}
+  if(!s.n){s.tierLabel='Weather unavailable';s.tierClass='wx-na';s.statusClass='';s.emoji='';}
+  else if(s.maxSev>=3){s.tierLabel='Thunderstorms';s.tierClass='wx-heavy';s.statusClass='r-no';s.emoji='⛈️'}
+  else if(s.maxSev>=2){s.tierLabel=s.worst.label.includes('Snow')?'Snow':'Rain';s.tierClass='wx-mod';s.statusClass='r-no';s.emoji=s.worst.emoji}
+  else if(s.maxPop>=60){s.tierLabel='Rain likely';s.tierClass='wx-mod';s.statusClass='r-no';s.emoji='🌧️'}
+  else if(s.maxSev>=1){s.tierLabel=s.worst.label==='Fog'?'Fog':'Light rain';s.tierClass='wx-light';s.statusClass='r-maybe';s.emoji=s.worst.emoji}
+  else if(s.maxPop>=30){s.tierLabel='Rain possible';s.tierClass='wx-light';s.statusClass='r-maybe';s.emoji='🌦️'}
+  else{s.tierLabel='Dry';s.tierClass='wx-dry';s.statusClass='r-yes';s.emoji=s.worst.emoji}
   if(s.n){ // strong gusts push the status up
     if(s.maxGust>50&&s.statusClass==='r-yes')s.statusClass='r-maybe';
     if(s.maxGust>70)s.statusClass='r-no';
@@ -811,16 +811,16 @@ function buildCards(){
         <div class="rc-left"><span class="rc-time">${durHtml(r.ridingSec)}</span><span class="rc-km">${Math.round(r.distanceKm)} km</span></div>
         ${r.hasToll?'<span class="toll-chip has-toll">€ Tolls</span>':'<span class="toll-chip no-toll">No tolls</span>'}
       </div>
-      <div class="rc-via">${r.via?'via '+esc(r.via):'percorso '+(i+1)}</div>
-      <div class="rc-loading" id="rc-wx-${i}">Analisi meteo…</div>
+      <div class="rc-via">${r.via?'via '+esc(r.via):'route '+(i+1)}</div>
+      <div class="rc-loading" id="rc-wx-${i}">Checking weather…</div>
     </button>`);
   // every proposal pays a toll: say what is happening with the toll-free one.
   // Second place, so it is on screen on a phone without scrolling the cards.
   if(freeState)cards.splice(1,0,`
     <div class="route-card ghost" id="free-card">
       <div class="rc-line1"><div class="rc-left"><span class="rc-time">${freeState==='searching'?'…':'—'}</span></div><span class="toll-chip no-toll">No tolls</span></div>
-      <div class="rc-via">senza pedaggi</div>
-      <div class="${freeState==='searching'?'rc-loading':'rc-status-row rc-none'}">${freeState==='searching'?'Cerco il percorso…':'Nessun percorso trovato'}</div>
+      <div class="rc-via">toll-free</div>
+      <div class="${freeState==='searching'?'rc-loading':'rc-status-row rc-none'}">${freeState==='searching'?'Finding route…':'No route found'}</div>
     </div>`);
   $('route-cards').innerHTML=cards.join('');
   allRoutes.forEach((r,i)=>r.summary&&fillCardWeather(i,r.summary));
@@ -848,7 +848,7 @@ function fillCardWeather(i,s){
     :`<div class="rc-wx-badge wx-na">${s.tierLabel}</div>`;
 }
 function setCardsLoading(){
-  allRoutes.forEach((r,i)=>{const el=$('rc-wx-'+i);if(!el)return;el.closest('.route-card').className='route-card';el.className='rc-loading';el.textContent='Analisi meteo…'});
+  allRoutes.forEach((r,i)=>{const el=$('rc-wx-'+i);if(!el)return;el.closest('.route-card').className='route-card';el.className='rc-loading';el.textContent='Checking weather…'});
 }
 
 // weather for the cards: one request for all the routes given
@@ -864,7 +864,7 @@ async function analyseRoutes(list){
     fillCardWeather(i,r.summary);
     addPanoramaPins(r,i);
   });
-  if(failed||list.every(r=>!r.summary||!r.summary.n))showToast(failed?'Meteo non raggiungibile. Riprova tra poco.':'Nessuna previsione disponibile per questa data.');
+  if(failed||list.every(r=>!r.summary||!r.summary.n))showToast(failed?'Weather service unavailable. Try again shortly.':'No forecast available for this date.');
 }
 const analyseOverview=()=>analyseRoutes(allRoutes.slice());
 
@@ -883,8 +883,8 @@ function enterDetail(idx){
   detailLayers.push(routeLine(route.coords,{color:'#0b4ea2',weight:11,opacity:0.9,interactive:false}).addTo(map));
   detailLayers.push(routeLine(route.coords,{color:routeColors[idx]||routeColors[2],weight:7,opacity:1,interactive:false}).addTo(map));
   const ref=()=>baseDepTs;
-  detailLayers.push(L.marker(route.coords[0],{icon:dotIcon('dot-start')}).bindPopup(()=>`<div class="popup-title">Partenza</div><div class="popup-row"><span class="popup-label">Orario</span><span class="pv-accent">${formatTimeDay(getSliderDepTs(),ref())}</span></div>`).addTo(map));
-  detailLayers.push(L.marker(route.coords[route.coords.length-1],{icon:dotIcon('dot-end')}).bindPopup(()=>`<div class="popup-title">Arrivo</div><div class="popup-row"><span class="popup-label">Orario</span><span class="pv-red">${formatTimeDay(getSliderDepTs()+Math.round(route.ridingSec),ref())}</span></div>`).addTo(map));
+  detailLayers.push(L.marker(route.coords[0],{icon:dotIcon('dot-start')}).bindPopup(()=>`<div class="popup-title">Start</div><div class="popup-row"><span class="popup-label">Time</span><span class="pv-accent">${formatTimeDay(getSliderDepTs(),ref())}</span></div>`).addTo(map));
+  detailLayers.push(L.marker(route.coords[route.coords.length-1],{icon:dotIcon('dot-end')}).bindPopup(()=>`<div class="popup-title">Arrival</div><div class="popup-row"><span class="popup-label">Time</span><span class="pv-red">${formatTimeDay(getSliderDepTs()+Math.round(route.ridingSec),ref())}</span></div>`).addTo(map));
   renderDetailCard();
   map.invalidateSize();
   const side=matchMedia('(min-width:760px)').matches;   // panel docked left instead of across the bottom
@@ -896,8 +896,8 @@ function renderDetailCard(){
   const route=allRoutes[detailIdx];
   $('detail-card').innerHTML=`<div class="dq">
     <div class="dq-head"><span class="dc-time">${durHtml(route.ridingSec)}</span><span class="dc-dist">${Math.round(route.distanceKm)} km</span>${route.hasToll?'<span class="toll-chip has-toll">€ Tolls</span>':'<span class="toll-chip no-toll">No tolls</span>'}<span class="dq-times"><span class="v accent" id="st-dep"></span><i>→</i><span class="v red" id="st-arr"></span></span></div>
-    <div class="dq-stats"><span><span class="k">Pioggia</span><span class="v blue" id="st-pop">…</span></span><span><span class="k">Raffiche</span><span class="v" id="st-gust">…</span></span><span><span class="k">Temp.</span><span class="v" id="st-temp">…</span></span></div>
-    <div class="dq-slider"><label for="dep-slider">Sposta partenza</label><input type="range" id="dep-slider" min="${sliderMin()}" max="${SLIDER_MAX}" step="1" value="0"/><span id="slider-val" class="hide"></span></div>
+    <div class="dq-stats"><span><span class="k">Rain</span><span class="v blue" id="st-pop">…</span></span><span><span class="k">Gusts</span><span class="v" id="st-gust">…</span></span><span><span class="k">Temp.</span><span class="v" id="st-temp">…</span></span></div>
+    <div class="dq-slider"><label for="dep-slider">Shift departure</label><input type="range" id="dep-slider" min="${sliderMin()}" max="${SLIDER_MAX}" step="1" value="0"/><span id="slider-val" class="hide"></span></div>
   </div>`;
   $('detail-sheet').classList.add('visible');
   // live while dragging: all the forecast hours are already in memory
@@ -913,7 +913,7 @@ function setCollapsed(on){
     const short=el=>el.value.trim().split(',')[0];
     const stops=document.querySelectorAll('#wp-container input').length;
     $('tb-route').textContent=`${short($('origin'))} → ${short($('destination'))}`+(stops?` (+${stops})`:'');
-    $('tb-when').textContent=new Intl.DateTimeFormat('it-IT',{weekday:'short',day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}).format(baseDepTs*1000);
+    $('tb-when').textContent=new Intl.DateTimeFormat('en-GB',{weekday:'short',day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}).format(baseDepTs*1000);
   }
   map?.invalidateSize();
 }
@@ -929,7 +929,7 @@ async function loadDetail(){
   const stepKm=parseInt($('step-km').value,10)||10;
   detailSamples=sampleRoute(route,stepKm);
   detailGroup.clearLayers();detailMk=[];
-  setBanner([{cls:'info',icon:'⏳',text:'Carico il meteo lungo il percorso…'}]);
+  setBanner([{cls:'info',icon:'⏳',text:'Loading weather along the route…'}]);
   let failed=false;
   try{await loadWeather(detailSamples.map(s=>s.P))}catch(e){failed=true}
   if(my!==detailToken||mode!=='detail')return;
@@ -942,7 +942,7 @@ function markerHtml(row){
 }
 function popupHtml(row){
   const{wx,c,km,ts}=row,r=(l,v,cl='pv')=>`<div class="popup-row"><span class="popup-label">${l}</span><span class="${cl}">${v}</span></div>`;
-  return `<div class="popup-title">${c.emoji} ${c.label}</div>`+r('Km percorso',km+' km','pv-accent')+r('Orario',formatTime(ts))+r('Temperatura',wx.temp+'°C')+r('Percepita',wx.feels+'°C')+r('Prob. pioggia',wx.pop+'%','pv-blue')+r('Vento',wx.wind+' km/h')+r('Raffiche',wx.gust+' km/h',wx.gust>40?'pv-amber':'pv')+(wx.precip>0?r('Precipit.',wx.precip+' mm','pv-blue'):'');
+  return `<div class="popup-title">${c.emoji} ${c.label}</div>`+r('Distance',km+' km','pv-accent')+r('Time',formatTime(ts))+r('Temperature',wx.temp+'°C')+r('Feels like',wx.feels+'°C')+r('Rain chance',wx.pop+'%','pv-blue')+r('Wind',wx.wind+' km/h')+r('Gusts',wx.gust+' km/h',wx.gust>40?'pv-amber':'pv')+(wx.precip>0?r('Precipitation',wx.precip+' mm','pv-blue'):'');
 }
 
 // (re)draw everything that depends on the departure time — no network here
@@ -967,15 +967,15 @@ function paintDetail(failed){
   });
   declutter();
   // banner
-  const at=p=>`al km ${p.km} verso le ${formatTime(p.ts)}`,alerts=[];
-  if(!s.n)alerts.push({cls:'wind tap',icon:'⚠️',text:failed?'Meteo non raggiungibile — tocca per riprovare':'Nessuna previsione per questo orario',retry:!!failed});
+  const at=p=>`near km ${p.km} at ${formatTime(p.ts)}`,alerts=[];
+  if(!s.n)alerts.push({cls:'wind tap',icon:'⚠️',text:failed?'Weather service unavailable — tap to retry':'No forecast for this time',retry:!!failed});
   else{
     if(s.firstWet)alerts.push({cls:s.firstWet.sev>=3?'storm':'rain',icon:s.firstWet.emoji,text:`${s.firstWet.label} ${s.firstWet.verb} ${at(s.firstWet)}`});
-    else if(s.maxPop>=30)alerts.push({cls:'rain',icon:'🌦️',text:`Pioggia possibile (${s.maxPop}%) ${at(s.popAt)}`});
+    else if(s.maxPop>=30)alerts.push({cls:'rain',icon:'🌦️',text:`Rain possible (${s.maxPop}%) ${at(s.popAt)}`});
     else if(s.firstDamp)alerts.push({cls:'rain',icon:s.firstDamp.emoji,text:`${s.firstDamp.label} ${at(s.firstDamp)}`});
-    if(s.maxGust>50)alerts.push({cls:'wind',icon:'💨',text:`Raffiche fino a ${s.maxGust} km/h al km ${s.gustAt.km} (${formatTime(s.gustAt.ts)})`});
-    if(!alerts.length)alerts.push({cls:'dry',icon:'✓',text:'Nessuna pioggia prevista sul percorso'});
-    if(s.n<s.total)alerts.push({cls:'info',icon:'ℹ️',text:'Previsione incompleta per parte del percorso'});
+    if(s.maxGust>50)alerts.push({cls:'wind',icon:'💨',text:`Gusts up to ${s.maxGust} km/h near km ${s.gustAt.km} (${formatTime(s.gustAt.ts)})`});
+    if(!alerts.length)alerts.push({cls:'dry',icon:'✓',text:'No rain expected along this route'});
+    if(s.n<s.total)alerts.push({cls:'info',icon:'ℹ️',text:'Forecast unavailable for part of the route'});
   }
   setBanner(alerts);
 }
@@ -1017,7 +1017,7 @@ function currentParams(){
   const p=new URLSearchParams();
   const texts=routeInputs().map(el=>el.value.trim());
   // "La mia posizione" means nothing on someone else's phone
-  const names=texts.map(t=>t===MY_POS?'Posizione condivisa':t);
+  const names=texts.map(t=>t===MY_POS?'Shared location':t);
   p.set('da',names[0]);p.set('a',names[names.length-1]);
   if(names.length>2)p.set('tappe',names.slice(1,-1).join('|'));
   // exact points of the search on screen: the link opens the same route even
@@ -1031,13 +1031,13 @@ function shareUrl(){
   return here+'?'+currentParams();
 }
 function copyLink(url){
-  const done=()=>showToast('Link copiato!',true);
+  const done=()=>showToast('Link copied!',true);
   const legacy=()=>{
     const ta=document.createElement('textarea');ta.value=url;ta.setAttribute('readonly','');ta.style.cssText='position:fixed;top:0;left:0;opacity:0';
     document.body.appendChild(ta);ta.select();ta.setSelectionRange(0,url.length);
     let ok=false;try{ok=document.execCommand('copy')}catch(e){}
     ta.remove();
-    if(ok)done();else prompt('Copia il link:',url);
+    if(ok)done();else prompt('Copy this link:',url);
   };
   if(navigator.clipboard?.writeText)navigator.clipboard.writeText(url).then(done,legacy);else legacy();
 }
@@ -1067,10 +1067,10 @@ function loadFromUrl(){
 let wpSeq=0;
 function addWaypoint(value){
   const box=$('wp-container');
-  if(box.children.length>=2){showToast('Massimo 2 tappe');return}
+  if(box.children.length>=2){showToast('Maximum 2 stops');return}
   const id='wp-'+(++wpSeq),div=document.createElement('div');
   div.className='field';
-  div.innerHTML=`<label for="${id}">Tappa</label><div class="input-wrap"><input type="text" id="${id}" placeholder="Tappa intermedia" autocomplete="off" autocapitalize="words" autocorrect="off" spellcheck="false" enterkeyhint="search"/><button type="button" class="icon-btn" title="Rimuovi tappa" aria-label="Rimuovi tappa">✕</button></div><div class="ac-list"></div>`;
+  div.innerHTML=`<label for="${id}">Stop</label><div class="input-wrap"><input type="text" id="${id}" placeholder="Intermediate stop" autocomplete="off" autocapitalize="words" autocorrect="off" spellcheck="false" enterkeyhint="search"/><button type="button" class="icon-btn" title="Remove stop" aria-label="Remove stop">✕</button></div><div class="ac-list"></div>`;
   box.appendChild(div);
   const input=div.querySelector('input');
   if(typeof value==='string')input.value=value;else input.focus();
@@ -1084,9 +1084,9 @@ function addWaypoint(value){
 // Validate the departure in the form; fixes a time already gone.
 function takeDeparture(){
   let ts=readDepTs();
-  if(ts===null){showToast('Controlla data e ora di partenza');return null}
-  if(ts<nowSec()-600){initDateTime(true);ts=readDepTs();showToast('Orario già passato: parto da adesso',true)}
-  if(ts>nowSec()+14.5*86400){showToast('Le previsioni arrivano a 14 giorni: scegli una data più vicina');return null}
+  if(ts===null){showToast('Check the departure date and time');return null}
+  if(ts<nowSec()-600){initDateTime(true);ts=readDepTs();showToast('That time has passed: leaving now',true)}
+  if(ts>nowSec()+14.5*86400){showToast('Forecasts cover 14 days: choose an earlier date');return null}
   return ts;
 }
 
@@ -1094,18 +1094,18 @@ async function computeRoute(){
   if(busy||!map)return;
   const inputs=routeInputs();
   const empty=inputs.find(el=>!el.value.trim());
-  if(empty){empty.classList.add('bad');empty.focus();showToast('Inserisci partenza e destinazione');return}
+  if(empty){empty.classList.add('bad');empty.focus();showToast('Enter origin and destination');return}
   const depTs=takeDeparture();if(depTs===null)return;
   document.activeElement?.blur?.();
 
   busy=true;const my=++runId,sid=++searchId;
   $('go-btn').disabled=true;
   try{
-    setLoading('Ricerca indirizzi…');
+    setLoading('Finding places…');
     const coordsList=await Promise.all(inputs.map(el=>geocode(el.value.trim()).catch(e=>{if(e.notFound)el.classList.add('bad');throw e})));
-    if(geodesicKm(coordsList[0],coordsList[coordsList.length-1])<0.2&&coordsList.length===2)throw new AppError('Partenza e destinazione coincidono.');
+    if(geodesicKm(coordsList[0],coordsList[coordsList.length-1])<0.2&&coordsList.length===2)throw new AppError('Origin and destination are the same.');
 
-    setLoading('Calcolo percorsi alternativi…');
+    setLoading('Calculating route options…');
     const{routes,needFree,freeP}=await getRoutes(coordsList);
 
     // success: only now replace what was on screen
@@ -1122,7 +1122,7 @@ async function computeRoute(){
     analyseOverview();
     if(needFree)freeP.then(free=>addFreeRoute(free,sid));
   }catch(e){
-    if(my===runId){clearLoading();showToast(e instanceof AppError?e.message:'Qualcosa è andato storto. Riprova.');if(!(e instanceof AppError))console.error(e)}
+    if(my===runId){clearLoading();showToast(e instanceof AppError?e.message:'Something went wrong. Try again.');if(!(e instanceof AppError))console.error(e)}
   }finally{
     busy=false;$('go-btn').disabled=false;
   }
@@ -1156,7 +1156,7 @@ function boot(){
   loadFromUrl();
 }
 function leafletFailed(){
-  $('map').innerHTML='<div style="padding:30px;color:#ff5c5c;font-family:monospace;font-size:13px;text-align:center;margin-top:20vh">⚠️ Mappa non caricata.<br><br>Controlla la connessione o eventuali blocchi (ad-blocker), poi ricarica la pagina.</div>';
+  $('map').innerHTML='<div style="padding:30px;color:#ff5c5c;font-family:monospace;font-size:13px;text-align:center;margin-top:20vh">⚠️ Map could not be loaded.<br><br>Check your connection or content blockers, then reload the page.</div>';
 }
 function loadLeafletFallback(){
   const s=document.createElement('script');
@@ -1184,13 +1184,13 @@ window.addEventListener('popstate',()=>{if(mode==='detail')backToOverview()});
 window.addEventListener('resize',()=>map?.invalidateSize());
 
 $('geo-btn').addEventListener('click',()=>{
-  if(!navigator.geolocation){showToast('Geolocalizzazione non disponibile');return}
+  if(!navigator.geolocation){showToast('Geolocation is unavailable');return}
   const btn=$('geo-btn');btn.textContent='…';
   navigator.geolocation.getCurrentPosition(pos=>{
     myPos=[pos.coords.latitude,pos.coords.longitude];
     $('origin').value=MY_POS;$('origin').classList.remove('bad');
     btn.textContent='📍';
-  },()=>{btn.textContent='📍';showToast('Posizione non disponibile. Controlla i permessi del browser.')},{timeout:8000,maximumAge:60000});
+  },()=>{btn.textContent='📍';showToast('Location unavailable. Check your browser permissions.')},{timeout:8000,maximumAge:60000});
 });
 
 // Solo verticale. Nota: non si usa la media query "orientation" perché la

@@ -1,8 +1,8 @@
 {
   "name": "RouteCast",
   "short_name": "RouteCast",
-  "description": "Il meteo lungo il tuo percorso in moto, chilometro per chilometro.",
-  "lang": "it",
+  "description": "Weather along your motorcycle route, kilometre by kilometre.",
+  "lang": "en",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
