@@ -486,7 +486,7 @@ async function geocodeSearch(q,limit,signal){
   if(acCache.has(key))return acCache.get(key);
   let bias='';
   if(map){const c=map.getCenter();bias=`&lat=${c.lat.toFixed(2)}&lon=${c.lng.toFixed(2)}&zoom=${Math.max(5,Math.min(12,Math.round(map.getZoom())))}&location_bias_scale=0.4`}
-  const d=await fetchJson(`https://photon.komoot.io/api/?q=${encodeURIComponent(q)}&limit=${limit}${bias}`,{timeout:8000,signal});
+  const d=await fetchJson(`https://photon.komoot.io/api/?q=${encodeURIComponent(q)}&limit=${limit}${bias}`,{timeout:12000,signal});
   const feats=(d&&d.features)||[];
   if(acCache.size>200)acCache.clear();
   acCache.set(key,feats);
@@ -627,7 +627,7 @@ async function valhallaFree(coordsList){
   const coords=t.legs.flatMap((l,i)=>{const c=decodePolyline(l.shape,6);return i?c.slice(1):c});
   if(coords.length<2)return null;
   const byRoad={};
-  for(const m of man){const n=(m.street_names||[])[0];if(n)byRoad[n]=(byRoad[n]||0)+(m.length||0)}
+  for(const m of man){const raw=(m.street_names||[])[0];const n=raw&&raw.replace(/^SPexSS(\d+)[A-Z]*$/i,'SS $1');if(n)byRoad[n]=(byRoad[n]||0)+(m.length||0)}
   const top=Object.keys(byRoad).sort((a,b)=>byRoad[b]-byRoad[a]);
   const via=top.slice(0,2).filter((n,i)=>i===0||byRoad[n]>=t.summary.length*0.2).join(' · ');
   return{coords,cum:cumulativeKm(coords),distanceKm:t.summary.length,ridingSec:t.summary.time/0.85,via,hasToll:false,summary:null};
