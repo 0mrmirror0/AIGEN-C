@@ -1,7 +1,7 @@
 // RouteCast service worker — tenere CACHE allineato a APP_VERSION in index.html
-const CACHE = 'routecast-v10.3';
+const CACHE = 'routecast-v10.4';
 const SHELL = [
-  './', 'manifest.webmanifest', 'icon-192.png',
+  './', 'manifest.webmanifest', 'icon-192.png', 'icon.svg',
   'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css',
   'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js',
 ];

@@ -64,6 +64,16 @@
        "Torna ai percorsi" diventa la freccia in alto a sinistra.
        Su un telefono 360×633 la mappa libera passa da 266 a 445 px.
 
+  V10.4 (2026-11-16) — short links, social preview, new icon
+   29. Share sends a message (route, weather, km, time, tolls) that ends
+       with a SHORT link when CONFIG.shareApi is set; the short link has
+       a dynamic social preview (share-links service, Cloudflare Worker).
+       Service off, slow or down → the long link, exactly as before.
+   30. ?r=<id> opens a shared route (route read back from the service).
+   31. Brand name, public address and share service in CONFIG.
+   32. Motorcycle pictogram (road-sign style) replaces the emoji in the
+       empty state and is the new app icon; static og: tags for long links.
+
   Versione: tenere allineati APP_VERSION (qui) e CACHE (sw.js).
 ═══════════════════════════════════════════════════════════════════
 -->
@@ -78,9 +88,23 @@
 <meta name="theme-color" content="#0a0a0a">
 <meta name="color-scheme" content="dark">
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" type="image/png" href="icon-192.png">
-<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <title>RouteCast</title>
+<!-- Social preview for the plain (long) link. Short links get a dynamic preview
+     from the share-links service. BRAND: name, address and image are repeated
+     here because crawlers read static HTML only — see README-C1, "Renaming". -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RouteCast">
+<meta property="og:title" content="RouteCast — weather along your ride">
+<meta property="og:description" content="See the weather along your motorcycle route, kilometre by kilometre.">
+<meta property="og:url" content="https://aigen-c.com/routecast/">
+<meta property="og:image" content="https://aigen-c.com/routecast/og-default.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://photon.komoot.io" crossorigin>
@@ -286,7 +310,8 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border:none;border-ra
 @media (pointer:coarse){.leaflet-control-zoom{display:none}}
 
 #empty-state{position:absolute;top:44%;left:50%;transform:translate(-50%,-50%);text-align:center;pointer-events:none;z-index:450;background:rgba(14,14,14,0.92);border:1px solid rgba(232,255,71,.55);border-radius:var(--radius);padding:24px 30px 22px;width:max-content;max-width:92%;box-shadow:0 8px 28px rgba(0,0,0,.48)}
-.es-icon{font-size:42px;margin-bottom:9px}
+.es-icon{margin-bottom:10px;color:var(--accent);line-height:0}
+.es-picto{width:92px;height:auto}
 .es-txt{font-family:var(--mono);font-size:18px;font-weight:700;color:var(--accent);letter-spacing:.06em;text-transform:uppercase}
 .es-sub{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--accent);opacity:.82;margin-top:8px;line-height:1.5}
 
@@ -296,6 +321,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border:none;border-ra
 #share-btn svg{width:17px;height:17px;flex-shrink:0}
 /* detail view: the weather banner needs the room → icon only, still yellow */
 #share-btn.compact{width:40px;min-width:40px;padding:0}
+#share-btn.busy{opacity:.6;pointer-events:none}
 #share-btn.compact .lbl{display:none}
 
 /* portrait only: a phone held sideways gets this instead of a squeezed map */
@@ -343,7 +369,7 @@ body.landscape-phone #rotate{display:flex}
   </form>
 
   <div id="map">
-    <div id="empty-state"><div class="es-icon">🏍️</div><div class="es-txt">Enter your route</div><div class="es-sub">See what weather lies ahead<br>kilometre by kilometre</div></div>
+    <div id="empty-state"><div class="es-icon"><svg class="es-picto" viewBox="10 -8 220 152" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="108" r="29" stroke-width="12"/><circle cx="190" cy="108" r="29" stroke-width="12"/><path d="M190 108 L163 50" stroke-width="10"/><path d="M166 46 L146 40" stroke-width="9"/><path d="M50 108 L104 98" stroke-width="10"/></g><g fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><circle cx="50" cy="108" r="6"/><circle cx="190" cy="108" r="6"/><path d="M82 104 L100 70 L154 70 L136 104 Z"/><path d="M104 66 Q112 44 134 44 Q152 44 160 60 L156 70 L102 70 Z"/><path d="M40 60 Q44 52 56 54 L104 60 L102 72 L62 72 Z"/><circle cx="112" cy="10" r="13"/><path d="M84 62 Q92 26 112 24 Q124 24 128 34 L152 46 Q158 50 154 56 Q150 60 144 57 L122 48 L108 66 Z"/></g></svg></div><div class="es-txt">Enter your route</div><div class="es-sub">See what weather lies ahead<br>kilometre by kilometre</div></div>
     <div id="alert-banner" role="status"></div>
     <button type="button" id="share-btn" title="Share this route" aria-label="Share route"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="M7.5 7.5 12 3l4.5 4.5"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg><span class="lbl">Share</span></button>
   </div>
@@ -362,7 +388,18 @@ body.landscape-phone #rotate{display:flex}
 
 <script>
 'use strict';
-const APP_VERSION='10.3';            // ← tenere allineato a CACHE in sw.js
+// ════════════ CONFIG ════════════
+// Brand and share service in ONE place. To change a value without editing this
+// file, define window.ROUTECAST_CONFIG = {...} in a script loaded before this one.
+// Nothing here is secret: it is all public by nature.
+const CONFIG=Object.assign({
+  brandName:'RouteCast',
+  publicUrl:'https://aigen-c.com/routecast/',   // address used in long links when the page is not served from a site
+  shareApi:'https://routecast-share.share-links.workers.dev', // short-link and social-preview service
+  shareTimeoutMs:3000,                          // how long Share waits for a short link before using the long one
+  shareIntro:'Here\u2019s the weather along my route.',
+},window.ROUTECAST_CONFIG||{});
+const APP_VERSION='10.4';            // ← tenere allineato a CACHE in sw.js
 
 // ════════════ SMALL HELPERS ════════════
 const $=id=>document.getElementById(id);
@@ -462,6 +499,7 @@ let detailSamples=null,detailMk=[];
 let myPos=null;                // [lat,lon] from geolocation
 const MY_POS='My location';
 const routeColors=['#1a73e8','#8ab4f8','#aecbfa'];
+const placeLabel=new Map();    // text shown in the input → short name for sharing (the town)
 const placeCache=new Map();    // text shown in the input → [lat,lon]
 const SLIDER_MIN=-6,SLIDER_MAX=12;   // half-hours around the departure
 
@@ -503,7 +541,7 @@ async function geocode(q){
   try{if(!arr||!arr.length)arr=await geocodeSearch(q,1)}catch(e){throw new AppError('Place search is unavailable. Check your connection and try again.')}
   if(!arr.length)throw new AppError(`I cannot find "${q}". Try selecting a suggestion from the list.`,{notFound:q});
   const[lon,lat]=arr[0].geometry.coordinates;
-  placeCache.set(q,[lat,lon]);
+  placeCache.set(q,[lat,lon]);placeLabel.set(q,fmtPlace(arr[0]).label);
   return[lat,lon];
 }
 function fmtPlace(feat){
@@ -515,14 +553,14 @@ function fmtPlace(feat){
   else if(p.state&&p.state!==main)parts.push(p.state);
   if(p.country)parts.push(p.country);
   const ctx=parts.join(', ');
-  return{main,ctx,text:main+(ctx?', '+ctx:''),coord:[lat,lon]};
+  return{main,ctx,text:main+(ctx?', '+ctx:''),coord:[lat,lon],label:p.city||p.name||main};
 }
 
 function wireAutocomplete(input,list){
   let timer=0,items=[],sel=-1,seq=0,ctrl=null;
   const hide=()=>{list.classList.remove('visible');sel=-1};
   const cancel=()=>{clearTimeout(timer);seq++;ctrl?.abort();ctrl=null};
-  function pick(it){input.value=it.text;placeCache.set(it.text,it.coord);input.classList.remove('bad');cancel();hide()}
+  function pick(it){input.value=it.text;placeCache.set(it.text,it.coord);placeLabel.set(it.text,it.label);input.classList.remove('bad');cancel();hide()}
   function render(){
     list.innerHTML=items.map((it,i)=>`<div class="ac-item${i===sel?' sel':''}" data-i="${i}"><div>${esc(it.main)}</div>${it.ctx?`<div class="ac-sub">${esc(it.ctx)}</div>`:''}</div>`).join('');
     list.classList.toggle('visible',items.length>0);
@@ -1010,7 +1048,7 @@ function backToOverview(){
 // ════════════ SHARE / URL ════════════
 // Indirizzo pubblico dell'app: usato nel link condiviso quando la pagina non
 // è aperta da un sito (file locale, anteprima) e origin+path non ha senso.
-const PUBLIC_URL='https://aigen-c.com/routecast/';
+const PUBLIC_URL=CONFIG.publicUrl;
 let lastSearch=null;           // {texts:[…], coords:[[lat,lon],…]} of the routes on screen
 function routeInputs(){return[$('origin'),...document.querySelectorAll('#wp-container input'),$('destination')].filter(el=>el.value.trim()||el.id==='origin'||el.id==='destination')}
 function currentParams(){
@@ -1030,8 +1068,8 @@ function shareUrl(){
   const here=/^https?:$/.test(location.protocol)?location.origin+location.pathname:PUBLIC_URL;
   return here+'?'+currentParams();
 }
-function copyLink(url){
-  const done=()=>showToast('Link copied!',true);
+function copyLink(url,msg){
+  const done=()=>showToast(msg||'Link copied!',true);
   const legacy=()=>{
     const ta=document.createElement('textarea');ta.value=url;ta.setAttribute('readonly','');ta.style.cssText='position:fixed;top:0;left:0;opacity:0';
     document.body.appendChild(ta);ta.select();ta.setSelectionRange(0,url.length);
@@ -1041,15 +1079,123 @@ function copyLink(url){
   };
   if(navigator.clipboard?.writeText)navigator.clipboard.writeText(url).then(done,legacy);else legacy();
 }
-function shareRoute(){
-  if(!allRoutes.length)return;
-  const url=shareUrl();
-  // only title + url: with a "text" field some apps paste the text and drop the link
-  if(navigator.share)navigator.share({title:'RouteCast',url}).catch(e=>{if(!e||e.name!=='AbortError')copyLink(url)});
-  else copyLink(url);
+// ── Share: short link with a preview when the service answers, long link otherwise ──
+const WX_EMOJI={dry:'☀️',showers:'🌦️',rain:'🌧️',storm:'⛈️',snow:'❄️',gusts:'💨',unknown:'🏍️'};
+function durText(min){const h=Math.floor(min/60);return h?`${h}h ${pad2(min%60)}m`:`${min} min`}   // same wording as the preview
+// one word for the weather on a route, from the same figures the cards use
+function wxState(s){
+  if(!s||!s.n)return'unknown';
+  if(s.maxSev>=3)return'storm';
+  if(s.maxSev>=2)return s.worst.label.includes('Snow')?'snow':'rain';
+  if(s.maxPop>=60)return'rain';
+  if(s.maxGust>50)return'gusts';
+  if(s.maxSev>=1||s.maxPop>=30)return'showers';
+  return'dry';
+}
+// the town where a point is, for "My location" and for typed coordinates
+async function reverseLabel(coord){
+  try{
+    const d=await fetchJson(`https://photon.komoot.io/reverse?lat=${coord[0].toFixed(4)}&lon=${coord[1].toFixed(4)}`,{timeout:1500});
+    const p=d&&d.features&&d.features[0]&&d.features[0].properties;
+    return(p&&(p.city||p.name||p.county))||null;
+  }catch(e){return null}
+}
+async function shortLabel(text,coord){
+  if(placeLabel.has(text))return placeLabel.get(text);
+  let label=null;
+  if(text===MY_POS||COORD_RX.test(text))label=await reverseLabel(coord)||'Pinned point';
+  else label=text.split(',')[0].trim();
+  placeLabel.set(text,label);
+  return label;
+}
+// what is shared = the route on screen: the open one, or the first card
+function sharedRoute(){
+  const route=mode==='detail'?allRoutes[detailIdx]:allRoutes[0];
+  const dep=mode==='detail'?getSliderDepTs():baseDepTs;
+  const sum=route.pano?summarise(route,route.pano,dep):route.summary;
+  return{route,dep,wx:wxState(sum)};
+}
+async function buildShare(){
+  const{route,dep,wx}=sharedRoute(),d=new Date(dep*1000);
+  const names=await Promise.all(lastSearch.texts.map((t,i)=>shortLabel(t,lastSearch.coords[i])));
+  return{
+    from:names[0],to:names[names.length-1],via:names.slice(1,-1),
+    pts:lastSearch.coords.map(c=>[+c[0].toFixed(5),+c[1].toFixed(5)]),
+    date:localDateStr(d),time:`${pad2(d.getHours())}:${pad2(d.getMinutes())}`,step:parseInt($('step-km').value,10)||10,
+    km:Math.round(route.distanceKm),min:Math.floor(route.ridingSec/60),tolls:!!route.hasToll,wx,
+  };
+}
+async function createShortLink(payload){
+  if(!CONFIG.shareApi)return null;
+  try{
+    const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),CONFIG.shareTimeoutMs);
+    const r=await fetch(CONFIG.shareApi.replace(/\/+$/,'')+'/api/links',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(payload),signal:ctrl.signal});
+    clearTimeout(timer);
+    if(!r.ok)return null;
+    const d=await r.json();
+    return d&&typeof d.url==='string'&&/^https:\/\//.test(d.url)?d.url:null;
+  }catch(e){return null}       // service slow, down or over quota → the long link does the job
+}
+function shareMessage(p,url){
+  return `🏍️ ${[p.from,...p.via,p.to].join(' → ')}\n${CONFIG.shareIntro}\n${WX_EMOJI[p.wx]} ${p.km} km · ${durText(p.min)} · ${p.tolls?'Tolls':'No tolls'}\n\n${url}`;
+}
+const shareCache=new Map();    // what was on screen → {text, until}: message already built (no second link for the same thing)
+let sharing=false;
+function deliverShare(text){
+  // the link travels INSIDE the text: with a separate "url" field some apps keep only one of the two
+  if(!navigator.share){copyLink(text,'Message with link copied!');return}
+  navigator.share({text}).catch(e=>{
+    if(e&&e.name==='AbortError')return;
+    // iOS refuses a share sheet that does not follow a tap directly: the message is ready, one more tap opens it
+    if(e&&e.name==='NotAllowedError')showToast('Link ready — tap Share again',true);
+    else copyLink(text,'Message with link copied!');
+  });
+}
+async function shareRoute(){
+  if(!allRoutes.length||!lastSearch||sharing)return;
+  const s=sharedRoute();
+  const key=[lastSearch.texts.join('|'),lastSearch.coords.join(';'),s.dep,s.wx,mode==='detail'?detailIdx:0,allRoutes.length].join('#');
+  const hit=shareCache.get(key);
+  if(hit&&Date.now()<hit.until){deliverShare(hit.text);return}   // second tap: no waiting, straight to the share sheet
+  sharing=true;$('share-btn').classList.add('busy');
+  let text;
+  try{
+    const payload=await buildShare();
+    const short=await createShortLink(payload);
+    text=shareMessage(payload,short||shareUrl());
+    if(shareCache.size>20)shareCache.clear();
+    // a long-link fallback is remembered for 2 minutes only, then the short link is tried again
+    shareCache.set(key,{text,until:short||!CONFIG.shareApi?Infinity:Date.now()+120000});
+  }catch(e){text=shareUrl()}
+  sharing=false;$('share-btn').classList.remove('busy');
+  deliverShare(text);
+}
+// a short link was opened: ask the service for the route behind it
+async function openSharedLink(id){
+  if(!/^[0-9A-Za-z]{6,12}$/.test(id)||!CONFIG.shareApi){showToast('This shared link is not valid.');return}
+  setLoading('Opening shared route…');
+  let d;
+  try{d=await fetchJson(CONFIG.shareApi.replace(/\/+$/,'')+'/api/links/'+id,{timeout:9000})}
+  catch(e){
+    clearLoading();
+    showToast(e.status===404?'This shared link has expired or is not valid.':'Could not open the shared route. Check your connection and try again.');
+    return;
+  }
+  const ok=d&&typeof d.from==='string'&&typeof d.to==='string'&&Array.isArray(d.via)&&Array.isArray(d.pts)&&d.pts.length===d.via.length+2
+    &&d.pts.every(c=>Array.isArray(c)&&Number.isFinite(c[0])&&Number.isFinite(c[1])&&Math.abs(c[0])<=90&&Math.abs(c[1])<=180);
+  if(!ok){clearLoading();showToast('This shared link is not valid.');return}
+  $('origin').value=d.from;$('destination').value=d.to;
+  d.via.slice(0,2).forEach(v=>addWaypoint(String(v)));
+  if(/^\d{4}-\d\d-\d\d$/.test(d.date||''))$('dep-date').value=d.date;
+  if(/^\d\d:\d\d$/.test(d.time||''))$('dep-time').value=d.time;
+  if([5,10,15,20].includes(d.step))$('step-km').value=String(d.step);
+  routeInputs().forEach((el,i)=>{const t=el.value.trim();placeCache.set(t,d.pts[i]);placeLabel.set(t,t)});
+  clearLoading();
+  computeRoute();
 }
 function loadFromUrl(){
   const p=new URLSearchParams(location.search);
+  if(p.get('r')){openSharedLink(p.get('r'));return}
   if(p.get('da'))$('origin').value=p.get('da');
   if(p.get('a'))$('destination').value=p.get('a');
   (p.get('tappe')||'').split('|').filter(Boolean).slice(0,2).forEach(addWaypoint);
