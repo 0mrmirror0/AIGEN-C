@@ -1,6 +1,24 @@
 {
-  "updatedAt": "2026-11-18T09:51:45.657270+00:00",
+  "updatedAt": "2026-11-18T18:42:18.619362+00:00",
   "items": [
+    {
+      "title": "18/11/2026",
+      "text": "Non solo...! Poche ore fa il gruppo hacker The Gentlemen ha annunciato che avrebbe bucato *nvidia* (nientemeno) e ha dichiarato che presto pubblicherà i file",
+      "url": "https://t.me/AIGEN_C/488",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/488/image-401ca4f8a2.jpg"
+      }
+    },
+    {
+      "title": "18/11/2026",
+      "text": "Il supercomputer giapponese Fugaku è stato bucato Era il supercomputer più veloce al mondo nel 2021, è ora offline. I dati di quasi 4.600 utenti rischiano di essere divulgati. I file rubati includono nomi utente, email, …",
+      "url": "https://t.me/AIGEN_C/487",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/487/image-1a6a555456.jpg"
+      }
+    },
     {
       "title": "14/11/2026",
       "text": "Ieri blocco di Microsoft Ieri blocco di tutti i voli sul territorio USA per un 'problema tecnico', prima volta dal 2001, escluso il sabotaggio.",
@@ -8,24 +26,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/486/image-e27a7e90b6.jpg"
-      }
-    },
-    {
-      "title": "13/11/2026",
-      "text": "I MODELLI AI CONSERVANO L’IMPRONTA DEI CHIP CHE LI HANNO ADDESTRATI Un ricercatore sostiene di aver trovato prove forensi che alcuni dei più avanzati modelli cinesi — tra cui DeepSeek, Kimi e MiniMax — siano stati inizia…",
-      "url": "https://t.me/AIGEN_C/485",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/485/image-d4f0f6d642.jpg"
-      }
-    },
-    {
-      "title": "12/11/2026",
-      "text": "Sul caso Nvidia circolano già meme stupendi come questo, via",
-      "url": "https://t.me/AIGEN_C/483",
-      "media": {
-        "type": "video",
-        "url": "/assets/news/telegram/483/video-facc114124.jpg"
       }
     }
   ]
