@@ -1,6 +1,24 @@
 {
-  "updatedAt": "2026-11-20T08:11:23.098338+00:00",
+  "updatedAt": "2026-11-20T17:07:49.749349+00:00",
   "items": [
+    {
+      "title": "20/11/2026",
+      "text": "Un ricercatore di Anthropic dichiara di aver risolto con Claude il più importante problema di matematica aperto finora, l'ipotesi Riemann. La soluzione genera conseguenze che vanno ben oltre la matematica; si tratta dell…",
+      "url": "https://t.me/AIGEN_C/492",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/492/image-1de793b0f4.jpg"
+      }
+    },
+    {
+      "title": "20/11/2026",
+      "text": "Ecco cosa succede quando l'impianto antincendio è collegato alla AI, e sull'insegna del ristorante c'è una realistica immagine di brace, fuoco e fiamme...",
+      "url": "https://t.me/AIGEN_C/491",
+      "media": {
+        "type": "video",
+        "url": "/assets/news/telegram/491/video-be4c6df0b3.jpg"
+      }
+    },
     {
       "title": "19/11/2026",
       "text": "Complimenti ad Anthropic che poco fa ha suonato la campanella del Nasdaq per la IPO piú grande della storia. Per il momento, il mercato è vicino alla stima. Il 49% del capitale fluttuerà, mentre il 51% resta in una socie…",
@@ -8,24 +26,6 @@
       "media": {
         "type": "video",
         "url": "/assets/news/telegram/490/video-928a7dcfd4.jpg"
-      }
-    },
-    {
-      "title": "19/11/2026",
-      "text": "L'attesa è finita! Anthropic ha annunciato che la IPO (quotazione in borsa) avverrà domani. 83 usd per azione 1.5 T usd di valutazione totale T sta per trillions. 1.5 T = 1500 B = 1500 miliardi di valore complessivo. 83 …",
-      "url": "https://t.me/AIGEN_C/489",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/489/image-06c6a99e89.jpg"
-      }
-    },
-    {
-      "title": "18/11/2026",
-      "text": "Non solo...! Poche ore fa il gruppo hacker The Gentlemen ha annunciato che avrebbe bucato *nvidia* (nientemeno) e ha dichiarato che presto pubblicherà i file",
-      "url": "https://t.me/AIGEN_C/488",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/488/image-401ca4f8a2.jpg"
       }
     }
   ]
