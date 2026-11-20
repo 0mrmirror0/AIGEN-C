@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-11-19T18:01:16.953901+00:00",
+  "updatedAt": "2026-11-20T00:48:25.371428+00:00",
   "items": [
+    {
+      "title": "19/11/2026",
+      "text": "Complimenti ad Anthropic che poco fa ha suonato la campanella del Nasdaq per la IPO piú grande della storia. Per il momento, il mercato è vicino alla stima. Il 49% del capitale fluttuerà, mentre il 51% resta in una socie…",
+      "url": "https://t.me/AIGEN_C/490",
+      "media": {
+        "type": "video",
+        "url": "/assets/news/telegram/490/video-928a7dcfd4.jpg"
+      }
+    },
     {
       "title": "19/11/2026",
       "text": "L'attesa è finita! Anthropic ha annunciato che la IPO (quotazione in borsa) avverrà domani. 83 usd per azione 1.5 T usd di valutazione totale T sta per trillions. 1.5 T = 1500 B = 1500 miliardi di valore complessivo. 83 …",
@@ -17,15 +26,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/488/image-401ca4f8a2.jpg"
-      }
-    },
-    {
-      "title": "18/11/2026",
-      "text": "Il supercomputer giapponese Fugaku è stato bucato Era il supercomputer più veloce al mondo nel 2021, è ora offline. I dati di quasi 4.600 utenti rischiano di essere divulgati. I file rubati includono nomi utente, email, …",
-      "url": "https://t.me/AIGEN_C/487",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/487/image-1a6a555456.jpg"
       }
     }
   ]
