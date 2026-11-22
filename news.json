@@ -1,6 +1,24 @@
 {
-  "updatedAt": "2026-11-22T07:16:45.100599+00:00",
+  "updatedAt": "2026-11-22T15:33:23.863321+00:00",
   "items": [
+    {
+      "title": "22/11/2026",
+      "text": "Così Elon Musk poco fa su X. Ci sia consentito un piccolo momento di celebrazione, perchè *da mesi* scriviamo post e teniamo conferenze che anticipano l'imminente fase della Singolarità e quasi nessuno in Italia ne parla…",
+      "url": "https://t.me/AIGEN_C/494",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/494/image-4dd37009d1.jpg"
+      }
+    },
+    {
+      "title": "22/11/2026",
+      "text": "Ipotesi Riemann confermata. I prossimi step: P vs N(P), che potrebbe essere verificata come P=N(P) il 22/1/2027 Teorema di Gödel, potrebbe essere risolto il 9 febbraio 2027 10 febbraio 2027 sblocco dell'encoding olografi…",
+      "url": "https://t.me/AIGEN_C/493",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/493/image-e9becd78f9.jpg"
+      }
+    },
     {
       "title": "20/11/2026",
       "text": "Un ricercatore di Anthropic dichiara di aver risolto con Claude il più importante problema di matematica aperto finora, l'ipotesi Riemann. La soluzione genera conseguenze che vanno ben oltre la matematica; si tratta dell…",
@@ -8,24 +26,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/492/image-1de793b0f4.jpg"
-      }
-    },
-    {
-      "title": "20/11/2026",
-      "text": "Ecco cosa succede quando l'impianto antincendio è collegato alla AI, e sull'insegna del ristorante c'è una realistica immagine di brace, fuoco e fiamme...",
-      "url": "https://t.me/AIGEN_C/491",
-      "media": {
-        "type": "video",
-        "url": "/assets/news/telegram/491/video-be4c6df0b3.jpg"
-      }
-    },
-    {
-      "title": "19/11/2026",
-      "text": "Complimenti ad Anthropic che poco fa ha suonato la campanella del Nasdaq per la IPO piú grande della storia. Per il momento, il mercato è vicino alla stima. Il 49% del capitale fluttuerà, mentre il 51% resta in una socie…",
-      "url": "https://t.me/AIGEN_C/490",
-      "media": {
-        "type": "video",
-        "url": "/assets/news/telegram/490/video-928a7dcfd4.jpg"
       }
     }
   ]
