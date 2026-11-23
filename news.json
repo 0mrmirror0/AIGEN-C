@@ -1,6 +1,24 @@
 {
-  "updatedAt": "2026-11-23T11:03:22.662137+00:00",
+  "updatedAt": "2026-11-23T22:51:03.324809+00:00",
   "items": [
+    {
+      "title": "23/11/2026",
+      "text": "Jensen Huang è tornato alla guida di Nvidia! La comunicazione ufficiale del board",
+      "url": "https://t.me/AIGEN_C/496",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/496/image-e6f79b7cab.jpg"
+      }
+    },
+    {
+      "title": "23/11/2026",
+      "text": "450 scuole in germania e altre in danimarca hanno ricevuto anche oggi il consueto spam bombarolo. Qualche scuola ha abboccato (ancora?) e ha evacuato. Ecco il testo inviato alla scuole danesi, che questa volta non è nemm…",
+      "url": "https://t.me/AIGEN_C/495",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/495/image-a3d2375868.jpg"
+      }
+    },
     {
       "title": "22/11/2026",
       "text": "Così Elon Musk poco fa su X. Ci sia consentito un piccolo momento di celebrazione, perchè *da mesi* scriviamo post e teniamo conferenze che anticipano l'imminente fase della Singolarità e quasi nessuno in Italia ne parla…",
@@ -8,24 +26,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/494/image-4dd37009d1.jpg"
-      }
-    },
-    {
-      "title": "22/11/2026",
-      "text": "Ipotesi Riemann confermata. I prossimi step: P vs N(P), che potrebbe essere verificata come P=N(P) il 22/1/2027 Teorema di Gödel, potrebbe essere risolto il 9 febbraio 2027 10 febbraio 2027 sblocco dell'encoding olografi…",
-      "url": "https://t.me/AIGEN_C/493",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/493/image-e9becd78f9.jpg"
-      }
-    },
-    {
-      "title": "20/11/2026",
-      "text": "Un ricercatore di Anthropic dichiara di aver risolto con Claude il più importante problema di matematica aperto finora, l'ipotesi Riemann. La soluzione genera conseguenze che vanno ben oltre la matematica; si tratta dell…",
-      "url": "https://t.me/AIGEN_C/492",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/492/image-1de793b0f4.jpg"
       }
     }
   ]
