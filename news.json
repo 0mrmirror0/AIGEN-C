@@ -1,6 +1,24 @@
 {
-  "updatedAt": "2026-11-24T06:49:20.841275+00:00",
+  "updatedAt": "2026-11-24T18:42:30.039802+00:00",
   "items": [
+    {
+      "title": "24/11/2026",
+      "text": "Questo è il grafico con la proiezione dello sviluppo dei nuovi modelli da parte di OpenAI. Sull'asse verticale è misurata la \"perplexity\": quel caso particolare in cui una AI si può confondere tra due token / parole / co…",
+      "url": "https://t.me/AIGEN_C/498",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/498/image-676e115c44.jpg"
+      }
+    },
+    {
+      "title": "24/11/2026",
+      "text": "I casi di attacchi informatici dei giorni precedenti hanno qualcosa in comune? Dai frigo alle banche ai voli USA, passando per il blocco di outlook, delta airlines, .... ottobre e novembre sono stati un campo minato di a…",
+      "url": "https://t.me/AIGEN_C/497",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/497/image-eb849ec381.jpg"
+      }
+    },
     {
       "title": "23/11/2026",
       "text": "Jensen Huang è tornato alla guida di Nvidia! La comunicazione ufficiale del board",
@@ -8,24 +26,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/496/image-e6f79b7cab.jpg"
-      }
-    },
-    {
-      "title": "23/11/2026",
-      "text": "450 scuole in germania e altre in danimarca hanno ricevuto anche oggi il consueto spam bombarolo. Qualche scuola ha abboccato (ancora?) e ha evacuato. Ecco il testo inviato alla scuole danesi, che questa volta non è nemm…",
-      "url": "https://t.me/AIGEN_C/495",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/495/image-a3d2375868.jpg"
-      }
-    },
-    {
-      "title": "22/11/2026",
-      "text": "Così Elon Musk poco fa su X. Ci sia consentito un piccolo momento di celebrazione, perchè *da mesi* scriviamo post e teniamo conferenze che anticipano l'imminente fase della Singolarità e quasi nessuno in Italia ne parla…",
-      "url": "https://t.me/AIGEN_C/494",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/494/image-4dd37009d1.jpg"
       }
     }
   ]
