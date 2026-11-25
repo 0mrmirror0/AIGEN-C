@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-11-25T02:57:19.320906+00:00",
+  "updatedAt": "2026-11-25T12:32:45.308305+00:00",
   "items": [
+    {
+      "title": "25/11/2026",
+      "text": "Questo è il grafico della perplexity dei modelli di OpenAI: È la nostra versione del post di ieri: tradotta in italiano e con ordinamento asse Y invertito è piú leggibile. Minore perplexity significa maggiore performance…",
+      "url": "https://t.me/AIGEN_C/499",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/499/image-a4a80cf78c.jpg"
+      }
+    },
     {
       "title": "24/11/2026",
       "text": "Questo è il grafico con la proiezione dello sviluppo dei nuovi modelli da parte di OpenAI. Sull'asse verticale è misurata la \"perplexity\": quel caso particolare in cui una AI si può confondere tra due token / parole / co…",
@@ -16,16 +25,7 @@
       "url": "https://t.me/AIGEN_C/497",
       "media": {
         "type": "image",
-        "url": "/assets/news/telegram/497/image-eb849ec381.jpg"
-      }
-    },
-    {
-      "title": "23/11/2026",
-      "text": "Jensen Huang è tornato alla guida di Nvidia! La comunicazione ufficiale del board",
-      "url": "https://t.me/AIGEN_C/496",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/496/image-e6f79b7cab.jpg"
+        "url": "/assets/news/telegram/497/image-3178abf1f8.jpg"
       }
     }
   ]
