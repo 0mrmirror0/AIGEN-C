@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-11-26T14:13:55.471666+00:00",
+  "updatedAt": "2026-11-26T23:11:37.867709+00:00",
   "items": [
+    {
+      "title": "26/11/2026",
+      "text": "Saremo a breve ospiti di Border Nights con la nuova puntata di 40 Minuti nel Futuro. Ipotesi Riemann, caso ARTEX, robot che vanno in bicicletta e.... da non perdere. tenete d'occhio il canale youtube oppure iscrivetevi a…",
+      "url": "https://t.me/AIGEN_C/500",
+      "media": {
+        "type": "video",
+        "url": "/assets/news/telegram/500/video-408d3a78f5.jpg"
+      }
+    },
     {
       "title": "25/11/2026",
       "text": "Questo è il grafico della perplexity dei modelli di OpenAI: È la nostra versione del post di ieri: tradotta in italiano e con ordinamento asse Y invertito è piú leggibile. Minore perplexity significa maggiore performance…",
@@ -17,15 +26,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/498/image-676e115c44.jpg"
-      }
-    },
-    {
-      "title": "24/11/2026",
-      "text": "I casi di attacchi informatici dei giorni precedenti hanno qualcosa in comune? Dai frigo alle banche ai voli USA, passando per il blocco di outlook, delta airlines, .... ottobre e novembre sono stati un campo minato di a…",
-      "url": "https://t.me/AIGEN_C/497",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/497/image-363140609a.jpg"
       }
     }
   ]
