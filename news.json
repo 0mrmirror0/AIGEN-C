@@ -1,6 +1,24 @@
 {
-  "updatedAt": "2026-11-27T05:15:18.742899+00:00",
+  "updatedAt": "2026-11-27T15:28:01.873102+00:00",
   "items": [
+    {
+      "title": "27/11/2026",
+      "text": "Bucata anche la US Air Force; è caduto Cloud One, il servizio di cloud unificato. Lanciato nel 2017, è uno dei progetti a più alto budget. Unifica i servizi microsoft, adobe, oracle, google. . Raccoglie e fonde dati rada…",
+      "url": "https://t.me/AIGEN_C/502",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/502/image-9f5cd1e01f.jpg"
+      }
+    },
+    {
+      "title": "27/11/2026",
+      "text": "Problemi matematici risolti dal 2000 in poi Si nota....qualcosa....nell'ultimo anno. Tra le altre notizie che capitavano una volta l'anno e ora capitano ogni giorno: bucato nella notte il sito di Der Spiegel, SAP ha conf…",
+      "url": "https://t.me/AIGEN_C/501",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/501/image-439a621359.jpg"
+      }
+    },
     {
       "title": "26/11/2026",
       "text": "Saremo a breve ospiti di Border Nights con la nuova puntata di 40 Minuti nel Futuro. Ipotesi Riemann, caso ARTEX, robot che vanno in bicicletta e.... da non perdere. tenete d'occhio il canale youtube oppure iscrivetevi a…",
@@ -8,24 +26,6 @@
       "media": {
         "type": "video",
         "url": "/assets/news/telegram/500/video-408d3a78f5.jpg"
-      }
-    },
-    {
-      "title": "25/11/2026",
-      "text": "Questo è il grafico della perplexity dei modelli di OpenAI: È la nostra versione del post di ieri: tradotta in italiano e con ordinamento asse Y invertito è piú leggibile. Minore perplexity significa maggiore performance…",
-      "url": "https://t.me/AIGEN_C/499",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/499/image-a4a80cf78c.jpg"
-      }
-    },
-    {
-      "title": "24/11/2026",
-      "text": "Questo è il grafico con la proiezione dello sviluppo dei nuovi modelli da parte di OpenAI. Sull'asse verticale è misurata la \"perplexity\": quel caso particolare in cui una AI si può confondere tra due token / parole / co…",
-      "url": "https://t.me/AIGEN_C/498",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/498/image-676e115c44.jpg"
       }
     }
   ]
