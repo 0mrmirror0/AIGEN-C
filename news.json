@@ -1,6 +1,24 @@
 {
-  "updatedAt": "2026-11-28T06:51:48.410207+00:00",
+  "updatedAt": "2026-11-28T16:00:08.344089+00:00",
   "items": [
+    {
+      "title": "28/11/2026",
+      "text": "The Guardian si è accorto di ciò a cui accennavamo, e la notizia potrebbe diventare mainstream. Forse domani (o dopo) anche da noi in Italia. Nel frattempo, qui... Hanno preso piede le dichiarazioni e i rumors sempre più…",
+      "url": "https://t.me/AIGEN_C/504",
+      "media": {
+        "type": "image",
+        "url": "/assets/news/telegram/504/image-c4f8bcd5c0.jpg"
+      }
+    },
+    {
+      "title": "28/11/2026",
+      "text": "Parlo spesso di Singolarità, la nuova era in cui siamo entrati quando Claude ha risolto l'ipotesi Riemann. La Singolarità è quella fase di esplosione tecnologica verticale, 100 anni di progresso condensati in 5 anni, una…",
+      "url": "https://t.me/AIGEN_C/503",
+      "media": {
+        "type": "video",
+        "url": "/assets/news/telegram/503/video-636204100e.jpg"
+      }
+    },
     {
       "title": "27/11/2026",
       "text": "Bucata anche la US Air Force; è caduto Cloud One, il servizio di cloud unificato. Lanciato nel 2017, è uno dei progetti a più alto budget. Unifica i servizi microsoft, adobe, oracle, google. . Raccoglie e fonde dati rada…",
@@ -8,24 +26,6 @@
       "media": {
         "type": "image",
         "url": "/assets/news/telegram/502/image-9f5cd1e01f.jpg"
-      }
-    },
-    {
-      "title": "27/11/2026",
-      "text": "Problemi matematici risolti dal 2000 in poi Si nota....qualcosa....nell'ultimo anno. Tra le altre notizie che capitavano una volta l'anno e ora capitano ogni giorno: bucato nella notte il sito di Der Spiegel, SAP ha conf…",
-      "url": "https://t.me/AIGEN_C/501",
-      "media": {
-        "type": "image",
-        "url": "/assets/news/telegram/501/image-439a621359.jpg"
-      }
-    },
-    {
-      "title": "26/11/2026",
-      "text": "Saremo a breve ospiti di Border Nights con la nuova puntata di 40 Minuti nel Futuro. Ipotesi Riemann, caso ARTEX, robot che vanno in bicicletta e.... da non perdere. tenete d'occhio il canale youtube oppure iscrivetevi a…",
-      "url": "https://t.me/AIGEN_C/500",
-      "media": {
-        "type": "video",
-        "url": "/assets/news/telegram/500/video-408d3a78f5.jpg"
       }
     }
   ]
